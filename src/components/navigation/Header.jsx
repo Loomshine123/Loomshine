@@ -31,13 +31,13 @@ export const Header = () => {
       <header className={`loom-header ${isScrolled ? 'loom-header--scrolled' : ''}`}>
         <Container>
           <div className="loom-header__nav-container">
-            {/* Official logo-loom.png */}
+            {/* Brand Logo */}
             <a href="#" className="loom-brand" aria-label="Loomshine Home">
-              <img
-                src="/logo-loom.png"
-                alt="LoomShine Dry Cleaning & Laundry Logo"
-                className="loom-brand__img"
-              />
+              <div className="loom-brand__symbol">L</div>
+              <div>
+                <span className="loom-brand__text">LOOMSHINE</span>
+                <span className="loom-brand__sub">Garment Care</span>
+              </div>
             </a>
 
             {/* Desktop Navigation */}
@@ -58,7 +58,7 @@ export const Header = () => {
               <a href="#login" className="loom-header__login-link">
                 Login
               </a>
-              <Button href="#book-pickup" variant="primary" size="sm">
+              <Button href="#book-pickup" variant="dark" size="sm">
                 Book a Pickup →
               </Button>
               <button

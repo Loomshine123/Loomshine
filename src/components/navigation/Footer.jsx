@@ -7,13 +7,13 @@ export const Footer = () => {
       <Container>
         {/* Top Branding Row */}
         <div className="loom-footer-top">
-          <a href="#" className="loom-footer-brand" aria-label="Loomshine Home">
-            <img
-              src="/logo-loom.png"
-              alt="LoomShine Dry Cleaning & Laundry Logo"
-              style={{ height: '68px', width: 'auto', display: 'block', objectFit: 'contain' }}
-            />
-          </a>
+          <div className="loom-footer-brand">
+            <div className="loom-footer-brand__symbol">L</div>
+            <div>
+              <span className="loom-footer-brand__text">LOOMSHINE</span>
+              <span className="loom-footer-brand__sub">Garment Care</span>
+            </div>
+          </div>
           <p style={{ maxWidth: '400px', fontSize: '14px', color: '#5A6E85' }}>
             Professional garment care with doorstep pickup and delivery.
           </p>
