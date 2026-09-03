@@ -31,10 +31,10 @@ export const Header = () => {
       <header className={`loom-header ${isScrolled ? 'loom-header--scrolled' : ''}`}>
         <Container>
           <div className="loom-header__nav-container">
-            {/* Exact Unaltered Original Logo (Dark Navy + Gold) */}
+            {/* Official logo-loom.png */}
             <a href="#" className="loom-brand" aria-label="Loomshine Home">
               <img
-                src="/loomshine-logo-dark.png"
+                src="/logo-loom.png"
                 alt="LoomShine Dry Cleaning & Laundry Logo"
                 className="loom-brand__img"
               />

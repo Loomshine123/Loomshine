@@ -9,7 +9,7 @@ export const Footer = () => {
         <div className="loom-footer-top">
           <a href="#" className="loom-footer-brand" aria-label="Loomshine Home">
             <img
-              src="/loomshine-logo-dark.png"
+              src="/logo-loom.png"
               alt="LoomShine Dry Cleaning & Laundry Logo"
               style={{ height: '68px', width: 'auto', display: 'block', objectFit: 'contain' }}
             />

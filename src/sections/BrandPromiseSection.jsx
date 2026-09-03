@@ -39,10 +39,10 @@ export const BrandPromiseSection = () => {
 
           {/* Right Content */}
           <div>
-            {/* Official Transparent Logo in Body */}
+            {/* Official Transparent logo-loom.png in Body */}
             <div style={{ marginBottom: '20px' }}>
               <img
-                src="/loomshine-logo-dark.png"
+                src="/logo-loom.png"
                 alt="LoomShine Official Emblem"
                 style={{ height: '76px', width: 'auto', display: 'block', objectFit: 'contain' }}
               />
