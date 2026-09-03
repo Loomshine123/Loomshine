@@ -1,0 +1,123 @@
+.loom-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  background-color: #FFFFFF;
+  border-bottom: 1px solid var(--color-border-light);
+  box-shadow: 0 2px 10px rgba(7, 26, 51, 0.04);
+}
+
+.loom-header--scrolled {
+  background-color: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 4px 20px rgba(7, 26, 51, 0.1);
+  border-bottom-color: var(--color-border-light);
+}
+
+.loom-header__nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* Brand Logo */
+.loom-brand {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.loom-brand__img {
+  height: 56px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* Nav Links desktop */
+.loom-nav-list {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.loom-nav-link {
+  font-family: var(--font-sans);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--color-navy);
+  transition: color var(--transition-fast);
+  padding: 4px 0;
+  position: relative;
+  text-decoration: none;
+}
+
+.loom-nav-link:hover {
+  color: var(--color-blue-primary);
+}
+
+/* Header Actions */
+.loom-header__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.loom-header__login-link {
+  font-family: var(--font-sans);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--color-navy);
+  transition: color var(--transition-fast);
+  text-decoration: none;
+}
+
+.loom-header__login-link:hover {
+  color: var(--color-blue-primary);
+}
+
+/* Hamburger button */
+.loom-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 32px;
+  height: 32px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+@media (max-width: 991px) {
+  .loom-nav-list {
+    display: none;
+  }
+  .loom-hamburger {
+    display: flex;
+  }
+}
+
+.loom-hamburger__line {
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-navy);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  border-radius: 1px;
+}

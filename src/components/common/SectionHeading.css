@@ -1,0 +1,56 @@
+.loom-section-heading {
+  margin-bottom: var(--space-8);
+  max-width: 800px;
+}
+
+.loom-section-heading--align-left {
+  text-align: left;
+  margin-left: 0;
+  margin-right: auto;
+}
+
+.loom-section-heading--align-center {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.loom-section-heading--align-right {
+  text-align: right;
+  margin-left: auto;
+  margin-right: 0;
+}
+
+.loom-section-heading__title {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 3.5vw, var(--fs-4xl));
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-heading);
+  letter-spacing: var(--ls-tight);
+  text-transform: uppercase;
+  color: var(--color-navy);
+  margin-top: 0;
+  margin-bottom: var(--space-2);
+}
+
+.loom-section-heading--theme-dark .loom-section-heading__title {
+  color: var(--color-text-inverse);
+}
+
+.loom-section-heading__subtitle {
+  font-family: var(--font-sans);
+  font-size: var(--fs-base);
+  line-height: var(--lh-body);
+  color: var(--color-text-secondary);
+  margin-top: var(--space-2);
+}
+
+.loom-section-heading--theme-dark .loom-section-heading__subtitle {
+  color: var(--color-text-inverse-secondary);
+}
+
+@media (min-width: 768px) {
+  .loom-section-heading__subtitle {
+    font-size: var(--fs-md);
+  }
+}

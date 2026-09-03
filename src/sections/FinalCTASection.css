@@ -1,0 +1,38 @@
+.loom-cta-section {
+  background-color: var(--color-navy);
+  color: var(--color-text-inverse);
+  text-align: center;
+  padding-top: var(--space-12);
+  padding-bottom: var(--space-12);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.loom-cta-box {
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.loom-cta-headline {
+  font-family: var(--font-serif);
+  font-size: clamp(2.25rem, 5vw, 4rem);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-tight);
+  text-transform: uppercase;
+  color: var(--color-white);
+  margin-bottom: var(--space-3);
+}
+
+.loom-cta-subtext {
+  font-family: var(--font-sans);
+  font-size: var(--fs-md);
+  color: var(--color-text-inverse-secondary);
+  margin-bottom: var(--space-6);
+}
+
+.loom-cta-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}

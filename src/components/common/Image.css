@@ -1,0 +1,57 @@
+.loom-image-wrapper {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  background-color: #E2E8F0;
+  display: block;
+}
+
+.loom-image-wrapper--aspect-4-5 {
+  aspect-ratio: 4 / 5;
+}
+
+.loom-image-wrapper--aspect-16-9 {
+  aspect-ratio: 16 / 9;
+}
+
+.loom-image-wrapper--aspect-1-1 {
+  aspect-ratio: 1 / 1;
+}
+
+.loom-image-wrapper--aspect-3-4 {
+  aspect-ratio: 3 / 4;
+}
+
+.loom-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.loom-image-wrapper:hover .loom-image--hover-zoom {
+  transform: scale(1.04);
+}
+
+.loom-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(7, 26, 51, 0.7) 0%, rgba(7, 26, 51, 0.1) 60%, rgba(7, 26, 51, 0) 100%);
+  pointer-events: none;
+}
+
+.loom-image-fallback {
+  width: 100%;
+  height: 100%;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-navy-surface);
+  color: var(--color-text-inverse-secondary);
+  font-family: var(--font-serif);
+  font-size: var(--fs-md);
+  text-align: center;
+  padding: var(--space-3);
+}

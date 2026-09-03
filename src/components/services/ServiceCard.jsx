@@ -1,0 +1,26 @@
+import Image from '../common/Image';
+import './ServiceCard.css';
+
+export const ServiceCard = ({ number, title, description, image, priceStarting, onClick }) => {
+  return (
+    <article className="loom-service-card" onClick={onClick}>
+      <div className="loom-service-card__header">
+        <span className="loom-service-card__badge">{number}</span>
+        <span className="loom-service-card__expand-icon">+</span>
+        <Image
+          src={image}
+          alt={title}
+          aspectRatio="4-5"
+          hoverZoom
+        />
+      </div>
+      <div className="loom-service-card__body">
+        <h3 className="loom-service-card__title">{title}</h3>
+        <p className="loom-service-card__desc">{description}</p>
+        <span className="loom-service-card__price">{priceStarting}</span>
+      </div>
+    </article>
+  );
+};
+
+export default ServiceCard;

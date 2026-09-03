@@ -1,0 +1,37 @@
+.loom-services-section {
+  background-color: var(--color-off-white);
+}
+
+.loom-services-header-split {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+  margin-bottom: var(--space-8);
+  align-items: flex-end;
+}
+
+@media (min-width: 768px) {
+  .loom-services-header-split {
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: var(--space-6);
+  }
+}
+
+.loom-services-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+}
+
+@media (min-width: 640px) {
+  .loom-services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .loom-services-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-4);
+  }
+}

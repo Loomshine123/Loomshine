@@ -1,20 +1,36 @@
-import './App.css'
+import Header from './components/navigation/Header';
+import HeroSection from './sections/HeroSection';
+import ServicesSection from './sections/ServicesSection';
+import HowItWorksSection from './sections/HowItWorksSection';
+import BrandPromiseSection from './sections/BrandPromiseSection';
+import FabricCareSection from './sections/FabricCareSection';
+import PricingSection from './sections/PricingSection';
+import OrderTrackingSection from './sections/OrderTrackingSection';
+import TestimonialsSection from './sections/TestimonialsSection';
+import BusinessServicesSection from './sections/BusinessServicesSection';
+import FinalCTASection from './sections/FinalCTASection';
+import Footer from './components/navigation/Footer';
+import './App.css';
 
 function App() {
   return (
-    <div className="app-container">
-      <img
-        src="/banner.png"
-        alt="Loom Shine Coming Soon Banner"
-        className="main-banner"
-        onError={(e) => {
-          e.target.onerror = null;
-          e.target.style.display = 'none';
-          e.target.insertAdjacentHTML('afterend', '<h2 style="color: #001A41; font-family: sans-serif;">Please save the banner image as banner.jpg in the public folder.</h2>');
-        }}
-      />
+    <div className="loom-app">
+      <Header />
+      <main>
+        <HeroSection />
+        <ServicesSection />
+        <HowItWorksSection />
+        <BrandPromiseSection />
+        <FabricCareSection />
+        <PricingSection />
+        <OrderTrackingSection />
+        <TestimonialsSection />
+        <BusinessServicesSection />
+        <FinalCTASection />
+      </main>
+      <Footer />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

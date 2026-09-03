@@ -1,0 +1,95 @@
+.loom-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  width: 100%;
+}
+
+.loom-input-label {
+  font-family: var(--font-sans);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--color-navy);
+}
+
+.loom-input-group--dark .loom-input-label {
+  color: var(--color-text-inverse-secondary);
+}
+
+.loom-input-wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border-light);
+  transition: var(--transition-fast);
+}
+
+.loom-input-group--dark .loom-input-wrapper {
+  background-color: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.15);
+  color: var(--color-text-inverse);
+}
+
+.loom-input-wrapper:focus-within {
+  border-color: var(--color-navy);
+  box-shadow: 0 0 0 3px rgba(7, 26, 51, 0.08);
+}
+
+.loom-input-group--dark .loom-input-wrapper:focus-within {
+  border-color: var(--color-accent-gold);
+  box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.2);
+}
+
+.loom-input-wrapper--error {
+  border-color: var(--color-error) !important;
+}
+
+.loom-input-field {
+  flex: 1;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: var(--fs-base);
+  color: var(--color-navy);
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+.loom-input-group--dark .loom-input-field {
+  color: var(--color-text-inverse);
+}
+
+.loom-input-field::placeholder {
+  color: var(--color-text-muted);
+}
+
+.loom-input-group--dark .loom-input-field::placeholder {
+  color: var(--color-text-inverse-muted);
+}
+
+.loom-input-action {
+  padding-right: 4px;
+}
+
+.loom-input-message {
+  font-size: var(--fs-xs);
+  margin-top: 4px;
+  line-height: 1.4;
+}
+
+.loom-input-message--error {
+  color: var(--color-error);
+}
+
+.loom-input-message--success {
+  color: var(--color-success);
+}
+
+.loom-input-group--dark .loom-input-message--success {
+  color: #81C784;
+}

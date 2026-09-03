@@ -1,0 +1,45 @@
+.loom-b2b-section {
+  background-color: var(--color-off-white);
+  border-top: 1px solid var(--color-border-light);
+}
+
+.loom-b2b-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+  align-items: center;
+}
+
+@media (min-width: 992px) {
+  .loom-b2b-grid {
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: var(--space-10);
+  }
+}
+
+.loom-b2b-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-md);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-sm);
+}
+
+.loom-b2b-item {
+  font-family: var(--font-serif);
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-semibold);
+  color: var(--color-navy);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) 0;
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.loom-b2b-item:nth-last-child(-n+2) {
+  border-bottom: none;
+}
