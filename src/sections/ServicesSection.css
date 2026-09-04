@@ -1,12 +1,14 @@
 .loom-services-section {
-  background-color: var(--color-off-white);
+  background-color: var(--color-white);
+  padding-top: 64px;
+  padding-bottom: 64px;
 }
 
 .loom-services-header-split {
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space-3);
-  margin-bottom: var(--space-8);
+  margin-bottom: 36px;
   align-items: flex-end;
 }
 
@@ -20,7 +22,7 @@
 .loom-services-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--space-6);
+  gap: 20px;
 }
 
 @media (min-width: 640px) {
@@ -31,7 +33,30 @@
 
 @media (min-width: 1024px) {
   .loom-services-grid {
-    grid-template-columns: repeat(4, 1fr);
-    gap: var(--space-4);
+    grid-template-columns: repeat(12, 1fr);
+    align-items: start;
+  }
+
+  .loom-services-grid .loom-service-card:nth-child(1) {
+    grid-column: span 7;
+  }
+
+  .loom-services-grid .loom-service-card:nth-child(2) {
+    grid-column: span 5;
+  }
+
+  .loom-services-grid .loom-service-card:nth-child(3) {
+    grid-column: span 5;
+  }
+
+  .loom-services-grid .loom-service-card:nth-child(4) {
+    grid-column: span 7;
+  }
+}
+
+@media (max-width: 767px) {
+  .loom-services-section {
+    padding-top: 40px;
+    padding-bottom: 40px;
   }
 }

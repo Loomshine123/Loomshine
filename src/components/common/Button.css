@@ -17,7 +17,7 @@
 }
 
 .loom-btn:focus-visible {
-  outline: 2px solid var(--color-blue-primary);
+  outline: 2px solid var(--color-accent-gold);
   outline-offset: 2px;
 }
 
@@ -50,19 +50,18 @@
   height: 54px;
 }
 
-/* Primary Royal Blue Button */
 .loom-btn--primary {
-  background-color: var(--color-blue-primary);
+  background-color: var(--color-navy);
   color: var(--color-white);
-  border: 1px solid var(--color-blue-primary);
+  border: 1px solid var(--color-navy);
 }
 
 .loom-btn--primary:hover {
-  background-color: var(--color-blue-hover);
-  border-color: var(--color-blue-hover);
+  background-color: var(--color-navy-light);
+  border-color: var(--color-navy-light);
   color: var(--color-white);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(30, 104, 215, 0.3);
+  box-shadow: 0 4px 12px rgba(7, 26, 51, 0.22);
 }
 
 .loom-btn--secondary {
@@ -72,8 +71,9 @@
 }
 
 .loom-btn--secondary:hover {
-  background-color: var(--color-navy);
-  color: var(--color-white);
+  background-color: var(--color-accent-gold);
+  border-color: var(--color-accent-gold);
+  color: var(--color-navy);
   transform: translateY(-2px);
 }
 
@@ -87,7 +87,7 @@
   background-color: var(--color-blue-hover);
   border-color: var(--color-blue-hover);
   transform: translateY(-2px);
-  box-shadow: 0 4px 16px rgba(30, 104, 215, 0.4);
+  box-shadow: 0 4px 16px rgba(30, 104, 215, 0.34);
 }
 
 .loom-btn--dark-outline {
@@ -113,6 +113,6 @@
 }
 
 .loom-btn--text:hover {
-  color: var(--color-blue-primary);
-  border-color: var(--color-blue-primary);
+  color: var(--color-accent-gold);
+  border-color: var(--color-accent-gold);
 }

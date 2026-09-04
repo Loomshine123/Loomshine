@@ -39,6 +39,15 @@ export const BrandPromiseSection = () => {
 
           {/* Right Content */}
           <div>
+            {/* Official LOOMSHINE Logo - mid-page brand centrepiece */}
+            <div style={{ marginBottom: '24px' }}>
+              <img
+                src="/logoloom.png"
+                alt="LOOMSHINE Dry Cleaning & Laundry"
+                style={{ height: '70px', width: 'auto', display: 'block', objectFit: 'contain', mixBlendMode: 'multiply' }}
+              />
+            </div>
+
             <SectionHeading
               eyebrow="THE LOOMSHINE PROMISE"
               title="WE DON'T JUST CLEAN CLOTHES. WE CARE FOR THEM."

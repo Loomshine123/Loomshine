@@ -7,13 +7,13 @@ export const Footer = () => {
       <Container>
         {/* Top Branding Row */}
         <div className="loom-footer-top">
-          <div className="loom-footer-brand">
-            <div className="loom-footer-brand__symbol">L</div>
-            <div>
-              <span className="loom-footer-brand__text">LOOMSHINE</span>
-              <span className="loom-footer-brand__sub">Garment Care</span>
-            </div>
-          </div>
+          <a href="#" className="loom-footer-brand" aria-label="LOOMSHINE Home">
+            <img
+              src="/logoloom.png"
+              alt="LOOMSHINE Dry Cleaning & Laundry"
+              className="loom-footer-brand__logo"
+            />
+          </a>
           <p style={{ maxWidth: '400px', fontSize: '14px', color: '#5A6E85' }}>
             Professional garment care with doorstep pickup and delivery.
           </p>
@@ -55,13 +55,15 @@ export const Footer = () => {
             </ul>
           </div>
 
-          {/* Col 4: Contact */}
+          {/* Col 4: Contact & HQ */}
           <div>
-            <h4 className="loom-footer-col__title">Contact</h4>
+            <h4 className="loom-footer-col__title">Contact & HQ</h4>
             <ul className="loom-footer-col__list">
-              <li style={{ color: '#4A5D73', fontSize: '14px' }}>Phone: +91 00000 00000</li>
-              <li style={{ color: '#4A5D73', fontSize: '14px' }}>Email: hello@loomshine.com</li>
-              <li style={{ color: '#7A8C9E', fontSize: '13px', marginTop: '4px' }}>Service areas across major metro regions</li>
+              <li style={{ color: '#4A5D73', fontSize: '13px', lineHeight: '1.45' }}>
+                4th Floor, BPTP Centra One, Sector 61, Golf Course Ext. Road, Gurugram, Haryana 122102, India
+              </li>
+              <li style={{ color: '#4A5D73', fontSize: '13px', marginTop: '4px' }}>Phone: +91 00000 00000</li>
+              <li style={{ color: '#4A5D73', fontSize: '13px' }}>Email: hello@loomshine.com</li>
             </ul>
           </div>
         </div>
@@ -69,7 +71,7 @@ export const Footer = () => {
         {/* Bottom Bar */}
         <div className="loom-footer-bottom">
           <div>
-            © 2026 Loomshine Garment Care. All rights reserved.
+            Copyright 2026 LOOMSHINE Dry Cleaning & Laundry. All rights reserved.
           </div>
           <div className="loom-footer-legal-links">
             <a href="#privacy" className="loom-footer-col__link">Privacy Policy</a>

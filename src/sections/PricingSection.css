@@ -1,5 +1,7 @@
 .loom-pricing-section {
-  background-color: var(--color-off-white);
+  background-color: var(--color-white);
+  padding-top: 64px;
+  padding-bottom: 64px;
 }
 
 .loom-pricing-header-row {
@@ -8,7 +10,7 @@
   justify-content: space-between;
   align-items: flex-start;
   gap: var(--space-3);
-  margin-bottom: var(--space-8);
+  margin-bottom: var(--space-6);
 }
 
 @media (min-width: 768px) {
@@ -19,18 +21,19 @@
 }
 
 .loom-pricing-table {
-  background-color: var(--color-white);
-  border: 1px solid var(--color-border-light);
-  border-radius: var(--radius-md);
+  background-color: transparent;
+  border: 0;
+  border-top: 1px solid var(--color-border-light);
+  border-radius: 0;
   overflow: hidden;
-  box-shadow: var(--shadow-sm);
+  box-shadow: none;
 }
 
 .loom-price-row {
   display: grid;
   grid-template-columns: 1.5fr 1fr 1fr;
   align-items: center;
-  padding: var(--space-4) var(--space-6);
+  padding: 20px 8px;
   border-bottom: 1px solid var(--color-border-light);
   transition: background-color var(--transition-fast);
 }
@@ -44,10 +47,11 @@
 }
 
 .loom-price-row__service {
-  font-family: var(--font-serif);
-  font-size: var(--fs-xl);
-  font-weight: var(--fw-semibold);
+  font-family: var(--font-sans);
+  font-size: 18px;
+  font-weight: 800;
   color: var(--color-navy);
+  text-transform: uppercase;
 }
 
 .loom-price-row__unit {
@@ -63,6 +67,21 @@
   font-family: var(--font-sans);
   font-size: var(--fs-md);
   font-weight: var(--fw-bold);
-  color: var(--color-accent-gold);
+  color: var(--color-blue-primary);
   text-align: right;
+}
+
+@media (max-width: 767px) {
+  .loom-pricing-section {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  .loom-price-row {
+    padding: 16px 4px;
+  }
+
+  .loom-price-row__service {
+    font-size: 15px;
+  }
 }

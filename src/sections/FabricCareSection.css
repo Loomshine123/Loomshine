@@ -1,89 +1,75 @@
 .loom-fabric-section {
-  background-color: #E9EEF3; /* Signature pale blue-grey section */
+  background-color: #e9f2f8;
   color: var(--color-navy);
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+
+.loom-fabric-section .container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
+.loom-fabric-content {
+  align-self: center;
 }
 
 .loom-fabric-tabs {
+  border-bottom: 1px solid rgba(7, 26, 51, 0.15);
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-2);
-  margin-top: var(--space-6);
-  margin-bottom: var(--space-6);
-  border-bottom: 1px solid rgba(7, 26, 51, 0.15);
-  padding-bottom: var(--space-3);
+  gap: 8px;
+  margin-bottom: 24px;
+  padding-bottom: 20px;
 }
 
 .loom-fabric-tab {
-  font-family: var(--font-sans);
-  font-size: var(--fs-xs);
-  font-weight: var(--fw-bold);
-  letter-spacing: var(--ls-wide);
-  text-transform: uppercase;
-  padding: 0.6rem 1.25rem;
-  border-radius: var(--radius-full);
   background-color: transparent;
+  border: 1px solid rgba(7, 26, 51, 0.18);
+  border-radius: 0;
   color: var(--color-navy);
-  border: 1px solid rgba(7, 26, 51, 0.2);
-  transition: all var(--transition-fast);
   cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  min-height: 38px;
+  padding: 0 18px;
+  text-transform: uppercase;
+  transition: all var(--transition-fast);
 }
 
 .loom-fabric-tab:hover {
-  background-color: rgba(7, 26, 51, 0.08);
+  background-color: rgba(7, 26, 51, 0.06);
 }
 
 .loom-fabric-tab--active {
   background-color: var(--color-navy);
-  color: var(--color-white);
   border-color: var(--color-navy);
+  color: var(--color-white);
 }
 
-.loom-fabric-detail-card {
-  background-color: var(--color-white);
-  border-radius: var(--radius-md);
-  padding: var(--space-6);
-  box-shadow: var(--shadow-md);
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-4);
-  align-items: center;
+.loom-fabric-copy {
+  color: var(--color-navy);
+  font-size: 16px;
+  line-height: 1.6;
+  max-width: 650px;
 }
 
-@media (min-width: 768px) {
-  .loom-fabric-detail-card {
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: var(--space-6);
+@media (min-width: 900px) {
+  .loom-fabric-section .container {
+    grid-template-columns: 0.85fr 1.15fr;
+  }
+
+  .loom-fabric-section .loom-section-heading {
+    margin-bottom: 0;
   }
 }
 
-.loom-fabric-detail__title {
-  font-family: var(--font-serif);
-  font-size: var(--fs-3xl);
-  color: var(--color-navy);
-  margin-bottom: var(--space-1);
-}
-
-.loom-fabric-detail__tagline {
-  font-family: var(--font-sans);
-  font-size: var(--fs-xs);
-  font-weight: var(--fw-bold);
-  letter-spacing: var(--ls-wider);
-  color: var(--color-accent-gold);
-  text-transform: uppercase;
-  margin-bottom: var(--space-3);
-}
-
-.loom-fabric-detail__desc {
-  font-family: var(--font-sans);
-  font-size: var(--fs-base);
-  line-height: var(--lh-body);
-  color: var(--color-text-secondary);
-  margin-bottom: var(--space-4);
-}
-
-.loom-fabric-detail__box {
-  background-color: var(--color-light-blue);
-  border-left: 3px solid var(--color-accent-gold);
-  padding: var(--space-3) var(--space-4);
-  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+@media (max-width: 767px) {
+  .loom-fabric-section {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
 }

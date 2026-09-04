@@ -33,7 +33,6 @@ export const HowItWorksSection = () => {
           theme="dark"
           eyebrow="HOW IT WORKS"
           title="FROM YOUR DOORSTEP TO READY-TO-WEAR."
-          subtitle="Our streamlined process ensures maximum garment care with minimal effort from you."
         />
 
         <div className="loom-how-grid">

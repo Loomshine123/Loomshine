@@ -13,7 +13,7 @@ const NAV_LINKS = [
   { name: 'Track Order', href: '#track-order' }
 ];
 
-export const Header = () => {
+export const Header = ({ onOpenAuth }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -31,13 +31,13 @@ export const Header = () => {
       <header className={`loom-header ${isScrolled ? 'loom-header--scrolled' : ''}`}>
         <Container>
           <div className="loom-header__nav-container">
-            {/* Brand Logo */}
-            <a href="#" className="loom-brand" aria-label="Loomshine Home">
-              <div className="loom-brand__symbol">L</div>
-              <div>
-                <span className="loom-brand__text">LOOMSHINE</span>
-                <span className="loom-brand__sub">Garment Care</span>
-              </div>
+            {/* Official LOOMSHINE Logo */}
+            <a href="#" className="loom-brand" aria-label="LOOMSHINE Home">
+              <img
+                src="/logoloom.png"
+                alt="LOOMSHINE Dry Cleaning & Laundry"
+                className="loom-brand__logo"
+              />
             </a>
 
             {/* Desktop Navigation */}
@@ -55,12 +55,32 @@ export const Header = () => {
 
             {/* Header Right Actions */}
             <div className="loom-header__actions">
-              <a href="#login" className="loom-header__login-link">
+              <a
+                href="#login"
+                className="loom-header__login-link"
+                onClick={(e) => {
+                  if (onOpenAuth) {
+                    e.preventDefault();
+                    onOpenAuth('login');
+                  }
+                }}
+              >
                 Login
               </a>
-              <Button href="#book-pickup" variant="dark" size="sm">
-                Book a Pickup →
+              <Button
+                href="#signup"
+                variant="primary"
+                size="sm"
+                onClick={(e) => {
+                  if (onOpenAuth) {
+                    e.preventDefault();
+                    onOpenAuth('signup');
+                  }
+                }}
+              >
+                Book a Pickup
               </Button>
+
               <button
                 type="button"
                 className={`loom-hamburger ${mobileOpen ? 'loom-hamburger--active' : ''}`}
@@ -82,6 +102,7 @@ export const Header = () => {
         isOpen={mobileOpen}
         onClose={() => setMobileOpen(false)}
         navLinks={NAV_LINKS}
+        onOpenAuth={onOpenAuth}
       />
     </>
   );

@@ -10,7 +10,6 @@ export const ServicesSection = () => {
       <Container>
         <div className="loom-services-header-split">
           <SectionHeading
-            eyebrow="OUR SERVICES"
             title="Care for every kind of clothing."
           />
           <p className="text-muted" style={{ fontSize: '1.1rem', lineHeight: '1.6', marginBottom: 'var(--space-8)' }}>

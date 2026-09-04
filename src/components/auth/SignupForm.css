@@ -1,0 +1,15 @@
+/* ==========================================================================
+   SIGNUP FORM STYLES
+   ========================================================================== */
+
+.loom-legal-link {
+  color: var(--color-navy);
+  font-weight: var(--fw-semibold);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color var(--transition-fast);
+}
+
+.loom-legal-link:hover {
+  color: var(--color-blue-primary);
+}

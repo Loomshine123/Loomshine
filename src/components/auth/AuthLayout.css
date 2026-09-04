@@ -1,0 +1,251 @@
+/* ==========================================================================
+   AUTH LAYOUT STYLES (Split-Screen Luxury Presentation)
+   ========================================================================== */
+
+.loom-auth-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  background-color: var(--color-off-white);
+  color: var(--color-text-primary);
+}
+
+@media (min-width: 992px) {
+  .loom-auth-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1280px) {
+  .loom-auth-layout {
+    grid-template-columns: 52% 48%;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Left Hero Section (Dark Navy & Luxury Image)
+   -------------------------------------------------------------------------- */
+.loom-auth-hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 320px;
+  background-color: var(--color-navy);
+  background-image: url('/auth-hero-bg.png');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  color: var(--color-white);
+  padding: 2.5rem 2rem;
+  overflow: hidden;
+}
+
+@media (min-width: 992px) {
+  .loom-auth-hero {
+    min-height: 100vh;
+    padding: 3.5rem 4rem;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+  }
+}
+
+.loom-auth-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(7, 26, 51, 0.85) 0%,
+    rgba(4, 16, 33, 0.92) 60%,
+    rgba(4, 16, 33, 0.97) 100%
+  );
+  z-index: 1;
+}
+
+.loom-auth-hero__content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  max-width: 540px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Brand Logo (Transparent SVG) */
+.loom-auth-brand {
+  display: inline-flex;
+  align-items: center;
+}
+
+.loom-auth-brand__logo {
+  height: 54px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.4));
+  transition: transform var(--transition-base);
+}
+
+.loom-auth-brand:hover .loom-auth-brand__logo {
+  transform: translateY(-2px) scale(1.02);
+}
+
+@media (min-width: 992px) {
+  .loom-auth-brand__logo {
+    height: 68px;
+  }
+}
+
+/* Body Content */
+.loom-auth-hero__body {
+  margin: 3rem 0;
+}
+
+.loom-auth-hero__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.75rem;
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.18em;
+  color: var(--color-accent-gold);
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+}
+
+.loom-auth-hero__eyebrow-line {
+  width: 24px;
+  height: 1px;
+  background-color: var(--color-accent-gold);
+}
+
+.loom-auth-hero__heading {
+  font-family: var(--font-serif);
+  font-size: clamp(2.25rem, 4vw, 3.75rem);
+  font-weight: var(--fw-bold);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+}
+
+.loom-auth-hero__highlight {
+  display: block;
+  color: #2563EB; /* Electric blue accent */
+  text-shadow: 0 0 30px rgba(37, 99, 235, 0.3);
+}
+
+.loom-auth-hero__description {
+  font-size: var(--fs-base);
+  color: var(--color-text-inverse-secondary);
+  line-height: 1.6;
+  max-width: 440px;
+  font-weight: 350;
+}
+
+/* Footer Feature Items */
+.loom-auth-hero__footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.loom-auth-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.75rem;
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.12em;
+  color: var(--color-text-inverse-secondary);
+  text-transform: uppercase;
+}
+
+.loom-auth-feature-item svg {
+  color: var(--color-blue-primary);
+}
+
+/* --------------------------------------------------------------------------
+   Right Form Panel (Off-White Background)
+   -------------------------------------------------------------------------- */
+.loom-auth-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--color-off-white);
+  padding: 2rem 1.5rem;
+  min-height: 100vh;
+}
+
+@media (min-width: 768px) {
+  .loom-auth-panel {
+    padding: 3rem 3rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .loom-auth-panel {
+    padding: 3.5rem 4.5rem;
+  }
+}
+
+.loom-auth-panel__header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 2rem;
+}
+
+.loom-auth-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted);
+  background: transparent;
+  padding: 0.5rem 0.85rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border-light);
+  transition: all var(--transition-base);
+}
+
+.loom-auth-back-btn:hover {
+  color: var(--color-navy);
+  border-color: var(--color-navy);
+  background-color: var(--color-white);
+  transform: translateX(-2px);
+}
+
+.loom-auth-panel__main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-grow: 1;
+  width: 100%;
+  max-width: 440px;
+  margin: 0 auto;
+}
+
+.loom-auth-panel__footer {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.loom-auth-panel__footer p {
+  font-size: 0.7rem;
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.15em;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+}

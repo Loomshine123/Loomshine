@@ -54,7 +54,7 @@
   --fs-xl: 1.5rem;     /* 24px */
   --fs-2xl: 2rem;      /* 32px */
   --fs-3xl: 2.5rem;    /* 40px */
-  --fs-4xl: 3.5rem;    /* 56px */
+  --fs-4xl: 3.75rem;   /* 60px */
   --fs-5xl: 4.5rem;    /* 72px */
 
   /* Line Heights */
@@ -63,7 +63,7 @@
   --lh-body: 1.6;
 
   /* Letter Spacing */
-  --ls-tight: -0.02em;
+  --ls-tight: 0em;
   --ls-normal: 0em;
   --ls-wide: 0.05em;
   --ls-wider: 0.12em;
@@ -73,6 +73,7 @@
   --space-2: 1rem;     /* 16px */
   --space-3: 1.5rem;   /* 24px */
   --space-4: 2rem;     /* 32px */
+  --space-5: 2.5rem;   /* 40px */
   --space-6: 3rem;     /* 48px */
   --space-8: 4rem;     /* 64px */
   --space-10: 5rem;    /* 80px */
@@ -80,8 +81,8 @@
   --space-15: 7.5rem;  /* 120px */
 
   /* Layout Boundaries */
-  --container-max: 1280px;
-  --header-height: 80px;
+  --container-max: 1160px;
+  --header-height: 84px;
   --radius-sm: 4px;
   --radius-md: 8px;
   --radius-lg: 16px;
@@ -172,14 +173,14 @@ a {
 }
 
 .section {
-  padding-top: var(--space-8);
-  padding-bottom: var(--space-8);
+  padding-top: 40px;
+  padding-bottom: 40px;
 }
 
 @media (min-width: 1024px) {
   .section {
-    padding-top: var(--space-12);
-    padding-bottom: var(--space-12);
+    padding-top: 64px;
+    padding-bottom: 64px;
   }
 }
 

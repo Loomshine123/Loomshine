@@ -1,115 +1,94 @@
 .loom-track-section {
   background-color: var(--color-navy);
   color: var(--color-text-inverse);
+  padding-top: 64px;
+  padding-bottom: 64px;
 }
 
 .loom-track-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-8);
   align-items: flex-start;
+  display: grid;
+  gap: var(--space-6);
+  grid-template-columns: 1fr;
+}
+
+.loom-track-form-box {
+  background-color: transparent;
+  border: 0;
+  max-width: 420px;
+  padding: 0;
+}
+
+.loom-track-form-box .loom-input-wrapper {
+  background-color: transparent;
+  border-width: 0;
+}
+
+.loom-track-form-box .loom-input-field {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  height: 44px;
+  padding-left: 0;
+}
+
+.loom-track-form-box .loom-btn--text {
+  border-bottom: 0;
+  color: var(--color-accent-gold);
+}
+
+.loom-track-list {
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.loom-track-row {
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  color: var(--color-text-inverse-secondary);
+  display: grid;
+  grid-template-columns: 40px 1fr auto;
+  min-height: 56px;
+}
+
+.loom-track-row span {
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 50%;
+  display: flex;
+  font-size: 11px;
+  height: 26px;
+  justify-content: center;
+  width: 26px;
+}
+
+.loom-track-row strong {
+  color: var(--color-text-inverse-secondary);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.loom-track-row em {
+  color: rgba(255, 255, 255, 0.45);
+  font-style: normal;
+  font-size: 12px;
+}
+
+.loom-track-list p {
+  color: var(--color-text-inverse-muted);
+  font-size: 12px;
+  margin-top: 14px;
 }
 
 @media (min-width: 992px) {
   .loom-track-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-10);
+    grid-template-columns: 0.84fr 1.16fr;
   }
 }
 
-.loom-track-form-box {
-  background-color: var(--color-navy-surface);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: var(--radius-md);
-  padding: var(--space-6);
-  box-shadow: var(--shadow-navy);
-}
-
-/* Vertical Stepper UI */
-.loom-stepper {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  position: relative;
-  padding-left: 20px;
-}
-
-.loom-stepper-item {
-  position: relative;
-  padding-left: var(--space-6);
-  padding-bottom: var(--space-6);
-}
-
-.loom-stepper-item:last-child {
-  padding-bottom: 0;
-}
-
-/* Vertical connecting line */
-.loom-stepper-item::before {
-  content: '';
-  position: absolute;
-  left: 17px;
-  top: 36px;
-  bottom: 0;
-  width: 2px;
-  background-color: rgba(255, 255, 255, 0.15);
-}
-
-.loom-stepper-item:last-child::before {
-  display: none;
-}
-
-.loom-stepper-item--completed::before {
-  background-color: var(--color-accent-gold);
-}
-
-.loom-stepper-circle {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background-color: var(--color-navy-surface);
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  color: var(--color-text-inverse-muted);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-sans);
-  font-size: var(--fs-xs);
-  font-weight: var(--fw-bold);
-  z-index: 2;
-  transition: all var(--transition-fast);
-}
-
-.loom-stepper-item--completed .loom-stepper-circle {
-  background-color: var(--color-accent-gold);
-  border-color: var(--color-accent-gold);
-  color: var(--color-navy-dark);
-}
-
-.loom-stepper-item--active .loom-stepper-circle {
-  background-color: var(--color-navy);
-  border-color: var(--color-accent-gold);
-  color: var(--color-accent-gold);
-  box-shadow: 0 0 0 4px rgba(197, 160, 89, 0.2);
-}
-
-.loom-stepper-label {
-  font-family: var(--font-serif);
-  font-size: var(--fs-lg);
-  font-weight: var(--fw-semibold);
-  color: var(--color-white);
-}
-
-.loom-stepper-item--completed .loom-stepper-label {
-  color: var(--color-accent-gold);
-}
-
-.loom-stepper-date {
-  font-family: var(--font-sans);
-  font-size: var(--fs-xs);
-  color: var(--color-text-inverse-muted);
-  margin-top: 2px;
+@media (max-width: 767px) {
+  .loom-track-section {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
 }

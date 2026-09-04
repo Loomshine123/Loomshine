@@ -1,60 +1,43 @@
 export const pricingData = {
-  note: 'Pricing presented below represents standard estimate guidelines. Final pricing depends on fabric complexity and custom care instructions.',
-  currencySymbol: '₹',
-  placeholderRate: '₹XX',
+  note: 'Final pricing depends on fabric complexity and custom care instructions.',
+  currencySymbol: 'Rs',
+  placeholderRate: 'Rs XX',
   categories: [
     {
       id: 'laundry-kg',
-      name: 'Laundry per kg',
-      startingPrice: '₹XX',
+      name: 'Laundry',
+      startingPrice: 'Rs XX',
       unit: 'per kg',
       turnaround: '24-48 Hours',
       popular: true,
-      items: [
-        { name: 'Wash & Fold', price: '₹XX / kg' },
-        { name: 'Wash & Iron', price: '₹XX / kg' },
-        { name: 'Premium Linen Wash', price: '₹XX / kg' }
-      ]
+      items: []
     },
     {
       id: 'dry-cleaning-item',
-      name: 'Dry Cleaning per garment',
-      startingPrice: '₹XX',
-      unit: 'per item',
+      name: 'Dry Cleaning',
+      startingPrice: 'Rs XX',
+      unit: 'per garment',
       turnaround: '48-72 Hours',
       popular: false,
-      items: [
-        { name: '2-Piece Suit', price: '₹XX' },
-        { name: 'Evening / Formal Dress', price: '₹XX' },
-        { name: 'Silk Shirt / Blouse', price: '₹XX' },
-        { name: 'Woolen Coat / Blazer', price: '₹XX' }
-      ]
+      items: []
     },
     {
       id: 'pressing-item',
-      name: 'Pressing per garment',
-      startingPrice: '₹XX',
-      unit: 'per item',
+      name: 'Pressing',
+      startingPrice: 'Rs XX',
+      unit: 'per garment',
       turnaround: '24 Hours',
       popular: false,
-      items: [
-        { name: 'Executive Shirt Steam Press', price: '₹XX' },
-        { name: 'Trouser / Denim Press', price: '₹XX' },
-        { name: 'Traditional Wear Press', price: '₹XX' }
-      ]
+      items: []
     },
     {
       id: 'shoe-bag-item',
-      name: 'Shoe & Bag Care per item',
-      startingPrice: '₹XX',
+      name: 'Shoe & Bag Care',
+      startingPrice: 'Rs XX',
       unit: 'per item',
       turnaround: '3-5 Days',
       popular: false,
-      items: [
-        { name: 'Luxury Sneaker Deep Clean', price: '₹XX' },
-        { name: 'Leather Shoe Polish & Spa', price: '₹XX' },
-        { name: 'Designer Handbag Spa', price: '₹XX' }
-      ]
+      items: []
     }
   ]
 };

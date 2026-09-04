@@ -1,32 +1,41 @@
 .loom-promise-section {
-  background-color: var(--color-off-white);
+  background-color: var(--color-white);
+  padding-top: 64px;
+  padding-bottom: 64px;
 }
 
 .loom-promise-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--space-8);
+  gap: var(--space-6);
   align-items: center;
 }
 
 @media (min-width: 992px) {
   .loom-promise-grid {
     grid-template-columns: 0.9fr 1.1fr;
-    gap: var(--space-10);
+    gap: var(--space-8);
   }
 }
 
 .loom-promise__media {
-  border-radius: var(--radius-md);
+  border-radius: 0;
   overflow: hidden;
-  box-shadow: var(--shadow-lg);
+  box-shadow: none;
+  max-height: 440px;
+}
+
+.loom-promise__media .loom-image {
+  max-height: 440px;
+  object-fit: cover;
 }
 
 .loom-promise-features {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--space-4);
-  margin-top: var(--space-6);
+  gap: 0;
+  margin-top: var(--space-4);
+  border-top: 1px solid var(--color-border-light);
 }
 
 @media (min-width: 640px) {
@@ -36,29 +45,39 @@
 }
 
 .loom-feature-item {
-  background-color: var(--color-white);
-  border: 1px solid var(--color-border-light);
-  border-radius: var(--radius-sm);
-  padding: var(--space-4);
+  background-color: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--color-border-light);
+  border-radius: 0;
+  padding: 16px 20px 16px 0;
   transition: transform var(--transition-fast), border-color var(--transition-fast);
 }
 
 .loom-feature-item:hover {
-  transform: translateY(-2px);
+  transform: none;
   border-color: rgba(197, 160, 89, 0.3);
 }
 
 .loom-feature-item__title {
   font-family: var(--font-sans);
-  font-size: var(--fs-base);
-  font-weight: var(--fw-bold);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
   color: var(--color-navy);
-  margin-bottom: var(--space-1);
+  margin-bottom: 4px;
 }
 
 .loom-feature-item__desc {
   font-family: var(--font-sans);
-  font-size: var(--fs-xs);
+  font-size: 13px;
   line-height: var(--lh-body);
   color: var(--color-text-secondary);
+}
+
+@media (max-width: 767px) {
+  .loom-promise-section {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
 }
