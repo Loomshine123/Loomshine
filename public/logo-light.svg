@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 240" width="100%" height="100%">
+  <defs>
+    <linearGradient id="goldMetallicLight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FCE1A8"/>
+      <stop offset="35%" stop-color="#D8AD52"/>
+      <stop offset="70%" stop-color="#F5D285"/>
+      <stop offset="100%" stop-color="#9C772F"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Hanger Ribbon 3D Metallic Emblem -->
+  <g transform="translate(300, 70) scale(1.15)">
+    <!-- Main Hanger Bar -->
+    <path d="M-110,42 C-70,16 -30,4 0,-20 C30,4 70,16 110,42 C118,46 118,52 110,52 L-110,52 C-118,52 -118,46 -110,42 Z" fill="none" stroke="url(#goldMetallicLight)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+    
+    <!-- Ribbon Loops L shape -->
+    <path d="M-22,50 C-40,50 -50,30 -32,15 C-14,-2 6,-32 0,-50 C-6,-62 -26,-44 -20,-24 C-14,-5 20,20 38,36 C52,48 26,52 0,50 C-14,48 -26,32 -14,18 C0,4 20,15 32,32" fill="none" stroke="url(#goldMetallicLight)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Brand Typography LOOM SHINE (Ultra-HD White Text for Dark Header) -->
+  <text x="300" y="172" text-anchor="middle" font-family="'Cormorant Garamond', 'Cinzel', Georgia, serif" font-size="44" font-weight="700" letter-spacing="8" fill="#FFFFFF">LOOM SHINE</text>
+
+  <!-- Subtitle DRY CLEANING & LAUNDRY -->
+  <g transform="translate(300, 206)">
+    <line x1="-240" y1="-5" x2="-160" y2="-5" stroke="url(#goldMetallicLight)" stroke-width="2.5"/>
+    <text x="0" y="0" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" letter-spacing="4" fill="#D8AD52">DRY CLEANING &amp; LAUNDRY</text>
+    <line x1="160" y1="-5" x2="240" y2="-5" stroke="url(#goldMetallicLight)" stroke-width="2.5"/>
+  </g>
+</svg>
