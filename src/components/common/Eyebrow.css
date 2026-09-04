@@ -1,0 +1,25 @@
+.loom-eyebrow {
+  font-family: var(--font-sans);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  display: inline-block;
+  margin-bottom: 24px;
+}
+
+.loom-eyebrow--gold {
+  color: var(--color-accent-gold);
+}
+
+.loom-eyebrow--navy {
+  color: var(--color-navy);
+}
+
+.loom-eyebrow--light {
+  color: var(--color-text-inverse-secondary);
+}
+
+.loom-eyebrow--muted {
+  color: var(--color-text-muted);
+}

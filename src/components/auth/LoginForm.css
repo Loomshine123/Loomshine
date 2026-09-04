@@ -1,0 +1,311 @@
+/* ==========================================================================
+   LOGIN FORM STYLES
+   ========================================================================== */
+
+.loom-auth-form-wrap {
+  width: 100%;
+}
+
+.loom-auth-form-header {
+  margin-bottom: 2rem;
+}
+
+.loom-auth-eyebrow {
+  font-size: 0.725rem;
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.2em;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.loom-auth-heading {
+  font-family: var(--font-sans);
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-weight: var(--fw-bold);
+  letter-spacing: -0.01em;
+  color: var(--color-navy);
+  text-transform: uppercase;
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+}
+
+.loom-auth-subheading {
+  font-size: var(--fs-sm);
+  color: var(--color-text-secondary);
+  font-weight: var(--fw-regular);
+}
+
+/* Alert Notification */
+.loom-auth-alert {
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-sm);
+  margin-bottom: 1.5rem;
+}
+
+.loom-auth-alert--error {
+  background-color: #FDEDED;
+  color: #D32F2F;
+  border: 1px solid #F8C4C4;
+}
+
+/* Form Groups & Inputs */
+.loom-auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.35rem;
+}
+
+.loom-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.loom-form-label-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.loom-form-label {
+  font-size: 0.7rem;
+  font-weight: var(--fw-bold);
+  letter-spacing: 0.14em;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+}
+
+.loom-auth-forgot-link {
+  font-size: 0.7rem;
+  font-weight: var(--fw-bold);
+  letter-spacing: 0.1em;
+  color: var(--color-blue-primary);
+  text-transform: uppercase;
+  background: transparent;
+  padding: 0;
+  transition: color var(--transition-fast);
+}
+
+.loom-auth-forgot-link:hover {
+  color: var(--color-navy);
+  text-decoration: underline;
+}
+
+.loom-input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.loom-form-input {
+  width: 100%;
+  height: 50px;
+  padding: 0.75rem 1rem;
+  background-color: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-sm);
+  color: var(--color-navy);
+  font-weight: var(--fw-medium);
+  transition: all var(--transition-base);
+  box-shadow: 0 1px 3px rgba(7, 26, 51, 0.02);
+}
+
+.loom-form-input::placeholder {
+  color: #A0AEC0;
+  font-weight: var(--fw-regular);
+}
+
+.loom-form-input:focus {
+  outline: none;
+  border-color: var(--color-navy);
+  box-shadow: 0 0 0 3px rgba(7, 26, 51, 0.08);
+}
+
+.loom-input-wrapper--password .loom-form-input {
+  padding-right: 2.75rem;
+}
+
+.loom-password-toggle {
+  position: absolute;
+  right: 0.85rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem;
+  background: transparent;
+  transition: color var(--transition-fast);
+}
+
+.loom-password-toggle:hover {
+  color: var(--color-navy);
+}
+
+/* Checkbox Style */
+.loom-form-group--checkbox {
+  margin-top: 0.25rem;
+}
+
+.loom-checkbox-container {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.loom-checkbox-input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.loom-checkbox-custom {
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid #CBD5E1;
+  border-radius: 3px;
+  background-color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+
+.loom-checkbox-container:hover .loom-checkbox-custom {
+  border-color: var(--color-navy);
+}
+
+.loom-checkbox-input:checked ~ .loom-checkbox-custom {
+  background-color: var(--color-navy);
+  border-color: var(--color-navy);
+}
+
+.loom-checkbox-input:checked ~ .loom-checkbox-custom::after {
+  content: '';
+  width: 4px;
+  height: 8px;
+  border: solid #FFFFFF;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  margin-bottom: 2px;
+}
+
+.loom-checkbox-text {
+  font-size: var(--fs-xs);
+  color: var(--color-text-secondary);
+  font-weight: var(--fw-medium);
+}
+
+/* Submit CTA Button */
+.loom-auth-submit-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  width: 100%;
+  height: 52px;
+  background-color: var(--color-navy);
+  color: #FFFFFF;
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  font-weight: var(--fw-bold);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: all var(--transition-base);
+  margin-top: 0.75rem;
+  box-shadow: 0 4px 14px rgba(7, 26, 51, 0.2);
+}
+
+.loom-auth-submit-btn:hover:not(:disabled) {
+  background-color: #0D2444;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(7, 26, 51, 0.28);
+}
+
+.loom-auth-submit-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.loom-auth-arrow-icon {
+  transition: transform var(--transition-base);
+}
+
+.loom-auth-submit-btn:hover .loom-auth-arrow-icon {
+  transform: translateX(4px);
+}
+
+/* Divider */
+.loom-auth-divider {
+  display: flex;
+  align-items: center;
+  margin: 1.75rem 0;
+}
+
+.loom-auth-divider__line {
+  flex-grow: 1;
+  height: 1px;
+  background-color: #E2E8F0;
+}
+
+.loom-auth-divider__text {
+  padding: 0 1rem;
+  font-size: 0.7rem;
+  font-weight: var(--fw-bold);
+  letter-spacing: 0.15em;
+  color: #94A3B8;
+}
+
+/* Google OAuth Button */
+.loom-auth-google-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  width: 100%;
+  height: 50px;
+  background-color: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  font-weight: var(--fw-bold);
+  letter-spacing: 0.12em;
+  color: var(--color-navy);
+  text-transform: uppercase;
+  transition: all var(--transition-base);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+}
+
+.loom-auth-google-btn:hover {
+  border-color: var(--color-navy);
+  background-color: #F8FAFC;
+  transform: translateY(-1px);
+}
+
+/* Bottom Switch Link */
+.loom-auth-switch-prompt {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: var(--fs-xs);
+  color: var(--color-text-secondary);
+}
+
+.loom-auth-switch-link {
+  font-weight: var(--fw-semibold);
+  color: var(--color-blue-primary);
+  background: transparent;
+  padding: 0;
+  margin-left: 0.25rem;
+  transition: color var(--transition-fast);
+}
+
+.loom-auth-switch-link:hover {
+  color: var(--color-navy);
+  text-decoration: underline;
+}

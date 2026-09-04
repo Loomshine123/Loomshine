@@ -1,0 +1,94 @@
+.loom-track-section {
+  background-color: var(--color-navy);
+  color: var(--color-text-inverse);
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+
+.loom-track-grid {
+  align-items: flex-start;
+  display: grid;
+  gap: var(--space-6);
+  grid-template-columns: 1fr;
+}
+
+.loom-track-form-box {
+  background-color: transparent;
+  border: 0;
+  max-width: 420px;
+  padding: 0;
+}
+
+.loom-track-form-box .loom-input-wrapper {
+  background-color: transparent;
+  border-width: 0;
+}
+
+.loom-track-form-box .loom-input-field {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  height: 44px;
+  padding-left: 0;
+}
+
+.loom-track-form-box .loom-btn--text {
+  border-bottom: 0;
+  color: var(--color-accent-gold);
+}
+
+.loom-track-list {
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.loom-track-row {
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  color: var(--color-text-inverse-secondary);
+  display: grid;
+  grid-template-columns: 40px 1fr auto;
+  min-height: 56px;
+}
+
+.loom-track-row span {
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 50%;
+  display: flex;
+  font-size: 11px;
+  height: 26px;
+  justify-content: center;
+  width: 26px;
+}
+
+.loom-track-row strong {
+  color: var(--color-text-inverse-secondary);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.loom-track-row em {
+  color: rgba(255, 255, 255, 0.45);
+  font-style: normal;
+  font-size: 12px;
+}
+
+.loom-track-list p {
+  color: var(--color-text-inverse-muted);
+  font-size: 12px;
+  margin-top: 14px;
+}
+
+@media (min-width: 992px) {
+  .loom-track-grid {
+    grid-template-columns: 0.84fr 1.16fr;
+  }
+}
+
+@media (max-width: 767px) {
+  .loom-track-section {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+}

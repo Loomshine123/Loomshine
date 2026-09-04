@@ -1,16 +1,47 @@
-# React + Vite
+# Loomshine — Premium Garment Care Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A modern, responsive, luxury website for **Loomshine** — professional laundry, dry-cleaning, press & finish, and shoe & bag care services.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🎨 Design Philosophy
+- **Aesthetic**: Minimalist luxury, high-contrast dark navy (`#071A33`) and off-white (`#F8F7F3`), clean editorial typography, and generous spacing.
+- **Typography**: Editorial serif headings paired with geometric sans-serif UI elements.
+- **Experience**: Doorstep pickup focus, transparent pricing breakdown, interactive pincode checking, and live order tracking.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Tech Stack
+- **Framework**: [React 19](https://react.dev/)
+- **Build Tool**: [Vite](https://vitejs.dev/)
+- **Styling**: Modern CSS3 with custom design tokens & variables
+- **Linting**: Oxlint
 
-## Expanding the Oxlint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## 📁 Repository Structure & Documentation
+
+Detailed project architecture and guidelines are documented in:
+- [`AGENTS.md`](./AGENTS.md) — Development rules and agent instructions
+- [`.agent/rules.md`](./.agent/rules.md) — Workflow guidelines
+- [`docs/PROJECT_CONTEXT.md`](./docs/PROJECT_CONTEXT.md) — Brand identity, goals, and voice
+- [`docs/DESIGN_SYSTEM.md`](./docs/DESIGN_SYSTEM.md) — Color tokens, typography, and spacing
+- [`docs/WEBSITE_STRUCTURE.md`](./docs/WEBSITE_STRUCTURE.md) — Information architecture & page structure
+- [`docs/COMPONENT_ARCHITECTURE.md`](./docs/COMPONENT_ARCHITECTURE.md) — Component breakdown & folders
+- [`docs/FUNCTIONAL_REQUIREMENTS.md`](./docs/FUNCTIONAL_REQUIREMENTS.md) — Phase 1 & Phase 2 specs
+- [`docs/TASKS.md`](./docs/TASKS.md) — Task roadmap and execution status
+
+---
+
+## 🚀 Getting Started
+
+```bash
+# Install dependencies
+npm install
+
+# Start local development server
+npm run dev
+
+# Build for production
+npm run build
+```

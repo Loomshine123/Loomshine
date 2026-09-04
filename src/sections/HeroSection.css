@@ -1,0 +1,228 @@
+.loom-hero-section {
+  position: relative;
+  background: linear-gradient(135deg, #102E54 0%, #0B2240 50%, #071A33 100%);
+  color: var(--color-text-inverse);
+  padding-top: 40px;
+  padding-bottom: 40px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  min-height: calc(100vh - var(--header-height));
+}
+
+.loom-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 36px;
+  align-items: center;
+}
+
+.loom-hero__content {
+  max-width: 520px;
+}
+
+.loom-hero__eyebrow {
+  color: var(--color-accent-gold);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.28em;
+  line-height: 1.2;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+
+.loom-hero__headline {
+  color: var(--color-white);
+  font-family: var(--font-sans);
+  font-size: clamp(2.4rem, 4.2vw, 3.8rem);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  line-height: 1.02;
+  margin-bottom: 18px;
+  text-transform: uppercase;
+}
+
+.loom-hero__headline span {
+  display: block;
+}
+
+.loom-hero__headline span:last-child {
+  color: var(--color-blue-primary);
+}
+
+.loom-hero__subtext {
+  color: var(--color-text-inverse-secondary);
+  font-size: 15px;
+  line-height: 1.55;
+  margin-bottom: 24px;
+  max-width: 440px;
+}
+
+.loom-hero__cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.loom-hero-availability {
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  max-width: 480px;
+  padding-top: 18px;
+}
+
+.loom-hero-availability__label {
+  color: var(--color-text-inverse-secondary);
+  display: block;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.25em;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.loom-hero-availability .loom-input-wrapper {
+  max-width: 460px;
+  background-color: transparent;
+  border-width: 0;
+}
+
+.loom-hero-availability .loom-input-field {
+  border-width: 0 0 1px;
+  border-style: solid;
+  border-color: rgba(255, 255, 255, 0.22);
+  height: 40px;
+  padding-left: 0;
+}
+
+.loom-hero-availability .loom-btn--text {
+  color: var(--color-accent-gold);
+  border-bottom: 0;
+  font-size: 11px;
+  padding-left: 16px;
+}
+
+.loom-hero__media {
+  justify-self: center;
+  max-width: 500px;
+  position: relative;
+  width: 100%;
+}
+
+.loom-hero__media .loom-image-wrapper {
+  background-color: var(--color-navy-dark);
+  max-height: 440px;
+}
+
+.loom-hero__media .loom-image {
+  min-height: 360px;
+  max-height: 440px;
+  object-fit: cover;
+}
+
+.loom-hero__media-label {
+  background-color: var(--color-white);
+  bottom: -16px;
+  color: var(--color-blue-primary);
+  display: inline-flex;
+  font-size: 10px;
+  font-weight: 800;
+  left: 0;
+  letter-spacing: 0.2em;
+  padding: 14px 24px;
+  position: absolute;
+  text-transform: uppercase;
+}
+
+.loom-hero-process-strip {
+  background-color: #0B2240;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.65);
+  padding: 18px 0;
+}
+
+.loom-hero-process {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+}
+
+.loom-hero-process span {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.loom-hero-process span:not(:last-child)::after {
+  color: var(--color-accent-gold);
+  content: "/";
+  margin-left: 28px;
+}
+
+.loom-trust-strip {
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-border-light);
+  padding: 18px 0;
+}
+
+.loom-trust-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3);
+}
+
+.loom-trust-item {
+  align-items: center;
+  color: var(--color-navy);
+  display: flex;
+  font-size: 11px;
+  font-weight: 800;
+  gap: 10px;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.loom-trust-item__icon {
+  color: var(--color-blue-primary);
+  font-size: 16px;
+  line-height: 1;
+}
+
+@media (min-width: 768px) {
+  .loom-trust-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 992px) {
+  .loom-hero-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 767px) {
+  .loom-hero-section {
+    padding-top: 28px;
+    padding-bottom: 36px;
+    min-height: auto;
+  }
+
+  .loom-hero__media .loom-image {
+    min-height: 300px;
+    max-height: 360px;
+  }
+
+  .loom-hero__media-label {
+    bottom: -12px;
+    padding: 12px 16px;
+  }
+
+  .loom-hero-process {
+    gap: 14px;
+  }
+
+  .loom-hero-process span:not(:last-child)::after {
+    margin-left: 14px;
+  }
+}

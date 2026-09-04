@@ -1,0 +1,118 @@
+.loom-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  font-family: var(--font-sans);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  transition: var(--transition-base);
+  position: relative;
+  white-space: nowrap;
+  user-select: none;
+  box-sizing: border-box;
+}
+
+.loom-btn:focus-visible {
+  outline: 2px solid var(--color-accent-gold);
+  outline-offset: 2px;
+}
+
+.loom-btn--full {
+  width: 100%;
+}
+
+.loom-btn--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Button Sizes */
+.loom-btn--sm {
+  padding: 0.5rem 1rem;
+  font-size: var(--fs-xs);
+  height: 36px;
+}
+
+.loom-btn--md {
+  padding: 0.75rem 1.5rem;
+  font-size: var(--fs-sm);
+  height: 48px;
+}
+
+.loom-btn--lg {
+  padding: 1rem 2rem;
+  font-size: var(--fs-base);
+  height: 54px;
+}
+
+.loom-btn--primary {
+  background-color: var(--color-navy);
+  color: var(--color-white);
+  border: 1px solid var(--color-navy);
+}
+
+.loom-btn--primary:hover {
+  background-color: var(--color-navy-light);
+  border-color: var(--color-navy-light);
+  color: var(--color-white);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(7, 26, 51, 0.22);
+}
+
+.loom-btn--secondary {
+  background-color: transparent;
+  color: var(--color-navy);
+  border: 1px solid var(--color-navy);
+}
+
+.loom-btn--secondary:hover {
+  background-color: var(--color-accent-gold);
+  border-color: var(--color-accent-gold);
+  color: var(--color-navy);
+  transform: translateY(-2px);
+}
+
+.loom-btn--dark {
+  background-color: var(--color-blue-primary);
+  color: var(--color-white);
+  border: 1px solid var(--color-blue-primary);
+}
+
+.loom-btn--dark:hover {
+  background-color: var(--color-blue-hover);
+  border-color: var(--color-blue-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(30, 104, 215, 0.34);
+}
+
+.loom-btn--dark-outline {
+  background-color: transparent;
+  color: var(--color-white);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.loom-btn--dark-outline:hover {
+  border-color: var(--color-white);
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.loom-btn--text {
+  background-color: transparent;
+  color: var(--color-navy);
+  border: none;
+  padding: 0;
+  height: auto;
+  border-bottom: 1px solid var(--color-navy);
+  border-radius: 0;
+}
+
+.loom-btn--text:hover {
+  color: var(--color-accent-gold);
+  border-color: var(--color-accent-gold);
+}

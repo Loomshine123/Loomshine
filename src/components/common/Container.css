@@ -1,0 +1,39 @@
+.loom-container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-3);
+  padding-right: var(--space-3);
+}
+
+.loom-container--sm {
+  max-width: 800px;
+}
+
+.loom-container--md {
+  max-width: 1024px;
+}
+
+.loom-container--lg {
+  max-width: var(--container-max);
+}
+
+.loom-container--full {
+  max-width: 100%;
+}
+
+.loom-container--no-padding {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+@media (min-width: 768px) {
+  .loom-container {
+    padding-left: var(--space-4);
+    padding-right: var(--space-4);
+  }
+  .loom-container--no-padding {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
