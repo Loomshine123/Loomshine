@@ -5,6 +5,7 @@ import MobileMenu from './MobileMenu';
 import './Header.css';
 
 const NAV_LINKS = [
+  { name: 'Home', href: '#home' },
   { name: 'Services', href: '#services' },
   { name: 'How It Works', href: '#how-it-works' },
   { name: 'Pricing', href: '#pricing' },
@@ -13,7 +14,7 @@ const NAV_LINKS = [
   { name: 'Track Order', href: '#track-order' }
 ];
 
-export const Header = ({ onOpenAuth }) => {
+export const Header = ({ onOpenAuth, currentPage }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -26,13 +27,37 @@ export const Header = ({ onOpenAuth }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleNavClick = (e, href) => {
+    if (href === '#home') {
+      if (currentPage !== 'home') {
+        e.preventDefault();
+        window.location.hash = 'home';
+      }
+    } else if (currentPage === 'track-order' && href !== '#track-order') {
+      e.preventDefault();
+      window.location.hash = href;
+    }
+  };
+
+  const handleLogoClick = (e) => {
+    if (currentPage !== 'home') {
+      e.preventDefault();
+      window.location.hash = 'home';
+    }
+  };
+
   return (
     <>
       <header className={`loom-header ${isScrolled ? 'loom-header--scrolled' : ''}`}>
-        <Container>
+        <Container fluid>
           <div className="loom-header__nav-container">
             {/* Official LOOMSHINE Logo */}
-            <a href="#" className="loom-brand" aria-label="LOOMSHINE Home">
+            <a
+              href="#home"
+              className="loom-brand"
+              aria-label="LOOMSHINE Home"
+              onClick={handleLogoClick}
+            >
               <img
                 src="/logoloom.png"
                 alt="LOOMSHINE Dry Cleaning & Laundry"
@@ -43,13 +68,22 @@ export const Header = ({ onOpenAuth }) => {
             {/* Desktop Navigation */}
             <nav aria-label="Primary navigation">
               <ul className="loom-nav-list">
-                {NAV_LINKS.map((link) => (
-                  <li key={link.name}>
-                    <a href={link.href} className="loom-nav-link">
-                      {link.name}
-                    </a>
-                  </li>
-                ))}
+                {NAV_LINKS.map((link) => {
+                  const isTrackActive = currentPage === 'track-order' && link.href === '#track-order';
+                  const isHomeActive = currentPage === 'home' && link.href === '#home';
+                  const isActive = isTrackActive || isHomeActive;
+                  return (
+                    <li key={link.name}>
+                      <a
+                        href={link.href}
+                        className={`loom-nav-link ${isActive ? 'loom-nav-link--active' : ''}`}
+                        onClick={(e) => handleNavClick(e, link.href)}
+                      >
+                        {link.name}
+                      </a>
+                    </li>
+                  );
+                })}
               </ul>
             </nav>
 

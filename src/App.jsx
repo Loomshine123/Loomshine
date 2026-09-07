@@ -1,34 +1,32 @@
 import { useState, useEffect } from 'react';
 import Header from './components/navigation/Header';
-import HeroSection from './sections/HeroSection';
-import ServicesSection from './sections/ServicesSection';
-import HowItWorksSection from './sections/HowItWorksSection';
-import BrandPromiseSection from './sections/BrandPromiseSection';
-import FabricCareSection from './sections/FabricCareSection';
-import PricingSection from './sections/PricingSection';
-import OrderTrackingSection from './sections/OrderTrackingSection';
-import TestimonialsSection from './sections/TestimonialsSection';
-import BusinessServicesSection from './sections/BusinessServicesSection';
-import FinalCTASection from './sections/FinalCTASection';
-import LocationMapSection from './sections/LocationMapSection';
 import Footer from './components/navigation/Footer';
+import HomePage from './pages/HomePage';
+import TrackOrderPage from './pages/TrackOrderPage';
 import AuthPage from './pages/AuthPage';
 import './App.css';
 
+function getPageFromHash(hash) {
+  if (hash.startsWith('#track-order') || hash.startsWith('#track')) {
+    return 'track-order';
+  }
+  if (hash.startsWith('#login')) {
+    return 'login';
+  }
+  if (hash.startsWith('#signup')) {
+    return 'signup';
+  }
+  return 'home';
+}
+
 function App() {
-  const [view, setView] = useState(() => {
-    const hash = window.location.hash;
-    if (hash === '#login') return 'login';
-    if (hash === '#signup') return 'signup';
-    return 'landing';
-  });
+  const [page, setPage] = useState(() => getPageFromHash(window.location.hash));
 
   useEffect(() => {
     const handleHashChange = () => {
-      const hash = window.location.hash;
-      if (hash === '#login') setView('login');
-      else if (hash === '#signup') setView('signup');
-      else if (hash === '' || hash === '#home') setView('landing');
+      const currentPage = getPageFromHash(window.location.hash);
+      setPage(currentPage);
+      window.scrollTo(0, 0);
     };
 
     window.addEventListener('hashchange', handleHashChange);
@@ -36,36 +34,25 @@ function App() {
   }, []);
 
   const openAuth = (mode) => {
-    setView(mode);
+    setPage(mode);
     window.location.hash = mode;
   };
 
   const backToHome = () => {
-    setView('landing');
-    if (window.location.hash === '#login' || window.location.hash === '#signup') {
-      window.history.pushState('', document.title, window.location.pathname + window.location.search);
-    }
+    setPage('home');
+    window.location.hash = 'home';
+    window.history.pushState('', document.title, window.location.pathname);
   };
 
-  if (view === 'login' || view === 'signup') {
-    return <AuthPage initialMode={view} onBackToHome={backToHome} />;
+  if (page === 'login' || page === 'signup') {
+    return <AuthPage initialMode={page} onBackToHome={backToHome} />;
   }
 
   return (
     <div className="loom-app">
-      <Header onOpenAuth={openAuth} />
+      <Header onOpenAuth={openAuth} currentPage={page} />
       <main>
-        <HeroSection />
-        <ServicesSection />
-        <HowItWorksSection />
-        <BrandPromiseSection />
-        <FabricCareSection />
-        <PricingSection />
-        <OrderTrackingSection />
-        <TestimonialsSection />
-        <BusinessServicesSection />
-        <FinalCTASection />
-        <LocationMapSection />
+        {page === 'track-order' ? <TrackOrderPage /> : <HomePage />}
       </main>
       <Footer />
     </div>
