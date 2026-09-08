@@ -1,0 +1,718 @@
+/* =========================================
+   SERVICE DETAIL PAGE
+========================================= */
+
+.service-detail-page {
+  width: 100%;
+  background: #f7f5f1;
+  color: #1b2b3e;
+  overflow-x: hidden;
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.service-detail-hero {
+  padding: 100px 6% 110px;
+  background: #f7f5f1;
+}
+
+.service-detail-container {
+  max-width: 1500px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 100px;
+
+  align-items: center;
+}
+
+
+/* =========================================
+   IMAGE
+========================================= */
+
+.service-image-column {
+  width: 100%;
+}
+
+.service-image-wrapper {
+  width: 100%;
+  position: relative;
+
+  min-height: 560px;
+
+  overflow: hidden;
+
+  background: #e9e5df;
+}
+
+.service-main-image {
+  width: 100%;
+  height: 560px;
+
+  display: block;
+
+  object-fit: cover;
+
+  transition: transform 0.7s ease;
+}
+
+.service-image-wrapper:hover .service-main-image {
+  transform: scale(1.04);
+}
+
+.service-image-number {
+  position: absolute;
+
+  left: 0;
+  bottom: 0;
+
+  background: #f7f5f1;
+
+  color: #a47c36;
+
+  padding: 18px 25px;
+
+  font-size: 12px;
+
+  letter-spacing: 4px;
+
+  font-weight: 600;
+}
+
+
+/* =========================================
+   CONTENT
+========================================= */
+
+.service-content-column {
+  max-width: 650px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: flex-start;
+}
+
+.service-detail-eyebrow {
+  color: #9f7b42;
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  letter-spacing: 5px;
+
+  margin-bottom: 25px;
+}
+
+.service-detail-title {
+  font-size: clamp(48px, 5vw, 82px);
+
+  line-height: 0.98;
+
+  letter-spacing: -2px;
+
+  margin: 0 0 30px;
+
+  color: #1b2b3e;
+
+  font-weight: 700;
+}
+
+.service-detail-short-description {
+  font-size: 21px;
+
+  line-height: 1.65;
+
+  color: #536273;
+
+  max-width: 620px;
+
+  margin: 0 0 42px;
+}
+
+
+/* =========================================
+   PRICE
+========================================= */
+
+.service-price-section {
+  width: 100%;
+
+  padding: 25px 0;
+
+  border-top: 1px solid #d9d5cf;
+  border-bottom: 1px solid #d9d5cf;
+
+  margin-bottom: 35px;
+}
+
+.service-price-label {
+  display: block;
+
+  font-size: 10px;
+
+  letter-spacing: 5px;
+
+  color: #8c96a0;
+
+  margin-bottom: 12px;
+}
+
+.service-price-row {
+  display: flex;
+
+  align-items: baseline;
+
+  gap: 18px;
+}
+
+.service-price-row strong {
+  font-size: 42px;
+
+  color: #1b2b3e;
+
+  font-weight: 700;
+}
+
+.service-price-row span {
+  font-size: 15px;
+
+  letter-spacing: 2px;
+
+  color: #6e7780;
+}
+
+
+/* =========================================
+   FEATURES
+========================================= */
+
+.service-detail-features {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 16px;
+
+  margin-bottom: 42px;
+}
+
+.service-detail-feature {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  font-size: 11px;
+
+  letter-spacing: 2.5px;
+
+  color: #4f5d6d;
+
+  font-weight: 600;
+}
+
+.feature-line {
+  color: #a47c36;
+
+  font-size: 18px;
+}
+
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.service-action-buttons {
+  display: flex;
+
+  align-items: center;
+
+  gap: 15px;
+
+  flex-wrap: wrap;
+}
+
+.add-to-cart-btn {
+  min-width: 190px;
+
+  padding: 18px 28px;
+
+  border: 1px solid #1b2b3e;
+
+  background: transparent;
+
+  color: #1b2b3e;
+
+  font-size: 12px;
+
+  letter-spacing: 1.8px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+}
+
+.add-to-cart-btn:hover {
+  background: #1b2b3e;
+
+  color: #ffffff;
+}
+
+.book-pickup-btn {
+  min-width: 210px;
+
+  padding: 19px 28px;
+
+  background: #b18a45;
+
+  color: #ffffff;
+
+  text-decoration: none;
+
+  font-size: 12px;
+
+  letter-spacing: 1.8px;
+
+  font-weight: 600;
+
+  text-align: center;
+
+  transition: all 0.3s ease;
+}
+
+.book-pickup-btn:hover {
+  background: #92702f;
+
+  transform: translateY(-2px);
+}
+.view-catalogue-btn {
+  padding: 15px 24px;
+
+  border: 1px solid #172a40;
+
+  background: transparent;
+
+  color: #172a40;
+
+  font-size: 0.75rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.12em;
+
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+}
+
+
+.view-catalogue-btn:hover {
+  background: #172a40;
+
+  color: #ffffff;
+
+  transform: translateY(-2px);
+}
+
+/* =========================================
+   ABOUT
+========================================= */
+
+.service-about-section {
+  padding: 110px 6%;
+
+  background: #ffffff;
+
+  border-top: 1px solid #e7e3dd;
+}
+
+.service-about-container {
+  max-width: 1400px;
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns: 220px 1fr;
+
+  gap: 70px;
+}
+
+.service-about-number {
+  color: #a47c36;
+
+  font-size: 11px;
+
+  letter-spacing: 5px;
+
+  font-weight: 600;
+
+  padding-top: 15px;
+}
+
+.service-about-eyebrow {
+  color: #a47c36;
+
+  font-size: 10px;
+
+  letter-spacing: 5px;
+
+  font-weight: 600;
+
+  display: block;
+
+  margin-bottom: 20px;
+}
+
+.service-about-content h2 {
+  margin: 0 0 25px;
+
+  font-size: clamp(35px, 4vw, 58px);
+
+  color: #1b2b3e;
+}
+
+.service-about-content p {
+  max-width: 1100px;
+
+  font-size: 20px;
+
+  line-height: 1.8;
+
+  color: #566473;
+
+  margin: 0;
+}
+
+
+/* =========================================
+   BENEFITS
+========================================= */
+
+.service-benefits-section {
+  padding: 110px 6%;
+
+  background: #102035;
+
+  color: white;
+}
+
+.service-benefits-container {
+  max-width: 1400px;
+
+  margin: 0 auto;
+}
+
+.service-benefits-header {
+  margin-bottom: 70px;
+}
+
+.service-benefits-header span {
+  color: #b18a45;
+
+  font-size: 10px;
+
+  letter-spacing: 5px;
+
+  font-weight: 600;
+}
+
+.service-benefits-header h2 {
+  margin: 25px 0 0;
+
+  font-size: clamp(40px, 5vw, 70px);
+
+  line-height: 1.05;
+
+  color: #f7f5f1;
+}
+
+.service-benefits-grid {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  border-left: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.service-benefit-card {
+  min-height: 270px;
+
+  padding: 38px;
+
+  border-right: 1px solid rgba(255, 255, 255, 0.15);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.service-benefit-card span {
+  color: #b18a45;
+
+  font-size: 12px;
+
+  letter-spacing: 3px;
+}
+
+.service-benefit-card h3 {
+  margin: 40px 0 18px;
+
+  font-size: 17px;
+
+  letter-spacing: 1px;
+}
+
+.service-benefit-card p {
+  color: #aeb8c3;
+
+  font-size: 15px;
+
+  line-height: 1.7;
+
+  margin: 0;
+}
+
+
+/* =========================================
+   BOTTOM CTA
+========================================= */
+
+.service-bottom-cta {
+  padding: 120px 6%;
+
+  background: #b18a45;
+
+  text-align: center;
+}
+
+.service-bottom-cta-content {
+  max-width: 900px;
+
+  margin: 0 auto;
+}
+
+.service-bottom-cta-content span {
+  display: block;
+
+  font-size: 10px;
+
+  letter-spacing: 5px;
+
+  color: #f7f5f1;
+
+  margin-bottom: 25px;
+}
+
+.service-bottom-cta-content h2 {
+  color: #ffffff;
+
+  font-size: clamp(42px, 6vw, 78px);
+
+  line-height: 1.05;
+
+  margin: 0 0 45px;
+}
+
+.service-bottom-cta-content a {
+  display: inline-block;
+
+  padding: 19px 35px;
+
+  background: #102035;
+
+  color: white;
+
+  text-decoration: none;
+
+  font-size: 12px;
+
+  letter-spacing: 2px;
+
+  transition: all 0.3s ease;
+}
+
+.service-bottom-cta-content a:hover {
+  transform: translateY(-3px);
+
+  background: #1b2b3e;
+}
+
+
+/* =========================================
+   NOT FOUND
+========================================= */
+
+.service-not-found {
+  min-height: 70vh;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 25px;
+}
+
+.service-not-found a {
+  color: #1b2b3e;
+
+  text-decoration: none;
+
+  border-bottom: 1px solid #1b2b3e;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1100px) {
+
+  .service-detail-container {
+    gap: 60px;
+  }
+
+  .service-image-wrapper,
+  .service-main-image {
+    min-height: 480px;
+    height: 480px;
+  }
+
+  .service-detail-short-description {
+    font-size: 18px;
+  }
+
+  .service-benefits-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+
+  .service-detail-hero {
+    padding: 60px 22px 75px;
+  }
+
+  .service-detail-container {
+    grid-template-columns: 1fr;
+
+    gap: 45px;
+  }
+
+
+  /* IMAGE STAYS FIRST */
+
+  .service-image-column {
+    order: 1;
+  }
+
+  .service-content-column {
+    order: 2;
+  }
+
+  .service-image-wrapper,
+  .service-main-image {
+    min-height: 360px;
+    height: 360px;
+  }
+
+  .service-detail-eyebrow {
+    font-size: 9px;
+
+    letter-spacing: 3px;
+  }
+
+  .service-detail-title {
+    font-size: 48px;
+  }
+
+  .service-detail-short-description {
+    font-size: 17px;
+
+    line-height: 1.65;
+  }
+
+  .service-price-row strong {
+    font-size: 38px;
+  }
+
+  .service-action-buttons {
+    width: 100%;
+
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+  .add-to-cart-btn,
+  .book-pickup-btn {
+    width: 100%;
+  }
+
+
+  /* ABOUT */
+
+  .service-about-section {
+    padding: 75px 22px;
+  }
+
+  .service-about-container {
+    grid-template-columns: 1fr;
+
+    gap: 25px;
+  }
+
+  .service-about-content h2 {
+    font-size: 38px;
+  }
+
+  .service-about-content p {
+    font-size: 17px;
+
+    line-height: 1.75;
+  }
+
+
+  /* BENEFITS */
+
+  .service-benefits-section {
+    padding: 75px 22px;
+  }
+
+  .service-benefits-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-benefit-card {
+    min-height: auto;
+
+    padding: 32px 25px;
+  }
+
+
+  /* CTA */
+
+  .service-bottom-cta {
+    padding: 90px 22px;
+  }
+
+}
