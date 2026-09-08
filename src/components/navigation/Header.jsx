@@ -3,9 +3,9 @@ import Container from '../common/Container';
 import Button from '../common/Button';
 import MobileMenu from './MobileMenu';
 import './Header.css';
+import ServiceDropdown from './ServiceDropdown';
 
 const NAV_LINKS = [
-  { name: 'Services', href: '#services' },
   { name: 'How It Works', href: '#how-it-works' },
   { name: 'Pricing', href: '#pricing' },
   { name: 'About', href: '#about' },
@@ -43,6 +43,9 @@ export const Header = ({ onOpenAuth }) => {
             {/* Desktop Navigation */}
             <nav aria-label="Primary navigation">
               <ul className="loom-nav-list">
+                <li>
+                  <ServiceDropdown />
+                </li>
                 {NAV_LINKS.map((link) => (
                   <li key={link.name}>
                     <a href={link.href} className="loom-nav-link">
