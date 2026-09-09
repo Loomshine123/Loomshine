@@ -15,7 +15,7 @@ const ServiceHero = ({ service }) => {
             <span className="unit">{service.unit}</span>
           </div>
 
-          <a href="#signup" className="service-cta">BOOK A PICKUP</a>
+          <a href="#/contact" className="service-cta">BOOK A PICKUP</a>
         </div>
 
         <div className="service-hero__right">

@@ -39,7 +39,7 @@ export const HeroSection = () => {
               </p>
 
               <div className="loom-hero__cta-group">
-                <Button href="#book-pickup" variant="dark" size="lg">
+                <Button href="#/contact" variant="dark" size="lg">
                   Book a Pickup +
                 </Button>
                <button onClick={() => window.location.hash = "services"}>
@@ -112,10 +112,10 @@ export const HeroSection = () => {
               <span className="loom-trust-item__icon">+</span>
               <span>Quality Checked</span>
             </div>
-            <div className="loom-trust-item">
+            <a href="#/track-order" className="loom-trust-item" style={{ textDecoration: 'none' }}>
               <span className="loom-trust-item__icon">+</span>
               <span>Order Tracking</span>
-            </div>
+            </a>
           </div>
         </Container>
       </div>

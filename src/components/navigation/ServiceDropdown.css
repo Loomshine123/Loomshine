@@ -30,31 +30,30 @@
 .service-dropdown__item {
   display: flex;
   justify-content: space-between;
-  gap: 12px;
-  padding: 8px 10px;
+  align-items: center;
+  padding: 10px 14px;
   text-decoration: none;
   color: var(--color-navy);
   border-radius: 4px;
+  transition: all 0.2s ease;
 }
 
 .service-dropdown__item:hover {
   background: var(--color-accent-soft, #f7f5ef);
+  color: var(--color-blue-primary, #1e4a7a);
+  padding-left: 18px;
 }
 
 .service-dropdown__item-left {
   display: flex;
-  gap: 12px;
   align-items: center;
-}
-
-.sd-number {
-  font-weight: 700;
-  color: var(--color-muted, #5a6e85);
-  width: 36px;
 }
 
 .sd-name {
   font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
 .sd-price {

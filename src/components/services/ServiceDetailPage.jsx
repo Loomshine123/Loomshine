@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import services from "../../data/servicesData";
+import Button from "../common/Button";
 import "../services/ServiceDetailPage.css";
 
-export default function ServiceDetail() {
+export default function ServiceDetail({ slug: propSlug }) {
   const getSlugFromHash = () => {
     const hash = window.location.hash;
 
@@ -13,7 +14,13 @@ export default function ServiceDetail() {
     return parts[parts.length - 1];
   };
 
-  const [slug, setSlug] = useState(getSlugFromHash());
+  const [slug, setSlug] = useState(propSlug || getSlugFromHash());
+
+  useEffect(() => {
+    if (propSlug) {
+      setSlug(propSlug);
+    }
+  }, [propSlug]);
 
   useEffect(() => {
     const handleHashChange = () => {
@@ -147,24 +154,17 @@ export default function ServiceDetail() {
               >
                 ADD TO CART
               </button>
-
-              <a
-                href="#/book-pickup"
-                className="book-pickup-btn"
-              >
-                BOOK A PICKUP →
+              <a href="#/contact" className="book-pickup-btn">
+                BOOK A PICKUP
               </a>
-              {slug === "dry-cleaning" && (
-  <button
-    className="view-catalogue-btn"
-    onClick={() => {
-      window.location.hash =
-        "#/services/dry-cleaning/catalogue";
-    }}
-  >
-    VIEW PRICE LIST
-  </button>
-)}
+              <button
+                className="view-catalogue-btn"
+                onClick={() => {
+                  window.location.hash = `#/pricing?service=${slug}`;
+                }}
+              >
+                VIEW PRICE LIST
+              </button>
 
             </div>
 
@@ -315,9 +315,9 @@ export default function ServiceDetail() {
             THE CARE THEY DESERVE.
           </h2>
 
-          <a href="#/book-pickup">
-            BOOK A PICKUP →
-          </a>
+          <Button href="#/contact" variant="dark" size="lg">
+            Book a Pickup +
+          </Button>
 
         </div>
 
