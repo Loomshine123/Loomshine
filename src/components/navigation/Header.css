@@ -196,3 +196,19 @@
 .loom-hamburger--active .loom-hamburger__line:nth-child(3) {
   transform: translateY(-7px) rotate(-45deg);
 }
+
+/* Mobile Open Header state */
+.loom-header--mobile-open {
+  background-color: #071A33 !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
+}
+
+.loom-header--mobile-open .loom-brand__logo {
+  mix-blend-mode: normal !important;
+  filter: brightness(0) invert(1) !important;
+}
+
+.loom-header--mobile-open .loom-hamburger__line {
+  background-color: #FFFFFF !important;
+}
+

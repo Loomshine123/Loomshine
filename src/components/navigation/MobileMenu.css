@@ -2,15 +2,15 @@
   position: fixed;
   inset: 0;
   z-index: 999;
-  background-color: rgba(4, 16, 33, 0.95);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background-color: #071A33;
   display: flex;
   flex-direction: column;
-  padding: calc(var(--header-height) + var(--space-4)) var(--space-4) var(--space-8);
+  padding: calc(var(--header-height, 72px) + 24px) 24px 36px;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease, visibility 0.3s ease;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .loom-mobile-overlay--open {
@@ -21,35 +21,83 @@
 .loom-mobile-nav {
   display: flex;
   flex-direction: column;
-  gap: var(--space-3);
+  gap: var(--space-3, 16px);
   list-style: none;
-  margin: auto 0;
+  margin: 0 0 auto 0;
   padding: 0;
+  width: 100%;
 }
 
 .loom-mobile-nav__item {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  padding-bottom: var(--space-2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  padding-bottom: 4px;
+  width: 100%;
 }
 
 .loom-mobile-nav__link {
-  font-family: var(--font-serif);
-  font-size: var(--fs-2xl);
-  color: var(--color-white);
+  font-family: var(--font-serif, 'Cormorant Garamond', Georgia, serif);
+  font-size: clamp(1.4rem, 5vw, 1.8rem);
+  color: #FFFFFF;
   text-decoration: none;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  transition: color var(--transition-fast);
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: 12px 0;
+  margin: 0;
+  text-align: left;
+  cursor: pointer;
+  transition: color var(--transition-fast, 0.2s ease);
+  box-sizing: border-box;
 }
 
 .loom-mobile-nav__link:hover {
-  color: var(--color-accent-gold);
+  color: var(--color-accent-gold, #C5A059);
+}
+
+.loom-mobile-nav__icon {
+  font-size: 20px;
+  color: #C5A059;
+  font-family: monospace, sans-serif;
+  line-height: 1;
+  font-weight: 600;
+  flex-shrink: 0;
+  margin-left: 12px;
+}
+
+.loom-mobile-submenu {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 8px 0 14px 16px;
+  border-left: 2px solid rgba(197, 160, 89, 0.4);
+  margin-top: 4px;
+  margin-bottom: 8px;
+}
+
+.loom-mobile-submenu__link {
+  font-family: var(--font-sans, 'Inter', sans-serif);
+  font-size: 15px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  padding: 4px 0;
+  transition: color var(--transition-fast, 0.2s ease);
+}
+
+.loom-mobile-submenu__link:hover {
+  color: var(--color-accent-gold, #C5A059);
 }
 
 .loom-mobile-actions {
   display: flex;
   flex-direction: column;
-  gap: var(--space-2);
-  margin-top: var(--space-6);
+  gap: 12px;
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  width: 100%;
 }
+

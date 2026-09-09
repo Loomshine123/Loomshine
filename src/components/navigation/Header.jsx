@@ -26,6 +26,17 @@ export const Header = ({ onOpenAuth, currentPage }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileOpen]);
+
   const handleNavClick = (e, href) => {
     if (href === '#home') {
       if (currentPage !== 'home') {
@@ -51,7 +62,8 @@ export const Header = ({ onOpenAuth, currentPage }) => {
 
   return (
     <>
-      <header className={`loom-header ${isScrolled ? 'loom-header--scrolled' : ''}`}>
+      <header className={`loom-header ${isScrolled ? 'loom-header--scrolled' : ''} ${mobileOpen ? 'loom-header--mobile-open' : ''}`}>
+
         <Container fluid>
           <div className="loom-header__nav-container">
             {/* Official LOOMSHINE Logo */}

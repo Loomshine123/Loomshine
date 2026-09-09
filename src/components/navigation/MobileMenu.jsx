@@ -7,16 +7,20 @@ export const MobileMenu = ({ isOpen, onClose, navLinks, onOpenAuth }) => {
   const [servicesOpen, setServicesOpen] = useState(false);
 
   return (
-    <div className={`loom-mobile-overlay ${isOpen ? 'loom-mobile-overlay--open' : ''}`}>
-      <nav className="loom-mobile-nav">
+    <div
+      className={`loom-mobile-overlay ${isOpen ? 'loom-mobile-overlay--open' : ''}`}
+      aria-hidden={!isOpen}
+    >
+      <nav className="loom-mobile-nav" aria-label="Mobile navigation">
         <div className="loom-mobile-nav__item">
           <button
-            className="loom-mobile-nav__link"
+            type="button"
+            className="loom-mobile-nav__link loom-mobile-nav__btn"
             onClick={() => setServicesOpen((s) => !s)}
             aria-expanded={servicesOpen}
           >
             <span>Services</span>
-            <span style={{ fontSize: '18px', color: '#C5A059' }}>{servicesOpen ? '−' : '+'}</span>
+            <span className="loom-mobile-nav__icon">{servicesOpen ? '−' : '+'}</span>
           </button>
 
           {servicesOpen && (
@@ -43,7 +47,7 @@ export const MobileMenu = ({ isOpen, onClose, navLinks, onOpenAuth }) => {
               onClick={onClose}
             >
               <span>{link.name}</span>
-              <span style={{ fontSize: '18px', color: '#C5A059' }}>+</span>
+              <span className="loom-mobile-nav__icon">+</span>
             </a>
           </div>
         ))}
@@ -52,7 +56,7 @@ export const MobileMenu = ({ isOpen, onClose, navLinks, onOpenAuth }) => {
       <div className="loom-mobile-actions">
         <Button
           href="#/contact"
-          variant="dark"
+          variant="primary"
           size="lg"
           fullWidth
           onClick={onClose}
@@ -80,3 +84,4 @@ export const MobileMenu = ({ isOpen, onClose, navLinks, onOpenAuth }) => {
 };
 
 export default MobileMenu;
+
