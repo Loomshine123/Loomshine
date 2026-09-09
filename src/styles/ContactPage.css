@@ -4,16 +4,18 @@
   min-height: 100vh;
 }
 
-
-/* CONTAINER */
+/* ==========================================================================
+   CONTAINER
+   ========================================================================== */
 
 .contact-container {
   width: min(1380px, calc(100% - 80px));
   margin: 0 auto;
 }
 
-
-/* HERO */
+/* ==========================================================================
+   HERO
+   ========================================================================== */
 
 .contact-hero {
   padding: 110px 0 80px;
@@ -48,8 +50,9 @@
   line-height: 1.7;
 }
 
-
-/* FORM SECTION */
+/* ==========================================================================
+   FORM SECTION & LAYOUT
+   ========================================================================== */
 
 .contact-form-section {
   padding: 100px 0;
@@ -62,67 +65,68 @@
   align-items: start;
 }
 
-
-/* LEFT CONTENT */
+/* LEFT: INFO */
 
 .contact-section-label {
-  color: #9d7c42;
-  font-size: 0.75rem;
+  display: block;
+  margin-bottom: 20px;
+  color: #a68147;
+  font-size: 0.72rem;
   font-weight: 700;
-  letter-spacing: 4px;
+  letter-spacing: 3px;
 }
 
 .contact-info h2 {
-  margin: 20px 0;
-  font-size: clamp(2.5rem, 4vw, 4.5rem);
-  line-height: 1;
-  letter-spacing: -2px;
+  margin: 0 0 30px;
+  color: #1e3045;
+  font-size: clamp(2.5rem, 4vw, 3.8rem);
+  line-height: 1.05;
+  letter-spacing: -1.5px;
 }
 
 .contact-info > p {
-  max-width: 430px;
-  color: #687483;
+  max-width: 420px;
+  margin: 0 0 60px;
+  color: #667280;
   font-size: 1.05rem;
-  line-height: 1.7;
+  line-height: 1.8;
 }
 
-
-/* BENEFITS */
-
 .contact-benefits {
-  margin-top: 50px;
-  border-top: 1px solid #d7d2c9;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 }
 
 .contact-benefit {
-  display: grid;
-  grid-template-columns: 45px 1fr;
-  gap: 20px;
-  padding: 25px 0;
-  border-bottom: 1px solid #d7d2c9;
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
 }
 
 .contact-benefit > span {
-  color: #b18b4f;
-  font-size: 0.85rem;
+  color: #c3a267;
+  font-size: 0.95rem;
   font-weight: 700;
+  letter-spacing: 2px;
 }
 
 .contact-benefit h3 {
   margin: 0 0 8px;
-  font-size: 0.9rem;
-  letter-spacing: 2px;
+  font-size: 0.95rem;
+  letter-spacing: 1.5px;
 }
 
 .contact-benefit p {
   margin: 0;
-  color: #78818c;
-  font-size: 0.92rem;
+  color: #667280;
+  font-size: 0.95rem;
   line-height: 1.6;
 }
 
-
-/* FORM */
+/* ==========================================================================
+   RIGHT: FORM STYLES
+   ========================================================================== */
 
 .pickup-form {
   padding: 50px;
@@ -132,7 +136,7 @@
 }
 
 .form-header {
-  margin-bottom: 40px;
+  margin-bottom: 36px;
 }
 
 .form-header span {
@@ -148,64 +152,63 @@
   letter-spacing: -1px;
 }
 
-
 .form-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
+  gap: 22px;
 }
 
+.form-row-spacing {
+  margin-top: 22px;
+}
 
 .form-group {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
+  position: relative;
 }
 
 .form-group-full {
   margin-top: 24px;
 }
 
-
 .form-group label {
   color: #566170;
   font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 1.5px;
+  text-transform: uppercase;
 }
 
+.label-helper-text {
+  color: #929da8;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: normal;
+  text-transform: none;
+}
 
 .form-group input,
 .form-group select,
 .form-group textarea {
   width: 100%;
   box-sizing: border-box;
-
-  padding: 16px;
-
+  padding: 14px 16px;
   border: 1px solid #dedbd5;
   border-radius: 2px;
-
   background: #faf9f7;
-
   color: #1e3045;
-
   font-family: inherit;
   font-size: 0.95rem;
-
   outline: none;
-
-  transition:
-    border-color 0.2s ease,
-    background 0.2s ease;
+  transition: border-color 0.2s ease, background 0.2s ease;
 }
-
 
 .form-group textarea {
-  min-height: 110px;
+  min-height: 95px;
   resize: vertical;
 }
-
 
 .form-group input:focus,
 .form-group select:focus,
@@ -214,32 +217,476 @@
   background: #ffffff;
 }
 
+/* ==========================================================================
+   MULTI-SELECT DROPDOWN
+   ========================================================================== */
 
-.submit-pickup-btn {
+.multi-select-group {
+  position: relative;
+}
+
+.multi-select-trigger {
   width: 100%;
+  box-sizing: border-box;
+  min-height: 52px;
+  padding: 8px 14px;
+  border: 1px solid #dedbd5;
+  border-radius: 2px;
+  background: #faf9f7;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
 
-  margin-top: 30px;
-  padding: 18px 24px;
+.multi-select-trigger:hover,
+.multi-select-trigger--open {
+  border-color: #b58d4e;
+  background: #ffffff;
+}
 
+.multi-select-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.multi-select-placeholder {
+  color: #8c98a5;
+  font-size: 0.92rem;
+}
+
+.service-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #1e344e;
+  color: #ffffff;
+  padding: 4px 10px;
+  border-radius: 3px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  animation: chipFadeIn 0.2s ease;
+}
+
+@keyframes chipFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.chip-remove-btn {
+  background: transparent;
   border: none;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 11px;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  transition: color 0.2s ease;
+}
 
+.chip-remove-btn:hover {
+  color: #ffffff;
+}
+
+.multi-select-arrow {
+  color: #667280;
+  font-size: 10px;
+  flex-shrink: 0;
+}
+
+/* DROPDOWN MENU */
+.multi-select-menu {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  border: 1px solid #dedbd5;
+  box-shadow: 0 12px 32px rgba(30, 48, 69, 0.12);
+  border-radius: 4px;
+  z-index: 100;
+  padding: 10px;
+  animation: menuDrop 0.2s ease;
+}
+
+@keyframes menuDrop {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.multi-select-menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 8px 10px;
+  border-bottom: 1px solid #f0ede6;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #8c98a5;
+}
+
+.multi-select-clear-btn {
+  background: transparent;
+  border: none;
+  color: #a68147;
+  cursor: pointer;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0;
+}
+
+.multi-select-clear-btn:hover {
+  text-decoration: underline;
+}
+
+.multi-select-options-list {
+  max-height: 240px;
+  overflow-y: auto;
+  padding-top: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.multi-select-option {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 8px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+  user-select: none;
+}
 
+.multi-select-option:hover {
+  background: #f7f5f0;
+}
+
+.multi-select-option--selected {
+  background: #f1ebd9;
+}
+
+.multi-select-option input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  margin-right: 10px;
+  accent-color: #1e344e;
+  cursor: pointer;
+  padding: 0;
+}
+
+.option-text {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.option-name {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #1e3045;
+}
+
+.option-rate {
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: #a68147;
+}
+
+.option-check-icon {
+  color: #1e344e;
+  font-weight: 800;
+  margin-left: 8px;
+  font-size: 13px;
+}
+
+/* ==========================================================================
+   ADDRESS & LIVE LOCATION PIN SECTION
+   ========================================================================== */
+
+.address-section-wrapper {
+  margin-top: 28px;
+  border-top: 1px solid #e8e4dc;
+  padding-top: 24px;
+}
+
+.address-section-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.address-title-box {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.address-main-label {
+  color: #566170;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.address-sublabel {
+  color: #8c98a5;
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+
+/* LIVE PIN ACTION BUTTON */
+.live-pin-action-btn {
+  background: #f8f6f0;
+  border: 1.5px solid #a68147;
+  color: #1e344e;
+  padding: 10px 18px;
+  border-radius: 3px;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.live-pin-action-btn:hover {
   background: #1e344e;
   color: #ffffff;
+  border-color: #1e344e;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(30, 52, 78, 0.15);
+}
 
-  font-family: inherit;
+.live-pin-action-btn--loading {
+  opacity: 0.75;
+  cursor: wait;
+}
+
+.live-pin-icon {
+  font-size: 15px;
+}
+
+/* LOCATION ALERTS */
+.location-alert-box {
+  padding: 12px 16px;
+  border-radius: 3px;
+  font-size: 0.82rem;
+  margin-bottom: 16px;
+}
+
+.location-alert-box--error {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #991b1b;
+}
+
+/* PINNED LOCATION CARD */
+.pinned-location-card {
+  background: #f7fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  padding: 18px;
+  margin-bottom: 22px;
+  animation: cardIn 0.3s ease;
+}
+
+@keyframes cardIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.pinned-location-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.pinned-status-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.74rem;
+  letter-spacing: 1px;
+  color: #1e344e;
+}
+
+.pinned-pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10b981;
+  display: inline-block;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.25);
+  animation: pulseGreen 1.8s infinite;
+}
+
+@keyframes pulseGreen {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.3);
+    opacity: 0.7;
+  }
+}
+
+.pinned-accuracy-tag {
+  background: #e2e8f0;
+  color: #475569;
+  padding: 2px 6px;
+  border-radius: 2px;
+  font-size: 0.68rem;
+  font-weight: 700;
+}
+
+.clear-pin-text-btn {
+  background: transparent;
+  border: none;
+  color: #dc2626;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0;
+}
+
+.clear-pin-text-btn:hover {
+  text-decoration: underline;
+}
+
+.pinned-address-desc {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #1e3045;
+  margin: 0 0 8px;
+  line-height: 1.5;
+}
+
+.pinned-meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  font-size: 0.76rem;
+  color: #64748b;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.pinned-coords {
+  font-family: monospace;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.pinned-guide {
+  color: #047857;
+  font-weight: 600;
+}
+
+.pinned-map-frame {
+  width: 100%;
+  height: 160px;
+  border-radius: 3px;
+  overflow: hidden;
+  border: 1px solid #cbd5e1;
+}
+
+.pinned-map-frame iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+/* MANUAL ADDRESS FIELDS */
+.manual-address-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 24px;
+  border-top: 1px solid #e8e4dc;
+  padding-top: 20px;
+}
+
+.manual-address-header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 16px;
+}
+
+.manual-address-header-tag {
+  color: #a68147;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.manual-address-header-desc {
+  color: #667280;
   font-size: 0.8rem;
+}
+
+/* ==========================================================================
+   SUBMIT BUTTON
+   ========================================================================== */
+
+.submit-pickup-btn {
+  width: 100%;
+  margin-top: 30px;
+  padding: 18px 24px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #1e344e;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 0.82rem;
   font-weight: 700;
   letter-spacing: 2px;
-
   cursor: pointer;
-
-  transition:
-    background 0.2s ease,
-    transform 0.2s ease;
+  transition: background 0.2s ease, transform 0.2s ease;
 }
 
 .submit-pickup-btn:hover {
@@ -248,32 +695,29 @@
 }
 
 .submit-pickup-btn span {
-  font-size: 1.3rem;
+  font-size: 1.1rem;
 }
 
+/* ==========================================================================
+   RESPONSIVE BREAKPOINTS
+   ========================================================================== */
 
 /* TABLET */
-
 @media (max-width: 1000px) {
-
   .contact-layout {
     grid-template-columns: 1fr;
     gap: 60px;
   }
-
 }
 
-
 /* MOBILE */
-
 @media (max-width: 700px) {
-
   .contact-container {
-    width: min(100% - 40px, 1380px);
+    width: min(100% - 32px, 1380px);
   }
 
   .contact-hero {
-    padding: 80px 0 60px;
+    padding: 70px 0 50px;
   }
 
   .contact-eyebrow {
@@ -282,19 +726,25 @@
   }
 
   .contact-form-section {
-    padding: 60px 0;
+    padding: 50px 0;
   }
 
   .pickup-form {
-    padding: 28px 20px;
+    padding: 28px 18px;
   }
 
   .form-grid {
     grid-template-columns: 1fr;
+    gap: 18px;
   }
 
-  .form-group-full {
-    margin-top: 24px;
+  .address-section-top {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
+  .live-pin-action-btn {
+    width: 100%;
+    justify-content: center;
+  }
 }

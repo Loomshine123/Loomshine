@@ -1,6 +1,7 @@
 import Container from '../components/common/Container';
 import SectionHeading from '../components/common/SectionHeading';
 import Image from '../components/common/Image';
+import laundryServiceImage from '../assets/laundry-service-clean.jpg';
 import './BrandPromiseSection.css';
 
 const PILLARS = [
@@ -30,8 +31,8 @@ export const BrandPromiseSection = () => {
           {/* Left Photograph */}
           <div className="loom-promise__media">
             <Image
-              src="https://images.unsplash.com/photo-1545173168-9f1947eebb7f?auto=format&fit=crop&w=1000&q=80"
-              alt="Wrapped garment delivery and doorstep handling"
+              src={laundryServiceImage}
+              alt="Professional laundry care and doorstep handling"
               aspectRatio="4-5"
               hoverZoom
             />
