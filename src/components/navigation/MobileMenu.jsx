@@ -51,17 +51,11 @@ export const MobileMenu = ({ isOpen, onClose, navLinks, onOpenAuth }) => {
 
       <div className="loom-mobile-actions">
         <Button
-          href="#signup"
+          href="#/contact"
           variant="dark"
           size="lg"
           fullWidth
-          onClick={(e) => {
-            onClose();
-            if (onOpenAuth) {
-              e.preventDefault();
-              onOpenAuth('signup');
-            }
-          }}
+          onClick={onClose}
         >
           Book a Pickup
         </Button>

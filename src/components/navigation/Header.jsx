@@ -7,10 +7,10 @@ import './Header.css';
 
 const NAV_LINKS = [
   { name: 'How It Works', href: '#how-it-works' },
-  { name: 'Pricing', href: '#pricing' },
+  { name: 'Pricing', href: '#/pricing' },
   { name: 'About', href: '#about' },
   { name: 'Business', href: '#business' },
-  { name: 'Track Order', href: '#track-order' }
+  { name: 'Track Order', href: '#/track-order' }
 ];
 
 export const Header = ({ onOpenAuth, currentPage }) => {
@@ -32,7 +32,11 @@ export const Header = ({ onOpenAuth, currentPage }) => {
         e.preventDefault();
         window.location.hash = 'home';
       }
-    } else if (currentPage === 'track-order' && href !== '#track-order') {
+    } else if (
+      currentPage === 'track-order' &&
+      href !== '#track-order' &&
+      href !== '#/track-order'
+    ) {
       e.preventDefault();
       window.location.hash = href;
     }
@@ -80,12 +84,15 @@ export const Header = ({ onOpenAuth, currentPage }) => {
                   <ServiceDropdown />
                 </li>
                 {NAV_LINKS.map((link) => {
-                  const isTrackActive = currentPage === 'track-order' && link.href === '#track-order';
+                  const isLinkActive =
+                    (currentPage === 'track-order' &&
+                      (link.href === '#/track-order' || link.href === '#track-order')) ||
+                    (currentPage === 'pricing' && link.href === '#/pricing');
                   return (
                     <li key={link.name}>
                       <a
                         href={link.href}
-                        className={`loom-nav-link ${isTrackActive ? 'loom-nav-link--active' : ''}`}
+                        className={`loom-nav-link ${isLinkActive ? 'loom-nav-link--active' : ''}`}
                         onClick={(e) => handleNavClick(e, link.href)}
                       >
                         {link.name}
@@ -111,15 +118,9 @@ export const Header = ({ onOpenAuth, currentPage }) => {
                 Login
               </a>
               <Button
-                href="#signup"
+                href="#/contact"
                 variant="primary"
                 size="sm"
-                onClick={(e) => {
-                  if (onOpenAuth) {
-                    e.preventDefault();
-                    onOpenAuth('signup');
-                  }
-                }}
               >
                 Book a Pickup
               </Button>

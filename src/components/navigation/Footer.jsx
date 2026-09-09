@@ -38,9 +38,9 @@ export const Footer = () => {
             <ul className="loom-footer-col__list">
               <li><a href="#about" className="loom-footer-col__link">About Us</a></li>
               <li><a href="#how-it-works" className="loom-footer-col__link">How It Works</a></li>
-              <li><a href="#pricing" className="loom-footer-col__link">Pricing Rates</a></li>
+              <li><a href="#/pricing" className="loom-footer-col__link">Pricing Rates</a></li>
               <li><a href="#business" className="loom-footer-col__link">Business B2B</a></li>
-              <li><a href="#contact" className="loom-footer-col__link">Contact</a></li>
+              <li><a href="#/contact" className="loom-footer-col__link">Contact</a></li>
             </ul>
           </div>
 
@@ -49,7 +49,7 @@ export const Footer = () => {
             <h4 className="loom-footer-col__title">Support</h4>
             <ul className="loom-footer-col__list">
               <li><a href="#faqs" className="loom-footer-col__link">FAQs</a></li>
-              <li><a href="#track-order" className="loom-footer-col__link">Track Order</a></li>
+              <li><a href="#/track-order" className="loom-footer-col__link">Track Order</a></li>
               <li><a href="#fabrics" className="loom-footer-col__link">Care Guide</a></li>
               <li><a href="#help" className="loom-footer-col__link">Help Center</a></li>
             </ul>
