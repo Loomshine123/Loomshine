@@ -16,7 +16,7 @@ import menGownImage from "../assets/dry-cleaning/men/gown.png";
 import menPulloverImage from "../assets/dry-cleaning/men/pullover.png";
 import menHalfSweaterImage from "../assets/dry-cleaning/men/half-sweater.png";
 import menTieImage from "../assets/dry-cleaning/men/tie.webp";
-import menSherwaniImage from "../assets/dry-cleaning/men/sherwani.avif";
+import menSherwaniImage from "../assets/dry-cleaning/men/Sherwani.avif";
 import menTshirtImage from "../assets/dry-cleaning/men/tshirt.png";
 import menShawlImage from "../assets/dry-cleaning/men/shawl.png";
 import menPashminaShawlImage from "../assets/dry-cleaning/men/pashmina-shawl.png";
