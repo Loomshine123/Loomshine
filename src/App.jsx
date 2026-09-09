@@ -118,7 +118,8 @@ function App() {
 
   // Open Login / Signup
   const openAuth = (mode) => {
-    window.location.hash = `#${mode}`;
+    setPage(mode);
+    window.location.hash = mode;
   };
 
 
@@ -184,20 +185,10 @@ function App() {
   // HOMEPAGE
   return (
     <div className="loom-app">
-      <Header onOpenAuth={openAuth} />
+      <Header onOpenAuth={openAuth} currentPage={page} />
 
       <main>
-        <HeroSection />
-        <ServicesSection />
-        <HowItWorksSection />
-        <BrandPromiseSection />
-        <FabricCareSection />
-        <PricingSection />
-        <OrderTrackingSection />
-        <TestimonialsSection />
-        <BusinessServicesSection />
-        <FinalCTASection />
-        <LocationMapSection />
+        {page === 'track-order' ? <TrackOrderPage /> : <HomePage />}
       </main>
 
       <Footer />
