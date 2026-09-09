@@ -1,0 +1,813 @@
+/* ==========================================================================
+   PRICING PAGE STYLES - LOOMSHINE LUXURY GARMENT CARE
+   ========================================================================== */
+
+.loom-pricing-page {
+  background-color: #F8F7F3;
+  color: #071A33;
+  min-height: 100vh;
+}
+
+/* HERO SECTION */
+.pricing-hero {
+  background: linear-gradient(135deg, #102E54 0%, #0B2240 50%, #071A33 100%);
+  color: #FFFFFF;
+  padding: 100px 0 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.pricing-hero__eyebrow {
+  color: #C5A059;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.28em;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+
+.pricing-hero__headline {
+  font-family: var(--font-sans, "Plus Jakarta Sans", sans-serif);
+  font-size: clamp(2.4rem, 4.5vw, 4rem);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  line-height: 1.05;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.pricing-hero__headline span {
+  display: block;
+}
+
+.pricing-hero__headline-accent {
+  color: #2F6DB5;
+}
+
+.pricing-hero__subtext {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 16px;
+  line-height: 1.6;
+  max-width: 640px;
+  margin-bottom: 36px;
+}
+
+.pricing-hero__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding-top: 24px;
+}
+
+.pricing-hero__badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.06);
+  padding: 8px 16px;
+  border-radius: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.pricing-hero__badge .badge-icon {
+  color: #C5A059;
+  font-size: 14px;
+}
+
+/* SERVICE SELECTOR TABS */
+.pricing-service-selector-section {
+  padding: 40px 0 20px;
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #E5E9EE;
+}
+
+.pricing-selector-header {
+  margin-bottom: 24px;
+}
+
+.pricing-selector-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  color: #5A6E85;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.pricing-selector-title {
+  font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+  font-weight: 800;
+  color: #071A33;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.pricing-services-nav {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 14px;
+}
+
+.pricing-service-tab {
+  background: #F8F7F3;
+  border: 1.5px solid #E5E9EE;
+  border-radius: 8px;
+  padding: 16px 18px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.pricing-service-tab:hover {
+  background: #FFFFFF;
+  border-color: #C5A059;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(7, 26, 51, 0.06);
+}
+
+.pricing-service-tab--active {
+  background: #071A33 !important;
+  color: #FFFFFF !important;
+  border-color: #071A33 !important;
+  box-shadow: 0 10px 24px rgba(7, 26, 51, 0.16);
+}
+
+.pricing-service-tab__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pricing-service-tab__badge {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #C5A059;
+}
+
+.pricing-service-tab--active .pricing-service-tab__badge {
+  color: #D4B06A;
+}
+
+.pricing-service-tab__arrow {
+  font-size: 14px;
+  color: #5A6E85;
+  transition: transform 0.2s ease;
+}
+
+.pricing-service-tab--active .pricing-service-tab__arrow {
+  color: #C5A059;
+  transform: translateX(4px);
+}
+
+.pricing-service-tab__name {
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  margin: 0;
+  color: #071A33;
+}
+
+.pricing-service-tab--active .pricing-service-tab__name {
+  color: #FFFFFF;
+}
+
+.pricing-service-tab__subtitle {
+  font-size: 12px;
+  color: #5A6E85;
+}
+
+.pricing-service-tab--active .pricing-service-tab__subtitle {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* CONTENT SECTION */
+.pricing-content-section {
+  padding: 48px 0 80px;
+}
+
+.service-price-block {
+  animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.service-price-block__header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  border-bottom: 2px solid #071A33;
+  padding-bottom: 24px;
+  margin-bottom: 32px;
+}
+
+.section-pretitle {
+  display: block;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.24em;
+  color: #C5A059;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.service-price-block__title {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 800;
+  color: #071A33;
+  letter-spacing: -0.01em;
+  margin: 0 0 8px;
+  text-transform: uppercase;
+}
+
+.service-price-block__desc {
+  font-size: 14px;
+  color: #5A6E85;
+  max-width: 580px;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* SUBNAV ROW (CATEGORY BUTTONS + SEARCH) */
+.pricing-subnav-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.pricing-category-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pricing-category-btn {
+  background: #FFFFFF;
+  border: 1px solid #D9E1E8;
+  border-radius: 4px;
+  padding: 10px 18px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: #071A33;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pricing-category-btn:hover {
+  border-color: #071A33;
+  background: #F4F8FA;
+}
+
+.pricing-category-btn--active {
+  background: #071A33 !important;
+  color: #FFFFFF !important;
+  border-color: #071A33 !important;
+}
+
+.pricing-search-box {
+  position: relative;
+  min-width: 280px;
+  max-width: 360px;
+  width: 100%;
+}
+
+.pricing-search-input {
+  width: 100%;
+  padding: 10px 36px 10px 14px;
+  border: 1px solid #D9E1E8;
+  border-radius: 4px;
+  background: #FFFFFF;
+  font-size: 13px;
+  color: #071A33;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.pricing-search-input:focus {
+  border-color: #2F6DB5;
+}
+
+.pricing-search-clear {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: #5A6E85;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+/* DRY CLEANING PRODUCTS GRID */
+.pricing-products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 22px;
+}
+
+.pricing-product-card {
+  background: #FFFFFF;
+  border: 1px solid #E5E9EE;
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pricing-product-card:hover {
+  transform: translateY(-3px);
+  border-color: #C5A059;
+  box-shadow: 0 12px 28px rgba(7, 26, 51, 0.08);
+}
+
+.pricing-product-card__image-box {
+  position: relative;
+  background: #0E223D;
+  height: 220px;
+  overflow: hidden;
+}
+
+.pricing-product-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.pricing-product-card:hover .pricing-product-card__img {
+  transform: scale(1.04);
+}
+
+.pricing-product-card__cat-tag {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(7, 26, 51, 0.82);
+  backdrop-filter: blur(4px);
+  color: #FFFFFF;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 4px 8px;
+  border-radius: 2px;
+}
+
+.pricing-product-card__body {
+  padding: 16px 18px 18px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.pricing-product-card__title {
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: #071A33;
+  margin: 0 0 6px;
+}
+
+.pricing-product-card__desc {
+  font-size: 12px;
+  color: #5A6E85;
+  line-height: 1.5;
+  margin: 0 0 16px;
+  flex-grow: 1;
+}
+
+.pricing-product-card__footer {
+  border-top: 1px solid #F0F3F6;
+  padding-top: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pricing-product-card__pricing {
+  display: flex;
+  flex-direction: column;
+}
+
+.price-tag-label {
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  color: #5A6E85;
+}
+
+.price-tag-amount {
+  font-size: 18px;
+  font-weight: 800;
+  color: #071A33;
+}
+
+.price-tag-unit {
+  font-size: 10px;
+  color: #5A6E85;
+  text-transform: lowercase;
+}
+
+/* STEAM PRESS ITEMS GRID */
+.steam-press-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 16px;
+}
+
+.steam-press-item-card {
+  background: #FFFFFF;
+  border: 1px solid #E5E9EE;
+  border-radius: 6px;
+  padding: 18px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  transition: all 0.2s ease;
+}
+
+.steam-press-item-card:hover {
+  border-color: #071A33;
+  box-shadow: 0 6px 16px rgba(7, 26, 51, 0.05);
+}
+
+.steam-press-item-card__main {
+  flex-grow: 1;
+}
+
+.steam-press-item-name {
+  font-size: 15px;
+  font-weight: 800;
+  color: #071A33;
+  margin: 0 0 4px;
+}
+
+.steam-press-item-desc {
+  font-size: 12px;
+  color: #5A6E85;
+  margin: 0 0 8px;
+  line-height: 1.4;
+}
+
+.steam-press-item-meta {
+  display: flex;
+  gap: 12px;
+  font-size: 11px;
+  color: #5A6E85;
+}
+
+.steam-press-turnaround {
+  color: #102E54;
+  font-weight: 600;
+}
+
+.steam-press-item-card__price-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  min-width: 80px;
+}
+
+.steam-press-rate {
+  font-size: 20px;
+  font-weight: 800;
+  color: #071A33;
+}
+
+/* PER-KG LAUNDRY OVERVIEW */
+.kg-pricing-overview {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.kg-pricing-banner {
+  background: #FFFFFF;
+  border: 2px solid #071A33;
+  border-radius: 8px;
+  padding: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  box-shadow: 0 8px 24px rgba(7, 26, 51, 0.05);
+}
+
+.kg-pricing-banner--iron {
+  border-color: #2F6DB5;
+}
+
+.kg-pricing-banner__cost {
+  display: flex;
+  align-items: baseline;
+  color: #071A33;
+}
+
+.kg-currency {
+  font-size: 28px;
+  font-weight: 800;
+  color: #C5A059;
+}
+
+.kg-number {
+  font-size: 54px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.kg-unit {
+  font-size: 18px;
+  font-weight: 700;
+  color: #5A6E85;
+  margin-left: 6px;
+}
+
+.kg-pricing-banner__info {
+  flex-grow: 1;
+}
+
+.kg-pricing-banner__info h3 {
+  font-size: 20px;
+  font-weight: 800;
+  margin: 0 0 6px;
+  color: #071A33;
+}
+
+.kg-pricing-banner__info p {
+  font-size: 14px;
+  color: #5A6E85;
+  margin: 0 0 10px;
+}
+
+.kg-highlight-pill {
+  display: inline-block;
+  background: #EAF2F7;
+  color: #102E54;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+.laundry-breakdown-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.laundry-feature-box {
+  background: #FFFFFF;
+  border: 1px solid #E5E9EE;
+  border-radius: 6px;
+  padding: 24px;
+}
+
+.laundry-feature-icon {
+  font-size: 20px;
+  color: #C5A059;
+  margin-bottom: 12px;
+}
+
+.laundry-feature-box h4 {
+  font-size: 16px;
+  font-weight: 800;
+  color: #071A33;
+  margin: 0 0 14px;
+  letter-spacing: 0.02em;
+}
+
+.laundry-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.laundry-list li {
+  font-size: 13px;
+  color: #5A6E85;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  line-height: 1.45;
+}
+
+.laundry-list li::before {
+  content: "•";
+  color: #C5A059;
+  font-size: 16px;
+}
+
+/* SHOE CLEANING GRID */
+.shoe-pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.shoe-card {
+  background: #FFFFFF;
+  border: 1px solid #E5E9EE;
+  border-radius: 6px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.25s ease;
+}
+
+.shoe-card:hover {
+  border-color: #071A33;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(7, 26, 51, 0.06);
+}
+
+.shoe-card__header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: #5A6E85;
+  margin-bottom: 8px;
+}
+
+.shoe-card__turnaround {
+  color: #102E54;
+  font-weight: 700;
+}
+
+.shoe-card__title {
+  font-size: 16px;
+  font-weight: 800;
+  color: #071A33;
+  margin: 0 0 8px;
+}
+
+.shoe-card__desc {
+  font-size: 13px;
+  color: #5A6E85;
+  line-height: 1.5;
+  margin: 0 0 20px;
+  flex-grow: 1;
+}
+
+.shoe-card__footer {
+  border-top: 1px solid #F0F3F6;
+  padding-top: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.shoe-card__price-label {
+  display: block;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  color: #5A6E85;
+}
+
+.shoe-card__price-val {
+  font-size: 20px;
+  font-weight: 800;
+  color: #071A33;
+}
+
+/* EMPTY STATE */
+.pricing-empty-state {
+  text-align: center;
+  padding: 48px 24px;
+  background: #FFFFFF;
+  border: 1px dashed #D9E1E8;
+  border-radius: 6px;
+}
+
+.pricing-empty-state p {
+  font-size: 15px;
+  color: #5A6E85;
+  margin-bottom: 12px;
+}
+
+/* BOTTOM HELP BANNER */
+.pricing-help-strip {
+  background: #071A33;
+  color: #FFFFFF;
+  padding: 60px 0;
+}
+
+.pricing-help-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 28px;
+}
+
+.pricing-help-left h3 {
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  font-weight: 800;
+  margin: 0 0 8px;
+  color: #FFFFFF;
+}
+
+.pricing-help-left p {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 580px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.pricing-help-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+/* RESPONSIVE BREAKPOINTS */
+@media (max-width: 768px) {
+  .pricing-hero {
+    padding: 60px 0 40px;
+  }
+
+  .pricing-services-nav {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .pricing-service-tab {
+    padding: 12px 14px;
+  }
+
+  .service-price-block__header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .pricing-subnav-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .pricing-search-box {
+    max-width: 100%;
+  }
+
+  .kg-pricing-banner {
+    padding: 20px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .pricing-services-nav {
+    grid-template-columns: 1fr;
+  }
+
+  .pricing-category-tabs {
+    width: 100%;
+  }
+
+  .pricing-category-btn {
+    flex: 1;
+    text-align: center;
+  }
+
+  .pricing-products-grid {
+    grid-template-columns: 1fr;
+  }
+}

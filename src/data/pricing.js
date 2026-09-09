@@ -10,6 +10,7 @@ export const pricingData = {
       unit: 'per kg',
       turnaround: '24-48 Hours',
       popular: true,
+      serviceSlug: 'wash-fold',
       items: []
     },
     {
@@ -19,6 +20,7 @@ export const pricingData = {
       unit: 'per garment',
       turnaround: '48-72 Hours',
       popular: false,
+      serviceSlug: 'dry-cleaning',
       items: []
     },
     {
@@ -28,6 +30,7 @@ export const pricingData = {
       unit: 'per garment',
       turnaround: '24 Hours',
       popular: false,
+      serviceSlug: 'steam-press',
       items: []
     },
     {
@@ -37,6 +40,7 @@ export const pricingData = {
       unit: 'per item',
       turnaround: '3-5 Days',
       popular: false,
+      serviceSlug: 'shoe-cleaning',
       items: []
     }
   ]
