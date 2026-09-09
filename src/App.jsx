@@ -1,58 +1,107 @@
-import { useState, useEffect } from 'react';
-import Header from './components/navigation/Header';
-import Footer from './components/navigation/Footer';
-import HomePage from './pages/HomePage';
-import TrackOrderPage from './pages/TrackOrderPage';
-import AuthPage from './pages/AuthPage';
-import './App.css';
+import { useState, useEffect } from "react";
+import Header from "./components/navigation/Header";
+import Footer from "./components/navigation/Footer";
+import HomePage from "./pages/HomePage";
+import TrackOrderPage from "./pages/TrackOrderPage";
+import AuthPage from "./pages/AuthPage";
+import Services from "./pages/Services";
+import ServiceDetailPage from "./components/services/ServiceDetailPage";
+import DryCleaningCatalogue from "./pages/DryCleaningCatalogue";
+import "./App.css";
 
-function getPageFromHash(hash) {
-  if (hash.startsWith('#track-order') || hash.startsWith('#track')) {
-    return 'track-order';
+function getRouteFromHash(hashStr) {
+  const hash = hashStr || window.location.hash || "";
+
+  if (hash === "#login" || hash.startsWith("#login")) {
+    return { page: "login" };
   }
-  if (hash.startsWith('#login')) {
-    return 'login';
+  if (hash === "#signup" || hash.startsWith("#signup")) {
+    return { page: "signup" };
   }
-  if (hash.startsWith('#signup')) {
-    return 'signup';
+  if (hash.startsWith("#track-order") || hash.startsWith("#track")) {
+    return { page: "track-order" };
   }
-  return 'home';
+  if (hash === "#/services" || hash === "#services") {
+    return { page: "services" };
+  }
+  // IMPORTANT: Dry Cleaning Catalogue route must come BEFORE generic #/services/:slug route
+  if (hash === "#/services/dry-cleaning/catalogue") {
+    return { page: "dryCleaningCatalogue" };
+  }
+  if (hash.startsWith("#/services/")) {
+    return {
+      page: "serviceDetail",
+      slug: hash.replace("#/services/", ""),
+    };
+  }
+  return { page: "home" };
 }
 
 function App() {
-  const [page, setPage] = useState(() => getPageFromHash(window.location.hash));
+  const [route, setRoute] = useState(() => getRouteFromHash(window.location.hash));
 
   useEffect(() => {
     const handleHashChange = () => {
-      const currentPage = getPageFromHash(window.location.hash);
-      setPage(currentPage);
-      window.scrollTo(0, 0);
+      setRoute(getRouteFromHash(window.location.hash));
     };
 
-    window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
+    window.addEventListener("hashchange", handleHashChange);
+    return () => {
+      window.removeEventListener("hashchange", handleHashChange);
+    };
   }, []);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [route.page, route.slug]);
+
   const openAuth = (mode) => {
-    setPage(mode);
-    window.location.hash = mode;
+    window.location.hash = `#${mode}`;
   };
 
   const backToHome = () => {
-    setPage('home');
-    window.location.hash = 'home';
-    window.history.pushState('', document.title, window.location.pathname);
+    window.location.hash = "#home";
   };
 
-  if (page === 'login' || page === 'signup') {
-    return <AuthPage initialMode={page} onBackToHome={backToHome} />;
+  if (route.page === "login" || route.page === "signup") {
+    return <AuthPage initialMode={route.page} onBackToHome={backToHome} />;
+  }
+
+  if (route.page === "services") {
+    return (
+      <>
+        <Header onOpenAuth={openAuth} currentPage={route.page} />
+        <Services />
+        <Footer />
+      </>
+    );
+  }
+
+  if (route.page === "dryCleaningCatalogue") {
+    return (
+      <>
+        <Header onOpenAuth={openAuth} currentPage={route.page} />
+        <DryCleaningCatalogue />
+        <Footer />
+      </>
+    );
+  }
+
+  if (route.page === "serviceDetail") {
+    return (
+      <>
+        <Header onOpenAuth={openAuth} currentPage={route.page} />
+        <ServiceDetailPage slug={route.slug} />
+        <Footer />
+      </>
+    );
   }
 
   return (
     <div className="loom-app">
-      <Header onOpenAuth={openAuth} currentPage={page} />
+      <Header onOpenAuth={openAuth} currentPage={route.page} />
       <main>
-        {page === 'track-order' ? <TrackOrderPage /> : <HomePage />}
+        {route.page === "track-order" ? <TrackOrderPage /> : <HomePage />}
       </main>
       <Footer />
     </div>

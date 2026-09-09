@@ -188,3 +188,25 @@ a {
   background-color: var(--color-navy);
   color: var(--color-text-inverse);
 }
+/* SERVICES PAGE SCROLL OVERRIDE */
+
+html:has(.services-page) {
+  overflow-y: auto;
+}
+
+body:has(.services-page) {
+  display: block !important;
+  min-height: 100vh;
+  height: auto !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  align-items: initial !important;
+  justify-content: initial !important;
+}
+
+#root:has(.services-page) {
+  display: block !important;
+  width: 100%;
+  height: auto !important;
+  min-height: 100vh;
+}
