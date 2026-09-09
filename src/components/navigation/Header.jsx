@@ -2,11 +2,10 @@ import { useState, useEffect } from 'react';
 import Container from '../common/Container';
 import Button from '../common/Button';
 import MobileMenu from './MobileMenu';
-import './Header.css';
 import ServiceDropdown from './ServiceDropdown';
+import './Header.css';
 
 const NAV_LINKS = [
-  { name: 'Home', href: '#home' },
   { name: 'How It Works', href: '#how-it-works' },
   { name: 'Pricing', href: '#pricing' },
   { name: 'About', href: '#about' },
@@ -69,17 +68,24 @@ export const Header = ({ onOpenAuth, currentPage }) => {
             <nav aria-label="Primary navigation">
               <ul className="loom-nav-list">
                 <li>
+                  <a
+                    href="#home"
+                    className={`loom-nav-link ${currentPage === 'home' ? 'loom-nav-link--active' : ''}`}
+                    onClick={(e) => handleNavClick(e, '#home')}
+                  >
+                    Home
+                  </a>
+                </li>
+                <li>
                   <ServiceDropdown />
                 </li>
                 {NAV_LINKS.map((link) => {
                   const isTrackActive = currentPage === 'track-order' && link.href === '#track-order';
-                  const isHomeActive = currentPage === 'home' && link.href === '#home';
-                  const isActive = isTrackActive || isHomeActive;
                   return (
                     <li key={link.name}>
                       <a
                         href={link.href}
-                        className={`loom-nav-link ${isActive ? 'loom-nav-link--active' : ''}`}
+                        className={`loom-nav-link ${isTrackActive ? 'loom-nav-link--active' : ''}`}
                         onClick={(e) => handleNavClick(e, link.href)}
                       >
                         {link.name}
