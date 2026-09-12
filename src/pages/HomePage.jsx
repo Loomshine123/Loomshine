@@ -1,5 +1,6 @@
 import HeroSection from '../sections/HeroSection';
 import ServicesSection from '../sections/ServicesSection';
+import FeaturedProductsSection from '../sections/FeaturedProductsSection';
 import HowItWorksSection from '../sections/HowItWorksSection';
 import BrandPromiseSection from '../sections/BrandPromiseSection';
 import FabricCareSection from '../sections/FabricCareSection';
@@ -14,6 +15,7 @@ export const HomePage = () => {
     <>
       <HeroSection />
       <ServicesSection />
+      <FeaturedProductsSection />
       <HowItWorksSection />
       <BrandPromiseSection />
       <FabricCareSection />
