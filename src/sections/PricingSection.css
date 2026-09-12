@@ -36,6 +36,8 @@
   padding: 20px 8px;
   border-bottom: 1px solid var(--color-border-light);
   transition: background-color var(--transition-fast);
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .loom-price-row:last-child {
@@ -79,9 +81,17 @@
 
   .loom-price-row {
     padding: 16px 4px;
+    grid-template-columns: 1.2fr 0.9fr 1.4fr;
+    gap: 8px;
   }
 
   .loom-price-row__service {
-    font-size: 15px;
+    font-size: 14px;
+  }
+
+  .loom-price-row__value {
+    font-size: 14px;
+    white-space: nowrap;
   }
 }
+

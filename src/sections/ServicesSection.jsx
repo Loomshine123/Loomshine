@@ -1,10 +1,14 @@
+import { useState } from 'react';
 import Container from '../components/common/Container';
 import SectionHeading from '../components/common/SectionHeading';
 import ServiceCard from '../components/services/ServiceCard';
+import ServiceDetailModal from '../components/services/ServiceDetailModal';
 import { servicesData } from '../data/services';
 import './ServicesSection.css';
 
 export const ServicesSection = () => {
+  const [selectedService, setSelectedService] = useState(null);
+
   return (
     <section className="section loom-services-section" id="services">
       <Container>
@@ -26,10 +30,18 @@ export const ServicesSection = () => {
               description={service.description}
               image={service.image}
               priceStarting={service.priceStarting}
+              onClick={() => setSelectedService(service)}
             />
           ))}
         </div>
       </Container>
+
+      {/* SERVICE DETAIL MODAL (PICTURE + SMALL DESCRIPTION) */}
+      <ServiceDetailModal
+        service={selectedService}
+        isOpen={Boolean(selectedService)}
+        onClose={() => setSelectedService(null)}
+      />
     </section>
   );
 };

@@ -1,0 +1,533 @@
+/* ==========================================================================
+   LOCATION PICKER STYLES (LOOMSHINE LUXURY EDITORIAL PALETTE)
+   ========================================================================== */
+
+.location-picker-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+/* ==========================================================================
+   TOOLBAR (GPS DETECT + SEARCH AREA)
+   ========================================================================== */
+
+.location-picker-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.gps-detect-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 18px;
+  background: #1e344e;
+  color: #ffffff;
+  border: 1px solid #1e344e;
+  border-radius: 2px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px rgba(30, 52, 78, 0.15);
+}
+
+.gps-detect-btn:hover:not(:disabled) {
+  background: #a68147;
+  border-color: #a68147;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(166, 129, 71, 0.25);
+}
+
+.gps-detect-btn:disabled {
+  opacity: 0.7;
+  cursor: wait;
+}
+
+.gps-detect-btn--loading {
+  background: #2b4563;
+}
+
+.gps-btn-icon {
+  font-size: 1rem;
+}
+
+.toolbar-divider-label {
+  color: #8c98a5;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  user-select: none;
+}
+
+/* ==========================================================================
+   SEARCH BOX & AUTOCOMPLETE DROPDOWN
+   ========================================================================== */
+
+.location-search-box {
+  position: relative;
+  flex-grow: 1;
+  min-width: 260px;
+}
+
+.search-form-wrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  position: relative;
+}
+
+.location-search-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 11px 85px 11px 14px;
+  background: #faf9f7;
+  border: 1px solid #dedbd5;
+  border-radius: 2px;
+  font-size: 0.88rem;
+  color: #1e3045;
+  outline: none;
+  font-family: inherit;
+  transition: all 0.2s ease;
+}
+
+.location-search-input:focus {
+  background: #ffffff;
+  border-color: #b58d4e;
+  box-shadow: 0 0 0 3px rgba(181, 141, 78, 0.12);
+}
+
+.location-search-btn {
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #eef2f6;
+  color: #1e344e;
+  border: 1px solid #d3dbe3;
+  border-radius: 2px;
+  padding: 6px 12px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.location-search-btn:hover:not(:disabled) {
+  background: #1e344e;
+  color: #ffffff;
+  border-color: #1e344e;
+}
+
+.location-search-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* SEARCH SUGGESTIONS DROPDOWN */
+
+.search-results-dropdown {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  border: 1px solid #dedbd5;
+  box-shadow: 0 12px 30px rgba(30, 48, 69, 0.16);
+  border-radius: 3px;
+  list-style: none;
+  padding: 6px 0;
+  margin: 0;
+  z-index: 1000;
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+.search-result-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 14px;
+  cursor: pointer;
+  border-bottom: 1px solid #f4f1ea;
+  transition: background 0.15s ease;
+}
+
+.search-result-item:last-child {
+  border-bottom: none;
+}
+
+.search-result-item:hover {
+  background: #fbf8f2;
+}
+
+.result-pin-icon {
+  font-size: 1rem;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.result-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.result-title {
+  font-size: 0.88rem;
+  color: #1e344e;
+  font-weight: 600;
+}
+
+.result-subtitle {
+  font-size: 0.74rem;
+  color: #6c7a89;
+  line-height: 1.4;
+}
+
+/* ==========================================================================
+   STATUS / WARNING BANNERS
+   ========================================================================== */
+
+.location-status-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 2px;
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.location-status-banner--error {
+  background: #fff2f0;
+  border: 1px solid #ffccc7;
+  color: #cf1322;
+}
+
+.location-status-banner--warning {
+  background: #fffbe6;
+  border: 1px solid #ffe58f;
+  color: #ad6800;
+}
+
+.location-status-banner--info {
+  background: #e6f7ff;
+  border: 1px solid #91d5ff;
+  color: #0050b3;
+}
+
+.location-status-banner--success {
+  background: #f6ffed;
+  border: 1px solid #b7eb8f;
+  color: #389e0d;
+}
+
+.status-banner-icon {
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.status-banner-text {
+  font-weight: 500;
+}
+
+/* DETECTED REGION STRIP */
+.detected-region-strip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding: 8px 12px;
+  background: #fdfbf7;
+  border: 1px solid #ede8de;
+  border-radius: 2px;
+  font-size: 0.76rem;
+}
+
+.detected-label {
+  color: #8c98a5;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.detected-city-badge {
+  background: #1e344e;
+  color: #ffffff;
+  padding: 3px 8px;
+  border-radius: 2px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.detected-hint {
+  color: #6c7a89;
+  font-style: italic;
+}
+
+/* ==========================================================================
+   INTERACTIVE LEAFLET MAP WRAPPER
+   ========================================================================== */
+
+.interactive-map-wrapper {
+  position: relative;
+  width: 100%;
+  border: 1px solid #dedbd5;
+  border-radius: 3px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(30, 48, 69, 0.06);
+}
+
+.map-guidance-overlay {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1e344e;
+  color: #ffffff;
+  padding: 8px 14px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+.map-guidance-overlay strong {
+  color: #c3a267;
+}
+
+.reverse-geocoding-spinner {
+  color: #c3a267;
+  font-style: italic;
+  font-size: 0.72rem;
+  animation: pulseOpacity 1s infinite alternate;
+}
+
+@keyframes pulseOpacity {
+  from {
+    opacity: 0.5;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.leaflet-map-canvas {
+  width: 100%;
+  height: 320px;
+  background: #eef2f5;
+  z-index: 10;
+}
+
+/* CUSTOM LUXURY PIN MARKER */
+
+.loomshine-map-pin {
+  background: transparent;
+  border: none;
+}
+
+.pin-marker-wrapper {
+  position: relative;
+  width: 38px;
+  height: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pin-pulse-ring {
+  position: absolute;
+  top: 4px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(195, 162, 103, 0.4);
+  animation: pulsePinRing 2s ease-out infinite;
+  z-index: 1;
+}
+
+@keyframes pulsePinRing {
+  0% {
+    transform: scale(0.7);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+.pin-marker-head {
+  position: relative;
+  width: 34px;
+  height: 34px;
+  background: #1e344e;
+  border: 2.5px solid #c3a267;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  z-index: 2;
+  cursor: grab;
+}
+
+.pin-marker-head:active {
+  cursor: grabbing;
+}
+
+.pin-svg-icon {
+  width: 18px;
+  height: 18px;
+  color: #ffffff;
+  transform: rotate(45deg);
+}
+
+.pin-needle {
+  position: absolute;
+  bottom: 0;
+  width: 4px;
+  height: 4px;
+  background: #c3a267;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+  z-index: 2;
+}
+
+/* ==========================================================================
+   PINNED LOCATION SUMMARY CARD
+   ========================================================================== */
+
+.pinned-summary-card {
+  background: #faf8f5;
+  border: 1px solid #e2ded5;
+  border-left: 4px solid #c3a267;
+  padding: 16px 20px;
+  border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pinned-summary-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pinned-summary-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.72rem;
+  letter-spacing: 1px;
+  color: #1e344e;
+}
+
+.live-pulse-dot {
+  width: 8px;
+  height: 8px;
+  background: #10b981;
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.7);
+  animation: liveDotPulse 1.8s infinite;
+}
+
+@keyframes liveDotPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.3);
+    opacity: 0.6;
+  }
+}
+
+.accuracy-pill {
+  background: #ffffff;
+  border: 1px solid #d9d4c7;
+  color: #606f7b;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.clear-location-btn {
+  background: transparent;
+  border: none;
+  color: #8c7247;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  padding: 0;
+}
+
+.clear-location-btn:hover {
+  color: #c92a2a;
+  text-decoration: underline;
+}
+
+.pinned-summary-address {
+  margin: 0;
+  color: #1e3045;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.pinned-summary-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.74rem;
+  color: #667280;
+  border-top: 1px dashed #ded8cb;
+  padding-top: 8px;
+}
+
+.meta-coords {
+  font-family: monospace;
+  color: #4a5568;
+}
+
+.meta-tip {
+  color: #2b7a4b;
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .location-picker-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .gps-detect-btn {
+    justify-content: center;
+  }
+
+  .toolbar-divider-label {
+    text-align: center;
+  }
+
+  .leaflet-map-canvas {
+    height: 280px;
+  }
+}

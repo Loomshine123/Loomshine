@@ -1,23 +1,21 @@
 import { useState } from "react";
 import dryCleaningProducts from "../data/dryCleaningProducts";
+import { useCart } from "../context/CartContext";
 import "../styles/DryCleaningCatalogue.css";
 
 export default function DryCleaningCatalogue() {
   const [selectedCategory, setSelectedCategory] = useState("Men");
+  const { addToCart } = useCart();
 
   const filteredProducts = dryCleaningProducts.filter(
     (product) => product.category === selectedCategory
   );
 
   const handleAddProduct = (product) => {
-    // Save selected product temporarily
-    sessionStorage.setItem(
-      "pendingCartProduct",
-      JSON.stringify(product)
-    );
-
-    // Redirect user to signup
-    window.location.hash = "#signup";
+    addToCart({
+      ...product,
+      service: "Dry Cleaning"
+    });
   };
 
   return (

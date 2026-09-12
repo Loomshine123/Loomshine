@@ -43,7 +43,6 @@ const ServiceDropdown = () => {
             onClick={() => setOpen(false)}
           >
             <div className="service-dropdown__item-left">
-              <div className="sd-number">{s.id}</div>
               <div className="sd-name">{s.name}</div>
             </div>
           </a>

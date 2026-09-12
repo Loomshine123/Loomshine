@@ -1,0 +1,893 @@
+/* ==========================================================================
+   ABOUT US PAGE STYLES - LOOMSHINE LUXURY GARMENT CARE
+   ========================================================================== */
+
+.about-page {
+  background-color: var(--color-off-white, #F8F7F3);
+  color: var(--color-navy, #071A33);
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* ==========================================================================
+   1. HERO SECTION
+   ========================================================================== */
+
+.about-hero {
+  background: linear-gradient(135deg, #0d2547 0%, #071A33 60%, #041122 100%);
+  color: #FFFFFF;
+  padding: 100px 0 75px;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-hero::before {
+  content: "";
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(197, 160, 89, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.about-hero__grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 56px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.about-hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-accent-gold, #C5A059);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.28em;
+  margin-bottom: 18px;
+  text-transform: uppercase;
+}
+
+.about-hero__title {
+  font-family: var(--font-sans, "Plus Jakarta Sans", sans-serif);
+  font-size: clamp(2.3rem, 4.4vw, 3.8rem);
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  line-height: 1.08;
+  margin: 0 0 18px;
+  text-transform: uppercase;
+}
+
+.about-hero__title-accent {
+  color: #2F6DB5;
+}
+
+.about-hero__subtitle {
+  font-family: var(--font-serif, "Cormorant Garamond", Georgia, serif);
+  font-size: clamp(1.25rem, 2vw, 1.65rem);
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.35;
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: 18px;
+}
+
+.about-hero__desc {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 1.05rem;
+  line-height: 1.65;
+  max-width: 620px;
+  margin: 0 0 32px;
+}
+
+.about-hero__cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+}
+
+.about-hero__media {
+  position: relative;
+}
+
+.about-hero__image-frame {
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.about-hero__img {
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.about-hero__image-frame:hover .about-hero__img {
+  transform: scale(1.02);
+}
+
+.about-hero__badge {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  right: 24px;
+  background: rgba(7, 26, 51, 0.92);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(197, 160, 89, 0.35);
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 2px;
+}
+
+.about-hero__badge-label {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-accent-gold, #C5A059);
+}
+
+.about-hero__badge-val {
+  font-size: 13px;
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: 0.05em;
+}
+
+/* ==========================================================================
+   2. STATS / HIGHLIGHTS STRIP
+   ========================================================================== */
+
+.about-stats-strip {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid rgba(7, 26, 51, 0.08);
+  padding: 36px 0;
+}
+
+.about-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.about-stat-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 8px 12px;
+  border-right: 1px solid rgba(7, 26, 51, 0.08);
+}
+
+.about-stat-card:last-child {
+  border-right: none;
+}
+
+.about-stat-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: #EAF2F7;
+  color: var(--color-navy, #071A33);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  flex-shrink: 0;
+}
+
+.about-stat-content h3 {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--color-navy, #071A33);
+  margin: 0 0 4px;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+.about-stat-content p {
+  font-size: 0.825rem;
+  font-weight: 600;
+  color: var(--color-text-secondary, #5A6E85);
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* ==========================================================================
+   3. BRAND PHILOSOPHY / INTRO STORY SECTION
+   ========================================================================== */
+
+.about-story-section {
+  padding: 90px 0;
+  background-color: var(--color-off-white, #F8F7F3);
+}
+
+.about-story-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.about-story-media {
+  position: relative;
+}
+
+.about-story-img-wrap {
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 16px 45px rgba(7, 26, 51, 0.1);
+  background-color: #FFFFFF;
+}
+
+.about-story-img {
+  width: 100%;
+  height: 460px;
+  object-fit: cover;
+  display: block;
+}
+
+.about-story-tagline-card {
+  position: absolute;
+  bottom: -24px;
+  right: -24px;
+  background-color: var(--color-navy, #071A33);
+  color: #FFFFFF;
+  padding: 24px 28px;
+  border-radius: 2px;
+  max-width: 280px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+  border-left: 3px solid var(--color-accent-gold, #C5A059);
+}
+
+.about-story-tagline-card span {
+  display: block;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  color: var(--color-accent-gold, #C5A059);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.about-story-tagline-card p {
+  font-family: var(--font-serif, "Cormorant Garamond", Georgia, serif);
+  font-size: 1.15rem;
+  font-style: italic;
+  margin: 0;
+  line-height: 1.35;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.about-story-content {
+  padding-left: 10px;
+}
+
+.about-section-eyebrow {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.26em;
+  color: var(--color-accent-gold, #C5A059);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.about-section-title {
+  font-family: var(--font-sans, "Plus Jakarta Sans", sans-serif);
+  font-size: clamp(2rem, 3.2vw, 2.75rem);
+  font-weight: 800;
+  color: var(--color-navy, #071A33);
+  line-height: 1.15;
+  margin: 0 0 20px;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+}
+
+.about-story-lead {
+  font-size: 1.15rem;
+  font-weight: 500;
+  line-height: 1.6;
+  color: var(--color-navy, #071A33);
+  margin-bottom: 18px;
+}
+
+.about-story-body {
+  font-size: 0.98rem;
+  line-height: 1.65;
+  color: var(--color-text-secondary, #5A6E85);
+  margin-bottom: 28px;
+}
+
+.about-story-checklist {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.about-story-checklist li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-navy, #071A33);
+}
+
+.about-check-icon {
+  color: var(--color-accent-gold, #C5A059);
+  font-weight: 800;
+  font-size: 1.1rem;
+}
+
+/* ==========================================================================
+   4. VISION & MISSION SECTION
+   ========================================================================== */
+
+.about-vm-section {
+  padding: 100px 0;
+  background: linear-gradient(180deg, #071A33 0%, #051329 100%);
+  color: #FFFFFF;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-vm-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 1200px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(197, 160, 89, 0.4), transparent);
+}
+
+.about-vm-header {
+  text-align: center;
+  max-width: 740px;
+  margin: 0 auto 60px;
+}
+
+.about-vm-header .about-section-eyebrow {
+  color: var(--color-accent-gold, #C5A059);
+  margin-bottom: 12px;
+}
+
+.about-vm-header .about-section-title {
+  color: #FFFFFF;
+  margin-bottom: 16px;
+}
+
+.about-vm-header-desc {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.08rem;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.about-vm-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 36px;
+}
+
+.about-vm-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  padding: 44px 38px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  backdrop-filter: blur(8px);
+}
+
+.about-vm-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
+}
+
+.about-vm-card--vision {
+  border-top: 3px solid var(--color-accent-gold, #C5A059);
+}
+
+.about-vm-card--vision:hover {
+  border-color: rgba(197, 160, 89, 0.6);
+}
+
+.about-vm-card--mission {
+  border-top: 3px solid #2F6DB5;
+}
+
+.about-vm-card--mission:hover {
+  border-color: rgba(47, 109, 181, 0.7);
+}
+
+.about-vm-card__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.about-vm-card__badge {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.about-vm-card--vision .about-vm-card__badge {
+  color: var(--color-accent-gold, #C5A059);
+  border-color: rgba(197, 160, 89, 0.3);
+}
+
+.about-vm-card--mission .about-vm-card__badge {
+  color: #7DB2F0;
+  border-color: rgba(125, 178, 240, 0.3);
+}
+
+.about-vm-card__icon {
+  font-size: 1.4rem;
+  color: var(--color-accent-gold, #C5A059);
+  line-height: 1;
+}
+
+.about-vm-card--mission .about-vm-card__icon {
+  color: #7DB2F0;
+}
+
+.about-vm-card__title {
+  font-family: var(--font-sans, "Plus Jakarta Sans", sans-serif);
+  font-size: 1.55rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.25;
+  margin: 0 0 16px;
+  letter-spacing: -0.01em;
+}
+
+.about-vm-card__text {
+  font-family: var(--font-serif, "Cormorant Garamond", Georgia, serif);
+  font-size: 1.15rem;
+  font-style: italic;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0 0 24px;
+}
+
+.about-vm-card__divider {
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  margin-bottom: 24px;
+}
+
+.about-vm-card__points {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.about-vm-card__points li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.925rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.about-vm-card__points li strong {
+  color: #FFFFFF;
+  font-weight: 700;
+}
+
+.vm-point-bullet {
+  color: var(--color-accent-gold, #C5A059);
+  font-size: 0.85rem;
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+.about-vm-card--mission .vm-point-bullet {
+  color: #7DB2F0;
+}
+
+@media (max-width: 991px) {
+  .about-vm-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .about-vm-card {
+    padding: 34px 26px;
+  }
+}
+
+@media (max-width: 767px) {
+  .about-vm-section {
+    padding: 64px 0;
+  }
+
+  .about-vm-card__title {
+    font-size: 1.35rem;
+  }
+
+  .about-vm-card__text {
+    font-size: 1.05rem;
+  }
+}
+
+/* ==========================================================================
+   5. THREE CORE PILLARS SECTION (THE 3 SPECIFIED BULLETS)
+   ========================================================================== */
+
+.about-pillars-section {
+  padding: 95px 0;
+  background-color: #FFFFFF;
+  border-top: 1px solid rgba(7, 26, 51, 0.08);
+  border-bottom: 1px solid rgba(7, 26, 51, 0.08);
+}
+
+.about-pillars-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 60px;
+}
+
+.about-pillars-header .about-section-eyebrow {
+  margin-bottom: 8px;
+}
+
+.about-pillars-header .about-section-title {
+  margin-bottom: 16px;
+}
+
+.about-pillars-header p {
+  color: var(--color-text-secondary, #5A6E85);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.about-pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.about-pillar-card {
+  background-color: var(--color-off-white, #F8F7F3);
+  border: 1px solid rgba(7, 26, 51, 0.08);
+  padding: 40px 32px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.about-pillar-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(197, 160, 89, 0.45);
+  box-shadow: 0 16px 40px rgba(7, 26, 51, 0.08);
+}
+
+.about-pillar-card__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.about-pillar-card__icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background-color: var(--color-navy, #071A33);
+  color: var(--color-accent-gold, #C5A059);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.about-pillar-card__index {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  color: var(--color-text-secondary, #5A6E85);
+  opacity: 0.7;
+}
+
+.about-pillar-card__tag {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-accent-gold, #C5A059);
+  margin-bottom: 12px;
+}
+
+.about-pillar-card__title {
+  font-family: var(--font-sans, "Plus Jakarta Sans", sans-serif);
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--color-navy, #071A33);
+  margin: 0 0 16px;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.about-pillar-card__desc {
+  font-size: 0.965rem;
+  line-height: 1.65;
+  color: var(--color-text-secondary, #5A6E85);
+  margin: 0 0 24px;
+  flex-grow: 1;
+}
+
+.about-pillar-card__features {
+  list-style: none;
+  padding: 18px 0 0;
+  margin: 0;
+  border-top: 1px solid rgba(7, 26, 51, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.about-pillar-card__features li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--color-navy, #071A33);
+}
+
+.about-pillar-card__features li span:first-child {
+  color: var(--color-accent-gold, #C5A059);
+}
+
+/* ==========================================================================
+   5. 30-MINUTE GURGAON PROMISE BANNER
+   ========================================================================== */
+
+.about-gurgaon-banner {
+  padding: 80px 0;
+  background: linear-gradient(135deg, #071A33 0%, #0F2D54 100%);
+  color: #FFFFFF;
+}
+
+.about-gurgaon-box {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(197, 160, 89, 0.25);
+  border-radius: 4px;
+  padding: 48px;
+}
+
+.about-gurgaon-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 48px;
+}
+
+.about-gurgaon-header .about-section-eyebrow {
+  color: var(--color-accent-gold, #C5A059);
+}
+
+.about-gurgaon-header h2 {
+  font-size: clamp(1.85rem, 3vw, 2.5rem);
+  font-weight: 800;
+  color: #FFFFFF;
+  margin: 0 0 14px;
+  text-transform: uppercase;
+}
+
+.about-gurgaon-header p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.about-timeline-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  position: relative;
+}
+
+.about-timeline-step {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 24px 20px;
+  border-radius: 2px;
+  text-align: center;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.about-timeline-step:hover {
+  border-color: var(--color-accent-gold, #C5A059);
+  transform: translateY(-3px);
+}
+
+.about-step-number {
+  display: block;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--color-accent-gold, #C5A059);
+  margin-bottom: 8px;
+}
+
+.about-step-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0 0 6px;
+  text-transform: uppercase;
+}
+
+.about-step-desc {
+  font-size: 0.825rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+  line-height: 1.45;
+}
+
+/* ==========================================================================
+   6. FINAL CTA STRIP
+   ========================================================================== */
+
+.about-cta-section {
+  padding: 80px 0;
+  background-color: var(--color-off-white, #F8F7F3);
+  text-align: center;
+}
+
+.about-cta-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about-cta-title {
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  font-weight: 800;
+  color: var(--color-navy, #071A33);
+  margin: 0 0 16px;
+  line-height: 1.15;
+  text-transform: uppercase;
+}
+
+.about-cta-desc {
+  font-size: 1.1rem;
+  color: var(--color-text-secondary, #5A6E85);
+  max-width: 600px;
+  margin: 0 auto 36px;
+  line-height: 1.6;
+}
+
+.about-cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* ==========================================================================
+   7. RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  .about-hero__grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .about-hero__img {
+    height: 380px;
+  }
+
+  .about-story-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .about-story-tagline-card {
+    position: relative;
+    bottom: 0;
+    right: 0;
+    max-width: 100%;
+    margin-top: 16px;
+  }
+
+  .about-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about-stat-card:nth-child(2) {
+    border-right: none;
+  }
+
+  .about-pillars-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .about-timeline-steps {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-hero {
+    padding: 70px 0 50px;
+  }
+
+  .about-story-section,
+  .about-pillars-section,
+  .about-gurgaon-banner,
+  .about-cta-section {
+    padding: 60px 0;
+  }
+
+  .about-stats-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .about-stat-card {
+    border-right: none;
+    border-bottom: 1px solid rgba(7, 26, 51, 0.08);
+    padding-bottom: 16px;
+  }
+
+  .about-stat-card:last-child {
+    border-bottom: none;
+  }
+
+  .about-gurgaon-box {
+    padding: 28px 20px;
+  }
+
+  .about-timeline-steps {
+    grid-template-columns: 1fr;
+  }
+
+  .about-hero__badge {
+    position: static;
+    margin-top: 12px;
+  }
+}

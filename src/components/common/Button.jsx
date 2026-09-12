@@ -29,7 +29,12 @@ export const Button = ({
 
   if (href && !disabled) {
     return (
-      <a href={href} className={baseClasses} {...props}>
+      <a
+        href={href}
+        className={baseClasses}
+        onClick={onClick}
+        {...props}
+      >
         {content}
       </a>
     );

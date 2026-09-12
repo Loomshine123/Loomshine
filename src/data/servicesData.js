@@ -97,8 +97,8 @@ const services = [
     id: "05",
     slug: "dry-cleaning",
     name: "DRY CLEANING",
-    price: "₹—",
-    unit: "AS PER GARMENT",
+    price: "₹100",
+    unit: "PER GARMENT",
 
     shortDescription:
       "Premium care for delicate fabrics, formal wear, couture and garments that require specialised cleaning.",

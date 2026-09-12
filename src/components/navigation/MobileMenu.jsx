@@ -1,22 +1,39 @@
-import Button from '../common/Button';
-import './MobileMenu.css';
 import { useState } from 'react';
+import Button from '../common/Button';
+import { useCart } from '../../context/CartContext';
 import services from "../../data/servicesData";
+import './MobileMenu.css';
 
-export const MobileMenu = ({ isOpen, onClose, navLinks, onOpenAuth }) => {
+export const MobileMenu = ({ isOpen, onClose, navLinks, onNavigate }) => {
   const [servicesOpen, setServicesOpen] = useState(false);
+  const { totalItems } = useCart();
+
+  const handleAction = (e, href) => {
+    if (e && e.preventDefault) e.preventDefault();
+    onClose();
+    if (onNavigate) {
+      onNavigate(href);
+    } else {
+      window.location.hash = href;
+      window.scrollTo(0, 0);
+    }
+  };
 
   return (
-    <div className={`loom-mobile-overlay ${isOpen ? 'loom-mobile-overlay--open' : ''}`}>
-      <nav className="loom-mobile-nav">
+    <div
+      className={`loom-mobile-overlay ${isOpen ? 'loom-mobile-overlay--open' : ''}`}
+      aria-hidden={!isOpen}
+    >
+      <nav className="loom-mobile-nav" aria-label="Mobile navigation">
         <div className="loom-mobile-nav__item">
           <button
-            className="loom-mobile-nav__link"
+            type="button"
+            className="loom-mobile-nav__link loom-mobile-nav__btn"
             onClick={() => setServicesOpen((s) => !s)}
             aria-expanded={servicesOpen}
           >
             <span>Services</span>
-            <span style={{ fontSize: '18px', color: '#C5A059' }}>{servicesOpen ? '−' : '+'}</span>
+            <span className="loom-mobile-nav__icon">{servicesOpen ? '−' : '+'}</span>
           </button>
 
           {servicesOpen && (
@@ -26,7 +43,7 @@ export const MobileMenu = ({ isOpen, onClose, navLinks, onOpenAuth }) => {
                   key={s.slug}
                   href={`#/services/${s.slug}`}
                   className="loom-mobile-submenu__link"
-                  onClick={onClose}
+                  onClick={(e) => handleAction(e, `#/services/${s.slug}`)}
                 >
                   {s.name}
                 </a>
@@ -40,10 +57,10 @@ export const MobileMenu = ({ isOpen, onClose, navLinks, onOpenAuth }) => {
             <a
               href={link.href}
               className="loom-mobile-nav__link"
-              onClick={onClose}
+              onClick={(e) => handleAction(e, link.href)}
             >
               <span>{link.name}</span>
-              <span style={{ fontSize: '18px', color: '#C5A059' }}>+</span>
+              <span className="loom-mobile-nav__icon">+</span>
             </a>
           </div>
         ))}
@@ -52,30 +69,21 @@ export const MobileMenu = ({ isOpen, onClose, navLinks, onOpenAuth }) => {
       <div className="loom-mobile-actions">
         <Button
           href="#book-pickup"
-          variant="dark"
+          variant="primary"
           size="lg"
           fullWidth
-          onClick={() => {
-            onClose();
-            window.location.hash = '#book-pickup';
-          }}
+          onClick={(e) => handleAction(e, '#book-pickup')}
         >
           Book a Pickup
         </Button>
         <Button
-          href="#login"
+          href="#/cart"
           variant="dark-outline"
           size="lg"
           fullWidth
-          onClick={(e) => {
-            onClose();
-            if (onOpenAuth) {
-              e.preventDefault();
-              onOpenAuth('login');
-            }
-          }}
+          onClick={(e) => handleAction(e, '#/cart')}
         >
-          Customer Login
+          View Garment Bag {totalItems > 0 ? `(${totalItems})` : ''}
         </Button>
       </div>
     </div>
@@ -83,3 +91,4 @@ export const MobileMenu = ({ isOpen, onClose, navLinks, onOpenAuth }) => {
 };
 
 export default MobileMenu;
+

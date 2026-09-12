@@ -10,18 +10,22 @@ export const PricingSection = () => {
       <Container>
         <div className="loom-pricing-header-row">
           <SectionHeading title="Professional care. Clear pricing." />
-          <Button href="#book-pickup" variant="text" size="md">
+          <Button href="#/pricing" variant="text" size="md">
             View all prices +
           </Button>
         </div>
 
         <div className="loom-pricing-table">
           {pricingData.categories.map((cat) => (
-            <div key={cat.id} className="loom-price-row">
+            <a
+              key={cat.id}
+              href={`#/pricing?service=${cat.serviceSlug || 'dry-cleaning'}`}
+              className="loom-price-row"
+            >
               <div className="loom-price-row__service">{cat.name}</div>
               <div className="loom-price-row__unit">{cat.unit}</div>
               <div className="loom-price-row__value">Starting from {cat.startingPrice}</div>
-            </div>
+            </a>
           ))}
         </div>
       </Container>

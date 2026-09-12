@@ -18,7 +18,7 @@ export const FinalCTASection = () => {
             <Button href="#book-pickup" variant="dark" size="lg">
               Book a Pickup →
             </Button>
-            <Button href="#services" variant="dark-outline" size="lg">
+            <Button href="#/services" variant="dark-outline" size="lg">
               View Services →
             </Button>
           </div>
