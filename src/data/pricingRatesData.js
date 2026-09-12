@@ -1,3 +1,34 @@
+import bedsheetSingleImage from "../assets/steam-press/household-pressing/bedsheet-single-bed.png";
+import bedsheetDoubleImage from "../assets/steam-press/household-pressing/bedsheet-double-bed.png";
+import pillowCoverImage from "../assets/steam-press/household-pressing/pillow-cover.png";
+import curtainsPerPanelImage from "../assets/steam-press/household-pressing/curtains-per-panel.png";
+
+import menShirtImage from "../assets/steam-press/men-pressing/men-shirt.png";
+import menTshirtImage from "../assets/steam-press/men-pressing/men-tshirt.png";
+import trouserImage from "../assets/steam-press/men-pressing/trouser.png";
+import jeansImage from "../assets/steam-press/men-pressing/jeans.png";
+import kurtaPyjamaImage from "../assets/steam-press/men-pressing/kurta-pyjama.png";
+import suit2PieceImage from "../assets/steam-press/men-pressing/suit-2-piece.png";
+import suit3PieceImage from "../assets/steam-press/men-pressing/suit-3-piece.png";
+import blazerImage from "../assets/steam-press/men-pressing/blazer.png";
+import sherwaniImage from "../assets/steam-press/men-pressing/sherwani.png";
+
+import sareePlainImage from "../assets/steam-press/women-pressing/saree-plain.png";
+import sareeZariImage from "../assets/steam-press/women-pressing/saree-zari.png";
+import blouseImage from "../assets/steam-press/women-pressing/blouse.png";
+import salwarKurtiImage from "../assets/steam-press/women-pressing/salwar-kurti.png";
+import dupattaImage from "../assets/steam-press/women-pressing/duppatta.png";
+import lehengaGhagraImage from "../assets/steam-press/women-pressing/lehenga-ghaghra.png";
+import westernDressImage from "../assets/steam-press/women-pressing/western-dressess.png";
+
+import bootsHighAnkleImage from "../assets/shoe-cleaning/boots-high-ankle.png";
+import canvasEverydaySneakersImage from "../assets/shoe-cleaning/canvas-everyday-sneakers.png";
+import designerHandbagBackpackImage from "../assets/shoe-cleaning/designer-handbag-backpack.png";
+import leatherFormalsImage from "../assets/shoe-cleaning/leather-formals.png";
+import luxuryDesignerSneakersImage from "../assets/shoe-cleaning/luxury-designer-sneakers.png";
+import sportsMeshShoesImage from "../assets/shoe-cleaning/sports-mesh-shoes.png";
+import suedeNubuckImage from "../assets/shoe-cleaning/suede-nubuck.png";
+
 export const steamPressProducts = [
   // MEN
   {
@@ -8,6 +39,7 @@ export const steamPressProducts = [
     unit: "per piece",
     shortDescription: "Crisp collar, cuff and placket steam finish.",
     turnaround: "24 Hours",
+    image: menShirtImage,
   },
   {
     id: "sp-men-tshirt",
@@ -17,6 +49,7 @@ export const steamPressProducts = [
     unit: "per piece",
     shortDescription: "Gentle wrinkle removal without fabric stretching.",
     turnaround: "24 Hours",
+    image: menTshirtImage,
   },
   {
     id: "sp-men-trouser",
@@ -26,6 +59,7 @@ export const steamPressProducts = [
     unit: "per piece",
     shortDescription: "Razor-sharp crease alignment and leg shaping.",
     turnaround: "24 Hours",
+    image: trouserImage,
   },
   {
     id: "sp-men-jeans",
@@ -35,6 +69,7 @@ export const steamPressProducts = [
     unit: "per piece",
     shortDescription: "Crease-free steam pressing on heavy denim.",
     turnaround: "24 Hours",
+    image: jeansImage,
   },
   {
     id: "sp-men-kurta",
@@ -44,6 +79,7 @@ export const steamPressProducts = [
     unit: "per piece",
     shortDescription: "Even steam flow for ethnic cottons and silks.",
     turnaround: "24 Hours",
+    image: kurtaPyjamaImage,
   },
   {
     id: "sp-men-suit-2pc",
@@ -53,6 +89,7 @@ export const steamPressProducts = [
     unit: "per set",
     shortDescription: "Tailored lapel shaping, sleeve roll and trouser press.",
     turnaround: "24 Hours",
+    image: suit2PieceImage,
   },
   {
     id: "sp-men-suit-3pc",
@@ -62,6 +99,7 @@ export const steamPressProducts = [
     unit: "per set",
     shortDescription: "Full jacket, waistcoat and trouser steam refinement.",
     turnaround: "24 Hours",
+    image: suit3PieceImage,
   },
   {
     id: "sp-men-blazer",
@@ -71,6 +109,7 @@ export const steamPressProducts = [
     unit: "per piece",
     shortDescription: "Shoulder contour and chest roll steam press.",
     turnaround: "24 Hours",
+    image: blazerImage,
   },
   {
     id: "sp-men-sherwani",
@@ -80,6 +119,7 @@ export const steamPressProducts = [
     unit: "per piece",
     shortDescription: "Delicate steam float for embellished festive wear.",
     turnaround: "24-48 Hours",
+    image: sherwaniImage,
   },
 
   // WOMEN
@@ -91,6 +131,7 @@ export const steamPressProducts = [
     unit: "per piece",
     shortDescription: "Full-length uniform press with sharp border folds.",
     turnaround: "24 Hours",
+    image: sareePlainImage,
   },
   {
     id: "sp-women-saree-silk",
@@ -100,6 +141,7 @@ export const steamPressProducts = [
     unit: "per piece",
     shortDescription: "Low-heat steam roll protecting delicate zari & silk fibers.",
     turnaround: "24 Hours",
+    image: sareeZariImage,
   },
   {
     id: "sp-women-blouse",
@@ -109,6 +151,7 @@ export const steamPressProducts = [
     unit: "per piece",
     shortDescription: "Structured press for padded cups and designer sleeves.",
     turnaround: "24 Hours",
+    image: blouseImage,
   },
   {
     id: "sp-women-kurti",
@@ -118,6 +161,7 @@ export const steamPressProducts = [
     unit: "per piece",
     shortDescription: "Graceful drape finish for everyday and party kurtis.",
     turnaround: "24 Hours",
+    image: salwarKurtiImage,
   },
   {
     id: "sp-women-dupatta",
@@ -127,6 +171,7 @@ export const steamPressProducts = [
     unit: "per piece",
     shortDescription: "Gentle wrinkle release on fine chiffon, georgette & net.",
     turnaround: "24 Hours",
+    image: dupattaImage,
   },
   {
     id: "sp-women-lehenga",
@@ -136,6 +181,7 @@ export const steamPressProducts = [
     unit: "per piece",
     shortDescription: "Multi-layer flare and can-can delicate steam reshaping.",
     turnaround: "24-48 Hours",
+    image: lehengaGhagraImage,
   },
   {
     id: "sp-women-dress",
@@ -145,6 +191,7 @@ export const steamPressProducts = [
     unit: "per piece",
     shortDescription: "Crease-free steam finish on flowing silhouettes.",
     turnaround: "24 Hours",
+    image: westernDressImage,
   },
 
   // HOUSEHOLD
@@ -156,6 +203,7 @@ export const steamPressProducts = [
     unit: "per piece",
     shortDescription: "Flat roller steam pressing for crisp bedding.",
     turnaround: "24 Hours",
+    image: bedsheetSingleImage,
   },
   {
     id: "sp-hh-bedsheet-double",
@@ -165,6 +213,7 @@ export const steamPressProducts = [
     unit: "per piece",
     shortDescription: "Hotel-grade smooth surface steam finish.",
     turnaround: "24 Hours",
+    image: bedsheetDoubleImage,
   },
   {
     id: "sp-hh-pillow-cover",
@@ -174,6 +223,7 @@ export const steamPressProducts = [
     unit: "per pair",
     shortDescription: "Even square finish with zero fabric gloss.",
     turnaround: "24 Hours",
+    image: pillowCoverImage,
   },
   {
     id: "sp-hh-curtain",
@@ -183,6 +233,7 @@ export const steamPressProducts = [
     unit: "per panel",
     shortDescription: "Uniform vertical steam hanging press.",
     turnaround: "24-48 Hours",
+    image: curtainsPerPanelImage,
   },
 ];
 
@@ -194,6 +245,7 @@ export const shoeCareProducts = [
     unit: "per pair",
     shortDescription: "Upper scrubbing, mid-sole brightening, lace wash & odor neutralization.",
     turnaround: "3-4 Days",
+    image: canvasEverydaySneakersImage,
   },
   {
     id: "sc-sports",
@@ -202,6 +254,7 @@ export const shoeCareProducts = [
     unit: "per pair",
     shortDescription: "Deep mesh dirt extraction, antibacterial foam wash and sole de-yellowing.",
     turnaround: "3-4 Days",
+    image: sportsMeshShoesImage,
   },
   {
     id: "sc-leather",
@@ -210,6 +263,7 @@ export const shoeCareProducts = [
     unit: "per pair",
     shortDescription: "Gentle surface cleansing, rich cream nourishment and mirror buff polish.",
     turnaround: "3-5 Days",
+    image: leatherFormalsImage,
   },
   {
     id: "sc-suede",
@@ -218,6 +272,7 @@ export const shoeCareProducts = [
     unit: "per pair",
     shortDescription: "Specialised waterless nap cleaning, brass bristle resetting and protective spray.",
     turnaround: "4-5 Days",
+    image: suedeNubuckImage,
   },
   {
     id: "sc-designer",
@@ -226,6 +281,7 @@ export const shoeCareProducts = [
     unit: "per pair",
     shortDescription: "Bespoke handcrafted cleaning for luxury brands (Balenciaga, Gucci, Nike Jordans).",
     turnaround: "4-5 Days",
+    image: luxuryDesignerSneakersImage,
   },
   {
     id: "sc-boots",
@@ -234,6 +290,7 @@ export const shoeCareProducts = [
     unit: "per pair",
     shortDescription: "Heavy-duty cleaning, shaft conditioning, welt care and waterproof barrier.",
     turnaround: "4-5 Days",
+    image: bootsHighAnkleImage,
   },
   {
     id: "sc-bag",
@@ -242,5 +299,6 @@ export const shoeCareProducts = [
     unit: "starting from",
     shortDescription: "Interior lining vacuum, exterior leather/canvas treatment and hardware polish.",
     turnaround: "4-6 Days",
+    image: designerHandbagBackpackImage,
   },
 ];

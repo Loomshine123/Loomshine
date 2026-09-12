@@ -438,6 +438,33 @@
   text-transform: lowercase;
 }
 
+.pricing-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pricing-add-cart-btn {
+  background: #F8F7F3;
+  color: #071A33;
+  border: 1px solid #D5DDE5;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.pricing-add-cart-btn:hover {
+  background: #071A33;
+  color: #FFFFFF;
+  border-color: #071A33;
+}
+
 /* STEAM PRESS ITEMS GRID */
 .steam-press-grid {
   display: grid;
@@ -460,6 +487,45 @@
 .steam-press-item-card:hover {
   border-color: #071A33;
   box-shadow: 0 6px 16px rgba(7, 26, 51, 0.05);
+}
+
+.steam-press-item-card__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+}
+
+.steam-press-item-card--has-image {
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-between;
+}
+
+.steam-press-item-card__image-box {
+  width: 100%;
+  height: 180px;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 14px;
+  background: #F4F6F8;
+}
+
+.steam-press-item-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+.steam-press-item-card:hover .steam-press-item-card__img {
+  transform: scale(1.04);
+}
+
+.steam-press-item-card--has-image .steam-press-item-card__content {
+  align-items: flex-end;
 }
 
 .steam-press-item-card__main {
@@ -655,6 +721,27 @@
   border-color: #071A33;
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(7, 26, 51, 0.06);
+}
+
+.shoe-card__image-box {
+  width: 100%;
+  height: 180px;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 16px;
+  background: #f4f6f8;
+}
+
+.shoe-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+.shoe-card:hover .shoe-card__img {
+  transform: scale(1.04);
 }
 
 .shoe-card__header {
