@@ -154,7 +154,7 @@ export default function ServiceDetail({ slug: propSlug }) {
               >
                 ADD TO CART
               </button>
-              <a href="#/contact" className="book-pickup-btn">
+              <a href={`#/contact?service=${slug}`} className="book-pickup-btn">
                 BOOK A PICKUP
               </a>
               <button
@@ -315,7 +315,7 @@ export default function ServiceDetail({ slug: propSlug }) {
             THE CARE THEY DESERVE.
           </h2>
 
-          <Button href="#/contact" variant="dark" size="lg">
+          <Button href={`#/contact?service=${slug}`} variant="dark" size="lg">
             Book a Pickup +
           </Button>
 

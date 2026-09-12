@@ -24,7 +24,7 @@ export const BusinessServicesSection = () => {
               title="Professional garment care for your business."
               subtitle="Reliable, high-capacity laundry and dry cleaning tailored to hotels, salons, fine dining, and corporate client standards."
             />
-            <Button href="#contact" variant="primary" size="lg">
+            <Button href="#/contact?service=business" variant="primary" size="lg">
               Explore business services →
             </Button>
           </div>

@@ -6,16 +6,19 @@ import './Container.css';
 export const Container = ({
   children,
   size = 'lg', // 'sm', 'md', 'lg', 'full'
+  fluid = false,
   noPadding = false,
   className = '',
   ...props
 }) => {
-  const sizeClass = `loom-container--${size}`;
+  const effectiveSize = fluid ? 'full' : size;
+  const sizeClass = `loom-container--${effectiveSize}`;
+  const fluidClass = fluid ? 'loom-container--fluid' : '';
   const paddingClass = noPadding ? 'loom-container--no-padding' : '';
   
   return (
     <div 
-      className={`loom-container ${sizeClass} ${paddingClass} ${className}`.trim()}
+      className={`loom-container ${sizeClass} ${fluidClass} ${paddingClass} ${className}`.trim()}
       {...props}
     >
       {children}

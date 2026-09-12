@@ -1,9 +1,9 @@
 import './LocationMapSection.css';
 
 export const LocationMapSection = () => {
-  const addressString = "4th Floor, BPTP Centra One, Sector 61, Golf Course Ext. Road, Gurugram, Haryana 122102";
-  const mapEmbedUrl = "https://maps.google.com/maps?q=BPTP%20Centra%20One%2C%20Sector%2061%2C%20Golf%20Course%20Ext.%20Road%2C%20Gurugram%2C%20Haryana%20122102&t=&z=15&ie=UTF8&iwloc=&output=embed";
-  const mapDirectionsUrl = "https://www.google.com/maps/dir/?api=1&destination=BPTP+Centra+One+Sector+61+Gurugram";
+  const addressString = "Shop No. 262, First Floor, Central Arcade Market, MG Road, Gurugram, Haryana";
+  const mapEmbedUrl = "https://maps.google.com/maps?q=Central%20Arcade%20Market%2C%20MG%20Road%2C%20Gurugram%2C%20Haryana&t=&z=16&ie=UTF8&iwloc=&output=embed";
+  const mapDirectionsUrl = "https://www.google.com/maps/dir/?api=1&destination=Central+Arcade+Market+MG+Road+Gurugram";
 
   return (
     <section className="loom-map-section" id="location">
@@ -24,7 +24,7 @@ export const LocationMapSection = () => {
         {/* Compact Location Card Overlay */}
         <div className="loom-map-card">
           <div className="loom-map-card__header">
-            <h4 className="loom-map-card__title">BPTP Centra One, Gurugram</h4>
+            <h4 className="loom-map-card__title">Central Arcade Market, MG Road</h4>
             <a
               href={mapDirectionsUrl}
               target="_blank"

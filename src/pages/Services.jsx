@@ -173,7 +173,7 @@ export default function Services() {
                                 View Price List →
                               </Button>
                               <Button
-                                href="#/contact"
+                                href={`#/contact?service=${service.slug}`}
                                 variant="primary"
                                 size="md"
                                 fullWidth

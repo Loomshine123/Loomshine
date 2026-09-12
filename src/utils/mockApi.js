@@ -113,6 +113,26 @@ export const trackOrderById = async (orderId) => {
         return;
       }
 
+      // Check localStorage for recorded user bookings first
+      try {
+        if (typeof localStorage !== 'undefined') {
+          const stored = localStorage.getItem('loomshine_bookings');
+          if (stored) {
+            const bookings = JSON.parse(stored);
+            const found = bookings.find((b) => b.orderId === cleanId);
+            if (found) {
+              resolve({
+                found: true,
+                order: found
+              });
+              return;
+            }
+          }
+        }
+      } catch (err) {
+        console.error("Error checking recorded bookings:", err);
+      }
+
       // Check explicit mock DB
       if (MOCK_ORDERS[cleanId]) {
         resolve({
@@ -153,3 +173,82 @@ export const trackOrderById = async (orderId) => {
     }, 400);
   });
 };
+
+/**
+ * Record a new Pickup Booking
+ * @param {object} bookingData
+ * @returns {Promise<{success: boolean, orderId: string, order: object}>}
+ */
+export const recordPickupBooking = async (bookingData) => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      const orderId = `TL-${Math.floor(100000 + Math.random() * 900000)}`;
+      const now = new Date();
+
+      const fullAddress = [
+        bookingData.flatBuilding,
+        bookingData.address,
+        bookingData.landmark ? `Near ${bookingData.landmark}` : '',
+        bookingData.pincode ? `PIN: ${bookingData.pincode}` : ''
+      ].filter(Boolean).join(', ') || bookingData.address || 'Address on file';
+
+      const servicesList = Array.isArray(bookingData.services) && bookingData.services.length > 0
+        ? bookingData.services.join(', ')
+        : (bookingData.otherServices || 'Custom Garment Care');
+
+      const dateLabel = bookingData.friendlyDate || bookingData.pickupDate || 'Today';
+      const slotLabel = bookingData.pickupSlot || 'Standard Slot';
+      const pickupScheduleStr = `${dateLabel} · ${slotLabel}`;
+
+      const itemCountStr = bookingData.cartItems && bookingData.cartItems.length > 0
+        ? `${bookingData.cartItems.reduce((acc, i) => acc + (i.quantity || 1), 0)} garments (₹${bookingData.totalAmount || 0})`
+        : 'Pending Pickup Verification';
+
+      const newOrder = {
+        orderId,
+        customerName: bookingData.name || 'Valued Customer',
+        phone: bookingData.phone || '',
+        email: bookingData.email || '',
+        service: servicesList,
+        itemCount: itemCountStr,
+        cartItems: bookingData.cartItems || [],
+        totalAmount: bookingData.totalAmount || 0,
+        pickupDate: pickupScheduleStr,
+        scheduledDate: bookingData.pickupDate,
+        scheduledSlot: bookingData.pickupSlot,
+        address: fullAddress,
+        estimatedDelivery: '24–48 Hours after pickup',
+        currentStepIndex: 0,
+        createdAt: now.toISOString(),
+        pinnedLocation: bookingData.pinnedLocation || null,
+        message: bookingData.message || '',
+        status: 'Scheduled',
+        steps: [
+          { code: '01', label: 'PICKUP SCHEDULED', date: pickupScheduleStr, status: 'active' },
+          { code: '02', label: 'PICKED UP & TAGGED', date: 'Pending Arrival', status: 'pending' },
+          { code: '03', label: 'CLEANING & STEAM PRESS', date: 'Upcoming', status: 'pending' },
+          { code: '04', label: 'QUALITY INSPECTION', date: 'Upcoming', status: 'pending' },
+          { code: '05', label: 'DELIVERED TO DOORSTEP', date: 'Upcoming', status: 'pending' }
+        ]
+      };
+
+      try {
+        if (typeof localStorage !== 'undefined') {
+          const stored = localStorage.getItem('loomshine_bookings');
+          const list = stored ? JSON.parse(stored) : [];
+          list.unshift(newOrder);
+          localStorage.setItem('loomshine_bookings', JSON.stringify(list));
+        }
+      } catch (err) {
+        console.error("Error saving booking to localStorage:", err);
+      }
+
+      resolve({
+        success: true,
+        orderId,
+        order: newOrder
+      });
+    }, 400);
+  });
+};
+

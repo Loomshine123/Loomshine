@@ -1,0 +1,447 @@
+/* ==========================================================================
+   FEATURED PRODUCTS SHOWCASE SECTION — LOOMSHINE LUXURY BRAND PALETTE
+   ========================================================================== */
+
+.featured-showcase-section {
+  background-color: var(--color-off-white, #F8F7F3);
+  color: var(--color-navy, #071A33);
+  padding-bottom: 72px;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid var(--color-border-light, #E2E8F0);
+}
+
+/* --------------------------------------------------------------------------
+   RUNNING TICKER (LOOMSHINE NAVY & GOLD)
+   -------------------------------------------------------------------------- */
+.showcase-ticker-bar {
+  background: var(--color-navy, #071A33);
+  color: #FFFFFF;
+  padding: 10px 0;
+  overflow: hidden;
+  white-space: nowrap;
+  border-bottom: 2px solid var(--color-accent-gold, #C5A059);
+  margin-bottom: 48px;
+}
+
+.showcase-ticker-track {
+  display: inline-flex;
+  gap: 40px;
+  animation: showcaseTicker 30s linear infinite;
+}
+
+.showcase-ticker-item {
+  font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.ticker-diamond {
+  color: var(--color-accent-gold, #C5A059);
+  font-size: 11px;
+}
+
+@keyframes showcaseTicker {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   SECTION HEADER (Deep Navy + Gold Accent)
+   -------------------------------------------------------------------------- */
+.showcase-header-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 36px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--color-border-light, #E2E8F0);
+  gap: 16px;
+}
+
+.showcase-title-block {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.showcase-eyebrow {
+  font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-accent-gold, #C5A059);
+}
+
+.showcase-main-title {
+  font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--color-navy, #071A33);
+  margin: 0;
+  line-height: 1.15;
+}
+
+.showcase-title-underline {
+  width: 44px;
+  height: 3px;
+  background: var(--color-accent-gold, #C5A059);
+  border-radius: 2px;
+  margin-top: 4px;
+}
+
+.showcase-view-all-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-navy, #071A33);
+  font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-bottom: 2px solid var(--color-accent-gold, #C5A059);
+  padding: 4px 0;
+  transition: all var(--transition-fast, 0.15s ease);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.showcase-view-all-link .arrow-icon {
+  font-size: 14px;
+  color: var(--color-accent-gold, #C5A059);
+  transition: transform 0.2s ease;
+}
+
+.showcase-view-all-link:hover {
+  color: var(--color-accent-gold, #C5A059);
+  border-color: var(--color-navy, #071A33);
+}
+
+.showcase-view-all-link:hover .arrow-icon {
+  transform: translateX(4px);
+}
+
+/* --------------------------------------------------------------------------
+   4-COLUMN PRODUCTS GRID — EQUAL HEIGHT ROWS
+   -------------------------------------------------------------------------- */
+.showcase-products-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  align-items: stretch; /* Forces equal height cards in every row */
+}
+
+.showcase-product-card {
+  background: #FFFFFF;
+  border: 1px solid var(--color-border-light, #E2E8F0);
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-sizing: border-box;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  box-shadow: 0 4px 16px rgba(7, 26, 51, 0.04);
+}
+
+.showcase-product-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-accent-gold, #C5A059);
+  box-shadow: 0 12px 28px rgba(7, 26, 51, 0.12);
+}
+
+/* --------------------------------------------------------------------------
+   CARD MEDIA & BADGES
+   -------------------------------------------------------------------------- */
+.product-card-media-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: #F6F4EF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-bottom: 1px solid var(--color-border-light, #E2E8F0);
+}
+
+.product-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.35s ease;
+}
+
+.showcase-product-card:hover .product-card-image {
+  transform: scale(1.05);
+}
+
+/* Loomshine Badges */
+.product-card-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: 9.5px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 7px;
+  border-radius: 3px;
+  z-index: 2;
+  box-shadow: 0 2px 6px rgba(7, 26, 51, 0.15);
+}
+
+.badge--navy {
+  background-color: var(--color-navy, #071A33);
+  color: #FFFFFF;
+}
+
+.badge--gold {
+  background-color: var(--color-accent-gold, #C5A059);
+  color: #FFFFFF;
+}
+
+.badge--blue {
+  background-color: var(--color-blue-primary, #1E68D7);
+  color: #FFFFFF;
+}
+
+/* --------------------------------------------------------------------------
+   CARD CONTENT — STRICT FIXED HEIGHTS FOR PERFECT BASELINE
+   -------------------------------------------------------------------------- */
+.product-card-info {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  box-sizing: border-box;
+}
+
+.product-card-category {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-accent-gold, #C5A059);
+  margin-bottom: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 15px;
+  line-height: 15px;
+}
+
+.product-card-title {
+  font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-navy, #071A33);
+  margin: 0 0 8px;
+  line-height: 1.32;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  height: 37px; /* Strict fixed 2-line height for identical baseline */
+}
+
+.product-card-pricing {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin-bottom: 12px;
+  white-space: nowrap;
+  height: 24px;
+  line-height: 24px;
+}
+
+.product-price-current {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--color-navy, #071A33);
+}
+
+.product-price-unit {
+  font-size: 11px;
+  color: var(--color-text-secondary, #5A6E85);
+  font-weight: 500;
+}
+
+.product-card-desc {
+  font-size: 11.5px;
+  color: var(--color-text-secondary, #5A6E85);
+  line-height: 1.45;
+  margin: 0 0 14px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  height: 34px; /* Consistent height on desktop */
+}
+
+/* --------------------------------------------------------------------------
+   ACTION BUTTON — PINNED TO BOTTOM, STRICTLY EQUAL SIZING
+   -------------------------------------------------------------------------- */
+.product-card-add-btn {
+  width: 100%;
+  height: 40px;
+  min-height: 40px;
+  max-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: auto; /* PINS BUTTON TO EXACT SAME BOTTOM LEVEL IN ALL CARDS */
+  background: var(--color-navy, #071A33);
+  border: 1px solid var(--color-navy, #071A33);
+  color: #FFFFFF;
+  font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+.product-card-add-btn:hover {
+  background: var(--color-accent-gold, #C5A059);
+  border-color: var(--color-accent-gold, #C5A059);
+  color: var(--color-navy, #071A33);
+  box-shadow: 0 4px 12px rgba(197, 160, 89, 0.35);
+  transform: translateY(-1px);
+}
+
+.product-card-add-btn--added {
+  background: #2E7D32 !important;
+  color: #FFFFFF !important;
+  border-color: #2E7D32 !important;
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE BREAKPOINTS (MOBILE FIRST ALIGNMENT)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .showcase-products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+
+@media (max-width: 640px) {
+  .featured-showcase-section {
+    padding-bottom: 48px;
+  }
+
+  .showcase-ticker-bar {
+    margin-bottom: 24px;
+    padding: 7px 0;
+  }
+
+  .showcase-header-row {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+  }
+
+  .showcase-eyebrow {
+    font-size: 9.5px;
+  }
+
+  .showcase-main-title {
+    font-size: 1.25rem;
+  }
+
+  .showcase-view-all-link {
+    font-size: 10.5px;
+    padding: 2px 0;
+  }
+
+  .showcase-products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .product-card-info {
+    padding: 10px;
+  }
+
+  .product-card-category {
+    font-size: 9px;
+    height: 14px;
+    line-height: 14px;
+    margin-bottom: 2px;
+  }
+
+  .product-card-title {
+    font-size: 12.5px;
+    height: 33px; /* Fixed 2 lines on mobile */
+    line-height: 1.3;
+    margin-bottom: 4px;
+  }
+
+  .product-card-pricing {
+    height: 20px;
+    line-height: 20px;
+    margin-bottom: 8px;
+  }
+
+  .product-price-current {
+    font-size: 15.5px;
+  }
+
+  .product-price-unit {
+    font-size: 10px;
+  }
+
+  .product-card-desc {
+    display: none; /* Hide on mobile so cards stay compact and perfectly balanced */
+  }
+
+  /* Keep all button sizes strictly identical on mobile */
+  .product-card-add-btn {
+    height: 36px;
+    min-height: 36px;
+    max-height: 36px;
+    font-size: 10px;
+    padding: 0 6px;
+  }
+}
+
+@media (max-width: 360px) {
+  .showcase-products-grid {
+    gap: 8px;
+  }
+
+  .product-card-info {
+    padding: 8px;
+  }
+
+  .product-card-title {
+    font-size: 11.5px;
+  }
+}

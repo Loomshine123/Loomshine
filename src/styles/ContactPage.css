@@ -217,6 +217,71 @@
   background: #ffffff;
 }
 
+/* Date input styling */
+.pickup-date-input {
+  cursor: pointer;
+}
+
+.pickup-date-input::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  opacity: 0.75;
+  transition: opacity 0.2s ease;
+}
+
+.pickup-date-input::-webkit-calendar-picker-indicator:hover {
+  opacity: 1;
+}
+
+.quick-date-chips {
+  display: flex;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.quick-date-btn {
+  background: #F0EDE6;
+  border: 1px solid #DEDBD5;
+  color: #1E3045;
+  font-family: inherit;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.quick-date-btn:hover {
+  background: #E5E0D5;
+}
+
+.quick-date-btn--active {
+  background: #1E344E;
+  color: #FFFFFF;
+  border-color: #1E344E;
+}
+
+.quick-date-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: #ECE8DF;
+  color: #8C9BA5;
+  border-color: #DEDBD5;
+}
+
+.slot-helper-closed {
+  margin-top: 8px;
+  font-size: 0.78rem;
+  color: #9B2C2C;
+  background: #FFF5F5;
+  border: 1px solid #FEB2B2;
+  padding: 7px 12px;
+  border-radius: 4px;
+  line-height: 1.4;
+}
+
 /* ==========================================================================
    MULTI-SELECT DROPDOWN
    ========================================================================== */
@@ -698,6 +763,199 @@
   font-size: 1.1rem;
 }
 
+.submit-pickup-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ==========================================================================
+   PICKUP CONFIRMED CARD
+   ========================================================================== */
+
+.pickup-confirmed-card {
+  background: #ffffff;
+  border: 1px solid rgba(7, 26, 51, 0.1);
+  box-shadow: 0 10px 30px rgba(7, 26, 51, 0.08);
+  padding: 36px 32px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 600px) {
+  .pickup-confirmed-card {
+    padding: 24px 18px;
+  }
+}
+
+.pickup-confirmed-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(46, 125, 50, 0.1);
+  color: #2E7D32;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  padding: 6px 12px;
+  border-radius: 4px;
+  align-self: flex-start;
+  margin-bottom: 16px;
+}
+
+.pickup-confirmed-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  background: #2E7D32;
+  color: #ffffff;
+  border-radius: 50%;
+  font-size: 0.75rem;
+}
+
+.pickup-confirmed-title {
+  font-family: var(--font-serif, 'Cormorant Garamond', Georgia, serif);
+  font-size: 2rem;
+  font-weight: 700;
+  color: #071A33;
+  margin: 0 0 10px;
+  line-height: 1.2;
+}
+
+@media (max-width: 600px) {
+  .pickup-confirmed-title {
+    font-size: 1.6rem;
+  }
+}
+
+.pickup-confirmed-desc {
+  color: #5A6E85;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0 0 24px;
+}
+
+.pickup-confirmed-id-box {
+  background: #071A33;
+  color: #ffffff;
+  padding: 20px 24px;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 24px;
+}
+
+.pickup-confirmed-id-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: #7A93B0;
+  text-transform: uppercase;
+}
+
+.pickup-confirmed-id-value {
+  font-family: var(--font-sans, 'Inter', monospace, sans-serif);
+  font-size: 1.75rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #2B7FFF;
+}
+
+.pickup-confirmed-id-hint {
+  font-size: 0.8rem;
+  color: #C0CDDC;
+  line-height: 1.4;
+}
+
+.pickup-confirmed-details {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: #F8F7F3;
+  padding: 20px;
+  border-radius: 6px;
+  margin-bottom: 28px;
+}
+
+.pickup-detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  font-size: 0.88rem;
+}
+
+.pickup-detail-row span {
+  color: #5A6E85;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+.pickup-detail-row strong {
+  color: #071A33;
+  font-weight: 600;
+  text-align: right;
+  word-break: break-word;
+}
+
+.pickup-confirmed-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+@media (min-width: 500px) {
+  .pickup-confirmed-actions {
+    flex-direction: row;
+  }
+}
+
+.pickup-track-btn {
+  flex: 1.2;
+  background: #2B7FFF;
+  color: #ffffff;
+  padding: 14px 20px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+}
+
+.pickup-track-btn:hover {
+  background: #1A6BE6;
+}
+
+.pickup-new-btn {
+  flex: 1;
+  background: transparent;
+  color: #071A33;
+  border: 1px solid #071A33;
+  padding: 14px 16px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 4px;
+  cursor: pointer;
+  min-height: 44px;
+  transition: all 0.2s ease;
+}
+
+.pickup-new-btn:hover {
+  background: #071A33;
+  color: #ffffff;
+}
+
 /* ==========================================================================
    RESPONSIVE BREAKPOINTS
    ========================================================================== */
@@ -747,4 +1005,192 @@
     width: 100%;
     justify-content: center;
   }
+}
+
+/* ==========================================================================
+   FORM CART ITEMS SUMMARY CARD
+   ========================================================================== */
+.pickup-form-cart-card {
+  background: #F8F7F3;
+  border: 1px solid #E2DCCF;
+  border-left: 4px solid #C5A059;
+  border-radius: 6px;
+  padding: 20px 22px;
+  margin-bottom: 28px;
+  box-shadow: 0 4px 16px rgba(7, 26, 51, 0.04);
+}
+
+.pickup-form-cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  border-bottom: 1px solid #E8E2D6;
+  padding-bottom: 12px;
+  margin-bottom: 14px;
+}
+
+.pickup-form-cart-tag {
+  display: block;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  color: #C5A059;
+  text-transform: uppercase;
+  margin-bottom: 3px;
+}
+
+.pickup-form-cart-title {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #071A33;
+  letter-spacing: -0.01em;
+}
+
+.pickup-form-cart-title span {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #5A6E85;
+}
+
+.pickup-form-cart-edit-link {
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: #071A33;
+  text-decoration: none;
+  border: 1px solid #C5CBD3;
+  background: #FFFFFF;
+  padding: 4px 10px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.pickup-form-cart-edit-link:hover {
+  background: #071A33;
+  color: #FFFFFF;
+  border-color: #071A33;
+}
+
+.pickup-form-cart-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 220px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.pickup-form-cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 12px;
+  background: #FFFFFF;
+  border: 1px solid #EBE7DD;
+  border-radius: 4px;
+}
+
+.pickup-form-cart-item-main {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex-grow: 1;
+}
+
+.pickup-form-cart-item-name {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #071A33;
+}
+
+.pickup-form-cart-item-meta {
+  font-size: 0.74rem;
+  color: #6C7D93;
+}
+
+.pickup-form-cart-item-qty {
+  font-size: 0.8rem;
+  color: #5A6E85;
+  background: #F4F2EB;
+  padding: 3px 8px;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+
+.pickup-form-cart-item-qty strong {
+  color: #071A33;
+}
+
+.pickup-form-cart-item-total {
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: #071A33;
+  min-width: 60px;
+  text-align: right;
+}
+
+.pickup-form-cart-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  border-top: 1px solid #E8E2D6;
+  margin-top: 14px;
+  padding-top: 12px;
+}
+
+.pickup-form-cart-footer-note {
+  font-size: 0.76rem;
+  color: #2E7D32;
+  font-weight: 600;
+}
+
+.pickup-form-cart-total-box {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.pickup-form-cart-total-label {
+  font-size: 0.78rem;
+  color: #5A6E85;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.pickup-form-cart-total-val {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #071A33;
+}
+
+.pickup-confirmed-garments-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: #FFFFFF;
+  padding: 10px 14px;
+  border-radius: 4px;
+  border: 1px solid #E5E0D5;
+  margin: 6px 0;
+}
+
+.pickup-confirmed-garment-pill {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.82rem;
+  color: #071A33;
+}
+
+.pickup-confirmed-garment-pill span:first-child {
+  font-weight: 600;
+}
+
+.pickup-confirmed-garment-pill span:last-child {
+  font-weight: 700;
+  color: #071A33;
 }

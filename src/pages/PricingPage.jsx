@@ -3,6 +3,7 @@ import dryCleaningProducts from "../data/dryCleaningProducts";
 import { steamPressProducts, shoeCareProducts } from "../data/pricingRatesData";
 import Container from "../components/common/Container";
 import Button from "../components/common/Button";
+import { useCart } from "../context/CartContext";
 import "../styles/PricingPage.css";
 
 const SERVICE_OPTIONS = [
@@ -14,6 +15,7 @@ const SERVICE_OPTIONS = [
 ];
 
 export default function PricingPage({ initialService = "dry-cleaning" }) {
+  const { addToCart } = useCart();
   const [activeService, setActiveService] = useState(initialService);
   const [activeCategory, setActiveCategory] = useState("Men");
   const [searchQuery, setSearchQuery] = useState("");
@@ -131,7 +133,7 @@ export default function PricingPage({ initialService = "dry-cleaning" }) {
                     Specialised organic dry cleaning for delicate fabrics, designer wear, formal suits, silks, and woollens.
                   </p>
                 </div>
-                <Button href="#/contact" variant="primary" size="md">
+                <Button href="#/contact?service=dry-cleaning" variant="primary" size="md">
                   Book Dry Cleaning Pickup +
                 </Button>
               </div>
@@ -198,9 +200,22 @@ export default function PricingPage({ initialService = "dry-cleaning" }) {
                           <span className="price-tag-unit">{product.unit}</span>
                         </div>
 
-                        <Button href="#/contact" variant="dark" size="sm">
-                          Book Pickup
-                        </Button>
+                        <div className="pricing-card-actions">
+                          <button
+                            type="button"
+                            className="pricing-add-cart-btn"
+                            onClick={() => addToCart({ ...product, service: 'Dry Cleaning' })}
+                          >
+                            + Add to Bag
+                          </button>
+                          <Button
+                            href={`#/contact?service=dry-cleaning&item=${encodeURIComponent(product.name)}`}
+                            variant="dark"
+                            size="sm"
+                          >
+                            Book Pickup
+                          </Button>
+                        </div>
                       </div>
                     </div>
                   </article>
@@ -231,7 +246,7 @@ export default function PricingPage({ initialService = "dry-cleaning" }) {
                     High-pressure vacuum steam finish. Eliminates wrinkles, restores garment shape, and leaves zero shine or iron marks.
                   </p>
                 </div>
-                <Button href="#/contact" variant="primary" size="md">
+                <Button href="#/contact?service=steam-press" variant="primary" size="md">
                   Book Steam Press Pickup +
                 </Button>
               </div>
@@ -274,20 +289,48 @@ export default function PricingPage({ initialService = "dry-cleaning" }) {
               {/* STEAM PRESS ITEMS TABLE / GRID */}
               <div className="steam-press-grid">
                 {filteredSteamPress.map((item) => (
-                  <div className="steam-press-item-card" key={item.id}>
-                    <div className="steam-press-item-card__main">
-                      <h4 className="steam-press-item-name">{item.name}</h4>
-                      <p className="steam-press-item-desc">{item.shortDescription}</p>
-                      <div className="steam-press-item-meta">
-                        <span className="steam-press-turnaround">⏱ {item.turnaround}</span>
-                        <span className="steam-press-unit">{item.unit}</span>
+                  <div
+                    className={`steam-press-item-card ${item.image ? "steam-press-item-card--has-image" : ""}`}
+                    key={item.id}
+                  >
+                    {item.image && (
+                      <div className="steam-press-item-card__image-box">
+                        <img
+                          src={item.image}
+                          alt={item.name}
+                          className="steam-press-item-card__img"
+                          loading="lazy"
+                        />
                       </div>
-                    </div>
-                    <div className="steam-press-item-card__price-box">
-                      <span className="steam-press-rate">₹{item.price}</span>
-                      <Button href="#/contact" variant="dark" size="sm">
-                        Select
-                      </Button>
+                    )}
+                    <div className="steam-press-item-card__content">
+                      <div className="steam-press-item-card__main">
+                        <h4 className="steam-press-item-name">{item.name}</h4>
+                        <p className="steam-press-item-desc">{item.shortDescription}</p>
+                        <div className="steam-press-item-meta">
+                          <span className="steam-press-turnaround">⏱ {item.turnaround}</span>
+                          <span className="steam-press-unit">{item.unit}</span>
+                        </div>
+                      </div>
+                      <div className="steam-press-item-card__price-box">
+                        <span className="steam-press-rate">₹{item.price}</span>
+                        <div className="pricing-card-actions">
+                          <button
+                            type="button"
+                            className="pricing-add-cart-btn"
+                            onClick={() => addToCart({ ...item, service: 'Steam Press' })}
+                          >
+                            + Add to Bag
+                          </button>
+                          <Button
+                            href={`#/contact?service=steam-press&item=${encodeURIComponent(item.name)}`}
+                            variant="dark"
+                            size="sm"
+                          >
+                            Select
+                          </Button>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 ))}
@@ -317,7 +360,7 @@ export default function PricingPage({ initialService = "dry-cleaning" }) {
                     Hygienic machine wash with bio-detergents, tumble dry, and neat fold packaging for daily wear and home linens.
                   </p>
                 </div>
-                <Button href="#/contact" variant="primary" size="md">
+                <Button href="#/contact?service=wash-fold" variant="primary" size="md">
                   Book Laundry Pickup +
                 </Button>
               </div>
@@ -334,7 +377,7 @@ export default function PricingPage({ initialService = "dry-cleaning" }) {
                     <p>Minimum load: 4 KG • Standard turnaround: 24 - 48 Hours</p>
                     <span className="kg-highlight-pill">✓ FREE Pick-up & Delivery Included</span>
                   </div>
-                  <Button href="#/contact" variant="dark" size="lg">
+                  <Button href="#/contact?service=wash-fold" variant="dark" size="lg">
                     Schedule Pickup →
                   </Button>
                 </div>
@@ -392,7 +435,7 @@ export default function PricingPage({ initialService = "dry-cleaning" }) {
                     Expert washing followed by precision steam iron press. Your everyday clothes returned ready to wear directly from the wardrobe.
                   </p>
                 </div>
-                <Button href="#/contact" variant="primary" size="md">
+                <Button href="#/contact?service=wash-iron" variant="primary" size="md">
                   Book Wash & Iron Pickup +
                 </Button>
               </div>
@@ -409,7 +452,7 @@ export default function PricingPage({ initialService = "dry-cleaning" }) {
                     <p>Minimum load: 3 KG • Standard turnaround: 24 - 48 Hours</p>
                     <span className="kg-highlight-pill">✓ Hanger or Fold Packaging Options</span>
                   </div>
-                  <Button href="#/contact" variant="dark" size="lg">
+                  <Button href="#/contact?service=wash-iron" variant="dark" size="lg">
                     Schedule Pickup →
                   </Button>
                 </div>
@@ -465,7 +508,7 @@ export default function PricingPage({ initialService = "dry-cleaning" }) {
                     Deep restoration for sneakers, formal leather shoes, suede boots, and luxury bags.
                   </p>
                 </div>
-                <Button href="#/contact" variant="primary" size="md">
+                <Button href="#/contact?service=shoe-cleaning" variant="primary" size="md">
                   Book Shoe Pickup +
                 </Button>
               </div>
@@ -473,21 +516,44 @@ export default function PricingPage({ initialService = "dry-cleaning" }) {
               <div className="shoe-pricing-grid">
                 {shoeCareProducts.map((item) => (
                   <div className="shoe-card" key={item.id}>
+                    {item.image && (
+                      <div className="shoe-card__image-box">
+                        <img
+                          src={item.image}
+                          alt={item.name}
+                          className="shoe-card__img"
+                          loading="lazy"
+                        />
+                      </div>
+                    )}
                     <div className="shoe-card__header">
                       <span className="shoe-card__turnaround">⏱ {item.turnaround}</span>
                       <span className="shoe-card__unit">{item.unit}</span>
                     </div>
                     <h4 className="shoe-card__title">{item.name}</h4>
                     <p className="shoe-card__desc">{item.shortDescription}</p>
-                    <div className="shoe-card__footer">
-                      <div className="shoe-card__price">
-                        <span className="shoe-card__price-label">PRICE</span>
-                        <strong className="shoe-card__price-val">₹{item.price}</strong>
+                      <div className="shoe-card__footer">
+                        <div className="shoe-card__price">
+                          <span className="shoe-card__price-label">PRICE</span>
+                          <strong className="shoe-card__price-val">₹{item.price}</strong>
+                        </div>
+                        <div className="pricing-card-actions">
+                          <button
+                            type="button"
+                            className="pricing-add-cart-btn"
+                            onClick={() => addToCart({ ...item, service: 'Shoe Cleaning' })}
+                          >
+                            + Add to Bag
+                          </button>
+                          <Button
+                            href={`#/contact?service=shoe-cleaning&item=${encodeURIComponent(item.name)}`}
+                            variant="dark"
+                            size="sm"
+                          >
+                            Select
+                          </Button>
+                        </div>
                       </div>
-                      <Button href="#/contact" variant="dark" size="sm">
-                        Select
-                      </Button>
-                    </div>
                   </div>
                 ))}
               </div>
@@ -508,7 +574,7 @@ export default function PricingPage({ initialService = "dry-cleaning" }) {
               </p>
             </div>
             <div className="pricing-help-actions">
-              <Button href="#/contact" variant="primary" size="lg">
+              <Button href="#/contact?service=other-services" variant="primary" size="lg">
                 Book a Custom Pickup →
               </Button>
               <Button href="tel:+919876543210" variant="dark-outline" size="lg">
