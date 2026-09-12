@@ -15,7 +15,7 @@ export const FinalCTASection = () => {
           </p>
 
           <div className="loom-cta-buttons">
-            <Button href="#book-pickup-flow" variant="dark" size="lg">
+            <Button href="#book-pickup" variant="dark" size="lg">
               Book a Pickup →
             </Button>
             <Button href="#services" variant="dark-outline" size="lg">

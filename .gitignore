@@ -11,6 +11,8 @@ node_modules
 dist
 dist-ssr
 *.local
+.env
+.env.*
 
 # Editor directories and files
 .vscode/*
@@ -25,3 +27,10 @@ dist-ssr
 
 # Temporary pdf extraction
 tmp_pdf_pages/
+
+# Database files
+*.sqlite
+*.sqlite-*
+*.db
+server/data/*.sqlite*
+

@@ -1,0 +1,52 @@
+[
+  {
+    "bookingId": "TL-BK-A63LT2",
+    "fullName": "Eleanor Vance",
+    "phone": "+919876543210",
+    "email": "eleanor@example.com",
+    "preferredPickupTime": "Morning (8:00 AM – 11:00 AM)",
+    "services": [
+      {
+        "name": "WASH & FOLD",
+        "price": "₹79 PER KG"
+      },
+      {
+        "name": "STEAM PRESS",
+        "price": "₹49 PER GARMENT"
+      }
+    ],
+    "pickupAddress": "221 Baker Street, Flat 4B, South Extension II, New Delhi 110049",
+    "area": "South Extension II",
+    "latitude": 28.5684,
+    "longitude": 77.2217,
+    "source": "website",
+    "status": "NEW",
+    "createdAt": "2026-09-11T08:35:48.821Z",
+    "updatedAt": "2026-09-11T08:35:48.821Z"
+  },
+  {
+    "bookingId": "TL-BK-S2HEP6",
+    "fullName": "Siddharth V.",
+    "phone": "+919877286066",
+    "email": "siddharth@example.com",
+    "preferredPickupTime": "Afternoon (12:00 PM – 3:00 PM)",
+    "services": [
+      {
+        "name": "DRY CLEANING",
+        "price": "₹— AS PER GARMENT"
+      },
+      {
+        "name": "OTHER SERVICES"
+      }
+    ],
+    "otherServices": "Special velvet curtain dry cleaning & leather shoes restoration",
+    "pickupAddress": "45 Park Street, Suite 2A, Sector 54, Gurugram 122002",
+    "area": "Sector 54, Gurugram",
+    "latitude": 28.4595,
+    "longitude": 77.0266,
+    "source": "website",
+    "status": "NEW",
+    "createdAt": "2026-09-11T08:35:48.837Z",
+    "updatedAt": "2026-09-11T08:35:48.837Z"
+  }
+]

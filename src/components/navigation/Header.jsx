@@ -111,14 +111,11 @@ export const Header = ({ onOpenAuth, currentPage }) => {
                 Login
               </a>
               <Button
-                href="#signup"
+                href="#book-pickup"
                 variant="primary"
                 size="sm"
-                onClick={(e) => {
-                  if (onOpenAuth) {
-                    e.preventDefault();
-                    onOpenAuth('signup');
-                  }
+                onClick={() => {
+                  window.location.hash = '#book-pickup';
                 }}
               >
                 Book a Pickup

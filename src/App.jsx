@@ -7,6 +7,7 @@ import AuthPage from "./pages/AuthPage";
 import Services from "./pages/Services";
 import ServiceDetailPage from "./components/services/ServiceDetailPage";
 import DryCleaningCatalogue from "./pages/DryCleaningCatalogue";
+import BookPickupPage from "./pages/BookPickupPage";
 import "./App.css";
 
 function getRouteFromHash(hashStr) {
@@ -17,6 +18,9 @@ function getRouteFromHash(hashStr) {
   }
   if (hash === "#signup" || hash.startsWith("#signup")) {
     return { page: "signup" };
+  }
+  if (hash === "#book-pickup" || hash === "#/book-pickup" || hash.startsWith("#book-pickup")) {
+    return { page: "book-pickup" };
   }
   if (hash.startsWith("#track-order") || hash.startsWith("#track")) {
     return { page: "track-order" };
@@ -62,6 +66,10 @@ function App() {
   const backToHome = () => {
     window.location.hash = "#home";
   };
+
+  if (route.page === "book-pickup") {
+    return <BookPickupPage onOpenAuth={openAuth} />;
+  }
 
   if (route.page === "login" || route.page === "signup") {
     return <AuthPage initialMode={route.page} onBackToHome={backToHome} />;
