@@ -3,37 +3,41 @@ import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import "./LocationPicker.css";
 
-// Helper to format structured address from Nominatim reverse-geocode
+// Helper to format structured address from Nominatim reverse-geocode for Indian urban locations
 function parseNominatimAddress(data) {
   if (!data) return { formatted: "", street: "", locality: "", city: "", pincode: "", state: "" };
 
   const addr = data.address || {};
   const displayName = data.display_name || "";
 
-  // 1. Street / Building / Landmark
+  // 1. Street / Building / Society / Landmark
   const streetParts = [
-    addr.house_number || addr.building,
-    addr.amenity || addr.junction,
-    addr.road || addr.street || addr.residential || addr.pedestrian,
+    addr.house_number || addr.building || addr.house_name,
+    addr.amenity || addr.shop || addr.commercial || addr.office || addr.landmark,
+    addr.road || addr.street || addr.residential || addr.pedestrian || addr.footway,
   ].filter(Boolean);
 
-  // 2. Locality / Neighbourhood / Suburb / Sector
+  // 2. Locality / Sector / Colony / DLF Phase / Area
   const localityParts = [
-    addr.neighbourhood || addr.subdivision,
-    addr.suburb || addr.subdistrict,
+    addr.quarter || addr.subdivision || addr.neighbourhood,
+    addr.suburb || addr.city_district || addr.subdistrict,
   ].filter(Boolean);
 
   // 3. City, State, Postcode
-  const city = addr.city || addr.town || addr.village || addr.municipality || addr.state_district || addr.county || "";
-  const state = addr.state || "";
+  const city = addr.city || addr.town || addr.village || addr.municipality || "Gurugram";
+  const state = addr.state || "Haryana";
   const pincode = addr.postcode || "";
 
-  // Clean concise formatted summary
+  // Clean concise formatted summary without duplicates
   const cleanParts = [];
   if (streetParts.length > 0) cleanParts.push(streetParts.join(", "));
   if (localityParts.length > 0) cleanParts.push(localityParts.join(", "));
-  if (city) cleanParts.push(city);
-  if (state && state !== city) cleanParts.push(state);
+  if (city && !cleanParts.some((p) => p.toLowerCase().includes(city.toLowerCase()))) {
+    cleanParts.push(city);
+  }
+  if (state && state !== city && !cleanParts.some((p) => p.toLowerCase().includes(state.toLowerCase()))) {
+    cleanParts.push(state);
+  }
   if (pincode) cleanParts.push(pincode);
 
   const formatted = cleanParts.length > 0 ? cleanParts.join(", ") : displayName;
@@ -71,7 +75,7 @@ function createLuxuryPinIcon() {
   });
 }
 
-// Multi-provider IP Geolocation fetcher for 100% reliable fallback
+// Multi-provider IP Geolocation fetcher for fallback centering
 async function fetchIpLocation() {
   try {
     const res = await fetch("https://api.bigdatacloud.net/data/reverse-geocode-client");
@@ -81,8 +85,8 @@ async function fetchIpLocation() {
         return {
           lat: data.latitude,
           lon: data.longitude,
-          city: data.city || data.locality || "",
-          state: data.principalSubdivision || "",
+          city: data.city || data.locality || "Gurugram",
+          state: data.principalSubdivision || "Haryana",
           source: "network",
         };
       }
@@ -91,26 +95,8 @@ async function fetchIpLocation() {
     console.warn("BigDataCloud IP lookup failed, trying backup", err);
   }
 
-  try {
-    const res = await fetch("https://ipwho.is/");
-    if (res.ok) {
-      const data = await res.json();
-      if (data.success && data.latitude && data.longitude) {
-        return {
-          lat: data.latitude,
-          lon: data.longitude,
-          city: data.city || "",
-          state: data.region || "",
-          source: "network",
-        };
-      }
-    }
-  } catch (err) {
-    console.warn("ipwho.is lookup failed", err);
-  }
-
-  // Fallback: National Capital Region (NCR / Delhi / Haryana corridor)
-  return { lat: 28.6139, lon: 77.209, city: "Delhi NCR", state: "", source: "default" };
+  // Default: Loomshine Core Hub in Gurugram (MG Road Central Arcade Market)
+  return { lat: 28.4795, lon: 77.0801, city: "Gurugram", state: "Haryana", source: "default" };
 }
 
 export default function LocationPicker({
@@ -126,19 +112,22 @@ export default function LocationPicker({
   const [searchLoading, setSearchLoading] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
   const [statusMessage, setStatusMessage] = useState(null); // { type: 'error' | 'warning' | 'info' | 'success', text: '' }
-  const [detectedRegion, setDetectedRegion] = useState(null);
 
   const mapContainerRef = useRef(null);
   const mapInstanceRef = useRef(null);
   const markerRef = useRef(null);
+  const accuracyCircleRef = useRef(null);
   const searchContainerRef = useRef(null);
   const reverseGeocodeRef = useRef(null);
 
-  // Reverse Geocoding with precise zoom=18 and structured address
+  // Dual-Engine Reverse Geocoding with precise street/locality parsing
   const reverseGeocode = useCallback(
     async (lat, lon, accuracy = null, source = "manual") => {
       setReverseLoading(true);
 
+      let parsed = null;
+
+      // 1. Try Nominatim (OpenStreetMap) with zoom=18 building level
       try {
         const response = await fetch(
           `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json&zoom=18&addressdetails=1`,
@@ -149,68 +138,91 @@ export default function LocationPicker({
           }
         );
 
-        if (!response.ok) {
-          throw new Error("Geocoding service unavailable");
-        }
-
-        const data = await response.json();
-        const parsed = parseNominatimAddress(data);
-
-        const newPin = {
-          lat,
-          lon,
-          accuracy: accuracy !== null ? accuracy : null,
-          address: parsed.formatted,
-          street: parsed.street,
-          locality: parsed.locality,
-          city: parsed.city,
-          state: parsed.state,
-          pincode: parsed.pincode,
-          source,
-        };
-
-        setPinnedLocation(newPin);
-        if (onLocationSelect) {
-          onLocationSelect(newPin);
-        }
-
-        if (source === "gps") {
-          setStatusMessage({
-            type: "success",
-            text: `✓ Precise GPS Location Pinned (${parsed.locality || parsed.city || "Exact Spot"}). Drag pin if needed to adjust.`,
-          });
-        } else if (source === "network") {
-          setStatusMessage({
-            type: "info",
-            text: `📍 Located your area: ${parsed.city || parsed.locality || "Detected City"}. Please drag the pin on the map directly onto your building gate for exact delivery.`,
-          });
-        } else if (source === "drag") {
-          setStatusMessage({
-            type: "success",
-            text: `✓ Pin adjusted to: ${parsed.street || parsed.locality || parsed.city || "Selected spot"}. Address updated below!`,
-          });
+        if (response.ok) {
+          const data = await response.json();
+          parsed = parseNominatimAddress(data);
         }
       } catch (err) {
-        console.warn("Reverse geocode failed, using coordinates fallback", err);
-        const fallbackPin = {
-          lat,
-          lon,
-          accuracy: accuracy || null,
-          address: `GPS Pin: ${lat.toFixed(5)}, ${lon.toFixed(5)}`,
-          street: "",
-          locality: "",
-          city: "",
-          state: "",
-          pincode: "",
-          source,
-        };
-        setPinnedLocation(fallbackPin);
-        if (onLocationSelect) {
-          onLocationSelect(fallbackPin);
-        }
-      } finally {
-        setReverseLoading(false);
+        console.warn("Nominatim reverse geocode failed, attempting backup provider", err);
       }
+
+      // 2. Backup Provider: BigDataCloud Reverse Geocoder
+      if (!parsed || !parsed.formatted) {
+        try {
+          const res = await fetch(
+            `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lon}&localityLanguage=en`
+          );
+          if (res.ok) {
+            const data = await res.json();
+            const locality = data.locality || data.city || "";
+            const city = data.city || "Gurugram";
+            const state = data.principalSubdivision || "Haryana";
+            const postcode = data.postcode || "";
+            const formatted = [locality, city, state, postcode].filter(Boolean).join(", ");
+            parsed = {
+              formatted: formatted || `Live Location (${lat.toFixed(5)}, ${lon.toFixed(5)})`,
+              street: "",
+              locality,
+              city,
+              state,
+              pincode: postcode,
+              raw: data,
+            };
+          }
+        } catch (backupErr) {
+          console.warn("Backup reverse geocode failed", backupErr);
+        }
+      }
+
+      // 3. Fallback coordinates if both network reverse-geocoders timed out
+      if (!parsed || !parsed.formatted) {
+        parsed = {
+          formatted: `Doorstep Pin: ${lat.toFixed(5)}, ${lon.toFixed(5)}`,
+          street: "",
+          locality: "Gurugram",
+          city: "Gurugram",
+          state: "Haryana",
+          pincode: "",
+        };
+      }
+
+      const newPin = {
+        lat,
+        lon,
+        accuracy: accuracy !== null ? accuracy : null,
+        address: parsed.formatted,
+        street: parsed.street,
+        locality: parsed.locality,
+        city: parsed.city,
+        state: parsed.state,
+        pincode: parsed.pincode,
+        source,
+      };
+
+      setPinnedLocation(newPin);
+      if (onLocationSelect) {
+        onLocationSelect(newPin);
+      }
+
+      if (source === "gps") {
+        const accuracyText = accuracy ? ` (±${accuracy}m GPS accuracy)` : "";
+        setStatusMessage({
+          type: "success",
+          text: `✓ Accurate Live Location Pinned${accuracyText}. Drag the pin directly to your building gate if needed.`,
+        });
+      } else if (source === "drag") {
+        setStatusMessage({
+          type: "success",
+          text: `✓ Pin placed at: ${parsed.street || parsed.locality || parsed.city || "Selected spot"}. Address updated!`,
+        });
+      } else if (source === "search") {
+        setStatusMessage({
+          type: "success",
+          text: `✓ Located: ${parsed.formatted}. Drag the pin if needed to refine to your building gate.`,
+        });
+      }
+
+      setReverseLoading(false);
     },
     [onLocationSelect]
   );
@@ -219,8 +231,8 @@ export default function LocationPicker({
     reverseGeocodeRef.current = reverseGeocode;
   }, [reverseGeocode]);
 
-  // Update map view & marker smoothly
-  const updateMapPosition = (lat, lon, zoom = 17) => {
+  // Update map view & marker position smoothly
+  const updateMapPosition = (lat, lon, zoom = 18) => {
     if (mapInstanceRef.current && markerRef.current) {
       mapInstanceRef.current.setView([lat, lon], zoom, { animate: true });
       markerRef.current.setLatLng([lat, lon]);
@@ -232,7 +244,7 @@ export default function LocationPicker({
     }
   };
 
-  // 1. Mount Effect: Initialize Map and Auto-detect client's location (No more defaulting to Bangalore!)
+  // 1. Mount Effect: Initialize Map Centered on Hub (without auto-overriding form with rough IP)
   useEffect(() => {
     if (!mapContainerRef.current) return;
     if (mapInstanceRef.current) return;
@@ -240,15 +252,11 @@ export default function LocationPicker({
     let isSubscribed = true;
 
     async function initMap() {
-      // Step 1: Detect user's actual live IP position
-      const detected = await fetchIpLocation();
-      if (!isSubscribed) return;
-
-      setDetectedRegion(detected);
-
-      const targetLat = initialLocation?.lat || detected.lat;
-      const targetLon = initialLocation?.lon || detected.lon;
-      const targetZoom = initialLocation ? 16 : 14;
+      // Default: Gurugram Hub (MG Road Central Arcade Market)
+      const defaultHub = { lat: 28.4795, lon: 77.0801, city: "Gurugram", state: "Haryana" };
+      const targetLat = initialLocation?.lat || defaultHub.lat;
+      const targetLon = initialLocation?.lon || defaultHub.lon;
+      const targetZoom = initialLocation ? 17 : 14;
 
       if (!mapContainerRef.current) return;
 
@@ -278,6 +286,9 @@ export default function LocationPicker({
       // When user drags pin
       marker.on("dragend", async (e) => {
         const position = e.target.getLatLng();
+        if (accuracyCircleRef.current) {
+          accuracyCircleRef.current.remove();
+        }
         if (reverseGeocodeRef.current) {
           await reverseGeocodeRef.current(position.lat, position.lng, null, "drag");
         }
@@ -287,6 +298,9 @@ export default function LocationPicker({
       map.on("click", async (e) => {
         const { lat, lng } = e.latlng;
         marker.setLatLng([lat, lng]);
+        if (accuracyCircleRef.current) {
+          accuracyCircleRef.current.remove();
+        }
         if (reverseGeocodeRef.current) {
           await reverseGeocodeRef.current(lat, lng, null, "drag");
         }
@@ -295,9 +309,9 @@ export default function LocationPicker({
       mapInstanceRef.current = map;
       markerRef.current = marker;
 
-      // Auto-reverse geocode the detected real location if no initial location was given
-      if (!initialLocation && reverseGeocodeRef.current) {
-        reverseGeocodeRef.current(targetLat, targetLon, null, "network");
+      // Only reverse-geocode on mount if initialLocation was explicitly supplied
+      if (initialLocation && reverseGeocodeRef.current) {
+        reverseGeocodeRef.current(initialLocation.lat, initialLocation.lon, null, "initial");
       }
 
       setTimeout(() => {
@@ -315,9 +329,10 @@ export default function LocationPicker({
         mapInstanceRef.current.remove();
         mapInstanceRef.current = null;
         markerRef.current = null;
+        accuracyCircleRef.current = null;
       }
     };
-  }, []); // Run once on mount
+  }, []);
 
   // Click outside search results to close dropdown
   useEffect(() => {
@@ -330,26 +345,83 @@ export default function LocationPicker({
     return () => document.removeEventListener("mousedown", handleSearchClickOutside);
   }, []);
 
-  // 2. Dual-Engine Live Location Detection (GPS Hardware + Fast Network Fallback)
+  // 2. High-Accuracy Live Location Detection (GPS Hardware with generous satellite acquisition window)
   const handleAutoDetectGPS = () => {
-    setLoadingGps(true);
-    setStatusMessage(null);
-
-    // If browser doesn't support geolocation, fallback to network immediately
     if (!navigator.geolocation) {
-      fallbackToNetworkLocation("Browser does not support GPS hardware.");
+      setStatusMessage({
+        type: "error",
+        text: "Geolocation is not supported by your browser. Please search your colony/society or drag the pin on the map.",
+      });
       return;
     }
 
+    setLoadingGps(true);
+    setStatusMessage({
+      type: "info",
+      text: "Connecting to device GPS... Please tap 'Allow' when your browser asks for location permission.",
+    });
+
     let resolved = false;
 
-    // Timeout safety: if browser hangs or waits for permission, resolve with network after 6s
+    // Apply accurate GPS coords to map and reverse geocode
+    const applyGpsCoords = async (latitude, longitude, accuracy, source) => {
+      updateMapPosition(latitude, longitude, 18);
+
+      if (mapInstanceRef.current) {
+        if (accuracyCircleRef.current) {
+          accuracyCircleRef.current.remove();
+        }
+        if (accuracy && accuracy < 600) {
+          accuracyCircleRef.current = L.circle([latitude, longitude], {
+            radius: Math.max(accuracy, 15),
+            color: "#C5A059",
+            fillColor: "#C5A059",
+            fillOpacity: 0.14,
+            weight: 1.5,
+            dashArray: "4, 6",
+          }).addTo(mapInstanceRef.current);
+        }
+      }
+
+      if (reverseGeocodeRef.current) {
+        await reverseGeocodeRef.current(latitude, longitude, Math.round(accuracy || 0), source);
+      }
+    };
+
+    // Secondary attempt with standard accuracy if hardware satellite lock is slow
+    const tryStandardAccuracyGps = () => {
+      navigator.geolocation.getCurrentPosition(
+        async (position) => {
+          setLoadingGps(false);
+          const { latitude, longitude, accuracy } = position.coords;
+          await applyGpsCoords(latitude, longitude, accuracy, "gps");
+        },
+        async (err) => {
+          setLoadingGps(false);
+          if (err.code === 1) {
+            setStatusMessage({
+              type: "warning",
+              text: "Location permission denied. Please enable location permissions in browser or search your colony/sector below.",
+            });
+          } else {
+            fallbackToNetworkLocation("Could not get a high-precision GPS satellite fix.");
+          }
+        },
+        {
+          enableHighAccuracy: false,
+          timeout: 8000,
+          maximumAge: 30000,
+        }
+      );
+    };
+
+    // Safety timeout: 14 seconds to give user ample time to tap "Allow" and device to acquire satellites
     const timeoutTimer = setTimeout(() => {
       if (!resolved) {
         resolved = true;
-        fallbackToNetworkLocation("GPS response took too long.");
+        tryStandardAccuracyGps();
       }
-    }, 6000);
+    }, 14000);
 
     navigator.geolocation.getCurrentPosition(
       async (position) => {
@@ -359,54 +431,59 @@ export default function LocationPicker({
         setLoadingGps(false);
 
         const { latitude, longitude, accuracy } = position.coords;
-
-        // Move map and marker
-        updateMapPosition(latitude, longitude, 17);
-
-        // Reverse geocode
-        await reverseGeocode(latitude, longitude, Math.round(accuracy), "gps");
+        await applyGpsCoords(latitude, longitude, accuracy, "gps");
       },
       async (error) => {
         if (resolved) return;
         resolved = true;
         clearTimeout(timeoutTimer);
 
-        let reason = "GPS permission not granted.";
-        if (error.code === error.POSITION_UNAVAILABLE) reason = "GPS satellite unavailable.";
-        fallbackToNetworkLocation(reason);
+        if (error.code === error.PERMISSION_DENIED) {
+          setLoadingGps(false);
+          setStatusMessage({
+            type: "warning",
+            text: "Location permission was denied. Please allow location permissions in your browser or search your society/sector below.",
+          });
+          return;
+        }
+
+        // Try standard accuracy if high accuracy failed
+        tryStandardAccuracyGps();
       },
       {
         enableHighAccuracy: true,
-        timeout: 5500,
-        maximumAge: 0,
+        timeout: 13000,
+        maximumAge: 10000,
       }
     );
   };
 
-  // Network IP Location Fallback handler
+  // Network IP Location Fallback handler (only when GPS hardware is completely unavailable)
   const fallbackToNetworkLocation = async (reason) => {
     setLoadingGps(true);
     try {
       const netLoc = await fetchIpLocation();
       updateMapPosition(netLoc.lat, netLoc.lon, 16);
-      await reverseGeocode(netLoc.lat, netLoc.lon, null, "network");
+      if (reverseGeocodeRef.current) {
+        await reverseGeocodeRef.current(netLoc.lat, netLoc.lon, null, "network");
+      }
 
       setStatusMessage({
         type: "warning",
-        text: `${reason} Pinned your area: ${netLoc.city || "your city"} via network. Drag the pin on the map or search below to pinpoint your exact gate.`,
+        text: `${reason} Centered on detected region (${netLoc.city}). Drag the pin directly onto your gate/building on the map.`,
       });
     } catch (e) {
       console.warn("Fallback failed", e);
       setStatusMessage({
         type: "error",
-        text: "Could not auto-detect location. Please type your society or area in the search bar below.",
+        text: "Could not detect live location. Please search your sector/society in the search box below.",
       });
     } finally {
       setLoadingGps(false);
     }
   };
 
-  // 3. Search Area / Society / Landmark Handler (with local city biasing)
+  // 3. Search Area / Society / Landmark Handler (with local Gurugram / NCR proximity viewbox biasing)
   const handleSearchSubmit = async (e) => {
     if (e) e.preventDefault();
     const query = searchQuery.trim();
@@ -416,17 +493,15 @@ export default function LocationPicker({
     setStatusMessage(null);
 
     try {
-      // Prioritize India & current region
+      // Prioritize India & Gurugram NCR corridor
       let url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(
         query
       )}&countrycodes=in&addressdetails=1&limit=6`;
 
-      // If we know current lat/lon, add proximity viewbox biasing
-      const currentLat = pinnedLocation?.lat || detectedRegion?.lat;
-      const currentLon = pinnedLocation?.lon || detectedRegion?.lon;
-      if (currentLat && currentLon) {
-        url += `&viewbox=${currentLon - 0.4},${currentLat + 0.4},${currentLon + 0.4},${currentLat - 0.4}&bounded=0`;
-      }
+      // Proximity bounding box around NCR / Haryana
+      const centerLat = pinnedLocation?.lat || 28.4795;
+      const centerLon = pinnedLocation?.lon || 77.0801;
+      url += `&viewbox=${centerLon - 0.4},${centerLat + 0.4},${centerLon + 0.4},${centerLat - 0.4}&bounded=0`;
 
       const response = await fetch(url, {
         headers: {
@@ -443,14 +518,14 @@ export default function LocationPicker({
       if (results.length === 0) {
         setStatusMessage({
           type: "warning",
-          text: `No exact location found for "${query}". Try searching with your city name (e.g., "${query} Panipat" or "${query} Delhi").`,
+          text: `No exact location found for "${query}". Try adding "Gurgaon" or "Sector" (e.g., "${query} Gurugram").`,
         });
       }
     } catch (err) {
       console.warn("Search failed", err);
       setStatusMessage({
         type: "error",
-        text: "Failed to search locations. Please try dragging the pin directly on the map.",
+        text: "Failed to search locations. You can drag the gold pin directly to your gate on the map.",
       });
     } finally {
       setSearchLoading(false);
@@ -465,38 +540,22 @@ export default function LocationPicker({
     setShowDropdown(false);
     setSearchQuery(result.display_name.split(",").slice(0, 3).join(","));
 
-    // Move map & marker
-    updateMapPosition(lat, lon, 17);
-
-    // Parse structured address
-    const parsed = parseNominatimAddress(result);
-
-    const newPin = {
-      lat,
-      lon,
-      accuracy: null,
-      address: parsed.formatted,
-      street: parsed.street,
-      locality: parsed.locality,
-      city: parsed.city,
-      state: parsed.state,
-      pincode: parsed.pincode,
-      source: "search",
-    };
-
-    setPinnedLocation(newPin);
-    if (onLocationSelect) {
-      onLocationSelect(newPin);
+    if (accuracyCircleRef.current) {
+      accuracyCircleRef.current.remove();
     }
 
-    setStatusMessage({
-      type: "success",
-      text: "✓ Location pinned from search! You can drag the pin on the map to place it directly at your doorstep.",
-    });
+    // Move map & marker directly to selected building at zoom 18
+    updateMapPosition(lat, lon, 18);
+
+    if (reverseGeocodeRef.current) {
+      await reverseGeocodeRef.current(lat, lon, null, "search");
+    }
   };
 
-  // 5. Clear Pinned Location
   const handleClear = () => {
+    if (accuracyCircleRef.current) {
+      accuracyCircleRef.current.remove();
+    }
     setPinnedLocation(null);
     setSearchQuery("");
     setSearchResults([]);
@@ -510,36 +569,38 @@ export default function LocationPicker({
     <div className="location-picker-container">
       {/* ACTION TOOLBAR: DUAL GPS BUTTON & LOCALITY SEARCH */}
       <div className="location-picker-toolbar">
-        {/* AUTO DETECT GPS */}
+        {/* AUTO DETECT LIVE GPS */}
         <button
           type="button"
           className={`gps-detect-btn ${loadingGps ? "gps-detect-btn--loading" : ""}`}
           onClick={handleAutoDetectGPS}
           disabled={loadingGps}
-          title="Auto-detect current live location via GPS/Network"
+          title="Auto-detect exact live doorstep coordinates using device GPS"
         >
-          <span className="gps-btn-icon">{loadingGps ? "⌛" : "📍"}</span>
-          <span>{loadingGps ? "Detecting Live Location..." : "Auto-Detect My Live Location"}</span>
+          <span className="gps-btn-icon">{loadingGps ? "⌛" : "🎯"}</span>
+          <span>{loadingGps ? "Acquiring Live GPS..." : "Auto-Detect My Exact Live Location"}</span>
         </button>
 
         <span className="toolbar-divider-label">OR SEARCH</span>
 
         {/* SEARCH AREA / SOCIETY / LANDMARK */}
         <div className="location-search-box" ref={searchContainerRef}>
-          <form onSubmit={handleSearchSubmit} className="search-form-wrapper">
+          <div className="search-form-wrapper">
             <input
               type="text"
               className="location-search-input"
-              placeholder={
-                detectedRegion?.city
-                  ? `Search street, society, or sector in ${detectedRegion.city}...`
-                  : "Search apartment, society, street, or area..."
-              }
+              placeholder="Search society, sector, landmark (e.g. DLF Phase 2, MG Road)..."
               value={searchQuery}
               onChange={(e) => {
                 setSearchQuery(e.target.value);
                 if (e.target.value.trim().length > 2) {
                   handleSearchSubmit();
+                }
+              }}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  e.preventDefault();
+                  handleSearchSubmit(e);
                 }
               }}
               onFocus={() => {
@@ -548,14 +609,15 @@ export default function LocationPicker({
             />
 
             <button
-              type="submit"
+              type="button"
+              onClick={handleSearchSubmit}
               className="location-search-btn"
               disabled={searchLoading || !searchQuery.trim()}
               title="Search location"
             >
               {searchLoading ? "..." : "🔍 Search"}
             </button>
-          </form>
+          </div>
 
           {/* SEARCH SUGGESTIONS DROPDOWN */}
           {showDropdown && searchResults.length > 0 && (
@@ -584,15 +646,6 @@ export default function LocationPicker({
         </div>
       </div>
 
-      {/* QUICK SUGGESTIONS / DETECTED REGION BADGE */}
-      {detectedRegion?.city && (
-        <div className="detected-region-strip">
-          <span className="detected-label">DETECTED AREA:</span>
-          <span className="detected-city-badge">📍 {detectedRegion.city}, {detectedRegion.state}</span>
-          <span className="detected-hint">— If you are nearby, drag the pin below directly to your gate</span>
-        </div>
-      )}
-
       {/* STATUS / WARNING BANNERS */}
       {statusMessage && (
         <div className={`location-status-banner location-status-banner--${statusMessage.type}`}>
@@ -612,7 +665,7 @@ export default function LocationPicker({
       {/* INTERACTIVE LEAFLET MAP */}
       <div className="interactive-map-wrapper">
         <div className="map-guidance-overlay">
-          <span>💡 <strong>Drag the gold pin</strong> or <strong>click anywhere on map</strong> to pinpoint your exact gate/doorstep</span>
+          <span>💡 <strong>Drag the gold pin</strong> or <strong>tap anywhere on the map</strong> to pinpoint your exact gate/doorstep</span>
           {reverseLoading && <span className="reverse-geocoding-spinner">Updating address...</span>}
         </div>
 
@@ -625,16 +678,16 @@ export default function LocationPicker({
           <div className="pinned-summary-top">
             <div className="pinned-summary-status">
               <span className="live-pulse-dot" />
-              <strong>LOCATION PINNED LIVE</strong>
+              <strong>DOORSTEP LOCATION PINNED</strong>
               {pinnedLocation.source && (
                 <span className="accuracy-pill">
                   {pinnedLocation.source === "gps"
-                    ? "✓ Satellite GPS"
+                    ? `✓ Accurate GPS (${pinnedLocation.accuracy ? `±${pinnedLocation.accuracy}m` : "Live"})`
                     : pinnedLocation.source === "drag"
                     ? "✓ Exact Pin Drop"
                     : pinnedLocation.source === "search"
                     ? "✓ Verified Search"
-                    : "📍 Network / IP"}
+                    : "📍 Network Detected"}
                 </span>
               )}
             </div>
@@ -651,7 +704,7 @@ export default function LocationPicker({
               GPS Coordinates: {pinnedLocation.lat.toFixed(5)}, {pinnedLocation.lon.toFixed(5)}
             </span>
             <span className="meta-tip">
-              ✓ Address details below have been pre-filled from this pin. You can edit or add flat/floor details manually.
+              ✓ Address fields below are automatically filled. Add your specific flat or floor number below.
             </span>
           </div>
         </div>
