@@ -42,9 +42,9 @@ export const HeroSection = () => {
                 <Button href="#/contact" variant="dark" size="lg">
                   Book a Pickup +
                 </Button>
-               <button onClick={() => window.location.hash = "services"}>
-  EXPLORE SERVICES +
-</button>
+                <Button href="#/services" variant="dark-outline" size="lg">
+                  Explore Services +
+                </Button>
               </div>
 
               <form className="loom-hero-availability" onSubmit={handlePincodeSubmit}>
