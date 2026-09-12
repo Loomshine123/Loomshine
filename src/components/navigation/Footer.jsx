@@ -1,13 +1,25 @@
 import Container from '../common/Container';
 import './Footer.css';
 
-export const Footer = () => {
+export const Footer = ({ onNavigate }) => {
+  const handleLinkClick = (e, href) => {
+    if (onNavigate && href) {
+      e.preventDefault();
+      onNavigate(href);
+    }
+  };
+
   return (
     <footer className="loom-footer">
       <Container>
         {/* Top Branding Row */}
         <div className="loom-footer-top">
-          <a href="#" className="loom-footer-brand" aria-label="LOOMSHINE Home">
+          <a
+            href="#home"
+            className="loom-footer-brand"
+            aria-label="LOOMSHINE Home"
+            onClick={(e) => handleLinkClick(e, '#home')}
+          >
             <img
               src="/logoloom.png"
               alt="LOOMSHINE Dry Cleaning & Laundry"
@@ -25,10 +37,10 @@ export const Footer = () => {
           <div>
             <h4 className="loom-footer-col__title">Services</h4>
             <ul className="loom-footer-col__list">
-              <li><a href="#services" className="loom-footer-col__link">Laundry</a></li>
-              <li><a href="#services" className="loom-footer-col__link">Dry Cleaning</a></li>
-              <li><a href="#services" className="loom-footer-col__link">Pressing & Finish</a></li>
-              <li><a href="#services" className="loom-footer-col__link">Shoe & Bag Care</a></li>
+              <li><a href="#/services/laundry" className="loom-footer-col__link" onClick={(e) => handleLinkClick(e, '#/services/laundry')}>Laundry</a></li>
+              <li><a href="#/services/dry-cleaning" className="loom-footer-col__link" onClick={(e) => handleLinkClick(e, '#/services/dry-cleaning')}>Dry Cleaning</a></li>
+              <li><a href="#/services/press-finish" className="loom-footer-col__link" onClick={(e) => handleLinkClick(e, '#/services/press-finish')}>Pressing & Finish</a></li>
+              <li><a href="#/services/shoe-bag-care" className="loom-footer-col__link" onClick={(e) => handleLinkClick(e, '#/services/shoe-bag-care')}>Shoe & Bag Care</a></li>
             </ul>
           </div>
 
@@ -36,11 +48,11 @@ export const Footer = () => {
           <div>
             <h4 className="loom-footer-col__title">Company</h4>
             <ul className="loom-footer-col__list">
-              <li><a href="#about" className="loom-footer-col__link">About Us</a></li>
-              <li><a href="#how-it-works" className="loom-footer-col__link">How It Works</a></li>
-              <li><a href="#/pricing" className="loom-footer-col__link">Pricing Rates</a></li>
-              <li><a href="#business" className="loom-footer-col__link">Business B2B</a></li>
-              <li><a href="#/contact" className="loom-footer-col__link">Contact</a></li>
+              <li><a href="#/about" className="loom-footer-col__link" onClick={(e) => handleLinkClick(e, '#/about')}>About Us</a></li>
+              <li><a href="#how-it-works" className="loom-footer-col__link" onClick={(e) => handleLinkClick(e, '#how-it-works')}>How It Works</a></li>
+              <li><a href="#/pricing" className="loom-footer-col__link" onClick={(e) => handleLinkClick(e, '#/pricing')}>Pricing Rates</a></li>
+              <li><a href="#business" className="loom-footer-col__link" onClick={(e) => handleLinkClick(e, '#business')}>Business B2B</a></li>
+              <li><a href="#/contact" className="loom-footer-col__link" onClick={(e) => handleLinkClick(e, '#/contact')}>Contact</a></li>
             </ul>
           </div>
 
@@ -60,7 +72,7 @@ export const Footer = () => {
             <h4 className="loom-footer-col__title">Contact & HQ</h4>
             <ul className="loom-footer-col__list">
               <li style={{ color: '#4A5D73', fontSize: '13px', lineHeight: '1.45' }}>
-                4th Floor, BPTP Centra One, Sector 61, Golf Course Ext. Road, Gurugram, Haryana 122102, India
+                Shop No. 262, First Floor, Central Arcade Market, MG Road, Gurugram, Haryana, India
               </li>
               <li style={{ color: '#4A5D73', fontSize: '13px', marginTop: '4px' }}>Phone: +91 00000 00000</li>
               <li style={{ color: '#4A5D73', fontSize: '13px' }}>Email: hello@loomshine.com</li>
