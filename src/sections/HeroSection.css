@@ -34,12 +34,14 @@
 .loom-hero__headline {
   color: var(--color-white);
   font-family: var(--font-sans);
-  font-size: clamp(2.4rem, 4.2vw, 3.8rem);
+  font-size: clamp(1.75rem, 6.5vw, 3.8rem);
   font-weight: 800;
   letter-spacing: -0.01em;
-  line-height: 1.02;
+  line-height: 1.05;
   margin-bottom: 18px;
   text-transform: uppercase;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .loom-hero__headline span {
@@ -100,6 +102,7 @@
   border-bottom: 0;
   font-size: 11px;
   padding-left: 16px;
+  white-space: nowrap;
 }
 
 .loom-hero__media {
@@ -203,26 +206,97 @@
 
 @media (max-width: 767px) {
   .loom-hero-section {
-    padding-top: 28px;
-    padding-bottom: 36px;
+    padding-top: 24px;
+    padding-bottom: 32px;
     min-height: auto;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .loom-hero__content {
+    max-width: 100%;
+  }
+
+  .loom-hero__eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    margin-bottom: 12px;
+    word-break: break-word;
+  }
+
+  .loom-hero__headline {
+    font-size: clamp(1.5rem, 7vw, 2.2rem);
+    line-height: 1.1;
+    margin-bottom: 14px;
+  }
+
+  .loom-hero__subtext {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    max-width: 100%;
   }
 
   .loom-hero__media .loom-image {
-    min-height: 300px;
-    max-height: 360px;
+    min-height: 260px;
+    max-height: 320px;
   }
 
   .loom-hero__media-label {
     bottom: -12px;
-    padding: 12px 16px;
+    padding: 10px 14px;
+    font-size: 9px;
+    letter-spacing: 0.14em;
   }
 
   .loom-hero-process {
-    gap: 14px;
+    justify-content: center;
+    gap: 8px 14px;
+  }
+
+  .loom-hero-process span {
+    font-size: 10px;
+    letter-spacing: 0.1em;
   }
 
   .loom-hero-process span:not(:last-child)::after {
     margin-left: 14px;
+  }
+
+  .loom-trust-grid {
+    gap: 10px;
+  }
+
+  .loom-trust-item {
+    font-size: 10px;
+    letter-spacing: 0.08em;
+  }
+}
+
+@media (max-width: 480px) {
+  .loom-hero__cta-group {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+
+  .loom-hero__cta-group .loom-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .loom-hero-availability__label {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+  }
+
+  .loom-hero-availability .loom-input-field {
+    font-size: 12.5px;
+  }
+
+  .loom-hero-availability .loom-btn--text {
+    font-size: 10px;
+    padding-left: 6px;
   }
 }
