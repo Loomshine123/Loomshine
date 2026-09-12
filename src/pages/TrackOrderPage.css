@@ -1,6 +1,11 @@
 /* ==========================================================================
-   Track Order Page Styles (Figma Pixel-Perfect Implementation)
+   Track Order Page Styles (Figma Pixel-Perfect & Mobile-Responsive)
    ========================================================================== */
+
+.track-page {
+  width: 100%;
+  overflow-x: hidden;
+}
 
 /* --------------------------------------------------------------------------
    1. Dark Navy Hero Section (#071A33)
@@ -8,15 +13,21 @@
 .track-hero {
   background-color: var(--color-navy, #071A33);
   color: var(--color-pure-white, #FFFFFF);
-  padding: 60px 0 80px;
+  padding: 44px 0 56px;
   position: relative;
   overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .track-hero {
+    padding: 60px 0 80px;
+  }
 }
 
 .track-hero__grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 40px;
+  gap: 36px;
   align-items: center;
 }
 
@@ -28,23 +39,27 @@
 }
 
 .track-hero__content {
+  width: 100%;
   max-width: 620px;
 }
 
 .track-hero__title {
   font-family: var(--font-display, 'Cormorant Garamond', 'Plus Jakarta Sans', serif);
-  font-size: 2.75rem;
+  font-size: clamp(2rem, 6.5vw, 2.75rem);
   font-weight: 700;
-  line-height: 1.1;
+  line-height: 1.12;
   letter-spacing: 0.02em;
   text-transform: uppercase;
   color: #FFFFFF;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 @media (min-width: 768px) {
   .track-hero__title {
     font-size: 3.5rem;
+    margin-bottom: 20px;
   }
 }
 
@@ -56,15 +71,23 @@
 
 .track-hero__desc {
   font-family: var(--font-body, 'Inter', sans-serif);
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   line-height: 1.6;
   color: #A0B2C6;
-  margin-bottom: 36px;
+  margin-bottom: 28px;
   max-width: 520px;
+}
+
+@media (min-width: 768px) {
+  .track-hero__desc {
+    font-size: 0.95rem;
+    margin-bottom: 36px;
+  }
 }
 
 /* Track Search Input */
 .track-search {
+  width: 100%;
   max-width: 480px;
 }
 
@@ -84,6 +107,7 @@
   align-items: stretch;
   background-color: rgba(255, 255, 255, 0.05);
   border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+  width: 100%;
   transition: border-color 0.25s ease, background-color 0.25s ease;
 }
 
@@ -94,15 +118,23 @@
 
 .track-search__input {
   flex: 1;
+  min-width: 0;
   background: transparent;
   border: none;
-  padding: 14px 16px;
+  padding: 12px 14px;
   font-family: var(--font-body, 'Inter', monospace, sans-serif);
-  font-size: 1.15rem;
+  font-size: 1rem;
   font-weight: 600;
   letter-spacing: 0.08em;
   color: #FFFFFF;
   outline: none;
+}
+
+@media (min-width: 480px) {
+  .track-search__input {
+    padding: 14px 16px;
+    font-size: 1.15rem;
+  }
 }
 
 .track-search__input::placeholder {
@@ -117,18 +149,29 @@
 .track-search__btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   background-color: #2B7FFF;
   color: #FFFFFF;
   border: none;
-  padding: 0 24px;
+  padding: 0 16px;
   font-family: var(--font-body, 'Inter', sans-serif);
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  min-height: 44px;
   transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+@media (min-width: 480px) {
+  .track-search__btn {
+    padding: 0 24px;
+    font-size: 0.85rem;
+  }
 }
 
 .track-search__btn:hover {
@@ -150,9 +193,13 @@
 }
 
 .track-search__quick-suggestions {
-  margin-top: 4px;
+  margin-top: 6px;
   font-size: 0.8rem;
   color: #A0B2C6;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
 }
 
 .track-search__quick-suggestions button {
@@ -169,6 +216,7 @@
 .track-hero__image-container {
   display: flex;
   justify-content: center;
+  width: 100%;
 }
 
 .track-hero__image-frame {
@@ -182,9 +230,21 @@
 
 .track-hero__image {
   width: 100%;
-  height: 320px;
+  height: 220px;
   object-fit: cover;
   display: block;
+}
+
+@media (min-width: 480px) {
+  .track-hero__image {
+    height: 260px;
+  }
+}
+
+@media (min-width: 768px) {
+  .track-hero__image {
+    height: 320px;
+  }
 }
 
 @media (min-width: 992px) {
@@ -198,13 +258,19 @@
    -------------------------------------------------------------------------- */
 .track-live-section {
   background-color: #FFFFFF;
-  padding: 70px 0 90px;
+  padding: 40px 0 60px;
+}
+
+@media (min-width: 768px) {
+  .track-live-section {
+    padding: 70px 0 90px;
+  }
 }
 
 .track-live__grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 50px;
+  gap: 36px;
 }
 
 @media (min-width: 992px) {
@@ -223,41 +289,72 @@
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: #2B7FFF;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
+}
+
+@media (min-width: 768px) {
+  .track-live__eyebrow {
+    margin-bottom: 12px;
+  }
 }
 
 .track-live__heading {
   font-family: var(--font-display, 'Cormorant Garamond', 'Plus Jakarta Sans', serif);
-  font-size: 2.25rem;
+  font-size: clamp(1.75rem, 5.5vw, 2.25rem);
   font-weight: 700;
-  line-height: 1.15;
+  line-height: 1.18;
   letter-spacing: 0.02em;
   text-transform: uppercase;
   color: #071A33;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
+  overflow-wrap: break-word;
 }
 
 @media (min-width: 768px) {
   .track-live__heading {
     font-size: 2.75rem;
+    line-height: 1.15;
+    margin-bottom: 16px;
   }
 }
 
 .track-live__subtext {
   font-family: var(--font-body, 'Inter', sans-serif);
-  font-size: 0.95rem;
+  font-size: 0.88rem;
   line-height: 1.6;
   color: #5A6E85;
-  margin-bottom: 32px;
+  margin-bottom: 24px;
   max-width: 460px;
+}
+
+@media (min-width: 768px) {
+  .track-live__subtext {
+    font-size: 0.95rem;
+    margin-bottom: 32px;
+  }
 }
 
 /* Order Summary Card (#EAF2F7 background) */
 .track-summary-card {
   background-color: #EAF2F7;
   border-radius: 8px;
-  padding: 32px 28px;
-  max-width: 460px;
+  padding: 20px 16px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+@media (min-width: 480px) {
+  .track-summary-card {
+    padding: 24px 22px;
+  }
+}
+
+@media (min-width: 768px) {
+  .track-summary-card {
+    padding: 32px 28px;
+    max-width: 460px;
+  }
 }
 
 .track-summary-card__title {
@@ -267,29 +364,52 @@
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: #5A6E85;
-  margin-bottom: 24px;
-  padding-bottom: 12px;
+  margin-bottom: 18px;
+  padding-bottom: 10px;
   border-bottom: 1px solid rgba(7, 26, 51, 0.1);
+}
+
+@media (min-width: 768px) {
+  .track-summary-card__title {
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+  }
 }
 
 .track-summary-list {
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  margin-bottom: 28px;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+@media (min-width: 768px) {
+  .track-summary-list {
+    gap: 14px;
+    margin-bottom: 28px;
+  }
 }
 
 .track-summary-row {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
+  gap: 12px;
   font-family: var(--font-body, 'Inter', sans-serif);
-  font-size: 0.9rem;
+  font-size: 0.875rem;
+}
+
+@media (min-width: 480px) {
+  .track-summary-row {
+    font-size: 0.9rem;
+    gap: 16px;
+  }
 }
 
 .track-summary-row dt {
   color: #5A6E85;
   font-weight: 400;
+  flex-shrink: 0;
 }
 
 .track-summary-row dd {
@@ -297,6 +417,8 @@
   font-weight: 500;
   text-align: right;
   margin: 0;
+  word-break: break-word;
+  max-width: 70%;
 }
 
 .track-summary-val--bold {
@@ -306,16 +428,27 @@
 .track-summary-est {
   background-color: #DDEBF5;
   border-radius: 6px;
-  padding: 16px 20px;
+  padding: 14px 16px;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 18px;
+  box-sizing: border-box;
+}
+
+@media (min-width: 440px) {
+  .track-summary-est {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+  }
 }
 
 .track-summary-est__label {
   font-family: var(--font-body, 'Inter', sans-serif);
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -324,31 +457,58 @@
 
 .track-summary-est__val {
   font-family: var(--font-body, 'Inter', sans-serif);
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: 800;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: #2B7FFF;
 }
 
+@media (min-width: 440px) {
+  .track-summary-est__val {
+    font-size: 0.95rem;
+  }
+}
+
 .track-summary-actions {
   display: flex;
-  gap: 12px;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+@media (min-width: 480px) {
+  .track-summary-actions {
+    flex-direction: row;
+    gap: 12px;
+  }
 }
 
 .track-btn-secondary {
-  flex: 1;
+  width: 100%;
   background: transparent;
   border: 1px solid #071A33;
   color: #071A33;
-  padding: 10px 14px;
+  padding: 11px 14px;
   border-radius: 4px;
   font-size: 0.8rem;
   font-weight: 600;
   text-align: center;
   cursor: pointer;
   text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  box-sizing: border-box;
   transition: all 0.2s ease;
+}
+
+@media (min-width: 480px) {
+  .track-btn-secondary {
+    flex: 1;
+    padding: 10px 14px;
+  }
 }
 
 .track-btn-secondary:hover {
@@ -363,32 +523,71 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  padding-left: 20px;
+  gap: 16px;
+  padding-left: 0;
+  width: 100%;
   max-width: 540px;
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .track-timeline {
+    gap: 24px;
+  }
 }
 
 .track-timeline__line {
   position: absolute;
-  left: 39px;
-  top: 24px;
-  bottom: 24px;
+  left: 29px;
+  top: 20px;
+  bottom: 20px;
   width: 2px;
   background-color: #E2E8F0;
   z-index: 1;
+}
+
+@media (min-width: 480px) {
+  .track-timeline__line {
+    left: 35px;
+  }
+}
+
+@media (min-width: 768px) {
+  .track-timeline__line {
+    left: 42px;
+    top: 24px;
+    bottom: 24px;
+  }
 }
 
 .track-step {
   position: relative;
   z-index: 2;
   display: flex;
-  align-items: center;
-  gap: 24px;
+  align-items: flex-start;
+  gap: 12px;
   background-color: #FFFFFF;
   border: 1px solid #EAEAEA;
   border-radius: 8px;
-  padding: 18px 24px;
+  padding: 14px 14px;
+  width: 100%;
+  box-sizing: border-box;
   transition: box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+@media (min-width: 480px) {
+  .track-step {
+    padding: 16px 18px;
+    gap: 16px;
+    align-items: center;
+  }
+}
+
+@media (min-width: 768px) {
+  .track-step {
+    padding: 18px 24px;
+    gap: 24px;
+  }
 }
 
 .track-step:hover {
@@ -401,14 +600,28 @@
 }
 
 .track-step__node {
-  width: 38px;
-  height: 38px;
+  width: 32px;
+  height: 32px;
   border-radius: 6px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
   transition: all 0.25s ease;
+}
+
+@media (min-width: 480px) {
+  .track-step__node {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+@media (min-width: 768px) {
+  .track-step__node {
+    width: 38px;
+    height: 38px;
+  }
 }
 
 /* Nodes Styling */
@@ -431,39 +644,88 @@
 
 .track-step__content {
   flex: 1;
+  min-width: 0;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+@media (min-width: 640px) {
+  .track-step__content {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+  }
 }
 
 .track-step__header {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
+  flex-wrap: wrap;
+  min-width: 0;
+}
+
+@media (min-width: 480px) {
+  .track-step__header {
+    gap: 12px;
+  }
 }
 
 .track-step__code {
   font-family: var(--font-body, 'Inter', monospace, sans-serif);
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 700;
   color: #2B7FFF;
+  flex-shrink: 0;
+}
+
+@media (min-width: 480px) {
+  .track-step__code {
+    font-size: 0.85rem;
+  }
 }
 
 .track-step__label {
   font-family: var(--font-body, 'Inter', sans-serif);
-  font-size: 1rem;
+  font-size: 0.85rem;
   font-weight: 700;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   color: #071A33;
   margin: 0;
+  line-height: 1.35;
+  word-break: break-word;
+}
+
+@media (min-width: 480px) {
+  .track-step__label {
+    font-size: 0.95rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .track-step__label {
+    font-size: 1rem;
+    letter-spacing: 0.05em;
+  }
 }
 
 .track-step__date {
   font-family: var(--font-body, 'Inter', sans-serif);
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: #5A6E85;
-  white-space: nowrap;
+  white-space: normal;
+}
+
+@media (min-width: 640px) {
+  .track-step__date {
+    font-size: 0.85rem;
+    white-space: nowrap;
+    text-align: right;
+  }
 }
 
 /* --------------------------------------------------------------------------
@@ -471,14 +733,20 @@
    -------------------------------------------------------------------------- */
 .track-features {
   background-color: #EAF2F7;
-  padding: 60px 0;
+  padding: 40px 0;
   border-top: 1px solid #D6E4EE;
+}
+
+@media (min-width: 768px) {
+  .track-features {
+    padding: 60px 0;
+  }
 }
 
 .track-features__grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 36px;
+  gap: 28px;
 }
 
 @media (min-width: 768px) {
@@ -494,33 +762,60 @@
 }
 
 .track-feature-item__bar {
-  width: 60px;
+  width: 48px;
   height: 3px;
   background-color: #071A33;
-  margin-bottom: 20px;
+  margin-bottom: 14px;
+}
+
+@media (min-width: 768px) {
+  .track-feature-item__bar {
+    width: 60px;
+    margin-bottom: 20px;
+  }
 }
 
 .track-feature-item__title {
   font-family: var(--font-body, 'Inter', sans-serif);
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: #071A33;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
+}
+
+@media (min-width: 768px) {
+  .track-feature-item__title {
+    font-size: 0.85rem;
+    margin-bottom: 10px;
+  }
 }
 
 .track-feature-item__desc {
   font-family: var(--font-body, 'Inter', sans-serif);
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   line-height: 1.5;
   color: #5A6E85;
+}
+
+@media (min-width: 768px) {
+  .track-feature-item__desc {
+    font-size: 0.9rem;
+  }
 }
 
 /* Empty State */
 .track-empty-state {
   text-align: center;
-  padding: 60px 20px;
+  padding: 40px 16px;
   color: #5A6E85;
-  font-size: 1.1rem;
+  font-size: 1rem;
+}
+
+@media (min-width: 768px) {
+  .track-empty-state {
+    padding: 60px 20px;
+    font-size: 1.1rem;
+  }
 }
