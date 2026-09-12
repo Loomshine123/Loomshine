@@ -1,83 +1,106 @@
 .loom-promise-section {
-  background-color: var(--color-white);
-  padding-top: 64px;
-  padding-bottom: 64px;
+  background-color: var(--color-white, #FFFFFF);
+  padding-top: 80px;
+  padding-bottom: 80px;
 }
 
 .loom-promise-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--space-6);
+  gap: var(--space-6, 24px);
   align-items: center;
 }
 
 @media (min-width: 992px) {
   .loom-promise-grid {
     grid-template-columns: 0.9fr 1.1fr;
-    gap: var(--space-8);
+    gap: var(--space-8, 32px);
   }
 }
 
 .loom-promise__media {
-  border-radius: 0;
+  border-radius: 4px;
   overflow: hidden;
-  box-shadow: none;
-  max-height: 440px;
+  box-shadow: 0 12px 36px rgba(7, 26, 51, 0.08);
+  max-height: 520px;
+  position: relative;
 }
 
 .loom-promise__media .loom-image {
-  max-height: 440px;
+  max-height: 520px;
+  width: 100%;
   object-fit: cover;
+}
+
+.loom-promise-lead {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--color-text-secondary, #4A5D73);
+  margin-top: 16px;
+  margin-bottom: 24px;
 }
 
 .loom-promise-features {
   display: grid;
   grid-template-columns: 1fr;
   gap: 0;
-  margin-top: var(--space-4);
-  border-top: 1px solid var(--color-border-light);
-}
-
-@media (min-width: 640px) {
-  .loom-promise-features {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  margin-top: var(--space-4, 16px);
+  border-top: 1px solid var(--color-border-light, #E2E8F0);
 }
 
 .loom-feature-item {
   background-color: transparent;
   border: 0;
-  border-bottom: 1px solid var(--color-border-light);
+  border-bottom: 1px solid var(--color-border-light, #E2E8F0);
   border-radius: 0;
-  padding: 16px 20px 16px 0;
-  transition: transform var(--transition-fast), border-color var(--transition-fast);
+  padding: 18px 20px 18px 0;
+  transition: transform var(--transition-fast, 0.2s), border-color var(--transition-fast, 0.2s);
 }
 
 .loom-feature-item:hover {
   transform: none;
-  border-color: rgba(197, 160, 89, 0.3);
+  border-color: rgba(197, 160, 89, 0.4);
 }
 
-.loom-feature-item__title {
-  font-family: var(--font-sans);
-  font-size: 12px;
+.loom-feature-item__tag {
+  display: inline-block;
+  font-size: 10px;
   font-weight: 800;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.2em;
+  color: var(--color-accent-gold, #C5A059);
   text-transform: uppercase;
-  color: var(--color-navy);
   margin-bottom: 4px;
 }
 
+.loom-feature-item__title {
+  font-family: var(--font-sans, "Plus Jakarta Sans", sans-serif);
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-navy, #071A33);
+  margin-bottom: 6px;
+}
+
 .loom-feature-item__desc {
-  font-family: var(--font-sans);
-  font-size: 13px;
-  line-height: var(--lh-body);
-  color: var(--color-text-secondary);
+  font-family: var(--font-sans, "Plus Jakarta Sans", sans-serif);
+  font-size: 13.5px;
+  line-height: var(--lh-body, 1.6);
+  color: var(--color-text-secondary, #4A5D73);
+  margin: 0;
+}
+
+.loom-promise-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  margin-top: 28px;
 }
 
 @media (max-width: 767px) {
   .loom-promise-section {
-    padding-top: 40px;
-    padding-bottom: 40px;
+    padding-top: 50px;
+    padding-bottom: 50px;
   }
 }

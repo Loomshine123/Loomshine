@@ -26,7 +26,7 @@ export default function ServiceDetailModal({ service, isOpen, onClose }) {
 
   const handleBookNow = () => {
     onClose();
-    window.location.hash = "#/contact";
+    window.location.hash = service?.slug ? `#/contact?service=${service.slug}` : "#/contact";
   };
 
   const handleViewPricing = () => {

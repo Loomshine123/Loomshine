@@ -28,7 +28,7 @@ export const servicesData = [
     longDescription: "LOOMSHINE's luxury dry cleaning provides specialized bio-solvent care for designer clothing, woollen suits, silk sarees, heavy lehengas, and intricate evening wear. We gently extract stains while preserving fabric structure, vibrant dye, and delicate embroidery without harsh chemical smells.",
     suitableFor: 'Suits, blazers, silk sarees, lehengas, gowns, coats, and sherwanis.',
     turnaround: '48 – 72 Hours',
-    priceStarting: 'As per garment catalogue',
+    priceStarting: 'Starting from ₹100 / garment',
     features: [
       'Advanced solvent cleaning without harsh chemicals',
       'Stain extraction and specialized spot treatment',
