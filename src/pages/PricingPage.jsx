@@ -11,7 +11,7 @@ const SERVICE_OPTIONS = [
   { id: "steam-press", name: "STEAM PRESS", subtitle: "Crisp Finish", badge: "Per Garment" },
   { id: "wash-fold", name: "WASH & FOLD", subtitle: "Everyday Laundry", badge: "₹79 / KG" },
   { id: "wash-iron", name: "WASH & IRON", subtitle: "Wash & Crisp Press", badge: "₹109 / KG" },
-  { id: "shoe-cleaning", name: "SHOE CLEANING", subtitle: "Footwear & Bags", badge: "From ₹399" },
+  { id: "shoe-cleaning", name: "SHOE CLEANING", subtitle: "Footwear & Bags", badge: "From ₹320" },
 ];
 
 export default function PricingPage({ initialService = "dry-cleaning" }) {
