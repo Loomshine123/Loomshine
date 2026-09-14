@@ -543,7 +543,7 @@ const dryCleaningProducts = [
     id: "women-saree-zari",
     category: "Women",
     name: "Ladies Saree – Zari/silk",
-    price: 400,
+    price: 350,
     unit: "per piece",
 
     shortDescription:
@@ -649,8 +649,8 @@ const dryCleaningProducts = [
   {
     id: "women-long-coat",
     category: "Women",
-    name: "Ladies Long Coat/half coat",
-    price: 200,
+    name: "Ladies half coat/long coat",
+    price: 150,
     unit: "per piece",
 
     shortDescription:
@@ -755,7 +755,7 @@ const dryCleaningProducts = [
     id: "women-top/palazzo",
     category: "Women",
     name: "Ladies Top/Palazzo",
-    price: 150,
+    price: 120,
     unit: "per piece",
 
     shortDescription:

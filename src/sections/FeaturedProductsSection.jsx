@@ -62,7 +62,7 @@ const FEATURED_GARMENTS = [
     badgeVariant: 'badge--blue',
     category: 'FOOTWEAR SPA',
     name: 'Luxury Designer Sneakers Care',
-    price: 399,
+    price: 500,
     unit: 'per pair',
     image: sneakerImage,
     service: 'Shoe Cleaning',

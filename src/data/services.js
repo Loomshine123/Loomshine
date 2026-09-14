@@ -46,7 +46,7 @@ export const servicesData = [
     longDescription: "Our high-pressure precision steam pressing ensures razor-sharp creases and immaculate collar shaping without scorching fabric fibers. Each garment is finished on contoured forms and returned on premium wooden or wire hangers shielded in dust covers.",
     suitableFor: 'Formal shirts, trousers, pleated skirts, kurtas, and delicate silks.',
     turnaround: 'Same Day / 24 Hours',
-    priceStarting: 'Starting from ₹49 / piece',
+    priceStarting: 'Starting from ₹60 / piece',
     features: [
       'High-pressure precision steam pressing',
       'Crease perfection on cuffs, collars and pleats',
@@ -64,7 +64,7 @@ export const servicesData = [
     longDescription: "Complete restoration and revival for designer sneakers, leather shoes, boots, and luxury handbags. Our craftspeople treat suede, nubuck, canvas, and smooth leathers with specialized conditioning, deep dirt extraction, antibacterial sanitization, and edge recoloring.",
     suitableFor: 'Sneakers, leather formal shoes, luxury handbags, suede boots, and leather jackets.',
     turnaround: '3 – 5 Days',
-    priceStarting: 'Starting from ₹399 / pair',
+    priceStarting: 'Starting from ₹320 / pair',
     features: [
       'Material-specific deep cleaning & stain lift',
       'Premium leather nourishment and conditioning',

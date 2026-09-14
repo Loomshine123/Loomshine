@@ -26,7 +26,7 @@ export const pricingData = {
     {
       id: 'pressing-item',
       name: 'Pressing',
-      startingPrice: '₹49',
+      startingPrice: '₹60',
       unit: 'per garment',
       turnaround: '24 Hours',
       popular: false,
@@ -36,7 +36,7 @@ export const pricingData = {
     {
       id: 'shoe-bag-item',
       name: 'Shoe & Bag Care',
-      startingPrice: '₹399',
+      startingPrice: '₹320',
       unit: 'per item',
       turnaround: '3-5 Days',
       popular: false,

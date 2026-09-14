@@ -75,7 +75,7 @@ const services = [
     id: "04",
     slug: "shoe-cleaning",
     name: "SHOE CLEANING",
-    price: "₹399",
+    price: "₹320",
     unit: "PER PAIR",
 
     shortDescription:
