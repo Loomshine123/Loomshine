@@ -7,9 +7,9 @@ import "../styles/ContactPage.css";
 const AVAILABLE_SERVICES = [
   { id: "Wash & Fold", name: "Wash & Fold", rate: "₹79 / KG" },
   { id: "Wash & Iron", name: "Wash & Iron", rate: "₹109 / KG" },
-  { id: "Steam Press", name: "Steam Press", rate: "₹49 / piece" },
+  { id: "Steam Press", name: "Steam Press", rate: "₹60 / piece" },
   { id: "Dry Cleaning", name: "Dry Cleaning", rate: "As per item" },
-  { id: "Shoe Cleaning", name: "Shoe Cleaning", rate: "From ₹399 / pair" },
+  { id: "Shoe Cleaning", name: "Shoe Cleaning", rate: "From ₹320 / pair" },
   { id: "Curtain & Carpet Care", name: "Curtain & Carpet Care", rate: "Specialty" },
   { id: "Other Services", name: "Other Services", rate: "Custom request" },
 ];
