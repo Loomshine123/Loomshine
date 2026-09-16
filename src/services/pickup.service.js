@@ -9,13 +9,20 @@
  * @returns {string}
  */
 const getApiUrl = () => {
-  const rawUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000';
-  const cleanUrl = rawUrl.replace(/\/+$/, '');
-  
-  if (cleanUrl.endsWith('/api')) {
-    return `${cleanUrl}/pickup-booking`;
+  if (import.meta.env.VITE_API_URL) {
+    const cleanUrl = import.meta.env.VITE_API_URL.replace(/\/+$/, '');
+    if (cleanUrl.endsWith('/api')) {
+      return `${cleanUrl}/pickup-booking`;
+    }
+    return `${cleanUrl}/api/pickup-booking`;
   }
-  return `${cleanUrl}/api/pickup-booking`;
+
+  // In production (not running on localhost), default to relative endpoint /api/pickup-booking
+  if (typeof window !== 'undefined' && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+    return '/api/pickup-booking';
+  }
+
+  return 'http://localhost:5000/api/pickup-booking';
 };
 
 /**
