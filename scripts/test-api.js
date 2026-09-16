@@ -181,9 +181,10 @@ async function runTest(tc) {
               "4": "Sector 57, Gurugram"
             };
 
+            const expectedTeamPhone = process.env.GALLABOX_PICKUP_TEAM_PHONE || '918877286066';
             const isTeamMatch =
               teamMapped.whatsapp.template.templateName === 'loomshine_new_pickup_request' &&
-              teamMapped.recipient.phone === '918877286066' &&
+              teamMapped.recipient.phone === expectedTeamPhone &&
               JSON.stringify(teamBv) === JSON.stringify(expectedTeamBv);
 
             const isCustomerMatch =

@@ -173,13 +173,18 @@ const postToGallaboxApi = async (payload) => {
   const timeoutId = setTimeout(() => controller.abort(), 10000);
 
   try {
+    const headers = {
+      'apiKey': apiKey,
+      'apiSecret': apiSecret,
+      'Content-Type': 'application/json'
+    };
+    if (process.env.GALLABOX_ACCOUNT_ID) {
+      headers['accountId'] = process.env.GALLABOX_ACCOUNT_ID;
+    }
+
     const response = await fetch(endpoint, {
       method: 'POST',
-      headers: {
-        'apiKey': apiKey,
-        'apiSecret': apiSecret,
-        'Content-Type': 'application/json'
-      },
+      headers,
       body: JSON.stringify(payload),
       signal: controller.signal
     });
