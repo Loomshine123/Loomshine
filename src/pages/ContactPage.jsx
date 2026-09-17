@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import LocationPicker from "../components/common/LocationPicker";
 import { useCart } from "../context/CartContext";
 import { recordPickupBooking } from "../utils/mockApi";
+import { submitPickupBooking } from "../services/pickup.service";
 import "../styles/ContactPage.css";
 
 const AVAILABLE_SERVICES = [
@@ -76,7 +77,7 @@ const ALL_TIME_SLOTS = [
   {
     id: "express",
     label: "Express / Immediate Pickup",
-    value: "Express / Immediate",
+    value: "Express / Immediate Pickup",
     cutoffHour: 20, // Cutoff at 8:00 PM
   },
 ];
@@ -310,6 +311,13 @@ export default function ContactPage({ initialService, initialItem }) {
       const friendlyDate = formatFriendlyDate(formData.pickupDate);
       const scheduledDateStr = `${friendlyDate} (${formData.pickupDate}) · ${formData.pickupSlot}`;
 
+      const fullAddress = [
+        formData.flatBuilding,
+        formData.address,
+        formData.landmark ? `Near ${formData.landmark}` : '',
+        formData.pincode ? `PIN: ${formData.pincode}` : ''
+      ].filter(Boolean).join(', ') || formData.address || 'Address on file';
+
       const payload = {
         ...formData,
         friendlyDate,
@@ -323,6 +331,31 @@ export default function ContactPage({ initialService, initialItem }) {
       };
 
       console.log("Submitting Pickup Request Payload:", payload);
+
+      // Map & Dispatch to Gallabox WhatsApp API Service
+      const apiServices = formData.services.length > 0
+        ? formData.services.map((s) => ({ name: s }))
+        : (formData.otherServices ? [{ name: formData.otherServices }] : [{ name: 'Garment Care' }]);
+
+      const apiPayload = {
+        fullName: formData.name,
+        phone: formData.phone,
+        email: formData.email || undefined,
+        preferredPickupTime: `${friendlyDate} · ${formData.pickupSlot}`,
+        services: apiServices,
+        otherServices: formData.otherServices || undefined,
+        pickupAddress: fullAddress,
+        area: formData.pincode || (formData.landmark ? `Near ${formData.landmark}` : undefined) || (pinnedLocation ? pinnedLocation.locality : undefined),
+        latitude: pinnedLocation ? pinnedLocation.lat : undefined,
+        longitude: pinnedLocation ? pinnedLocation.lng : undefined,
+        source: 'hero_pickup_contact_form'
+      };
+
+      try {
+        await submitPickupBooking(apiPayload);
+      } catch (gallaboxErr) {
+        console.warn("Gallabox WhatsApp Dispatch Notice:", gallaboxErr.message);
+      }
 
       const result = await recordPickupBooking(payload);
       if (result && result.success) {

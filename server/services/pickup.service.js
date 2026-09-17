@@ -44,8 +44,13 @@ export const createPickupBooking = async (rawPayload) => {
   const trimmedTime = typeof preferredPickupTime === 'string' ? preferredPickupTime.trim() : '';
   if (!trimmedTime) {
     errors.push('Preferred pickup time is required.');
-  } else if (!ALLOWED_PICKUP_SLOTS.includes(trimmedTime)) {
-    errors.push(`Invalid pickup time slot. Allowed slots: ${ALLOWED_PICKUP_SLOTS.join(', ')}`);
+  } else {
+    const isSlotValid = ALLOWED_PICKUP_SLOTS.some(
+      (slot) => trimmedTime.includes(slot) || slot.includes(trimmedTime) || trimmedTime.includes(slot.split(' ')[0])
+    );
+    if (!isSlotValid) {
+      errors.push(`Invalid pickup time slot. Allowed slots: ${ALLOWED_PICKUP_SLOTS.join(', ')}`);
+    }
   }
 
   if (!Array.isArray(services) || services.length === 0) {
