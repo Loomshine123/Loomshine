@@ -39,7 +39,7 @@ export const HeroSection = () => {
               </p>
 
               <div className="loom-hero__cta-group">
-                <Button href="#/contact" variant="dark" size="lg">
+                <Button href="#book-pickup" variant="dark" size="lg">
                   Book a Pickup +
                 </Button>
                 <Button href="#/services" variant="dark-outline" size="lg">

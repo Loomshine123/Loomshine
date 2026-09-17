@@ -48,6 +48,19 @@ export const formatServicesString = (services, otherServices) => {
 };
 
 /**
+ * Sanitize string for WhatsApp template body values (Meta/Gallabox forbids newlines \n \r \t)
+ * @param {*} val 
+ * @returns {string}
+ */
+export const sanitizeBodyValue = (val) => {
+  if (val === undefined || val === null) return '';
+  return String(val)
+    .replace(/[\r\n\t]+/g, ', ')
+    .replace(/\s+/g, ' ')
+    .trim();
+};
+
+/**
  * Construct Team Notification Template Payload (loomshine_new_pickup_request - 6 variables)
  * @param {Object} bookingData 
  * @returns {Object}
@@ -83,12 +96,12 @@ export const buildTeamTemplatePayload = (bookingData) => {
       template: {
         templateName,
         bodyValues: {
-          "1": customerName,
-          "2": normalizedCustomerPhone,
-          "3": pickupTime,
-          "4": formattedServices,
-          "5": address,
-          "6": cleanArea
+          "1": sanitizeBodyValue(customerName),
+          "2": sanitizeBodyValue(normalizedCustomerPhone),
+          "3": sanitizeBodyValue(pickupTime),
+          "4": sanitizeBodyValue(formattedServices),
+          "5": sanitizeBodyValue(address),
+          "6": sanitizeBodyValue(cleanArea)
         }
       }
     }
@@ -120,7 +133,7 @@ export const buildCustomerTemplatePayload = (bookingData) => {
     channelId,
     channelType: 'whatsapp',
     recipient: {
-      name: customerName,
+      name: sanitizeBodyValue(customerName),
       phone: normalizedCustomerPhone
     },
     whatsapp: {
@@ -128,10 +141,10 @@ export const buildCustomerTemplatePayload = (bookingData) => {
       template: {
         templateName,
         bodyValues: {
-          "1": customerName,
-          "2": pickupTime,
-          "3": formattedServices,
-          "4": address
+          "1": sanitizeBodyValue(customerName),
+          "2": sanitizeBodyValue(pickupTime),
+          "3": sanitizeBodyValue(formattedServices),
+          "4": sanitizeBodyValue(address)
         }
       }
     }

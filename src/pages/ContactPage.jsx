@@ -337,18 +337,20 @@ export default function ContactPage({ initialService, initialItem }) {
         ? formData.services.map((s) => ({ name: s }))
         : (formData.otherServices ? [{ name: formData.otherServices }] : [{ name: 'Garment Care' }]);
 
+      const sanitizedAddress = fullAddress.replace(/[\r\n\t]+/g, ', ').replace(/\s+/g, ' ').trim();
+
       const apiPayload = {
-        fullName: formData.name,
-        phone: formData.phone,
-        email: formData.email || undefined,
-        preferredPickupTime: `${friendlyDate} · ${formData.pickupSlot}`,
+        fullName: (formData.name || '').trim(),
+        phone: (formData.phone || '').trim(),
+        email: formData.email ? formData.email.trim() : undefined,
+        preferredPickupTime: formData.pickupSlot || 'Morning (9 AM – 12 PM)',
         services: apiServices,
-        otherServices: formData.otherServices || undefined,
-        pickupAddress: fullAddress,
-        area: formData.pincode || (formData.landmark ? `Near ${formData.landmark}` : undefined) || (pinnedLocation ? pinnedLocation.locality : undefined),
+        otherServices: formData.otherServices ? formData.otherServices.trim() : undefined,
+        pickupAddress: sanitizedAddress,
+        area: formData.pincode ? formData.pincode.trim() : (formData.landmark ? `Near ${formData.landmark.trim()}` : undefined),
         latitude: pinnedLocation ? pinnedLocation.lat : undefined,
         longitude: pinnedLocation ? pinnedLocation.lng : undefined,
-        source: 'hero_pickup_contact_form'
+        source: 'contact_page_form'
       };
 
       try {
