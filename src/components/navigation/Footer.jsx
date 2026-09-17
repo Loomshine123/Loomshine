@@ -74,8 +74,8 @@ export const Footer = ({ onNavigate }) => {
               <li style={{ color: '#4A5D73', fontSize: '13px', lineHeight: '1.45' }}>
                 Shop No. 262, First Floor, Central Arcade Market, MG Road, Gurugram, Haryana, India
               </li>
-              <li style={{ color: '#4A5D73', fontSize: '13px', marginTop: '4px' }}>Phone: +91 00000 00000</li>
-              <li style={{ color: '#4A5D73', fontSize: '13px' }}>Email: hello@loomshine.com</li>
+              <li style={{ color: '#4A5D73', fontSize: '13px', marginTop: '4px' }}>Phone: +91 88772 86066</li>
+              <li style={{ color: '#4A5D73', fontSize: '13px' }}>Email: sales@loomshinedrycleaners.com</li>
             </ul>
           </div>
         </div>
