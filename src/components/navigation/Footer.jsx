@@ -72,9 +72,10 @@ export const Footer = ({ onNavigate }) => {
             <h4 className="loom-footer-col__title">Contact & HQ</h4>
             <ul className="loom-footer-col__list">
               <li style={{ color: '#4A5D73', fontSize: '13px', lineHeight: '1.45' }}>
-                Shop No. 262, First Floor, Central Arcade Market, MG Road, Gurugram, Haryana, India
+                LOOMSHINE Dry Cleaning and Laundry
+                MG Road Central Arcade Market , Shop No.262 First Floor , Pin No 122002
               </li>
-              <li style={{ color: '#4A5D73', fontSize: '13px', marginTop: '4px' }}>Phone: +91 88772 86066</li>
+              <li style={{ color: '#4A5D73', fontSize: '13px', marginTop: '4px' }}>Phone: +91 9205366606 / +91 88772 86066</li>
               <li style={{ color: '#4A5D73', fontSize: '13px' }}>Email: sales@loomshinedrycleaners.com</li>
             </ul>
           </div>
