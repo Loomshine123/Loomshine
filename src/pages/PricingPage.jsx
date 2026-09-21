@@ -213,7 +213,7 @@ export default function PricingPage({ initialService = "dry-cleaning" }) {
                             variant="dark"
                             size="sm"
                           >
-                            Book Pickup
+                            Book a Pickup
                           </Button>
                         </div>
                       </div>
@@ -327,7 +327,7 @@ export default function PricingPage({ initialService = "dry-cleaning" }) {
                             variant="dark"
                             size="sm"
                           >
-                            Select
+                            Book a Pickup
                           </Button>
                         </div>
                       </div>
@@ -550,7 +550,7 @@ export default function PricingPage({ initialService = "dry-cleaning" }) {
                             variant="dark"
                             size="sm"
                           >
-                            Select
+                            Book a Pickup
                           </Button>
                         </div>
                       </div>
