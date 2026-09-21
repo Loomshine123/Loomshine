@@ -5,7 +5,6 @@
 
 /**
  * Safely format API Base URL without trailing slashes or duplicate /api
- * @param {string} baseUrl 
  * @returns {string}
  */
 const getApiUrl = () => {
@@ -53,15 +52,25 @@ export const submitPickupBooking = async (payload) => {
     phone: normalizePhoneForPayload(payload.phone),
     email: payload.email ? payload.email.trim() : undefined,
     preferredPickupTime: (payload.preferredPickupTime || '').trim(),
+    pickupDate: payload.pickupDate ? String(payload.pickupDate).trim() : undefined,
+    pickupSlot: payload.pickupSlot ? String(payload.pickupSlot).trim() : undefined,
     services: Array.isArray(payload.services)
       ? payload.services.map((s) => {
           if (typeof s === 'string') return { name: s };
           return { name: s.name, price: s.price };
         })
       : [],
-    otherServices: payload.otherServices ? payload.otherServices.trim() : undefined,
+    cartItems: Array.isArray(payload.cartItems) ? payload.cartItems : undefined,
+    otherServices: payload.otherServices ? String(payload.otherServices).trim() : undefined,
+    houseFlat: payload.houseFlat ? String(payload.houseFlat).trim() : undefined,
+    streetAddress: payload.streetAddress ? String(payload.streetAddress).trim() : undefined,
+    landmark: payload.landmark ? String(payload.landmark).trim() : undefined,
     pickupAddress: (payload.pickupAddress || '').trim(),
-    area: payload.area ? payload.area.trim() : undefined,
+    area: payload.area ? String(payload.area).trim() : undefined,
+    pincode: payload.pincode ? String(payload.pincode).trim() : undefined,
+    city: payload.city ? String(payload.city).trim() : undefined,
+    state: payload.state ? String(payload.state).trim() : undefined,
+    specialInstructions: payload.specialInstructions ? String(payload.specialInstructions).trim() : undefined,
     latitude: typeof payload.latitude === 'number' ? payload.latitude : undefined,
     longitude: typeof payload.longitude === 'number' ? payload.longitude : undefined,
     source: payload.source || 'website'

@@ -11,7 +11,7 @@ export const BookPickupPage = () => {
   return (
     <main style={{ paddingTop: '120px', paddingBottom: '80px', backgroundColor: '#F8F7F3' }}>
       <Container>
-        <PickupBookingForm />
+        <PickupBookingForm source="book-pickup" />
       </Container>
     </main>
   );

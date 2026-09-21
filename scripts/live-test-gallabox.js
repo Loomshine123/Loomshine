@@ -1,16 +1,23 @@
 import dotenv from 'dotenv';
+import { buildTeamTemplatePayload, buildCustomerTemplatePayload } from '../server/services/gallabox.service.js';
+
 dotenv.config();
 
 /**
- * Single Controlled Live Test Script for Dual Gallabox WhatsApp Templates
- * 1. Team Template: loomshine_new_pickup_request -> 918877286066 (6 variables)
- * 2. Customer Confirmation: loomshine_pickup_confirmation -> 917877161550 (4 variables)
+ * Single Controlled Live Test Script for Gallabox WhatsApp Templates
+ * 1. Team Template: loomshine_new_pickup_request_2 (8 variables)
+ * 2. Customer Confirmation: loomshine_pickup_confirmation (4 variables)
  */
 
 async function postGallabox(payload) {
   const apiKey = process.env.GALLABOX_API_KEY;
   const apiSecret = process.env.GALLABOX_API_SECRET;
   const endpoint = 'https://server.gallabox.com/devapi/messages/whatsapp';
+
+  if (!apiKey || !apiSecret) {
+    console.error('Missing GALLABOX_API_KEY or GALLABOX_API_SECRET in environment.');
+    return { ok: false, status: 400, data: { message: 'Missing API credentials' } };
+  }
 
   const response = await fetch(endpoint, {
     method: 'POST',
@@ -33,72 +40,63 @@ async function postGallabox(payload) {
   return { status, data: resData, ok: response.ok };
 }
 
-async function runDualLiveTest() {
-  console.log('--- Executing Controlled Live Gallabox Dual Template Test ---\n');
+async function runLiveTest() {
+  console.log('--- Executing Controlled Live Gallabox 8-Variable Template Test ---\n');
 
-  const channelId = process.env.GALLABOX_CHANNEL_ID || '6aa11ad775795e015df71b70';
-  const teamTemplateName = process.env.GALLABOX_PICKUP_TEMPLATE_NAME || 'loomshine_new_pickup_request';
-  const customerTemplateName = process.env.GALLABOX_PICKUP_CONFIRMATION_TEMPLATE_NAME || 'loomshine_pickup_confirmation';
-  const teamPhone = process.env.GALLABOX_PICKUP_TEAM_PHONE || '918877286066';
-  const testCustomerPhone = '917877161550';
-
-  // 1. Team Notification Payload (loomshine_new_pickup_request)
-  const teamPayload = {
-    channelId,
-    channelType: 'whatsapp',
-    recipient: {
-      name: 'Loomshine Team',
-      phone: teamPhone
-    },
-    whatsapp: {
-      type: 'template',
-      template: {
-        templateName: teamTemplateName,
-        bodyValues: {
-          "1": "Loomshine Test Customer",
-          "2": testCustomerPhone,
-          "3": "Morning (9 AM – 12 PM)",
-          "4": "Wash & Fold, Steam Press",
-          "5": "Sector 57, Gurugram",
-          "6": "Sector 57"
-        }
-      }
-    }
+  const testBooking = {
+    customerName: 'Manish Suthar',
+    phone: '7877161550',
+    email: 'manish@example.com',
+    pickupTime: '19 Sep 2026 · Afternoon (12 PM – 4 PM)',
+    cartItems: [
+      { name: 'Kurta Pyjama', price: 250, quantity: 1 }
+    ],
+    services: [
+      { name: 'Dry Cleaning' }
+    ],
+    houseFlat: 'hello',
+    streetAddress: 'Pioneer Park, Sector 60, Gurgaon, Haryana, 122011',
+    area: 'Pioneer Park, Sector 60',
+    city: 'Gurgaon',
+    state: 'Haryana',
+    pincode: '122011',
+    specialInstructions: 'Call before arriving.\nLeave at security gate.\nHandle garments carefully.',
+    latitude: 28.414195,
+    longitude: 77.092576
   };
 
-  // 2. Customer Confirmation Payload (loomshine_pickup_confirmation)
-  const customerPayload = {
-    channelId,
-    channelType: 'whatsapp',
-    recipient: {
-      name: 'Loomshine Test Customer',
-      phone: testCustomerPhone
-    },
-    whatsapp: {
-      type: 'template',
-      template: {
-        templateName: customerTemplateName,
-        bodyValues: {
-          "1": "Loomshine Test Customer",
-          "2": "Morning (9 AM – 12 PM)",
-          "3": "Wash & Fold, Steam Press",
-          "4": "Sector 57, Gurugram"
-        }
-      }
-    }
-  };
+  const teamPayload = buildTeamTemplatePayload(testBooking);
+  const customerPayload = buildCustomerTemplatePayload(testBooking);
 
-  console.log('[Sanitized Team Payload]:', JSON.stringify(teamPayload, null, 2));
+  console.log('[Sanitized Team Payload (loomshine_new_pickup_request_2)]:\n', JSON.stringify(teamPayload, null, 2));
+
+  // Perform validation checks on parameters
+  for (const [key, val] of Object.entries(teamPayload.whatsapp.template.bodyValues)) {
+    const hasNewline = /[\r\n\t]/.test(val);
+    const hasExcessiveSpaces = /\s{5,}/.test(val);
+    if (hasNewline || hasExcessiveSpaces) {
+      console.error(`✗ FAIL: Parameter {{${key}}} contains newline/tab or excessive spaces: "${val}"`);
+    } else {
+      console.log(`✓ Param {{${key}}} clean: "${val}"`);
+    }
+  }
+
+  console.log('\nSending Live Request to Gallabox API...');
   const teamRes = await postGallabox(teamPayload);
   console.log(`\n[Team Gallabox HTTP Status]: ${teamRes.status}`);
-  console.log('[Team Gallabox Response]:', teamRes.data);
+  console.log('[Team Gallabox Response]:', JSON.stringify(teamRes.data, null, 2));
+
+  if (teamRes.ok) {
+    console.log('\n✓ LIVE GALLABOX TEST PASSED! WhatsApp notification delivered successfully.');
+  } else {
+    console.error('\n✗ LIVE GALLABOX TEST FAILED!');
+  }
 
   console.log('\n----------------------------------------\n');
-
-  console.log('[Sanitized Customer Payload]:', JSON.stringify(customerPayload, null, 2));
+  console.log('[Sanitized Customer Payload (loomshine_pickup_confirmation)]:\n', JSON.stringify(customerPayload, null, 2));
   const customerRes = await postGallabox(customerPayload);
   console.log(`\n[Customer Gallabox HTTP Status]: ${customerRes.status}`);
-  console.log('[Customer Gallabox Response]:', customerRes.data);
+  console.log('[Customer Gallabox Response]:', JSON.stringify(customerRes.data, null, 2));
 }
 
-runDualLiveTest();
+runLiveTest();
