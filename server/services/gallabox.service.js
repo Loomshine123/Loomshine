@@ -39,7 +39,7 @@ export const sanitizePayloadBoundary = (obj) => {
   if (typeof obj === 'object') {
     const sanitizedObj = {};
     for (const [key, value] of Object.entries(obj)) {
-      if (['templateName', 'channelId', 'channelType', 'phone', 'type', 'index', 'sub_type'].includes(key)) {
+      if (['templateName', 'templateId', 'channelId', 'channelType', 'phone', 'type', 'index', 'sub_type'].includes(key)) {
         sanitizedObj[key] = value;
       } else {
         sanitizedObj[key] = sanitizePayloadBoundary(value);
@@ -471,6 +471,15 @@ export const buildCustomerTemplatePayload = (bookingData) => {
 
   const channelId = process.env.GALLABOX_CHANNEL_ID || '6aa11ad775795e015df71b70';
   const templateName = process.env.GALLABOX_PICKUP_CONFIRMATION_TEMPLATE_NAME || 'loomshine_pickup_confirmation';
+  const templateId = process.env.GALLABOX_PICKUP_CONFIRMATION_TEMPLATE_ID || '6aa3c62c1e58429d65b17f51';
+
+  const templateObj = {
+    templateName,
+    bodyValues: sanitizedBodyValues
+  };
+  if (templateId) {
+    templateObj.templateId = templateId;
+  }
 
   const rawPayload = {
     channelId,
@@ -481,10 +490,7 @@ export const buildCustomerTemplatePayload = (bookingData) => {
     },
     whatsapp: {
       type: 'template',
-      template: {
-        templateName,
-        bodyValues: sanitizedBodyValues
-      }
+      template: templateObj
     }
   };
 
