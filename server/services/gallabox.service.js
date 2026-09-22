@@ -471,14 +471,14 @@ export const buildCustomerTemplatePayload = (bookingData) => {
 
   const channelId = process.env.GALLABOX_CHANNEL_ID || '6aa11ad775795e015df71b70';
   const templateName = process.env.GALLABOX_PICKUP_CONFIRMATION_TEMPLATE_NAME || 'loomshine_pickup_confirmation';
-  const templateId = process.env.GALLABOX_PICKUP_CONFIRMATION_TEMPLATE_ID || '6aa3c62c1e58429d65b17f51';
+  const templateId = process.env.GALLABOX_PICKUP_CONFIRMATION_TEMPLATE_ID;
 
   const templateObj = {
     templateName,
     bodyValues: sanitizedBodyValues
   };
-  if (templateId) {
-    templateObj.templateId = templateId;
+  if (templateId && templateId.trim()) {
+    templateObj.templateId = templateId.trim();
   }
 
   const rawPayload = {
