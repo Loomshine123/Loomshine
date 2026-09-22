@@ -1,0 +1,6 @@
+# Robots.txt for Loomshine Professional Garment Care & Dry Cleaning
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://loomshinedrycleaners.com/sitemap.xml

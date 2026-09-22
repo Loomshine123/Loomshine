@@ -1,18 +1,26 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect, lazy, Suspense } from "react";
 import Header from "./components/navigation/Header";
 import Footer from "./components/navigation/Footer";
 import HomePage from "./pages/HomePage";
-import TrackOrderPage from "./pages/TrackOrderPage";
-import Services from "./pages/Services";
-import ServiceDetailPage from "./components/services/ServiceDetailPage";
-import DryCleaningCatalogue from "./pages/DryCleaningCatalogue";
-import BookPickupPage from "./pages/BookPickupPage";
-import ContactPage from "./pages/ContactPage";
-import PricingPage from "./pages/PricingPage";
-import AboutPage from "./pages/AboutPage";
-import CartPage from "./pages/CartPage";
 import { CartProvider } from "./context/CartContext";
 import "./App.css";
+
+// Dynamic Lazy Loading for Secondary Pages to Maximize Initial Page Load Speed
+const TrackOrderPage = lazy(() => import("./pages/TrackOrderPage"));
+const Services = lazy(() => import("./pages/Services"));
+const ServiceDetailPage = lazy(() => import("./components/services/ServiceDetailPage"));
+const DryCleaningCatalogue = lazy(() => import("./pages/DryCleaningCatalogue"));
+const BookPickupPage = lazy(() => import("./pages/BookPickupPage"));
+const ContactPage = lazy(() => import("./pages/ContactPage"));
+const PricingPage = lazy(() => import("./pages/PricingPage"));
+const AboutPage = lazy(() => import("./pages/AboutPage"));
+const CartPage = lazy(() => import("./pages/CartPage"));
+
+const PageFallback = () => (
+  <div style={{ minHeight: "60vh", display: "flex", alignItems: "center", justifyContent: "center" }}>
+    <div style={{ width: "32px", height: "32px", border: "3px solid #EAF2F7", borderTopColor: "#071A33", borderRadius: "50%", animation: "spin 0.8s linear infinite" }} />
+  </div>
+);
 
 function getRouteFromHash(hashStr) {
   let hash = hashStr || (typeof window !== "undefined" ? window.location.hash : "") || "";
@@ -232,7 +240,9 @@ function AppContent() {
         currentSection={route.section}
         onNavigate={navigate}
       />
-      {renderCurrentPage()}
+      <Suspense fallback={<PageFallback />}>
+        {renderCurrentPage()}
+      </Suspense>
       <Footer onNavigate={navigate} />
     </div>
   );
