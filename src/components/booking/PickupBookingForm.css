@@ -1,5 +1,5 @@
 .loom-pickup-form-wrap {
-  max-width: 760px;
+  max-width: 900px;
   margin: 0 auto;
   padding: 2.5rem;
   background-color: var(--color-pure-white, #ffffff);
@@ -67,7 +67,7 @@
   gap: 1.25rem;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .loom-form-row {
     grid-template-columns: 1fr;
   }
@@ -140,6 +140,46 @@
   margin-top: 0.2rem;
 }
 
+.loom-error-text--inline {
+  margin-top: 0;
+  display: inline-block;
+}
+
+/* Quick Date Chips */
+.quick-date-chips {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.4rem;
+}
+
+.quick-date-btn {
+  padding: 0.35rem 0.75rem;
+  background-color: #f8f7f3;
+  border: 1px solid rgba(7, 26, 51, 0.15);
+  font-family: var(--font-sans, 'Inter', sans-serif);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #071a33;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: all 0.2s ease;
+}
+
+.quick-date-btn:hover:not(:disabled) {
+  background-color: #eaf2f7;
+}
+
+.quick-date-btn--active {
+  background-color: #071a33;
+  color: #ffffff;
+  border-color: #071a33;
+}
+
+.quick-date-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 /* Services Grid & Chips */
 .loom-services-grid {
   display: grid;
@@ -197,49 +237,125 @@
   opacity: 0.8;
 }
 
+/* CART / SHOPPING BAG SUMMARY CARD */
+.pickup-form-cart-card {
+  background: #fdfbf7;
+  border: 1px solid #e2dad0;
+  border-radius: 6px;
+  padding: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.pickup-form-cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px dashed #d5ccc0;
+  padding-bottom: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.pickup-form-cart-tag {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #c5a059;
+  text-transform: uppercase;
+  margin-bottom: 0.2rem;
+}
+
+.pickup-form-cart-title {
+  font-family: var(--font-serif, 'Cormorant Garamond', Georgia, serif);
+  font-size: 1.25rem;
+  color: #071a33;
+  margin: 0;
+}
+
+.pickup-form-cart-edit-link {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #071a33;
+  text-decoration: underline;
+}
+
+.pickup-form-cart-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-bottom: 0.75rem;
+}
+
+.pickup-form-cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid rgba(7, 26, 51, 0.05);
+}
+
+.pickup-form-cart-item-main {
+  display: flex;
+  flex-direction: column;
+}
+
+.pickup-form-cart-item-name {
+  font-weight: 600;
+  color: #071a33;
+}
+
+.pickup-form-cart-item-meta {
+  font-size: 0.75rem;
+  color: #5a6e85;
+}
+
+.pickup-form-cart-item-qty {
+  font-size: 0.8rem;
+  color: #071a33;
+}
+
+.pickup-form-cart-item-total {
+  font-weight: 700;
+  color: #071a33;
+}
+
+.pickup-form-cart-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 0.75rem;
+  border-top: 1px solid #e2dad0;
+  font-size: 0.85rem;
+}
+
+.pickup-form-cart-footer-note {
+  color: #057a55;
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+.pickup-form-cart-total-box {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pickup-form-cart-total-label {
+  color: #5a6e85;
+}
+
+.pickup-form-cart-total-val {
+  font-size: 1.1rem;
+  color: #071a33;
+}
+
 /* Address Header & Location Button */
 .loom-address-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 0.25rem;
-}
-
-.loom-btn-location {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  background: none;
-  border: none;
-  color: var(--color-navy, #071a33);
-  font-family: var(--font-sans, 'Inter', sans-serif);
-  font-size: 0.775rem;
-  font-weight: 600;
-  cursor: pointer;
-  padding: 0;
-  text-decoration: underline;
-
-}
-
-.loom-btn-location:hover {
-  color: #5a6e85;
-}
-
-.loom-location-status {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-family: var(--font-sans, 'Inter', sans-serif);
-  font-size: 0.775rem;
-  color: #057a55;
-  margin-top: 0.3rem;
-}
-
-.loom-status-dot {
-  width: 6px;
-  height: 6px;
-  background-color: #057a55;
-  border-radius: 50%;
 }
 
 /* Submit Button */
@@ -279,7 +395,7 @@
 
 /* Success View */
 .loom-pickup-success {
-  max-width: 680px;
+  max-width: 760px;
   margin: 0 auto;
   padding: 3rem 2rem;
   text-align: center;
@@ -340,6 +456,11 @@
   font-size: 1.5rem;
   letter-spacing: 0.08em;
   color: var(--color-navy, #071a33);
+}
+
+.loom-ref-hint {
+  font-size: 0.75rem;
+  color: #5a6e85;
 }
 
 .loom-pickup-success__actions {

@@ -2,15 +2,14 @@ import { useState, useEffect, useRef } from "react";
 import LocationPicker from "../components/common/LocationPicker";
 import { useCart } from "../context/CartContext";
 import { recordPickupBooking } from "../utils/mockApi";
-import { submitPickupBooking } from "../services/pickup.service";
 import "../styles/ContactPage.css";
 
 const AVAILABLE_SERVICES = [
   { id: "Wash & Fold", name: "Wash & Fold", rate: "₹79 / KG" },
   { id: "Wash & Iron", name: "Wash & Iron", rate: "₹109 / KG" },
-  { id: "Steam Press", name: "Steam Press", rate: "₹60 / piece" },
+  { id: "Steam Press", name: "Steam Press", rate: "₹49 / piece" },
   { id: "Dry Cleaning", name: "Dry Cleaning", rate: "As per item" },
-  { id: "Shoe Cleaning", name: "Shoe Cleaning", rate: "From ₹320 / pair" },
+  { id: "Shoe Cleaning", name: "Shoe Cleaning", rate: "From ₹399 / pair" },
   { id: "Curtain & Carpet Care", name: "Curtain & Carpet Care", rate: "Specialty" },
   { id: "Other Services", name: "Other Services", rate: "Custom request" },
 ];
@@ -77,7 +76,7 @@ const ALL_TIME_SLOTS = [
   {
     id: "express",
     label: "Express / Immediate Pickup",
-    value: "Express / Immediate Pickup",
+    value: "Express / Immediate",
     cutoffHour: 20, // Cutoff at 8:00 PM
   },
 ];
@@ -124,17 +123,8 @@ const getInitialPickupDateAndSlot = () => {
 };
 
 export default function ContactPage({ initialService, initialItem }) {
-  const { cart, totalItems, totalAmount, clearCart } = useCart();
-  const todayString = getTodayDateString();
-  const tomorrowString = getTomorrowDateString();
-  const initialSchedule = getInitialPickupDateAndSlot();
-
-  const [submitted, setSubmitted] = useState(false);
-  const [bookingResult, setBookingResult] = useState(null);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
   useEffect(() => {
-    document.title = "Book a Pickup | LOOMSHINE Luxury Garment Care";
+    document.title = 'Book a Pickup | LOOMSHINE Luxury Garment Care';
     window.scrollTo(0, 0);
   }, []);
 
@@ -311,13 +301,6 @@ export default function ContactPage({ initialService, initialItem }) {
       const friendlyDate = formatFriendlyDate(formData.pickupDate);
       const scheduledDateStr = `${friendlyDate} (${formData.pickupDate}) · ${formData.pickupSlot}`;
 
-      const fullAddress = [
-        formData.flatBuilding,
-        formData.address,
-        formData.landmark ? `Near ${formData.landmark}` : '',
-        formData.pincode ? `PIN: ${formData.pincode}` : ''
-      ].filter(Boolean).join(', ') || formData.address || 'Address on file';
-
       const payload = {
         ...formData,
         friendlyDate,
@@ -331,33 +314,6 @@ export default function ContactPage({ initialService, initialItem }) {
       };
 
       console.log("Submitting Pickup Request Payload:", payload);
-
-      // Map & Dispatch to Gallabox WhatsApp API Service
-      const apiServices = formData.services.length > 0
-        ? formData.services.map((s) => ({ name: s }))
-        : (formData.otherServices ? [{ name: formData.otherServices }] : [{ name: 'Garment Care' }]);
-
-      const sanitizedAddress = fullAddress.replace(/[\r\n\t]+/g, ', ').replace(/\s+/g, ' ').trim();
-
-      const apiPayload = {
-        fullName: (formData.name || '').trim(),
-        phone: (formData.phone || '').trim(),
-        email: formData.email ? formData.email.trim() : undefined,
-        preferredPickupTime: formData.pickupSlot || 'Morning (9 AM – 12 PM)',
-        services: apiServices,
-        otherServices: formData.otherServices ? formData.otherServices.trim() : undefined,
-        pickupAddress: sanitizedAddress,
-        area: formData.pincode ? formData.pincode.trim() : (formData.landmark ? `Near ${formData.landmark.trim()}` : undefined),
-        latitude: pinnedLocation ? pinnedLocation.lat : undefined,
-        longitude: pinnedLocation ? pinnedLocation.lng : undefined,
-        source: 'contact_page_form'
-      };
-
-      try {
-        await submitPickupBooking(apiPayload);
-      } catch (gallaboxErr) {
-        console.warn("Gallabox WhatsApp Dispatch Notice:", gallaboxErr.message);
-      }
 
       const result = await recordPickupBooking(payload);
       if (result && result.success) {
@@ -389,7 +345,7 @@ export default function ContactPage({ initialService, initialItem }) {
         </div>
       </section>
 
-      {/* FORM / CONFIRMATION SECTION */}
+      {/* FORM / CONCIERGE SECTION */}
       <section className="contact-form-section">
         <div className="contact-container contact-layout">
           {/* LEFT: INFO & BENEFITS */}
@@ -431,474 +387,14 @@ export default function ContactPage({ initialService, initialItem }) {
             </div>
           </div>
 
-          {/* RIGHT: CONFIRMED OR PICKUP FORM */}
-          {submitted && bookingResult ? (
-            /* PICKUP CONFIRMED VIEW */
-            <div className="pickup-confirmed-card">
-              <div className="pickup-confirmed-badge">
-                <span className="pickup-confirmed-icon">✓</span>
-                <span>PICKUP SCHEDULED SUCCESSFULLY</span>
-              </div>
-              <h2 className="pickup-confirmed-title">Thank You, {bookingResult.customerName}!</h2>
-              <p className="pickup-confirmed-desc">
-                Your doorstep pickup request has been scheduled. Our logistics executive will arrive at your address during the selected time slot.
-              </p>
-
-              <div className="pickup-confirmed-id-box">
-                <span className="pickup-confirmed-id-label">YOUR ORDER ID</span>
-                <span className="pickup-confirmed-id-value">{bookingResult.orderId}</span>
-                <span className="pickup-confirmed-id-hint">
-                  Keep this Order ID for tracking your garment inspection, cleaning, and delivery status.
-                </span>
-              </div>
-
-              <div className="pickup-confirmed-details">
-                <div className="pickup-detail-row">
-                  <span>Scheduled Arrival:</span>
-                  <strong>{bookingResult.pickupDate}</strong>
-                </div>
-                <div className="pickup-detail-row">
-                  <span>Service Category:</span>
-                  <strong>{bookingResult.service}</strong>
-                </div>
-                <div className="pickup-detail-row">
-                  <span>Customer Phone:</span>
-                  <strong>{bookingResult.phone}</strong>
-                </div>
-                <div className="pickup-detail-row">
-                  <span>Pickup Address:</span>
-                  <strong>{bookingResult.address}</strong>
-                </div>
-
-                {bookingResult.cartItems && bookingResult.cartItems.length > 0 && (
-                  <>
-                    <div className="pickup-detail-row" style={{ borderTop: "1px solid #E5E0D5", paddingTop: "12px", marginTop: "4px" }}>
-                      <span>Garments Included:</span>
-                      <strong>
-                        {bookingResult.cartItems.reduce((acc, i) => acc + (i.quantity || 1), 0)} items
-                      </strong>
-                    </div>
-                    <div className="pickup-confirmed-garments-list">
-                      {bookingResult.cartItems.map((item) => (
-                        <div key={item.id} className="pickup-confirmed-garment-pill">
-                          <span>{item.name} × {item.quantity}</span>
-                          <span>₹{(item.price || 0) * (item.quantity || 1)}</span>
-                        </div>
-                      ))}
-                    </div>
-                    <div className="pickup-detail-row">
-                      <span>Estimated Subtotal:</span>
-                      <strong style={{ fontSize: "1.1rem", color: "#071A33" }}>
-                        ₹{bookingResult.totalAmount}
-                      </strong>
-                    </div>
-                  </>
-                )}
-              </div>
-
-              <div className="pickup-confirmed-actions">
-                <a
-                  href={`#/track-order?id=${bookingResult.orderId}`}
-                  className="pickup-track-btn"
-                >
-                  Track Order Live →
-                </a>
-                <button
-                  type="button"
-                  className="pickup-new-btn"
-                  onClick={() => {
-                    setSubmitted(false);
-                    setBookingResult(null);
-                    const freshSchedule = getInitialPickupDateAndSlot();
-                    setFormData({
-                      name: "",
-                      phone: "",
-                      email: "",
-                      pickupDate: freshSchedule.date,
-                      pickupSlot: freshSchedule.slot,
-                      services: getInitialServices(),
-                      otherServices: "",
-                      flatBuilding: "",
-                      address: "",
-                      landmark: "",
-                      pincode: "",
-                      message: "",
-                    });
-                    setPinnedLocation(null);
-                  }}
-                >
-                  Book Another Pickup
-                </button>
-              </div>
-            </div>
-          ) : (
-            /* ACTIVE PICKUP FORM */
-            <form className="pickup-form" onSubmit={handleSubmit}>
-              <div className="form-header">
-                <span>BOOK YOUR PICKUP</span>
-                <h2>LET'S GET STARTED</h2>
-              </div>
-
-              {/* ========================================================================= */}
-              {/* CART ITEMS SUMMARY CARD (Shown when user has items in their cart) */}
-              {/* ========================================================================= */}
-              {cart.length > 0 && (
-                <div className="pickup-form-cart-card">
-                  <div className="pickup-form-cart-header">
-                    <div className="pickup-form-cart-title-box">
-                      <span className="pickup-form-cart-tag">ITEMS FROM YOUR BAG</span>
-                      <h3 className="pickup-form-cart-title">
-                        Selected Garments <span>({totalItems} {totalItems === 1 ? 'item' : 'items'})</span>
-                      </h3>
-                    </div>
-                    <a href="#/cart" className="pickup-form-cart-edit-link">
-                      Edit Bag ✎
-                    </a>
-                  </div>
-
-                  <div className="pickup-form-cart-list">
-                    {cart.map((item) => (
-                      <div className="pickup-form-cart-item" key={item.id}>
-                        <div className="pickup-form-cart-item-main">
-                          <span className="pickup-form-cart-item-name">{item.name}</span>
-                          <span className="pickup-form-cart-item-meta">
-                            {item.category || item.service} • ₹{item.price} {item.unit || 'each'}
-                          </span>
-                        </div>
-                        <div className="pickup-form-cart-item-qty">
-                          Qty: <strong>{item.quantity || 1}</strong>
-                        </div>
-                        <div className="pickup-form-cart-item-total">
-                          ₹{(item.price || 0) * (item.quantity || 1)}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="pickup-form-cart-footer">
-                    <div className="pickup-form-cart-footer-note">
-                      <span>✓ Free door inspection & pickup</span>
-                    </div>
-                    <div className="pickup-form-cart-total-box">
-                      <span className="pickup-form-cart-total-label">Estimated Total:</span>
-                      <strong className="pickup-form-cart-total-val">₹{totalAmount}</strong>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {/* GRID ROW 1: NAME & PHONE */}
-              <div className="form-grid">
-                <div className="form-group">
-                  <label htmlFor="name-input">FULL NAME *</label>
-                  <input
-                    id="name-input"
-                    type="text"
-                    name="name"
-                    placeholder="Enter your name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                  />
-                </div>
-
-                <div className="form-group">
-                  <label htmlFor="phone-input">PHONE NUMBER *</label>
-                  <input
-                    id="phone-input"
-                    type="tel"
-                    name="phone"
-                    placeholder="Enter your 10-digit mobile number"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    required
-                  />
-                </div>
-              </div>
-
-              {/* GRID ROW 2: EMAIL & OTHER SERVICES */}
-              <div className="form-grid form-row-spacing">
-                <div className="form-group">
-                  <label htmlFor="email-input">EMAIL ADDRESS</label>
-                  <input
-                    id="email-input"
-                    type="email"
-                    name="email"
-                    placeholder="Enter your email"
-                    value={formData.email}
-                    onChange={handleChange}
-                  />
-                </div>
-
-                <div className="form-group">
-                  <label htmlFor="other-services-input">
-                    OTHER SERVICES
-                    <span className="label-helper-text"> — Custom or specialty items</span>
-                  </label>
-                  <input
-                    id="other-services-input"
-                    type="text"
-                    name="otherServices"
-                    placeholder="e.g. Curtains, Carpets, Bags, Starching, Dyeing"
-                    value={formData.otherServices}
-                    onChange={handleChange}
-                  />
-                </div>
-              </div>
-
-              {/* GRID ROW 3: PREFERRED PICKUP DATE & TIME */}
-              <div className="form-grid form-row-spacing">
-                <div className="form-group">
-                  <label htmlFor="pickup-date-input">
-                    PREFERRED PICKUP DATE *
-                    <span className="label-helper-text"> — {formatFriendlyDate(formData.pickupDate)}</span>
-                  </label>
-                  <input
-                    id="pickup-date-input"
-                    type="date"
-                    name="pickupDate"
-                    min={todayString}
-                    value={formData.pickupDate}
-                    onChange={handleChange}
-                    required
-                    className="pickup-date-input"
-                  />
-                  <div className="quick-date-chips">
-                    <button
-                      type="button"
-                      className={`quick-date-btn ${formData.pickupDate === todayString ? "quick-date-btn--active" : ""}`}
-                      onClick={() => setFormData((p) => ({ ...p, pickupDate: todayString }))}
-                      disabled={todayAvailableSlots.length === 0}
-                      title={todayAvailableSlots.length === 0 ? "Today's pickup slots have concluded" : "Schedule for Today"}
-                    >
-                      Today{todayAvailableSlots.length === 0 ? " (Closed)" : ""}
-                    </button>
-                    <button
-                      type="button"
-                      className={`quick-date-btn ${formData.pickupDate === tomorrowString ? "quick-date-btn--active" : ""}`}
-                      onClick={() => setFormData((p) => ({ ...p, pickupDate: tomorrowString }))}
-                    >
-                      Tomorrow
-                    </button>
-                  </div>
-                </div>
-
-                <div className="form-group">
-                  <label htmlFor="slot-select">
-                    PREFERRED PICKUP TIME SLOT *
-                    <span className="label-helper-text">
-                      {formData.pickupDate === todayString
-                        ? ` — ${availableSlots.length} available today`
-                        : " — Select window"}
-                    </span>
-                  </label>
-                  <select
-                    id="slot-select"
-                    name="pickupSlot"
-                    value={formData.pickupSlot}
-                    onChange={handleChange}
-                    required
-                    disabled={availableSlots.length === 0}
-                  >
-                    {availableSlots.length === 0 ? (
-                      <option value="" disabled>All slots closed for today — Choose Tomorrow</option>
-                    ) : (
-                      availableSlots.map((slot) => (
-                        <option key={slot.id} value={slot.value}>
-                          {slot.label}
-                        </option>
-                      ))
-                    )}
-                  </select>
-                  {formData.pickupDate === todayString && availableSlots.length === 0 && (
-                    <p className="slot-helper-closed">
-                      All pickup windows for today have ended (operating hours: 9 AM – 8 PM). Please select <strong>Tomorrow</strong> for doorstep pickup.
-                    </p>
-                  )}
-                </div>
-              </div>
-
-              {/* GRID ROW 4: SERVICE REQUIRED (MULTI-SELECT) */}
-              <div className="form-group form-row-spacing multi-select-group" ref={dropdownRef}>
-                <label>
-                  SERVICE REQUIRED (MULTI-SELECT) *
-                  <span className="label-helper-text"> — Choose all that apply</span>
-                </label>
-
-                <div
-                  className={`multi-select-trigger ${isDropdownOpen ? "multi-select-trigger--open" : ""}`}
-                  onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                  tabIndex={0}
-                  role="button"
-                  aria-expanded={isDropdownOpen}
-                >
-                  <div className="multi-select-chips">
-                    {formData.services.length === 0 ? (
-                      <span className="multi-select-placeholder">Select one or more services...</span>
-                    ) : (
-                      formData.services.map((srv) => (
-                        <span className="service-chip" key={srv}>
-                          {srv}
-                          <button
-                            type="button"
-                            className="chip-remove-btn"
-                            onClick={(e) => handleRemoveService(e, srv)}
-                            aria-label={`Remove ${srv}`}
-                          >
-                            ✕
-                          </button>
-                        </span>
-                      ))
-                    )}
-                  </div>
-
-                  <span className="multi-select-arrow">{isDropdownOpen ? "▲" : "▼"}</span>
-                </div>
-
-                {/* DROPDOWN MENU */}
-                {isDropdownOpen && (
-                  <div className="multi-select-menu">
-                    <div className="multi-select-menu-header">
-                      <span>SELECT APPLICABLE SERVICES</span>
-                      <button
-                        type="button"
-                        className="multi-select-clear-btn"
-                        onClick={() => setFormData((p) => ({ ...p, services: [] }))}
-                      >
-                        Clear all
-                      </button>
-                    </div>
-
-                    <div className="multi-select-options-list">
-                      {AVAILABLE_SERVICES.map((service) => {
-                        const isChecked = formData.services.includes(service.name);
-                        return (
-                          <label
-                            key={service.id}
-                            className={`multi-select-option ${isChecked ? "multi-select-option--selected" : ""}`}
-                          >
-                            <input
-                              type="checkbox"
-                              checked={isChecked}
-                              onChange={() => handleToggleService(service.name)}
-                            />
-                            <div className="option-text">
-                              <span className="option-name">{service.name}</span>
-                              <span className="option-rate">{service.rate}</span>
-                            </div>
-                            {isChecked && <span className="option-check-icon">✓</span>}
-                          </label>
-                        );
-                      })}
-                    </div>
-                  </div>
-                )}
-              </div>
-
-              {/* ========================================================================= */}
-              {/* ADDRESS SECTION (LIVE LOCATION PIN + MANUAL ADDRESS BOTH) */}
-              {/* ========================================================================= */}
-              <div className="address-section-wrapper">
-                <div className="address-section-top">
-                  <div className="address-title-box">
-                    <label className="address-main-label">PICKUP ADDRESS & LOCATION PIN *</label>
-                    <span className="address-sublabel">
-                      Use high-accuracy GPS, search your society/street, or drag the map pin directly to your gate.
-                    </span>
-                  </div>
-                </div>
-
-                {/* INTERACTIVE LOCATION PICKER (GPS + SEARCH + DRAGGABLE PIN + ACCURACY) */}
-                <LocationPicker
-                  initialLocation={pinnedLocation}
-                  onLocationSelect={handleLocationSelect}
-                  onClear={handleClearPin}
-                />
-
-                {/* MANUAL ADDRESS FIELDS */}
-                <div className="manual-address-container">
-                  <div className="manual-address-header">
-                    <span className="manual-address-header-tag">DOORSTEP DETAILS</span>
-                    <span className="manual-address-header-desc">
-                      Refine your specific flat, floor, and landmark for our courier executive
-                    </span>
-                  </div>
-                  <div className="form-grid">
-                    <div className="form-group">
-                      <label htmlFor="flat-building-input">HOUSE / FLAT / BUILDING / FLOOR *</label>
-                      <input
-                        id="flat-building-input"
-                        type="text"
-                        name="flatBuilding"
-                        placeholder="e.g. Flat 302, Tower B, Lotus Apartments"
-                        value={formData.flatBuilding}
-                        onChange={handleChange}
-                        required
-                      />
-                    </div>
-
-                    <div className="form-group">
-                      <label htmlFor="landmark-input">LANDMARK / GATE NUMBER</label>
-                      <input
-                        id="landmark-input"
-                        type="text"
-                        name="landmark"
-                        placeholder="e.g. Opposite Community Park / Near Gate 2"
-                        value={formData.landmark}
-                        onChange={handleChange}
-                      />
-                    </div>
-                  </div>
-
-                  <div className="form-group form-row-spacing">
-                    <label htmlFor="address-textarea">STREET ADDRESS / LOCALITY / AREA *</label>
-                    <textarea
-                      id="address-textarea"
-                      name="address"
-                      placeholder="Enter complete street name, road, area, and city"
-                      value={formData.address}
-                      onChange={handleChange}
-                      required
-                    />
-                  </div>
-
-                  <div className="form-group form-row-spacing">
-                    <label htmlFor="pincode-input">PIN CODE</label>
-                    <input
-                      id="pincode-input"
-                      type="text"
-                      name="pincode"
-                      placeholder="e.g. 560038"
-                      value={formData.pincode}
-                      onChange={handleChange}
-                    />
-                  </div>
-                </div>
-              </div>
-
-              {/* ADDITIONAL DETAILS / SPECIAL INSTRUCTIONS */}
-              <div className="form-group form-group-full">
-                <label htmlFor="message-textarea">ADDITIONAL DETAILS / SPECIAL INSTRUCTIONS</label>
-                <textarea
-                  id="message-textarea"
-                  name="message"
-                  placeholder="Tell us about special fabric care, heavy stains, gate codes, or preferred delivery packaging..."
-                  value={formData.message}
-                  onChange={handleChange}
-                />
-              </div>
-
-              {/* SUBMIT BUTTON */}
-              <button
-                type="submit"
-                className="submit-pickup-btn"
-                disabled={isSubmitting}
-              >
-                <span>{isSubmitting ? "SCHEDULING PICKUP..." : "REQUEST PICKUP"}</span>
-                <span>{isSubmitting ? "⏳" : "→"}</span>
-              </button>
-            </form>
-          )}
+          {/* RIGHT: UNIFIED PICKUP BOOKING FORM */}
+          <div className="contact-form-wrapper">
+            <PickupBookingForm
+              source="contact"
+              initialService={initialService}
+              initialItem={initialItem}
+            />
+          </div>
         </div>
       </section>
     </main>

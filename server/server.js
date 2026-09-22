@@ -8,13 +8,32 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// CORS configuration to allow local frontend Vite dev server
-app.use(
-  cors({
-    origin: ['http://localhost:5173', 'http://127.0.0.1:5173', 'http://localhost:3000'],
-    credentials: true,
-  })
-);
+// Dynamic CORS configuration for local development & production
+const corsOptions = {
+  origin: (origin, callback) => {
+    // Allow requests with no origin (e.g. server-to-server, curl, test scripts)
+    if (!origin) return callback(null, true);
+
+    // Allow any localhost or 127.0.0.1 port in local development (e.g. 5173, 5174, 5175, 3000)
+    if (/^https?:\/\/(localhost|127\.0\.0\.1)(:[0-9]+)?$/.test(origin)) {
+      return callback(null, true);
+    }
+
+    // Allow explicit production domains if configured in environment
+    if (process.env.ALLOWED_ORIGINS && process.env.ALLOWED_ORIGINS.split(',').includes(origin)) {
+      return callback(null, true);
+    }
+
+    return callback(new Error('Not allowed by CORS'));
+  },
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
+  credentials: true,
+  optionsSuccessStatus: 204
+};
+
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions));
 
 // Body Parser
 app.use(express.json());
