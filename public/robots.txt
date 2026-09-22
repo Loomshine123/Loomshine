@@ -1,6 +1,27 @@
 # Robots.txt for Loomshine Professional Garment Care & Dry Cleaning
+# Fully Optimized for SEO (Search), AEO (Voice/Answer), and GEO (Generative Engines)
+
 User-agent: *
 Allow: /
 
-# Sitemaps
+# Explicit AI Engine & LLM Crawler Allow Rules for GEO
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# XML Sitemap Index Location
 Sitemap: https://loomshinedrycleaners.com/sitemap.xml

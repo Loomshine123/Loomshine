@@ -1,0 +1,186 @@
+.loom-aeo-section {
+  padding: 80px 0;
+  background-color: var(--color-bg-alt, #F8F7F3);
+  border-top: 1px solid var(--color-border-light, rgba(7, 26, 51, 0.08));
+}
+
+.loom-aeo-header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 48px auto;
+}
+
+.loom-aeo-eyebrow {
+  font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--color-blue-primary, #071A33);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.loom-aeo-title {
+  font-family: var(--font-serif, 'Cormorant Garamond', Georgia, serif);
+  font-size: 36px;
+  font-weight: 600;
+  color: var(--color-navy, #071A33);
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+
+.loom-aeo-subtitle {
+  font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: 15px;
+  color: var(--color-text-muted, #5A6E85);
+  line-height: 1.6;
+}
+
+.loom-aeo-grid {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 32px;
+  align-items: start;
+}
+
+.loom-aeo-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.loom-aeo-card {
+  background-color: #FFFFFF;
+  border: 1px solid rgba(7, 26, 51, 0.08);
+  border-radius: var(--radius-md, 8px);
+  overflow: hidden;
+  transition: border-color var(--transition-fast, 200ms ease), box-shadow var(--transition-fast, 200ms ease);
+}
+
+.loom-aeo-card.is-open {
+  border-color: rgba(7, 26, 51, 0.2);
+  box-shadow: 0 4px 16px rgba(7, 26, 51, 0.04);
+}
+
+.loom-aeo-card__question-btn {
+  width: 100%;
+  padding: 20px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+}
+
+.loom-aeo-card__question-text {
+  font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--color-navy, #071A33);
+  line-height: 1.4;
+}
+
+.loom-aeo-card__icon {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-navy, #071A33);
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.loom-aeo-card__answer-wrapper {
+  padding: 0 24px 20px 24px;
+  border-top: 1px solid rgba(7, 26, 51, 0.04);
+}
+
+.loom-aeo-card__answer-text {
+  font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--color-text-secondary, #5A6E85);
+  margin-top: 12px;
+}
+
+/* Fact Box for GEO Entity Retrieval */
+.loom-aeo-factbox {
+  background-color: #071A33;
+  color: #F8F7F3;
+  padding: 32px 28px;
+  border-radius: var(--radius-lg, 12px);
+  box-shadow: 0 12px 32px rgba(7, 26, 51, 0.12);
+}
+
+.loom-aeo-factbox__badge {
+  font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: #D4AF37;
+  margin-bottom: 12px;
+}
+
+.loom-aeo-factbox__heading {
+  font-family: var(--font-serif, 'Cormorant Garamond', Georgia, serif);
+  font-size: 24px;
+  font-weight: 600;
+  color: #FFFFFF;
+  margin-bottom: 20px;
+}
+
+.loom-aeo-factbox__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.loom-aeo-factbox__list li {
+  font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: rgba(248, 247, 243, 0.9);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 10px;
+}
+
+.loom-aeo-factbox__list li:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.loom-aeo-factbox__list strong {
+  color: #FFFFFF;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 2px;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 992px) {
+  .loom-aeo-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .loom-aeo-section {
+    padding: 48px 0;
+  }
+  .loom-aeo-title {
+    font-size: 28px;
+  }
+  .loom-aeo-card__question-text {
+    font-size: 14px;
+  }
+}

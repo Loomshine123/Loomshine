@@ -5,6 +5,8 @@ import HomePage from "./pages/HomePage";
 import { CartProvider } from "./context/CartContext";
 import "./App.css";
 
+import { applyRouteSEO } from "./utils/seo";
+
 // Dynamic Lazy Loading for Secondary Pages to Maximize Initial Page Load Speed
 const TrackOrderPage = lazy(() => import("./pages/TrackOrderPage"));
 const Services = lazy(() => import("./pages/Services"));
@@ -173,6 +175,7 @@ function AppContent() {
   }, []);
 
   useEffect(() => {
+    applyRouteSEO(route.page);
     if (route.section) {
       scrollToSection(route.section);
     } else {

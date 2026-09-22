@@ -7,6 +7,7 @@ import FabricCareSection from '../sections/FabricCareSection';
 import PricingSection from '../sections/PricingSection';
 import TestimonialsSection from '../sections/TestimonialsSection';
 import BusinessServicesSection from '../sections/BusinessServicesSection';
+import AEOKnowledgeSection from '../components/common/AEOKnowledgeSection';
 import FinalCTASection from '../sections/FinalCTASection';
 import LocationMapSection from '../sections/LocationMapSection';
 
@@ -22,6 +23,7 @@ export const HomePage = () => {
       <PricingSection />
       <TestimonialsSection />
       <BusinessServicesSection />
+      <AEOKnowledgeSection />
       <FinalCTASection />
       <LocationMapSection />
     </>

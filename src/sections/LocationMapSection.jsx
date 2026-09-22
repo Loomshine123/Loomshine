@@ -7,10 +7,18 @@ export const LocationMapSection = () => {
 
   return (
     <section className="loom-map-section" id="location">
+      <div className="loom-map-banner">
+        <div className="loom-map-banner__inner">
+          <span className="loom-map-banner__tag">SERVING NEAR YOU IN GURUGRAM:</span>
+          <span className="loom-map-banner__locations">
+            Central Arcade Market · MG Road · DLF Phase 1–5 · Golf Course Road · Cyber City · Sohna Road · Sectors 24-70+
+          </span>
+        </div>
+      </div>
       <div className="loom-map-wrapper">
         {/* Interactive Google Map Iframe */}
         <iframe
-          title="Loomshine HQ Location"
+          title="Loomshine HQ Location - Dry Cleaning & Laundry near MG Road Gurugram"
           src={mapEmbedUrl}
           width="100%"
           height="280"

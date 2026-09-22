@@ -27,7 +27,7 @@ export const HeroSection = () => {
         <Container>
           <div className="loom-hero-grid">
             <div className="loom-hero__content">
-              <p className="loom-hero__eyebrow">LOOMSHINE - Professional Garment Care</p>
+              <p className="loom-hero__eyebrow">LOOMSHINE · BEST LAUNDRY & DRY CLEANING NEAR ME IN GURUGRAM</p>
 
               <h1 className="loom-hero__headline">
                 <span>Your Clothes.</span>
@@ -35,7 +35,7 @@ export const HeroSection = () => {
               </h1>
 
               <p className="loom-hero__subtext">
-                Professional laundry and dry cleaning, carefully handled and delivered to your doorstep.
+                Top-rated organic dry cleaning & doorstep laundry service near you in Gurugram. Instant 30-minute pickup across MG Road, DLF Phase 1–5, Golf Course Road & Cyber City.
               </p>
 
               <div className="loom-hero__cta-group">

@@ -3,46 +3,117 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+  <!-- 1. Homepage & Core Local Landing Page -->
   <url>
     <loc>https://loomshinedrycleaners.com/</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>daily</changefreq>
-    <priority>1.0</priority>
+    <priority>1.00</priority>
   </url>
+
+  <!-- 2. Instant Book Doorstep Pickup -->
   <url>
-    <loc>https://loomshinedrycleaners.com/#/pricing</loc>
+    <loc>https://loomshinedrycleaners.com/#book-pickup</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.95</priority>
   </url>
+
+  <!-- 3. All Services Index Page -->
   <url>
     <loc>https://loomshinedrycleaners.com/#/services</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.90</priority>
   </url>
+
+  <!-- 4. Dry Cleaning Main Service Detail -->
+  <url>
+    <loc>https://loomshinedrycleaners.com/#/services/dry-cleaning</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <!-- 5. Organic Dry Cleaning Price & Item Catalogue -->
   <url>
     <loc>https://loomshinedrycleaners.com/#/services/dry-cleaning/catalogue</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.90</priority>
   </url>
+
+  <!-- 6. Vacuum Steam Pressing Detail Page -->
   <url>
-    <loc>https://loomshinedrycleaners.com/#/about</loc>
+    <loc>https://loomshinedrycleaners.com/#/services/steam-pressing</loc>
     <lastmod>2026-09-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
   </url>
+
+  <!-- 7. Wash & Fold Laundry Detail Page -->
+  <url>
+    <loc>https://loomshinedrycleaners.com/#/services/wash-and-fold</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- 8. Wash & Iron Service Detail Page -->
+  <url>
+    <loc>https://loomshinedrycleaners.com/#/services/wash-and-iron</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- 9. Shoe & Leather Bag Restoration Detail Page -->
+  <url>
+    <loc>https://loomshinedrycleaners.com/#/services/shoe-and-leather</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- 10. Transparent Pricing Calculator & Rate Card Page -->
+  <url>
+    <loc>https://loomshinedrycleaners.com/#/pricing</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <!-- 11. Contact & Store Location Page -->
   <url>
     <loc>https://loomshinedrycleaners.com/#/contact</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.85</priority>
   </url>
+
+  <!-- 12. About Loomshine Eco Garment Care -->
+  <url>
+    <loc>https://loomshinedrycleaners.com/#/about</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- 13. Shopping Bag & Pickup Checkout Page -->
+  <url>
+    <loc>https://loomshinedrycleaners.com/#/cart</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.70</priority>
+  </url>
+
+  <!-- 14. Live Order Tracking Page -->
   <url>
     <loc>https://loomshinedrycleaners.com/#/track-order</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.60</priority>
   </url>
+
 </urlset>
