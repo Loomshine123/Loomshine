@@ -1,5 +1,5 @@
 .loom-section-heading {
-  margin-bottom: 56px;
+  margin-bottom: 28px;
   max-width: 760px;
 }
 
@@ -23,14 +23,14 @@
 
 .loom-section-heading__title {
   font-family: var(--font-sans);
-  font-size: clamp(2.45rem, 4.2vw, var(--fs-4xl));
+  font-size: clamp(1.85rem, 3.2vw, 2.5rem);
   font-weight: 800;
-  line-height: 1.04;
+  line-height: 1.08;
   letter-spacing: 0;
   text-transform: uppercase;
   color: var(--color-navy);
   margin-top: 0;
-  margin-bottom: var(--space-2);
+  margin-bottom: 8px;
 }
 
 .loom-section-heading--theme-dark .loom-section-heading__title {
@@ -39,11 +39,11 @@
 
 .loom-section-heading__subtitle {
   font-family: var(--font-sans);
-  font-size: var(--fs-base);
-  line-height: var(--lh-body);
+  font-size: 0.95rem;
+  line-height: 1.5;
   color: var(--color-text-secondary);
-  margin-top: 18px;
-  max-width: 440px;
+  margin-top: 8px;
+  max-width: 520px;
 }
 
 .loom-section-heading--theme-dark .loom-section-heading__subtitle {
@@ -52,6 +52,6 @@
 
 @media (min-width: 768px) {
   .loom-section-heading__subtitle {
-    font-size: var(--fs-md);
+    font-size: 1.02rem;
   }
 }

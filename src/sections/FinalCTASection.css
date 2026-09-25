@@ -14,10 +14,10 @@
 }
 
 .loom-cta-headline {
-  font-family: var(--font-serif);
-  font-size: clamp(2rem, 4vw, 3.25rem);
-  font-weight: var(--fw-bold);
-  line-height: var(--lh-tight);
+  font-family: var(--font-sans);
+  font-size: clamp(1.85rem, 3.2vw, 2.5rem);
+  font-weight: 800;
+  line-height: 1.08;
   text-transform: uppercase;
   color: var(--color-white);
   margin-bottom: var(--space-3);

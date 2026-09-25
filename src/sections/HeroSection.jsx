@@ -27,7 +27,7 @@ export const HeroSection = () => {
         <Container>
           <div className="loom-hero-grid">
             <div className="loom-hero__content">
-              <p className="loom-hero__eyebrow">LOOMSHINE · BEST LAUNDRY & DRY CLEANING NEAR ME IN GURUGRAM</p>
+              <p className="loom-hero__eyebrow">LOOMSHINE · PREMIUM GARMENT CARE · GURUGRAM</p>
 
               <h1 className="loom-hero__headline">
                 <span>Your Clothes.</span>

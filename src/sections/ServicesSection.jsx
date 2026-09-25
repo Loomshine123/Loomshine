@@ -16,7 +16,7 @@ export const ServicesSection = () => {
           <SectionHeading
             title="Care for every kind of clothing."
           />
-          <p className="text-muted" style={{ fontSize: '1.1rem', lineHeight: '1.6', marginBottom: 'var(--space-8)' }}>
+          <p className="loom-services-header-desc">
             From everyday essentials to delicate garments, every item receives the care it deserves.
           </p>
         </div>

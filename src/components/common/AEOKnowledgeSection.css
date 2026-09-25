@@ -21,12 +21,13 @@
 }
 
 .loom-aeo-title {
-  font-family: var(--font-serif, 'Cormorant Garamond', Georgia, serif);
-  font-size: 36px;
-  font-weight: 600;
+  font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: clamp(1.85rem, 3.2vw, 2.5rem);
+  font-weight: 800;
+  text-transform: uppercase;
   color: var(--color-navy, #071A33);
-  margin-bottom: 16px;
-  line-height: 1.2;
+  margin-bottom: 12px;
+  line-height: 1.08;
 }
 
 .loom-aeo-subtitle {
@@ -127,11 +128,12 @@
 }
 
 .loom-aeo-factbox__heading {
-  font-family: var(--font-serif, 'Cormorant Garamond', Georgia, serif);
-  font-size: 24px;
-  font-weight: 600;
+  font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: 20px;
+  font-weight: 800;
+  text-transform: uppercase;
   color: #FFFFFF;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
 .loom-aeo-factbox__list {

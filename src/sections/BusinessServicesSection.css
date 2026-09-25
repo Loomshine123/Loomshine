@@ -30,9 +30,9 @@
 }
 
 .loom-b2b-item {
-  font-family: var(--font-serif);
-  font-size: var(--fs-lg);
-  font-weight: var(--fw-semibold);
+  font-family: var(--font-sans);
+  font-size: var(--fs-md);
+  font-weight: 700;
   color: var(--color-navy);
   display: flex;
   align-items: center;

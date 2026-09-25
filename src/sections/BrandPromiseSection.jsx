@@ -33,26 +33,17 @@ export const BrandPromiseSection = () => {
             <Image
               src={laundryServiceImage}
               alt="Professional laundry care and doorstep handling in Gurgaon"
-              aspectRatio="4-5"
+              aspectRatio="3-4"
               hoverZoom
             />
           </div>
 
           {/* Right Content */}
           <div>
-            {/* Official LOOMSHINE Logo - mid-page brand centrepiece */}
-            <div style={{ marginBottom: '20px' }}>
-              <img
-                src="/logoloom.png"
-                alt="LOOMSHINE Dry Cleaning & Laundry"
-                style={{ height: '65px', width: 'auto', display: 'block', objectFit: 'contain', mixBlendMode: 'multiply' }}
-              />
-            </div>
-
             <SectionHeading
               eyebrow="ABOUT LOOMSHINE • GURUGRAM"
               title="PROFESSIONAL LAUNDRY CARE, DELIVERED TO YOUR DOOR."
-              subtitle="Experience the Best Laundry Service in Gurgaon. Delivered to Your Door."
+              subtitle="Experience the Best Laundry & Dry Cleaning Service in Gurgaon."
             />
 
             <p className="loom-promise-lead">

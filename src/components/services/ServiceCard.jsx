@@ -21,7 +21,7 @@ export const ServiceCard = ({ number, title, description, image, onClick }) => {
         <Image
           src={image}
           alt={title}
-          aspectRatio="4-5"
+          aspectRatio="4-3"
           hoverZoom
         />
       </div>
