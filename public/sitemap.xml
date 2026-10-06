@@ -116,4 +116,20 @@
     <priority>0.60</priority>
   </url>
 
+  <!-- 15. Fabric Intelligence & Care Guides (Blog Index) -->
+  <url>
+    <loc>https://loomshinedrycleaners.com/#/blog</loc>
+    <lastmod>2026-10-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- 16. Emergency Garment Care Guide: Is Your Dry Clean Only Outfit Truly Ruined? -->
+  <url>
+    <loc>https://loomshinedrycleaners.com/#/blog/is-dry-clean-only-outfit-ruined-how-to-save-it</loc>
+    <lastmod>2026-10-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
 </urlset>

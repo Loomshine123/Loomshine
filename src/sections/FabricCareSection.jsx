@@ -34,6 +34,16 @@ export const FabricCareSection = () => {
             Washed at controlled temperatures to protect colour and keep the weave soft,
             then pressed for a clean, structured finish.
           </p>
+
+          <div className="loom-fabric-emergency-callout">
+            <span className="emergency-badge">🚨 EMERGENCY FIRST-AID</span>
+            <p className="emergency-text">
+              Accidentally washed dry-clean silk, wool, or designer lehenga? Or spilled wine at Cyber City?
+            </p>
+            <a href="#/blog/is-dry-clean-only-outfit-ruined-how-to-save-it" className="emergency-link">
+              Read 30-Min Garment Rescue Guide →
+            </a>
+          </div>
         </div>
       </Container>
     </section>

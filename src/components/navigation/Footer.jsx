@@ -51,6 +51,7 @@ export const Footer = ({ onNavigate }) => {
               <li><a href="#/about" className="loom-footer-col__link" onClick={(e) => handleLinkClick(e, '#/about')}>About Us</a></li>
               <li><a href="#how-it-works" className="loom-footer-col__link" onClick={(e) => handleLinkClick(e, '#how-it-works')}>How It Works</a></li>
               <li><a href="#/pricing" className="loom-footer-col__link" onClick={(e) => handleLinkClick(e, '#/pricing')}>Pricing Rates</a></li>
+              <li><a href="#/blog" className="loom-footer-col__link" onClick={(e) => handleLinkClick(e, '#/blog')}>Garment Care Blog</a></li>
               <li><a href="#business" className="loom-footer-col__link" onClick={(e) => handleLinkClick(e, '#business')}>Business B2B</a></li>
               <li><a href="#/contact" className="loom-footer-col__link" onClick={(e) => handleLinkClick(e, '#/contact')}>Contact</a></li>
             </ul>
@@ -62,7 +63,8 @@ export const Footer = ({ onNavigate }) => {
             <ul className="loom-footer-col__list">
               <li><a href="#faqs" className="loom-footer-col__link">FAQs</a></li>
               <li><a href="#/track-order" className="loom-footer-col__link">Track Order</a></li>
-              <li><a href="#fabrics" className="loom-footer-col__link">Care Guide</a></li>
+              <li><a href="#fabrics" className="loom-footer-col__link">Fabric Guides</a></li>
+              <li><a href="#/blog/is-dry-clean-only-outfit-ruined-how-to-save-it" className="loom-footer-col__link" onClick={(e) => handleLinkClick(e, '#/blog/is-dry-clean-only-outfit-ruined-how-to-save-it')}>Emergency Rescue Guide</a></li>
               <li><a href="#help" className="loom-footer-col__link">Help Center</a></li>
             </ul>
           </div>

@@ -9,6 +9,7 @@ import './Header.css';
 const NAV_LINKS = [
   { name: 'How It Works', href: '#how-it-works' },
   { name: 'Pricing', href: '#/pricing' },
+  { name: 'Blog', href: '#/blog' },
   { name: 'About', href: '#/about' },
   { name: 'Business', href: '#business' },
   { name: 'Track Order', href: '#/track-order' }
@@ -97,6 +98,7 @@ export const Header = ({ currentPage, currentSection, onNavigate }) => {
                     (currentPage === 'track-order' &&
                       (link.href === '#/track-order' || link.href === '#track-order')) ||
                     (currentPage === 'pricing' && link.href === '#/pricing') ||
+                    ((currentPage === 'blog' || currentPage === 'blogDetail') && link.href === '#/blog') ||
                     (currentPage === 'about' && (link.href === '#/about' || link.href === '#about')) ||
                     (currentPage === 'home' && currentSection === 'how-it-works' && link.href.includes('how-it-works')) ||
                     (currentPage === 'home' && currentSection === 'business' && link.href.includes('business'));

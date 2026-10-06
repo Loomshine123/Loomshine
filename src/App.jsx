@@ -17,6 +17,8 @@ const ContactPage = lazy(() => import("./pages/ContactPage"));
 const PricingPage = lazy(() => import("./pages/PricingPage"));
 const AboutPage = lazy(() => import("./pages/AboutPage"));
 const CartPage = lazy(() => import("./pages/CartPage"));
+const BlogListingPage = lazy(() => import("./pages/BlogListingPage"));
+const BlogPostPage = lazy(() => import("./pages/BlogPostPage"));
 
 const PageFallback = () => (
   <div style={{ minHeight: "60vh", display: "flex", alignItems: "center", justifyContent: "center" }}>
@@ -136,6 +138,16 @@ function getRouteFromHash(hashStr) {
       slug: hash.replace("#/services/", ""),
     };
   }
+  // Blog Routes
+  if (hash === "#/blog" || hash === "#blog") {
+    return { page: "blog" };
+  }
+  if (hash.startsWith("#/blog/")) {
+    return {
+      page: "blogDetail",
+      slug: hash.replace("#/blog/", "").split("?")[0],
+    };
+  }
   return { page: "home", section: null };
 }
 
@@ -175,7 +187,7 @@ function AppContent() {
   }, []);
 
   useEffect(() => {
-    applyRouteSEO(route.page);
+    applyRouteSEO(route.page, route.slug);
     if (route.section) {
       scrollToSection(route.section);
     } else {
@@ -227,6 +239,10 @@ function AppContent() {
         return <ServiceDetailPage slug={route.slug} />;
       case "track-order":
         return <TrackOrderPage />;
+      case "blog":
+        return <BlogListingPage onNavigate={navigate} />;
+      case "blogDetail":
+        return <BlogPostPage slug={route.slug} />;
       default:
         return (
           <main>

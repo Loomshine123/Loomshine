@@ -1,0 +1,228 @@
+/* Blog Listing Hub Styles */
+.loom-blog-listing-page {
+  background-color: #FAFAF8;
+  color: #071A33;
+  padding-bottom: 96px;
+  overflow-x: hidden;
+}
+
+.loom-blog-listing-hero {
+  background: linear-gradient(180deg, #071A33 0%, #0D264A 100%);
+  color: #FFFFFF;
+  padding: 130px 0 60px 0;
+  text-align: center;
+}
+
+.listing-eyebrow {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #C5A880;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.listing-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(32px, 4.5vw, 52px);
+  font-weight: 600;
+  margin: 0 0 16px 0;
+  color: #FFFFFF;
+}
+
+.listing-subtitle {
+  font-size: clamp(15px, 1.6vw, 18px);
+  line-height: 1.6;
+  color: #D3DFEB;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.loom-blog-listing-content {
+  padding-top: 50px;
+}
+
+.featured-post-card {
+  background: #FFFFFF;
+  border: 1px solid #E2EBF2;
+  border-radius: 14px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 460px 1fr;
+  box-shadow: 0 8px 30px rgba(7, 26, 51, 0.06);
+  margin-bottom: 60px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.featured-post-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(7, 26, 51, 0.1);
+}
+
+.featured-post-image-col {
+  position: relative;
+  background: #FAF8F5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 24px;
+}
+
+.featured-post-img {
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.featured-badge {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  background: #071A33;
+  color: #E2CAAE;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 5px 12px;
+  border-radius: 999px;
+  text-transform: uppercase;
+}
+
+.featured-post-body-col {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.post-meta-top {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.post-cat-badge {
+  background: #FDF9F3;
+  color: #8C6A3E;
+  border: 1px solid rgba(197, 168, 128, 0.4);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+.post-read-time {
+  font-size: 13px;
+  color: #5A6E85;
+}
+
+.featured-post-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(24px, 2.5vw, 34px);
+  font-weight: 600;
+  line-height: 1.25;
+  margin: 0 0 16px 0;
+}
+
+.featured-post-title a {
+  color: #071A33;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.featured-post-title a:hover {
+  color: #C5A880;
+}
+
+.featured-post-excerpt {
+  font-size: 15px;
+  line-height: 1.65;
+  color: #4A5E75;
+  margin-bottom: 24px;
+}
+
+.featured-post-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  border-top: 1px solid #EAF2F7;
+  padding-top: 20px;
+}
+
+.author-brief {
+  display: flex;
+  flex-direction: column;
+  font-size: 13px;
+}
+
+.author-brief strong {
+  color: #071A33;
+}
+
+.author-brief span {
+  color: #5A6E85;
+  font-size: 12px;
+}
+
+.blog-topics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.topic-card {
+  background: #FFFFFF;
+  border: 1px solid #E2EBF2;
+  border-radius: 12px;
+  padding: 28px;
+  box-shadow: 0 4px 14px rgba(7, 26, 51, 0.03);
+}
+
+.topic-icon {
+  font-size: 28px;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+.topic-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #071A33;
+  margin: 0 0 10px 0;
+}
+
+.topic-desc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #4A5E75;
+  margin: 0;
+}
+
+@media (max-width: 992px) {
+  .featured-post-card {
+    grid-template-columns: 1fr;
+  }
+
+  .blog-topics-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .featured-post-body-col {
+    padding: 24px 20px;
+  }
+
+  .featured-post-footer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
