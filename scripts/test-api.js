@@ -148,7 +148,7 @@ const testCases = [
     name: '1. Valid Pickup Booking Submission (Dual Template Flow - new_pickup_request2)',
     payload: {
       fullName: 'Loomshine Test Customer',
-      phone: '7877161550',
+      phone: '8877286066',
       email: 'eleanor@example.com',
       preferredPickupTime: 'Morning (9 AM – 12 PM)',
       services: [
@@ -278,7 +278,7 @@ const testCases = [
     name: '10. Pickup Slot Test: Evening (4 PM – 8 PM)',
     payload: {
       fullName: 'Aarav Gupta',
-      phone: '7877161550',
+      phone: '8877286066',
       preferredPickupTime: 'Evening (4 PM – 8 PM)',
       services: [{ name: 'PREMIUM LAUNDRY' }],
       pickupAddress: 'DLF Phase 5, Gurugram',
@@ -292,7 +292,7 @@ const testCases = [
     name: '11. Pickup Slot Test: Express / Immediate Pickup',
     payload: {
       fullName: 'Priya Sharma',
-      phone: '7877161550',
+      phone: '8877286066',
       preferredPickupTime: 'Express / Immediate Pickup',
       services: [{ name: 'EXPRESS DRY CLEANING' }],
       pickupAddress: 'Golf Course Road, Gurugram',
@@ -306,7 +306,7 @@ const testCases = [
     name: '12. Pickup Slot Test: Combined Date + Slot (20 Sep 2026 (2026-09-20) · Morning (9 AM – 12 PM))',
     payload: {
       fullName: 'Rohan Mehra',
-      phone: '7877161550',
+      phone: '8877286066',
       pickupDate: '2026-09-20',
       pickupSlot: 'Morning (9 AM – 12 PM)',
       preferredPickupTime: '20 Sep 2026 (2026-09-20) · Morning (9 AM – 12 PM)',
@@ -322,7 +322,7 @@ const testCases = [
     name: '13. Pickup Slot Test: Hyphen variation (Morning (9 AM - 12 PM))',
     payload: {
       fullName: 'Ananya Verma',
-      phone: '7877161550',
+      phone: '8877286066',
       preferredPickupTime: 'Morning (9 AM - 12 PM)',
       services: [{ name: 'WASH & FOLD' }],
       pickupAddress: 'Sohna Road, Gurugram',
@@ -336,7 +336,7 @@ const testCases = [
     name: '14. Missing Map Location Coordinates Error',
     payload: {
       fullName: 'Test User',
-      phone: '7877161550',
+      phone: '8877286066',
       preferredPickupTime: 'Morning (9 AM – 12 PM)',
       services: [{ name: 'DRY CLEANING' }],
       pickupAddress: '12 Tech Park'
@@ -347,7 +347,7 @@ const testCases = [
     name: '15. Cart Booking Scenario Payload Test',
     payload: {
       fullName: 'Vikramaditya S.',
-      phone: '7877161550',
+      phone: '8877286066',
       preferredPickupTime: 'Afternoon (12 PM – 4 PM)',
       cartItems: [
         { name: 'Men Shirt', price: 99, quantity: 2, unit: 'per item', category: 'Dry Cleaning' },

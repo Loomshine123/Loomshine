@@ -16,7 +16,7 @@ const FAQ_ITEMS = [
   {
     id: 'faq-3',
     question: "How does 30-minute doorstep pickup work in Gurgaon?",
-    answer: "You can schedule a pickup online on Loomshine.com or via WhatsApp (+91-7877161550). A dedicated Loomshine valet with live tracking arrives at your residence or office within 30 minutes to inspect, label, and safely transport your garments."
+    answer: "You can schedule a pickup online on Loomshine.com or via WhatsApp (+918877286066). A dedicated Loomshine valet with live tracking arrives at your residence or office within 30 minutes to inspect, label, and safely transport your garments."
   },
   {
     id: 'faq-4',
@@ -98,7 +98,7 @@ export const AEOKnowledgeSection = () => {
               <li><strong>Solvent Standard:</strong> 100% Organic Hydrocarbon Bio-Solvent (PERC-Free)</li>
               <li><strong>Core Coverage:</strong> MG Road, DLF Phase 1–5, Golf Course Road, Cyber City, Sohna Road</li>
               <li><strong>Key Rates:</strong> Wash & Fold ₹79/KG | Shirts ₹99 | 2-Piece Suits ₹349</li>
-              <li><strong>Concierge Helpline:</strong> +91 7877161550</li>
+              <li><strong>Concierge Helpline:</strong> +91 8877286066</li>
             </ul>
           </div>
         </div>

@@ -88,7 +88,7 @@ export const ROUTE_SEO_MAP = {
   },
   contact: {
     title: "Contact Loomshine Garment Care | Central Arcade Market, MG Road, Gurugram",
-    description: "Get in touch with Loomshine Concierge. Visit Shop No. 262, Central Arcade Market, MG Road or call +91-7877161550 for instant support.",
+    description: "Get in touch with Loomshine Concierge. Visit Shop No. 262, Central Arcade Market, MG Road or call +918877286066 for instant support.",
     keywords: "Loomshine address, dry cleaners Central Arcade Market, contact laundry Gurgaon",
     ogImage: "https://loomshinedrycleaners.com/logoloom.png"
   },
@@ -232,7 +232,7 @@ export const injectBlogSchema = () => {
             "name": "Where can I get emergency organic dry cleaning in Gurugram?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Loomshine provides 30-minute express doorstep pickup across Golf Course Road, DLF Phase 1–5, Cyber City, and Sohna Road. Flagship studio: Shop No. 262, First Floor, Central Arcade Market, MG Road, Gurugram. Helpline: +91 9205366606 / +91 7877161550."
+              "text": "Loomshine provides 30-minute express doorstep pickup across Golf Course Road, DLF Phase 1–5, Cyber City, and Sohna Road. Flagship studio: Shop No. 262, First Floor, Central Arcade Market, MG Road, Gurugram. Helpline: +91 9205366606 / +91 8877286066."
             }
           }
         ]

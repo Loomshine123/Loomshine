@@ -498,7 +498,7 @@ export const BlogPostPage = ({ slug = 'is-dry-clean-only-outfit-ruined-how-to-sa
                       <span className="pill-label">Direct Lines:</span>
                       <a href="tel:+919205366606" className="pill-link">+91 9205366606</a>
                       <span className="pill-sep">•</span>
-                      <a href="tel:+917877161550" className="pill-link">+91 7877161550</a>
+                      <a href="tel:+918877286066" className="pill-link">+91 8877286066</a>
                     </div>
                     <div className="cta-contact-pill">
                       <span className="pill-label">Flagship Studio:</span>

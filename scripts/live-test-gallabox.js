@@ -45,7 +45,7 @@ async function runLiveTest() {
 
   const testBooking = {
     customerName: 'Manish Suthar',
-    phone: '7877161550',
+    phone: '8877286066',
     email: 'manish@example.com',
     pickupTime: '19 Sep 2026 · Afternoon (12 PM – 4 PM)',
     cartItems: [

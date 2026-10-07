@@ -132,7 +132,7 @@ export const normalizePhoneForGallabox = (phone) => {
 
 /**
  * Format Contact Info for Variable {{2}}
- * Single-line format: Phone: +91 7877161550 | Email: manish@example.com
+ * Single-line format: Phone: +91 8877286066 | Email: manish@example.com
  * @param {string} phone 
  * @param {string} [email] 
  * @returns {string}
