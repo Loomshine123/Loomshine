@@ -62,7 +62,7 @@ export const BLOG_POSTS = [
     contactInfo: {
       pickupTime: '30 Minutes',
       phone1: '+91 9205366606',
-      phone2: '+91 7877161550',
+      phone2: '+918877286066',
       address: 'Shop No. 262, First Floor, Central Arcade Market, MG Road, Gurugram, Haryana 122002',
       bookingUrl: 'https://loomshinedrycleaners.com/#book-pickup'
     },
