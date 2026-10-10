@@ -500,6 +500,24 @@ const dryCleaningProducts = [
     image: womenDressImage,
   },
 
+
+
+     {
+    id: "women-frock",
+    category: "Women",
+    name: "Ladies Frock",
+    price: 120,
+    unit: "per piece",
+
+    shortDescription:
+      "Expert cleaning for frocks of different fabrics.",
+
+    description:
+      "Garments are treated according to their fabric and construction, with careful stain treatment and professional finishing for a refreshed appearance.",
+
+    image: womenDressImage,
+  },
+
   {
     id: "women-skirt",
     category: "Women",
@@ -542,18 +560,35 @@ const dryCleaningProducts = [
   {
     id: "women-saree-zari",
     category: "Women",
-    name: "Ladies Saree – Zari/silk",
+    name: "Ladies Saree – silk",
     price: 350,
     unit: "per piece",
 
     shortDescription:
-      "Specialised care for delicate sarees with zari/silk detailing.",
+      "Specialised care for delicate sarees with silk detailing.",
 
     description:
       "Fabric-specific cleaning helps protect intricate borders, embroidery and zari detailing while maintaining the saree's richness.",
 
     image: womenSareeZariImage,
   },
+
+      {
+    id: "women-saree-zari",
+    category: "Women",
+    name: "Ladies Saree – Zari",
+    price: 400,
+    unit: "per piece",
+
+    shortDescription:
+      "Specialised care for delicate sarees with zari detailing.",
+
+    description:
+      "Fabric-specific cleaning helps protect intricate borders, embroidery and zari detailing while maintaining the saree's richness.",
+
+    image: womenSareeZariImage,
+  },
+
 
 
   {
@@ -649,7 +684,7 @@ const dryCleaningProducts = [
   {
     id: "women-long-coat",
     category: "Women",
-    name: "Ladies half coat/long coat",
+    name: "Ladies Half Coat",
     price: 150,
     unit: "per piece",
 
@@ -662,22 +697,23 @@ const dryCleaningProducts = [
     image: womenLongCoatImage,
   },
 
-
-  {
-    id: "women-cardigan",
+  
+     {
+    id: "women-long-coat",
     category: "Women",
-    name: "Ladies Cardigan",
+    name: "long coat",
     price: 200,
     unit: "per piece",
 
     shortDescription:
-      "Gentle cleaning designed to preserve the softness and shape of cardigans.",
+      "Professional cleaning for long coats with careful attention to structure.",
 
     description:
-      "Dust, odour and everyday buildup are removed using fabric-appropriate care to help maintain the garment's fit and texture.",
+      "The outer fabric, lining, collars and overall construction are professionally cleaned and finished for a fresh, polished appearance.",
 
-    image: womenCardiganImage,
+    image: womenLongCoatImage,
   },
+
 
 
   {
@@ -767,12 +803,30 @@ const dryCleaningProducts = [
     image: womenTopPalazzoImage,
   },
 
+  
+
 
   {
     id: "women-anarkali",
     category: "Women",
-    name: "Ladies Anarkali/Anarkali-3-piece",
+    name: "Ladies Anarkali",
     price: 500,
+    unit: "per piece",
+
+    shortDescription:
+      "Carefully tailored cleaning for Anarkali suits.",
+
+    description:
+      "Extra attention is given to delicate fabrics, embroidery, flare and garment structure for a fresh and professionally finished result.",
+
+    image: womenAnarkaliImage,
+  },
+
+   {
+    id: "women-anarkali-3-piece",
+    category: "Women",
+    name: "Ladies Anarkali-3 piece",
+    price: 800,
     unit: "per piece",
 
     shortDescription:
