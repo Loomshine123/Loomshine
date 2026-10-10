@@ -415,9 +415,11 @@ const dryCleaningProducts = [
   },
 
 
-    /* =========================================
-     WOMEN
-  ========================================= */
+  // =========================
+// WOMEN
+// =========================
+
+
 
   {
     id: "women-suit-2-piece-plain",
@@ -502,7 +504,7 @@ const dryCleaningProducts = [
 
 
 
-     {
+  {
     id: "women-frock",
     category: "Women",
     name: "Ladies Frock",
@@ -558,9 +560,9 @@ const dryCleaningProducts = [
 
 
   {
-    id: "women-saree-zari",
+    id: "women-saree-silk",
     category: "Women",
-    name: "Ladies Saree – silk",
+    name: "Ladies Saree – Silk",
     price: 350,
     unit: "per piece",
 
@@ -573,7 +575,7 @@ const dryCleaningProducts = [
     image: womenSareeZariImage,
   },
 
-      {
+  {
     id: "women-saree-zari",
     category: "Women",
     name: "Ladies Saree – Zari",
@@ -682,7 +684,7 @@ const dryCleaningProducts = [
 
 
   {
-    id: "women-long-coat",
+    id: "women-half-coat",
     category: "Women",
     name: "Ladies Half Coat",
     price: 150,
@@ -698,7 +700,7 @@ const dryCleaningProducts = [
   },
 
   
-     {
+  {
     id: "women-long-coat",
     category: "Women",
     name: "long coat",
@@ -801,12 +803,12 @@ const dryCleaningProducts = [
       "The garment is cleaned and finished to remove everyday dirt and odour while maintaining fabric quality and appearance.",
 
     image: womenTopPalazzoImage,
-  },
+    },
 
   
 
 
-  {
+    {
     id: "women-anarkali",
     category: "Women",
     name: "Ladies Anarkali",
@@ -820,7 +822,7 @@ const dryCleaningProducts = [
       "Extra attention is given to delicate fabrics, embroidery, flare and garment structure for a fresh and professionally finished result.",
 
     image: womenAnarkaliImage,
-  },
+    },
 
    {
     id: "women-anarkali-3-piece",
@@ -836,7 +838,7 @@ const dryCleaningProducts = [
       "Extra attention is given to delicate fabrics, embroidery, flare and garment structure for a fresh and professionally finished result.",
 
     image: womenAnarkaliImage,
-  },
+    },
 
 
 
