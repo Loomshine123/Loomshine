@@ -35,8 +35,8 @@ export const BlogListingPage = ({ onNavigate }) => {
       {/* Main Grid */}
       <section className="loom-blog-listing-content">
         <Container>
-          {BLOG_POSTS.map((post) => {
-            const isLatest = post.id === 'dandiya-cyber-hub-saffron-silk-stain-fix';
+          {BLOG_POSTS.map((post, idx) => {
+            const badgeText = post.episode ? `${post.episode.toUpperCase()}` : (idx === 0 ? 'LATEST ADVISORY' : 'EMERGENCY FIRST-AID');
             return (
               <div key={post.id} className="featured-post-card">
                 <div className="featured-post-image-col">
@@ -46,7 +46,7 @@ export const BlogListingPage = ({ onNavigate }) => {
                     className="featured-post-img"
                   />
                   <span className="featured-badge">
-                    {isLatest ? 'NEW FESTIVE ADVISORY' : 'EMERGENCY FIRST-AID'}
+                    {badgeText}
                   </span>
                 </div>
                 <div className="featured-post-body-col">

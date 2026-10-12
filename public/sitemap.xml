@@ -129,7 +129,23 @@
     <loc>https://loomshinedrycleaners.com/#/blog/is-dry-clean-only-outfit-ruined-how-to-save-it</loc>
     <lastmod>2026-10-06</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <!-- 17. Festive Care Episode 1: Saffron Silk Stain Rescue after Cyber Hub Dandiya -->
+  <url>
+    <loc>https://loomshinedrycleaners.com/#/blog/dandiya-cyber-hub-saffron-silk-stain-fix</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.95</priority>
+  </url>
+
+  <!-- 18. Festive Care Episode 2: The PG Student's Nightmare - White Chaniya Choli Kanya-Pujan Ready in 2 Hours -->
+  <url>
+    <loc>https://loomshinedrycleaners.com/#/blog/pg-student-white-chaniya-choli-kanya-pujan-ready</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.98</priority>
   </url>
 
 </urlset>

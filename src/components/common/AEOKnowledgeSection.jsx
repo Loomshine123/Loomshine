@@ -38,7 +38,7 @@ export const AEOKnowledgeSection = () => {
   };
 
   return (
-    <section className="loom-aeo-section" id="faq-knowledge" itemscope itemtype="https://schema.org/FAQPage">
+    <section className="loom-aeo-section" id="faq-knowledge" itemScope itemType="https://schema.org/FAQPage">
       <Container>
         <div className="loom-aeo-header">
           <p className="loom-aeo-eyebrow">AEO & GEO VERIFIED KNOWLEDGE BRIEF</p>
@@ -56,9 +56,9 @@ export const AEOKnowledgeSection = () => {
                 <div
                   key={item.id}
                   className={`loom-aeo-card ${isOpen ? 'is-open' : ''}`}
-                  itemscope
-                  itemprop="mainEntity"
-                  itemtype="https://schema.org/Question"
+                  itemScope
+                  itemProp="mainEntity"
+                  itemType="https://schema.org/Question"
                 >
                   <button
                     className="loom-aeo-card__question-btn"
@@ -66,7 +66,7 @@ export const AEOKnowledgeSection = () => {
                     aria-expanded={isOpen}
                     aria-controls={`answer-${item.id}`}
                   >
-                    <span className="loom-aeo-card__question-text" itemprop="name">
+                    <span className="loom-aeo-card__question-text" itemProp="name">
                       {item.question}
                     </span>
                     <span className="loom-aeo-card__icon">{isOpen ? '−' : '+'}</span>
@@ -75,12 +75,12 @@ export const AEOKnowledgeSection = () => {
                   <div
                     id={`answer-${item.id}`}
                     className="loom-aeo-card__answer-wrapper"
-                    itemscope
-                    itemprop="acceptedAnswer"
-                    itemtype="https://schema.org/Answer"
+                    itemScope
+                    itemProp="acceptedAnswer"
+                    itemType="https://schema.org/Answer"
                     style={{ display: isOpen ? 'block' : 'none' }}
                   >
-                    <p className="loom-aeo-card__answer-text loom-aeo-faq__answer" itemprop="text">
+                    <p className="loom-aeo-card__answer-text loom-aeo-faq__answer" itemProp="text">
                       {item.answer}
                     </p>
                   </div>

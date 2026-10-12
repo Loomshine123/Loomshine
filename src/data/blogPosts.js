@@ -5,6 +5,108 @@
 
 export const BLOG_POSTS = [
   {
+    id: "pg-student-white-chaniya-choli-kanya-pujan-ready",
+    slug: "pg-student-white-chaniya-choli-kanya-pujan-ready",
+    title: "The PG Student’s Nightmare: Getting Your White Chaniya Choli Kanya-Pujan Ready in 2 Hours",
+    seoTitle: "White Chaniya Choli Kanya-Pujan Rescue in 2 Hours | Loomshine Gurugram",
+    metaDescription: "Tomorrow is Kanya Pujan and your white Chaniya Choli has yellow collars and dull hard-water haze? In a Gurugram PG with no washing machine? Discover Loomshine's oxygen bio-brightening, zero chlorine damage & 30-min doorstep valet across Sector 56, Sector 28 & DLF Phase 3.",
+    keywords: "white chaniya choli dry cleaning Gurugram, kanya pujan white kurta yellow stain, remove yellow collar stains whites PG, hard water yellowing clothes Gurgaon, chlorine bleach alternative lehenga, PG laundry pickup Sector 56 Sector 28, doorstep dry cleaning DLF Phase 3 Gurgaon, oxygen brightener dry cleaners MG Road, Central Arcade Market dry cleaners, German steam press Gurgaon",
+    canonicalUrl: "https://loomshinedrycleaners.com/#/blog/pg-student-white-chaniya-choli-kanya-pujan-ready",
+    publishedDate: "2026-10-12",
+    modifiedDate: "2026-10-12",
+    episode: "Episode 2 of 9 Days of Navratri",
+    author: {
+      name: "Loomshine Master Fabricators",
+      role: "Textile Care & Festivewear Restoration Specialists",
+      location: "Central Arcade Market, MG Road, Gurugram"
+    },
+    readingTime: "4 min read",
+    category: "Festivewear Restoration",
+    featuredImage: "/blog/pg-white-chaniya-choli-rescue/navratri-ep2-white-chaniya-choli-hero.jpg",
+    promoCode: "FESTIVEFRESH",
+    images: {
+      hero: {
+        src: "/blog/pg-white-chaniya-choli-rescue/navratri-ep2-white-chaniya-choli-hero.jpg",
+        alt: "The PG Student's Nightmare - Getting your white chaniya choli ready for puja in two hours without a washing machine",
+        caption: "Navratri Episode 2: The PG Student's Nightmare — Getting your white chaniya choli or festive kurta ready for Kanya Pujan in 2 hours without a washing machine."
+      },
+      yellowCollar: {
+        src: "/blog/pg-white-chaniya-choli-rescue/gurugram-pg-yellow-collar-monsoon-damage.jpg",
+        alt: "Last monsoon's wash. This year's yellow collar. Sorting closet in a Gurugram PG finding whites dull or yellowed",
+        caption: "Last Monsoon's Wash = This Year's Yellow Collar: Stored body oils and hard-water minerals oxidize into unsightly yellow halos."
+      },
+      dullWhites: {
+        src: "/blog/pg-white-chaniya-choli-rescue/hard-water-mineral-detergent-residue-whites.jpg",
+        alt: "Why whites look dull - Mineral deposits, detergent residue and body oils contribute to dullness and yellowing",
+        caption: "Why Whites Look Dull: High-TDS Gurugram tap water leaves calcium scale that traps detergent and body oils in fabric fibers."
+      },
+      bleachWarning: {
+        src: "/blog/pg-white-chaniya-choli-rescue/chlorine-bleach-fabric-damage-warning.jpg",
+        alt: "Don't reach for chlorine bleach - Strong bleach can weaken delicate cotton or rayon and affect seams and trims",
+        caption: "Don't Reach for Chlorine Bleach: Caustic bleach weakens cotton fibers, snaps seam threads, and reacts with minerals to permanently stain fabric yellow."
+      },
+      fabricFirst: {
+        src: "/blog/pg-white-chaniya-choli-rescue/fabric-first-oxygen-brightening-whites.jpg",
+        alt: "A fabric-first approach to whites - Ask Loomshine about suitable treatment for mineral residue and stains",
+        caption: "A Fabric-First Approach to Whites: Active oxygen mineral descalers lift yellow discoloration while keeping delicate seams and mirror embroidery intact."
+      },
+      steamFinishing: {
+        src: "/blog/pg-white-chaniya-choli-rescue/german-steam-finishing-festive-chaniya-choli.jpg",
+        alt: "Freshly cared for, ready to wear - Fabric appropriate cleaning and controlled steam finishing restore smooth look",
+        caption: "Freshly Cared For, Ready to Wear: Calibrated German steam finishing sanitizes at 99.9% and releases deep creases for a boutique drape."
+      },
+      pgPickup: {
+        src: "/blog/pg-white-chaniya-choli-rescue/pg-doorstep-valet-dlf-phase-3-sector-56.jpg",
+        alt: "No machine? No drying balcony? No problem. PG-door pickup across DLF Phase 3 and Sector 56",
+        caption: "No Machine? No Drying Balcony? No Problem: Dedicated 30-minute doorstep valet pickup right from your PG gate across DLF Phase 3, Sector 56, and Sector 28."
+      },
+      festiveOffer: {
+        src: "/blog/pg-white-chaniya-choli-rescue/festivefresh-complimentary-steam-press-offer.jpg",
+        alt: "Get your festive whites ready - WhatsApp Loomshine with promo code FESTIVEFRESH for complimentary steam press",
+        caption: "Festive Ready: Complimentary German Steam Press on your highest-value festive item on orders over ₹499 with promo code FESTIVEFRESH."
+      }
+    },
+    quickAnswer: "Can you restore yellowed or greyish white ethnic wear without a washing machine or bleach in Gurugram? YES. In a PG or studio apartment, avoid pouring chlorine bleach (which reacts with hard water to permanently turn clothes yellow) and never bucket-wash with hot water. Professional oxygen mineral neutralizers lift calcium haze and sweat oxidation safely, followed by high-pressure German steam finishing to deliver crisp, puja-ready festivewear right to your doorstep in 2 hours.",
+    geoCoverage: [
+      "Sector 56 & Sector 54 PGs & Co-living",
+      "Sector 28, Sector 27 & Sushant Lok 1",
+      "DLF Phase 3 & Udyog Vihar (Near Cyber City)",
+      "Central Arcade Market, MG Road Studio",
+      "Golf Course Road & Golf Course Extension",
+      "Sohna Road & South City"
+    ],
+    contactInfo: {
+      pickupTime: "30 Minutes",
+      phone1: "+91 9205366606",
+      phone2: "+91 88772 86066",
+      address: "Shop No. 262, First Floor, Central Arcade Market, MG Road, Gurugram, Haryana 122002",
+      bookingUrl: "https://loomshinedrycleaners.com/#book-pickup",
+      website: "https://www.loomshinedrycleaners.com"
+    },
+    faqs: [
+      {
+        question: "Why do white Kurtas and Chaniya Cholis turn yellow in Gurugram closets?",
+        answer: "Gurugram tap water has a high mineral TDS (calcium and magnesium salts). When white garments are hand-washed in PG buckets, mineral scale bonds with residual body sebum and detergent surfactants. Over months in a closed wardrobe, these trapped organic oils oxidize into unsightly yellow collars, dingy underarms, and overall greyish dullness."
+      },
+      {
+        question: "Why is chlorine bleach so dangerous for white festivewear and Chaniya Cholis?",
+        answer: "Chlorine bleach is highly caustic (pH > 11). It eats away natural cellulose and rayon fibers, weakening seams and causing mirror-work and embroidery trims to unravel. Crucially, chlorine chemically bonds with hard-water mineral deposits and sweat proteins, creating a stubborn, irreversible chemical scorch that turns fabric permanently yellow."
+      },
+      {
+        question: "How does Loomshine brighten white ethnic wear without damaging delicate fabric or embroidery?",
+        answer: "Loomshine uses a gentle 3-step fabric-first protocol: (1) Oxygen-based mineral neutralizers break the chemical bond between hard-water calcium and fabric fibers; (2) Deep bio-brightening enzymes dissolve oxidized body oils and atmospheric grime; and (3) Zero-contact German steam table finishing sanitizes at 99.9% and gives an impeccably crisp, boutique finish without iron shine marks."
+      },
+      {
+        question: "I live in a PG near Sector 56 or DLF Phase 3 with no washing machine. How does Loomshine doorstep pickup work?",
+        answer: "You don't need a washing machine, detergent buckets, or a drying balcony. Simply share your PG location pin via WhatsApp (+91 9205366606) or our website. Our valet reaches your PG doorstep within 30 minutes across Sector 56, Sector 28, DLF Phase 3, and surrounding Gurugram hubs."
+      },
+      {
+        question: "How do I claim the complimentary German steam press offer for Navratri / Kanya Pujan?",
+        answer: "Use coupon code FESTIVEFRESH when booking online or mention it via WhatsApp. On any first festive care order over ₹499, Loomshine provides a complimentary precision German steam finish on your highest-value festive garment."
+      }
+    ]
+  },
+  {
     id: "dandiya-cyber-hub-saffron-silk-stain-fix",
     slug: "dandiya-cyber-hub-saffron-silk-stain-fix",
     title: "Dandiya Night in Cyber Hub Got Messy? How to Fix a Saffron Silk Outfit After a Sweat & Mocktail Disaster",

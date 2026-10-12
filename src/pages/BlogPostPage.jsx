@@ -3,9 +3,10 @@ import Container from '../components/common/Container';
 import Button from '../components/common/Button';
 import { BLOG_POSTS } from '../data/blogPosts';
 import CyberHubSilkRescuePost from '../components/blog/CyberHubSilkRescuePost';
+import PGWhiteEthnicRescuePost from '../components/blog/PGWhiteEthnicRescuePost';
 import './BlogPostPage.css';
 
-export const BlogPostPage = ({ slug = 'dandiya-cyber-hub-saffron-silk-stain-fix' }) => {
+export const BlogPostPage = ({ slug = 'pg-student-white-chaniya-choli-kanya-pujan-ready' }) => {
   const post = BLOG_POSTS.find((p) => p.slug === slug) || BLOG_POSTS[0];
   const [openFaqIndex, setOpenFaqIndex] = useState(0);
   const [selectedIncident, setSelectedIncident] = useState('wash');
@@ -15,6 +16,10 @@ export const BlogPostPage = ({ slug = 'dandiya-cyber-hub-saffron-silk-stain-fix'
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [slug]);
+
+  if (post.slug === 'pg-student-white-chaniya-choli-kanya-pujan-ready') {
+    return <PGWhiteEthnicRescuePost post={post} />;
+  }
 
   if (post.slug === 'dandiya-cyber-hub-saffron-silk-stain-fix') {
     return <CyberHubSilkRescuePost post={post} />;
@@ -78,7 +83,7 @@ export const BlogPostPage = ({ slug = 'dandiya-cyber-hub-saffron-silk-stain-fix'
       <meta itemProp="headline" content={post.title} />
       <meta itemProp="datePublished" content={post.publishedDate} />
       <meta itemProp="dateModified" content={post.modifiedDate} />
-      <meta itemProp="image" content={post.images.damageChecklist.src} />
+      <meta itemProp="image" content={post.images?.damageChecklist?.src || post.featuredImage || ''} />
       <meta itemProp="inLanguage" content="en-IN" />
       <div itemProp="publisher" itemScope itemType="https://schema.org/Organization" style={{ display: 'none' }}>
         <meta itemProp="name" content="Loomshine Dry Cleaning & Laundry" />
@@ -190,8 +195,8 @@ export const BlogPostPage = ({ slug = 'dandiya-cyber-hub-saffron-silk-stain-fix'
                 <figure className="loom-blog-figure">
                   <div className="figure-image-wrapper">
                     <img
-                      src={post.images.damageChecklist.src}
-                      alt={post.images.damageChecklist.alt}
+                      src={post.images?.damageChecklist?.src || post.featuredImage || ''}
+                      alt={post.images?.damageChecklist?.alt || post.title}
                       loading="eager"
                       className="loom-blog-img"
                       width="700"
@@ -199,7 +204,7 @@ export const BlogPostPage = ({ slug = 'dandiya-cyber-hub-saffron-silk-stain-fix'
                     />
                   </div>
                   <figcaption className="figure-caption">
-                    <span className="caption-tag">FIG 1.0</span> {post.images.damageChecklist.caption}
+                    <span className="caption-tag">FIG 1.0</span> {post.images?.damageChecklist?.caption || ''}
                   </figcaption>
                 </figure>
 
@@ -265,8 +270,8 @@ export const BlogPostPage = ({ slug = 'dandiya-cyber-hub-saffron-silk-stain-fix'
                   <figure className="loom-blog-figure">
                     <div className="figure-image-wrapper">
                       <img
-                        src={post.images.mistake1.src}
-                        alt={post.images.mistake1.alt}
+                        src={post.images?.mistake1?.src || ''}
+                        alt={post.images?.mistake1?.alt || ''}
                         loading="lazy"
                         className="loom-blog-img"
                         width="700"
@@ -274,7 +279,7 @@ export const BlogPostPage = ({ slug = 'dandiya-cyber-hub-saffron-silk-stain-fix'
                       />
                     </div>
                     <figcaption className="figure-caption">
-                      <span className="caption-tag">FIG 2.0</span> {post.images.mistake1.caption}
+                      <span className="caption-tag">FIG 2.0</span> {post.images?.mistake1?.caption || ''}
                     </figcaption>
                   </figure>
 
@@ -298,8 +303,8 @@ export const BlogPostPage = ({ slug = 'dandiya-cyber-hub-saffron-silk-stain-fix'
                   <figure className="loom-blog-figure">
                     <div className="figure-image-wrapper">
                       <img
-                        src={post.images.mistake2.src}
-                        alt={post.images.mistake2.alt}
+                        src={post.images?.mistake2?.src || ''}
+                        alt={post.images?.mistake2?.alt || ''}
                         loading="lazy"
                         className="loom-blog-img"
                         width="700"
@@ -307,7 +312,7 @@ export const BlogPostPage = ({ slug = 'dandiya-cyber-hub-saffron-silk-stain-fix'
                       />
                     </div>
                     <figcaption className="figure-caption">
-                      <span className="caption-tag">FIG 3.0</span> {post.images.mistake2.caption}
+                      <span className="caption-tag">FIG 3.0</span> {post.images?.mistake2?.caption || ''}
                     </figcaption>
                   </figure>
 
@@ -409,8 +414,8 @@ export const BlogPostPage = ({ slug = 'dandiya-cyber-hub-saffron-silk-stain-fix'
                 <figure className="loom-blog-figure">
                   <div className="figure-image-wrapper">
                     <img
-                      src={post.images.expressPickup.src}
-                      alt={post.images.expressPickup.alt}
+                      src={post.images?.expressPickup?.src || ''}
+                      alt={post.images?.expressPickup?.alt || ''}
                       loading="lazy"
                       className="loom-blog-img"
                       width="700"
@@ -418,7 +423,7 @@ export const BlogPostPage = ({ slug = 'dandiya-cyber-hub-saffron-silk-stain-fix'
                     />
                   </div>
                   <figcaption className="figure-caption">
-                    <span className="caption-tag">FIG 4.0</span> {post.images.expressPickup.caption}
+                    <span className="caption-tag">FIG 4.0</span> {post.images?.expressPickup?.caption || ''}
                   </figcaption>
                 </figure>
 
@@ -460,8 +465,8 @@ export const BlogPostPage = ({ slug = 'dandiya-cyber-hub-saffron-silk-stain-fix'
                 <figure className="loom-blog-figure">
                   <div className="figure-image-wrapper">
                     <img
-                      src={post.images.ctaGraphic.src}
-                      alt={post.images.ctaGraphic.alt}
+                      src={post.images?.ctaGraphic?.src || ''}
+                      alt={post.images?.ctaGraphic?.alt || ''}
                       loading="lazy"
                       className="loom-blog-img"
                       width="700"
@@ -469,7 +474,7 @@ export const BlogPostPage = ({ slug = 'dandiya-cyber-hub-saffron-silk-stain-fix'
                     />
                   </div>
                   <figcaption className="figure-caption">
-                    <span className="caption-tag">FIG 5.0</span> {post.images.ctaGraphic.caption}
+                    <span className="caption-tag">FIG 5.0</span> {post.images?.ctaGraphic?.caption || ''}
                   </figcaption>
                 </figure>
 
