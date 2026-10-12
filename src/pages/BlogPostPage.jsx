@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react';
 import Container from '../components/common/Container';
 import Button from '../components/common/Button';
 import { BLOG_POSTS } from '../data/blogPosts';
+import CyberHubSilkRescuePost from '../components/blog/CyberHubSilkRescuePost';
 import './BlogPostPage.css';
 
-export const BlogPostPage = ({ slug = 'is-dry-clean-only-outfit-ruined-how-to-save-it' }) => {
+export const BlogPostPage = ({ slug = 'dandiya-cyber-hub-saffron-silk-stain-fix' }) => {
   const post = BLOG_POSTS.find((p) => p.slug === slug) || BLOG_POSTS[0];
   const [openFaqIndex, setOpenFaqIndex] = useState(0);
   const [selectedIncident, setSelectedIncident] = useState('wash');
@@ -14,6 +15,10 @@ export const BlogPostPage = ({ slug = 'is-dry-clean-only-outfit-ruined-how-to-sa
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [slug]);
+
+  if (post.slug === 'dandiya-cyber-hub-saffron-silk-stain-fix') {
+    return <CyberHubSilkRescuePost post={post} />;
+  }
 
   // Dynamic Triage Advisor based on user garment condition
   const getTriageAdvice = () => {

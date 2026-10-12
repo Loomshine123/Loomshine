@@ -5,6 +5,107 @@
 
 export const BLOG_POSTS = [
   {
+    id: "dandiya-cyber-hub-saffron-silk-stain-fix",
+    slug: "dandiya-cyber-hub-saffron-silk-stain-fix",
+    title: "Dandiya Night in Cyber Hub Got Messy? How to Fix a Saffron Silk Outfit After a Sweat & Mocktail Disaster",
+    seoTitle: "How to Save a Stained Saffron Silk Kurta After Cyber Hub Dandiya Night | Loomshine Gurugram",
+    metaDescription: "Marigold mocktail and sweat disaster on your saffron silk kurta at DLF Cyber Hub garba? Don't rub or bucket wash! Discover Loomshine's 100% PERC-free bio-cleaning, spot extraction & 30-min Gurugram valet pickup.",
+    keywords: "silk dry cleaning Gurugram, mocktail stain on silk kurta, dandiya night outfit stain Cyber Hub, sweat stains raw silk Chanderi, PERC free dry cleaners MG Road, dry cleaning pickup DLF Cyber City, Central Arcade Market laundry, luxury festivewear dry cleaner Gurgaon, save stained saffron kurta, German steam press Gurgaon",
+    canonicalUrl: "https://loomshinedrycleaners.com/#/blog/dandiya-cyber-hub-saffron-silk-stain-fix",
+    publishedDate: "2026-10-12",
+    modifiedDate: "2026-10-12",
+    author: {
+      name: "Loomshine Master Fabricators",
+      role: "Textile Care & Festivewear Restoration Specialists",
+      location: "Central Arcade Market, MG Road, Gurugram"
+    },
+    readingTime: "4 min read",
+    category: "Festivewear Restoration",
+    featuredImage: "/blog/cyber-hub-saffron-silk/dandiya-cyber-hub-saffron-silk-hero.jpg",
+    promoCode: "FESTIVEFRESH",
+    images: {
+      hero: {
+        src: "/blog/cyber-hub-saffron-silk/dandiya-cyber-hub-saffron-silk-hero.jpg",
+        alt: "Dandiya Night in Cyber Hub Got Messy? Saffron silk festive outfit with marigold mocktail stain",
+        caption: "The Morning-After Reality: A designer saffron raw silk kurta stained with acidic marigold mocktail sugars and heavy sweat salts."
+      },
+      incident: {
+        src: "/blog/cyber-hub-saffron-silk/one-horizon-to-cyber-hub-garba-incident.jpg",
+        alt: "Presentation at 6:30 PM at One Horizon Centre to Garba by night at DLF Cyber Hub Gurugram",
+        caption: "From One Horizon Centre to Cyber Hub Garba: Mid-spin dandiya collision sends a marigold mocktail splashing across pure silk."
+      },
+      dontRub: {
+        src: "/blog/cyber-hub-saffron-silk/dont-rub-silk-stain-warning.jpg",
+        alt: "Please don't rub the stain - rubbing spreads stain and damages delicate silk fibres",
+        caption: "The Fatal First-Aid Trap: Rubbing with dining napkins causes permanent microscopic filament fibrillation and color fading."
+      },
+      careLabel: {
+        src: "/blog/cyber-hub-saffron-silk/delicate-silk-care-label-inspection.jpg",
+        alt: "Delicate silk needs the right process - Loomshine fabric care label inspection",
+        caption: "Diagnostics Before Chemistry: Assessing weave density, protein integrity, and dye fastness prior to bio-extraction."
+      },
+      percFree: {
+        src: "/blog/cyber-hub-saffron-silk/perc-free-festivewear-cleaning.jpg",
+        alt: "Care that respects the fabric - 100% PERC-free cleaning for luxury festivewear",
+        caption: "Zero-PERC Guarantee: Hydrocarbon bio-solvents dissolve mocktail sugars without stripping natural sericin proteins or dulling zari embroidery."
+      },
+      spotCareFinishing: {
+        src: "/blog/cyber-hub-saffron-silk/spot-care-controlled-steam-finishing.jpg",
+        alt: "Spot care and controlled German steam finishing on luxury silk garments",
+        caption: "Precision Recovery: Targeted ultrasonic spot extraction followed by zero-contact German steam relaxing and boutique draping."
+      },
+      expressValet: {
+        src: "/blog/cyber-hub-saffron-silk/gurugram-30min-doorstep-valet-pickup.jpg",
+        alt: "Your festivewear picked up locally - 30 minute valet pickup from Cyber City to Golf Course Road",
+        caption: "Skip MG Road Traffic: 30-minute doorstep valet pickup at your office reception or high-rise apartment gate."
+      },
+      festiveOffer: {
+        src: "/blog/cyber-hub-saffron-silk/festivefresh-promo-offer.jpg",
+        alt: "Loomshine FESTIVEFRESH promo offer - Complimentary steam press on orders over ₹499",
+        caption: "Exclusive Festive Offer: Complimentary German steam press on your highest-value festive item for orders over ₹499 with code FESTIVEFRESH."
+      }
+    },
+    quickAnswer: "Can you save a sweat- and mocktail-stained saffron silk outfit? YES. In over 95% of cases, natural silk can be fully restored without ring marks or dye bleeding—provided you NEVER rub with water or wet napkins, avoid heat from irons, and treat it with zero-water hydrocarbon bio-solvents within 24 to 48 hours.",
+    geoCoverage: [
+      "DLF Cyber Hub & Cyber City",
+      "One Horizon Center & Golf Course Road",
+      "Central Arcade Market, MG Road",
+      "DLF Phase 1, 2, 3, 4, 5",
+      "Sector 56 & Golf Course Extension",
+      "Sohna Road & Nirvana Country"
+    ],
+    contactInfo: {
+      pickupTime: "30 Minutes",
+      phone1: "+91 9205366606",
+      phone2: "+91 88772 86066",
+      address: "Shop No. 262, First Floor, Central Arcade Market, MG Road, Gurugram, Haryana 122002",
+      bookingUrl: "https://loomshinedrycleaners.com/#book-pickup",
+      website: "https://www.loomshinedrycleaners.com"
+    },
+    faqs: [
+      {
+        question: "How do I remove a sticky mocktail or fruit drink stain from a silk kurta?",
+        answer: "Immediately blot the spill with a clean, dry white tissue to absorb excess liquid. NEVER rub the fabric or use a wet wet-wipe, as water causes raw silk fibers to swell and dyes to bleed. Keep the garment away from sunlight and hair dryers, and send it for professional hydrocarbon bio-solvent extraction."
+      },
+      {
+        question: "Why does sweat combined with mocktail stains damage saffron and orange silk?",
+        answer: "Perspiration contains acidic salts and urea that weaken delicate sericin proteins in silk. When mixed with acidic sugars and floral dyes from marigold mocktails, it chemically destabilizes natural saffron pigments. Without organic bio-neutralization, it leads to permanent underarm rings and discolored blotches."
+      },
+      {
+        question: "What is the danger of taking festive silk wear to local neighborhood dry cleaners?",
+        answer: "Most traditional neighborhood cleaners use Perchloroethylene (PERC)—a harsh, chlorinated industrial solvent. PERC strips natural moisture from silk, dissolves glue in hand-embroidered zari and sequins, leaves a lingering petroleum odor, and causes vibrant saffron and pastel shades to turn chalky and yellow."
+      },
+      {
+        question: "How does Loomshine clean delicate silk without water or harsh chemicals?",
+        answer: "Loomshine uses 100% PERC-free hydrocarbon bio-solvents combined with targeted spot extraction. Our technicians hand-treat individual stain points with pH-calibrated bio-agents, followed by zero-contact German vacuum steam tables to relax the weave and restore the pristine boutique drape."
+      },
+      {
+        question: "How quickly can Loomshine pick up garments across Cyber Hub, Golf Course Road, and DLF?",
+        answer: "Loomshine operates a dedicated 30-minute doorstep valet across Cyber City, DLF Phase 1–5, One Horizon Center, Golf Course Road, and Sector 56. Simply drop your location pin or WhatsApp us at +91 9205366606 to schedule express pickup."
+      }
+    ]
+  },
+  {
     id: "is-dry-clean-only-outfit-ruined-how-to-save-it",
     slug: "is-dry-clean-only-outfit-ruined-how-to-save-it",
     title: 'Is Your "Dry Clean Only" Outfit Truly Ruined? (And How to Save It)',

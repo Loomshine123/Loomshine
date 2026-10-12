@@ -35,47 +35,54 @@ export const BlogListingPage = ({ onNavigate }) => {
       {/* Main Grid */}
       <section className="loom-blog-listing-content">
         <Container>
-          <div className="featured-post-card">
-            <div className="featured-post-image-col">
-              <img
-                src={featuredPost.images.damageChecklist.src}
-                alt={featuredPost.title}
-                className="featured-post-img"
-              />
-              <span className="featured-badge">FEATURED EMERGENCY ADVISORY</span>
-            </div>
-            <div className="featured-post-body-col">
-              <div className="post-meta-top">
-                <span className="post-cat-badge">{featuredPost.category}</span>
-                <span className="post-read-time">⏱ {featuredPost.readingTime}</span>
-              </div>
-              <h2 className="featured-post-title">
-                <a
-                  href={`#/blog/${featuredPost.slug}`}
-                  onClick={(e) => handlePostClick(e, featuredPost.slug)}
-                >
-                  {featuredPost.title}
-                </a>
-              </h2>
-              <p className="featured-post-excerpt">
-                Pulled a silk blouse, wool blazer, or designer lehenga out of the wash—or spilled wine at dinner in Cyber City? In 90% of cases, it&apos;s not ruined. Learn the 3-second diagnostic checklist, the 2 catastrophic mistakes that actually ruin clothes, and how our 30-minute Gurugram express valet restores your wardrobe.
-              </p>
-              <div className="featured-post-footer">
-                <div className="author-brief">
-                  <strong>By Loomshine Master Fabricators</strong>
-                  <span>Central Arcade Market, MG Road, Gurugram</span>
+          {BLOG_POSTS.map((post) => {
+            const isLatest = post.id === 'dandiya-cyber-hub-saffron-silk-stain-fix';
+            return (
+              <div key={post.id} className="featured-post-card">
+                <div className="featured-post-image-col">
+                  <img
+                    src={post.featuredImage || post.images?.hero?.src || post.images?.damageChecklist?.src}
+                    alt={post.title}
+                    className="featured-post-img"
+                  />
+                  <span className="featured-badge">
+                    {isLatest ? 'NEW FESTIVE ADVISORY' : 'EMERGENCY FIRST-AID'}
+                  </span>
                 </div>
-                <Button
-                  href={`#/blog/${featuredPost.slug}`}
-                  variant="primary"
-                  size="md"
-                  onClick={(e) => handlePostClick(e, featuredPost.slug)}
-                >
-                  Read Full Rescue Guide →
-                </Button>
+                <div className="featured-post-body-col">
+                  <div className="post-meta-top">
+                    <span className="post-cat-badge">{post.category}</span>
+                    <span className="post-read-time">⏱ {post.readingTime}</span>
+                  </div>
+                  <h2 className="featured-post-title">
+                    <a
+                      href={`#/blog/${post.slug}`}
+                      onClick={(e) => handlePostClick(e, post.slug)}
+                    >
+                      {post.title}
+                    </a>
+                  </h2>
+                  <p className="featured-post-excerpt">
+                    {post.metaDescription}
+                  </p>
+                  <div className="featured-post-footer">
+                    <div className="author-brief">
+                      <strong>By {post.author.name}</strong>
+                      <span>{post.author.location}</span>
+                    </div>
+                    <Button
+                      href={`#/blog/${post.slug}`}
+                      variant="primary"
+                      size="md"
+                      onClick={(e) => handlePostClick(e, post.slug)}
+                    >
+                      Read Full Guide →
+                    </Button>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
+            );
+          })}
 
           {/* Value Highlights */}
           <div className="blog-topics-grid">

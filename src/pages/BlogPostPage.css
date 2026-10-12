@@ -1091,3 +1091,191 @@
     text-align: left;
   }
 }
+
+/* --------------------------------------------------------------------------
+   Festive Promo Box & Warning Callout Enhancements
+   -------------------------------------------------------------------------- */
+.warning-callout-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  background: #FFF5F5;
+  border-left: 4px solid #D32F2F;
+  padding: 18px 22px;
+  border-radius: 8px;
+  margin: 24px 0;
+  color: #5C1D1D;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.warning-callout-icon {
+  font-size: 22px;
+  line-height: 1;
+}
+
+.verdict-red {
+  background: #FDF2F2 !important;
+  color: #9B1C1C !important;
+  border-left: 3px solid #E02424 !important;
+}
+
+.festive-promo-box {
+  background: linear-gradient(135deg, #071A33 0%, #0F2D52 100%);
+  border: 1px solid rgba(197, 160, 89, 0.4);
+  border-radius: 16px;
+  padding: 36px 32px;
+  color: #FFFFFF;
+  margin: 32px 0;
+  position: relative;
+  box-shadow: 0 12px 36px rgba(7, 26, 51, 0.15);
+}
+
+.promo-badge-tag {
+  display: inline-block;
+  background: rgba(197, 160, 89, 0.2);
+  color: #E6C887;
+  border: 1px solid rgba(197, 160, 89, 0.5);
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.promo-box-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(24px, 3.5vw, 32px);
+  font-weight: 600;
+  color: #FFFFFF;
+  margin: 0 0 12px 0;
+}
+
+.promo-box-desc {
+  color: #D1DDEB;
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0 0 24px 0;
+}
+
+.promo-code-container {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.promo-code-label {
+  font-size: 14px;
+  color: #AFC5DC;
+  font-weight: 500;
+}
+
+.promo-code-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px dashed #C5A059;
+  padding: 6px 8px 6px 16px;
+  border-radius: 8px;
+}
+
+.promo-code-text {
+  font-family: monospace;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #E6C887;
+}
+
+.promo-copy-btn {
+  background: #C5A059;
+  color: #071A33;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.promo-copy-btn:hover {
+  background: #D8B775;
+  transform: translateY(-1px);
+}
+
+.promo-cta-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.promo-whatsapp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #55E084;
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.promo-whatsapp-btn:hover {
+  opacity: 0.85;
+  text-decoration: underline;
+}
+
+.promo-sidebar-card {
+  background: #FDF9F0;
+  border: 1px solid rgba(197, 160, 89, 0.4);
+  text-align: center;
+}
+
+.promo-tag {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #8C6D29;
+  text-transform: uppercase;
+}
+
+.promo-val {
+  font-family: monospace;
+  font-size: 22px;
+  font-weight: 800;
+  color: #071A33;
+  margin: 8px 0;
+  letter-spacing: 0.08em;
+}
+
+.promo-text {
+  font-size: 12.5px;
+  color: #5C6E82;
+  margin: 0 0 14px 0;
+  line-height: 1.4;
+}
+
+.sidebar-copy-btn {
+  width: 100%;
+  background: #071A33;
+  color: #FFFFFF;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.sidebar-copy-btn:hover {
+  background: #153763;
+}
+
