@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Container from '../common/Container';
 import Button from '../common/Button';
+import '../../pages/BlogPostPage.css';
 
 export const CyberHubSilkRescuePost = ({ post }) => {
   const [openFaqIndex, setOpenFaqIndex] = useState(0);

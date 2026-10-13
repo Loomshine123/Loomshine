@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import Container from '../common/Container';
 import Button from '../common/Button';
+import '../../pages/BlogPostPage.css';
 import './PGWhiteEthnicRescuePost.css';
 
 export const PGWhiteEthnicRescuePost = ({ post }) => {

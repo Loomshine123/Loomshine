@@ -1,9 +1,11 @@
 .loom-container {
   width: 100%;
+  max-width: 100%;
   margin-left: auto;
   margin-right: auto;
-  padding-left: var(--space-3);
-  padding-right: var(--space-3);
+  padding-left: 16px;
+  padding-right: 16px;
+  box-sizing: border-box;
 }
 
 .loom-container--sm {
@@ -25,6 +27,13 @@
 .loom-container--no-padding {
   padding-left: 0;
   padding-right: 0;
+}
+
+@media (min-width: 480px) {
+  .loom-container {
+    padding-left: var(--space-3);
+    padding-right: var(--space-3);
+  }
 }
 
 @media (min-width: 768px) {

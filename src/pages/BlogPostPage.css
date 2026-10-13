@@ -171,6 +171,9 @@
    -------------------------------------------------------------------------- */
 .loom-blog-body-wrapper {
   padding-top: 48px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .loom-blog-layout {
@@ -178,6 +181,18 @@
   grid-template-columns: minmax(0, 1fr) 360px;
   gap: 48px;
   align-items: start;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.loom-blog-content {
+  min-width: 0;
+  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 /* --------------------------------------------------------------------------
@@ -294,6 +309,10 @@
   overflow: hidden;
   box-shadow: 0 8px 30px rgba(7, 26, 51, 0.08);
   border: 1px solid #EAF2F7;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 .figure-image-wrapper {
@@ -302,11 +321,17 @@
   align-items: center;
   background: #FAF8F5;
   padding: 12px;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .loom-blog-img {
   width: 100%;
-  max-width: 640px;
+  max-width: 100%;
+  min-width: 0;
   height: auto;
   display: block;
   border-radius: 8px;
@@ -1015,20 +1040,27 @@
    -------------------------------------------------------------------------- */
 @media (max-width: 1024px) {
   .loom-blog-layout {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 40px;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
   }
 
   .loom-blog-sidebar {
     position: static;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
   }
 }
 
 @media (max-width: 768px) {
   .loom-blog-hero {
-    padding: 110px 0 48px 0;
+    padding: 100px 0 40px 0;
   }
 
   .loom-blog-hero__meta {
@@ -1039,24 +1071,53 @@
     display: none;
   }
 
+  .loom-blog-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
   .loom-blog-sidebar {
     grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .loom-aeo-summary-box {
+    padding: 18px 16px;
+    margin-bottom: 28px;
+  }
+
+  .aeo-answer-text {
+    font-size: 14.5px;
+    line-height: 1.6;
   }
 
   .checklist-card {
-    padding: 18px;
+    padding: 18px 16px;
   }
 
   .mistake-block {
-    padding: 20px;
+    padding: 18px 16px;
   }
 
   .loom-interactive-triage {
-    padding: 22px;
+    padding: 18px 16px;
   }
 
   .loom-cta-highlight {
-    padding: 24px 18px;
+    padding: 20px 16px;
+  }
+
+  .festive-promo-box {
+    padding: 22px 18px;
+  }
+
+  .warning-callout-box {
+    padding: 14px 16px;
+    gap: 12px;
+    font-size: 14px;
   }
 
   .cta-action-buttons {
@@ -1068,6 +1129,18 @@
     width: 100%;
   }
 
+  .promo-cta-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .promo-cta-actions .loom-btn,
+  .promo-cta-actions a {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+
   .loom-blog-figure {
     margin: 20px 0;
   }
@@ -1075,11 +1148,31 @@
 
 @media (max-width: 480px) {
   .loom-blog-hero__title {
-    font-size: 28px;
+    font-size: 26px;
+    line-height: 1.22;
   }
 
   .loom-blog-hero__subtitle {
-    font-size: 15px;
+    font-size: 14.5px;
+  }
+
+  .festive-promo-box {
+    padding: 18px 14px;
+  }
+
+  .promo-box-title {
+    font-size: 22px;
+  }
+
+  .promo-code-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .promo-code-badge {
+    width: 100%;
+    justify-content: space-between;
   }
 
   .triage-buttons {

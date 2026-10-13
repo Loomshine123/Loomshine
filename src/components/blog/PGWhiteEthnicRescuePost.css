@@ -7,6 +7,40 @@
 .loom-blog-page {
   max-width: 100vw;
   overflow-x: hidden;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.loom-blog-body-wrapper {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.loom-blog-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 360px;
+  gap: 48px;
+  align-items: start;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.loom-blog-content {
+  min-width: 0;
+  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.loom-blog-section {
+  min-width: 0;
+  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .loom-blog-hero__title {
@@ -271,6 +305,10 @@
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 16px rgba(7, 26, 51, 0.04);
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 .pg-matrix-scroll-hint {
@@ -285,8 +323,11 @@
 }
 
 .pg-matrix-table-scroll {
+  width: 100%;
+  max-width: 100%;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
+  box-sizing: border-box;
 }
 
 .pg-matrix-table {
@@ -389,6 +430,7 @@
   flex-wrap: wrap;
   gap: 8px;
   margin-bottom: 16px;
+  width: 100%;
 }
 
 .pg-neighborhood-detail {
@@ -396,6 +438,8 @@
   padding: 18px;
   border-radius: 12px;
   border: 1px solid #E2E8F0;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .pg-neighborhood-header {
@@ -431,10 +475,54 @@
 }
 
 /* --------------------------------------------------------------------------
+   Coverage Pills Badges
+   -------------------------------------------------------------------------- */
+.coverage-pills-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.coverage-pill {
+  background: #EAF2F7;
+  color: #071A33;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  word-break: break-word;
+}
+
+/* --------------------------------------------------------------------------
    Media Queries & Mobile Breakpoints
    -------------------------------------------------------------------------- */
 
 /* Tablet & Smaller Desktops */
+@media (max-width: 1024px) {
+  .loom-blog-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 40px;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .loom-blog-sidebar {
+    position: static;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+}
+
 @media (max-width: 900px) {
   .pg-carousel-image-frame {
     aspect-ratio: 1 / 1;
@@ -444,6 +532,23 @@
 
 /* Standard Mobile & Small Tablets (<= 768px) */
 @media (max-width: 768px) {
+  .loom-blog-hero {
+    padding: 100px 0 40px 0;
+  }
+
+  .loom-blog-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .loom-blog-sidebar {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
   .pg-warning-grid {
     grid-template-columns: 1fr;
     gap: 14px;
@@ -459,38 +564,56 @@
 
   .pg-carousel-controls {
     padding: 16px 14px;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .pg-carousel-info-row {
     flex-direction: column;
     align-items: flex-start;
     gap: 12px;
+    width: 100%;
   }
 
   .pg-carousel-nav-btns {
     width: 100%;
     display: flex;
     justify-content: space-between;
+    gap: 10px;
   }
 
   .pg-carousel-btn-prev,
   .pg-carousel-btn-next {
     flex: 1;
+    min-height: 44px;
+  }
+
+  .pg-carousel-dots-row {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .pg-carousel-dot {
+    min-width: 0;
   }
 
   .pg-triage-card {
     padding: 18px 14px;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .pg-neighborhood-box {
     padding: 18px 14px;
+    width: 100%;
+    box-sizing: border-box;
   }
 }
 
 /* Compact Smartphones (<= 480px) */
 @media (max-width: 480px) {
   .loom-blog-hero {
-    padding: 96px 0 36px 0 !important;
+    padding: 92px 0 32px 0 !important;
   }
 
   .badge-tag,
@@ -500,63 +623,74 @@
   }
 
   .section-title {
-    font-size: 24px;
+    font-size: 22px;
     line-height: 1.25;
+  }
+
+  .lead-paragraph {
+    font-size: 16.5px;
+    line-height: 1.6;
   }
 
   .pg-carousel-image-frame {
     aspect-ratio: 4 / 5;
-    max-height: 420px;
+    max-height: 380px;
   }
 
   .pg-carousel-badge-tag {
     top: 10px;
     left: 10px;
-    font-size: 9.5px;
-    padding: 4px 9px;
+    font-size: 9px;
+    padding: 4px 8px;
   }
 
   .pg-carousel-counter-tag {
     top: 10px;
     right: 10px;
-    font-size: 10px;
-    padding: 4px 9px;
+    font-size: 9.5px;
+    padding: 4px 8px;
   }
 
   .pg-carousel-slide-title {
-    font-size: 15.5px;
+    font-size: 15px;
   }
 
   .pg-carousel-slide-desc {
-    font-size: 13px;
+    font-size: 12.5px;
+  }
+
+  .pg-triage-btn-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
   }
 
   .pg-pill-btn {
-    flex: 1 1 calc(50% - 6px);
+    width: 100%;
     text-align: center;
     font-size: 12.5px;
-    padding: 8px 10px;
+    padding: 10px 12px;
+    min-height: 44px;
+  }
+
+  .pg-neighborhood-pills {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
   }
 
   .pg-neighborhood-pills button {
-    flex: 1 1 calc(50% - 6px);
+    width: 100%;
     text-align: center;
-    font-size: 12px;
-    padding: 8px 10px;
+    font-size: 12.5px;
+    padding: 10px 12px;
+    min-height: 44px;
   }
 }
 
 /* Ultra-Compact Screens (<= 375px) */
 @media (max-width: 375px) {
   .pg-carousel-image-frame {
-    max-height: 380px;
-  }
-
-  .pg-pill-btn {
-    flex: 1 1 100%;
-  }
-
-  .pg-neighborhood-pills button {
-    flex: 1 1 100%;
+    max-height: 340px;
   }
 }
