@@ -4,18 +4,27 @@ import Button from '../components/common/Button';
 import { BLOG_POSTS } from '../data/blogPosts';
 import CyberHubSilkRescuePost from '../components/blog/CyberHubSilkRescuePost';
 import PGWhiteEthnicRescuePost from '../components/blog/PGWhiteEthnicRescuePost';
+import { getMdxPostBySlug } from '../utils/mdxBlogLoader';
+import MdxBlogPostRenderer from './MdxBlogPostRenderer';
 import './BlogPostPage.css';
 
 export const BlogPostPage = ({ slug = 'pg-student-white-chaniya-choli-kanya-pujan-ready' }) => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [slug]);
+
+  // Priority 1: Check if this post is an MDX blog post
+  const mdxPost = getMdxPostBySlug(slug);
+  if (mdxPost) {
+    return <MdxBlogPostRenderer post={mdxPost} />;
+  }
+
+  // Priority 2: Fallback to existing static/legacy posts
   const post = BLOG_POSTS.find((p) => p.slug === slug) || BLOG_POSTS[0];
   const [openFaqIndex, setOpenFaqIndex] = useState(0);
   const [selectedIncident, setSelectedIncident] = useState('wash');
   const [selectedFabric, setSelectedFabric] = useState('silk');
   const [copiedLink, setCopiedLink] = useState(false);
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [slug]);
 
   if (post.slug === 'pg-student-white-chaniya-choli-kanya-pujan-ready') {
     return <PGWhiteEthnicRescuePost post={post} />;

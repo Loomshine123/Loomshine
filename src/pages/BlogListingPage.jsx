@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import Container from '../components/common/Container';
 import Button from '../components/common/Button';
-import { BLOG_POSTS } from '../data/blogPosts';
+import { getUnifiedBlogPosts } from '../utils/mdxBlogLoader';
 import './BlogListingPage.css';
 
 export const BlogListingPage = ({ onNavigate }) => {
-  const featuredPost = BLOG_POSTS[0];
+  const posts = useMemo(() => getUnifiedBlogPosts(), []);
+  const featuredPost = posts[0];
 
   const handlePostClick = (e, slug) => {
     e.preventDefault();
@@ -35,7 +36,7 @@ export const BlogListingPage = ({ onNavigate }) => {
       {/* Main Grid */}
       <section className="loom-blog-listing-content">
         <Container>
-          {BLOG_POSTS.map((post, idx) => {
+          {posts.map((post, idx) => {
             const badgeText = post.episode ? `${post.episode.toUpperCase()}` : (idx === 0 ? 'LATEST ADVISORY' : 'EMERGENCY FIRST-AID');
             return (
               <div key={post.id} className="featured-post-card">

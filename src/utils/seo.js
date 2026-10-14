@@ -3,6 +3,7 @@
  * Dynamically updates document titles, meta descriptions, canonical links, Open Graph metadata,
  * and JSON-LD structured schemas for search and AI answer engines.
  */
+import { getMdxPostBySlug } from './mdxBlogLoader';
 
 export const updatePageSEO = ({
   title,
@@ -115,6 +116,12 @@ export const ROUTE_SEO_MAP = {
     description: "Tomorrow is Kanya Pujan and your white Chaniya Choli has yellow collars and dull hard-water haze? In a Gurugram PG with no washing machine? Discover Loomshine's oxygen bio-brightening, zero chlorine damage & 30-min doorstep valet across Sector 56, Sector 28 & DLF Phase 3.",
     keywords: "white chaniya choli dry cleaning Gurugram, kanya pujan white kurta yellow stain, remove yellow collar stains whites PG, hard water yellowing clothes Gurgaon, chlorine bleach alternative lehenga, PG laundry pickup Sector 56 Sector 28, doorstep dry cleaning DLF Phase 3 Gurgaon, oxygen brightener dry cleaners MG Road, Central Arcade Market dry cleaners, German steam press Gurgaon",
     ogImage: "https://loomshinedrycleaners.com/blog/pg-white-chaniya-choli-rescue/navratri-ep2-white-chaniya-choli-hero.jpg"
+  },
+  "sweaty-navratri-office-to-pandal-mens-kurta-nehru-jacket-rescue": {
+    title: "Save Men's Festive Kurtas & Velvet Nehru Jackets | Navratri Care Gurugram | Loomshine",
+    description: "Office marathon to outdoor garba along Golf Course Road? Don't let sweat salts, food smoke, or bucket wash destroy silk kurtas & velvet jackets. Loomshine organic dry cleaning, ozone deodorization & 30-min doorstep pickup across DLF Phase 5, Cyber City & Sector 56.",
+    keywords: "men ethnic wear dry cleaning Gurugram, silk kurta sweat stain dry cleaners Cyber City, velvet Nehru jacket dry cleaning Golf Course Road, ozone odor removal clothes Gurgaon, complimentary German steam press Gurugram, doorstep dry cleaning DLF Phase 5, Sector 56 laundry pickup, Central Arcade MG Road dry cleaners",
+    ogImage: "https://loomshinedrycleaners.com/blog/mens-festive-kurta-nehru-jacket-rescue/navratri-ep3-mens-kurta-nehru-jacket-hero.jpg"
   }
 };
 
@@ -130,6 +137,143 @@ export const injectBlogSchema = (slug = 'is-dry-clean-only-outfit-ruined-how-to-
     scriptEl.id = 'loom-blog-ld-json';
     scriptEl.type = 'application/ld+json';
     document.head.appendChild(scriptEl);
+  }
+
+  if (slug === 'sweaty-navratri-office-to-pandal-mens-kurta-nehru-jacket-rescue') {
+    const mensPostSchema = {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "BlogPosting",
+          "@id": "https://loomshinedrycleaners.com/#/blog/sweaty-navratri-office-to-pandal-mens-kurta-nehru-jacket-rescue#article",
+          "headline": "Sweaty Navratri Office-to-Pandal Shifts? How Men Can Save Festive Kurtas & Nehru Jackets",
+          "alternativeHeadline": "How Gurugram Men Can Restore Silk Kurtas and Velvet Nehru Jackets After Workday to Garba Shifts Without Water or Iron Scorch",
+          "description": "Office marathon to outdoor garba along Golf Course Road? Don't let sweat salts, food smoke, or bucket wash destroy silk kurtas & velvet jackets. Loomshine organic dry cleaning, ozone deodorization & 30-min doorstep pickup across DLF Phase 5, Cyber City & Sector 56.",
+          "image": [
+            "https://loomshinedrycleaners.com/blog/mens-festive-kurta-nehru-jacket-rescue/navratri-ep3-mens-kurta-nehru-jacket-hero.jpg",
+            "https://loomshinedrycleaners.com/blog/mens-festive-kurta-nehru-jacket-rescue/marathon-office-workday-garba-sweat-kurta.jpg",
+            "https://loomshinedrycleaners.com/blog/mens-festive-kurta-nehru-jacket-rescue/bucket-wash-flat-iron-scorch-velvet-mistake.jpg",
+            "https://loomshinedrycleaners.com/blog/mens-festive-kurta-nehru-jacket-rescue/eco-friendly-deep-clean-sweat-salts.jpg",
+            "https://loomshinedrycleaners.com/blog/mens-festive-kurta-nehru-jacket-rescue/ozone-odor-neutralization-german-steam-finishing.jpg",
+            "https://loomshinedrycleaners.com/blog/mens-festive-kurta-nehru-jacket-rescue/cyber-city-dlf-phase-5-valet-pickup-map.jpg",
+            "https://loomshinedrycleaners.com/blog/mens-festive-kurta-nehru-jacket-rescue/complimentary-steam-press-festivefresh-offer.jpg"
+          ],
+          "datePublished": "2026-10-14T09:00:00+05:30",
+          "dateModified": "2026-10-14T09:00:00+05:30",
+          "author": {
+            "@type": "Organization",
+            "name": "Loomshine Master Fabricators",
+            "url": "https://loomshinedrycleaners.com/"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Loomshine Luxury Garment Care",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://loomshinedrycleaners.com/logoloom.png"
+            }
+          },
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://loomshinedrycleaners.com/#/blog/sweaty-navratri-office-to-pandal-mens-kurta-nehru-jacket-rescue"
+          }
+        },
+        {
+          "@type": "HowTo",
+          "@id": "https://loomshinedrycleaners.com/#/blog/sweaty-navratri-office-to-pandal-mens-kurta-nehru-jacket-rescue#howto",
+          "name": "How to Save Sweaty Silk Kurtas & Velvet Nehru Jackets Without Water Damage",
+          "description": "A 4-step emergency protocol for reviving men's festive ethnic wear after long workday and outdoor garba pandal shifts in Gurugram.",
+          "step": [
+            {
+              "@type": "HowToStep",
+              "position": 1,
+              "name": "Do NOT Bucket Wash or Machine Spin",
+              "text": "Water dissolves silk sizing and collapses structured shoulder padding and horsehair chest canvasing."
+            },
+            {
+              "@type": "HowToStep",
+              "position": 2,
+              "name": "Never Let Local Press-Walas Use Flat Irons",
+              "text": "Direct flat heat over 200°C crushes velvet pile and permanently scorches dark synthetic linings with shiny burn marks."
+            },
+            {
+              "@type": "HowToStep",
+              "position": 3,
+              "name": "Hang Out in Shaded Room Temperature",
+              "text": "Do not leave sweaty ethnic wear crumpled in a gym bag or closed closet; allow air circulation away from direct sunlight."
+            },
+            {
+              "@type": "HowToStep",
+              "position": 4,
+              "name": "Book Loomshine 30-Minute Doorstep Valet",
+              "text": "Schedule doorstep pickup across DLF Phase 5, Cyber City, or Sector 56 for organic bio-solvent deep cleaning, molecular ozone deodorization, and zero-contact German steam table finishing."
+            }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://loomshinedrycleaners.com/#/blog/sweaty-navratri-office-to-pandal-mens-kurta-nehru-jacket-rescue#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Can sweat odor be completely removed from a velvet Nehru jacket without water?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Water destroys the velvet backing and flattens the pile. Loomshine uses molecular Ozone Deodorization chambers that destroy sweat bacteria and smoke odors in dry gaseous state, followed by hydrocarbon bio-purification."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Why do local laundry press-walas ruin dark kurtas and jackets?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Local press-walas use heavy coal or electric flat irons exceeding 200°C. This extreme direct heat melts synthetic threads, scorches silk proteins, and causes irreversible iron shine (glaze marks) on lapels and shoulders."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How fast is Loomshine doorstep pickup in DLF Phase 5 and Cyber City?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Our mobile valets cover Cyber City, Golf Course Road, DLF Phase 1–5, and Sector 56 with an average arrival window of 30 minutes from booking."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Are silk-blend kurtas safe from shrinkage with Loomshine dry cleaning?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "100% safe. We use waterless organic hydrocarbon solvents calibrated at low mechanical action, preserving fabric dimensions, zari borders, and hand-stitched button plackets."
+              }
+            }
+          ]
+        },
+        {
+          "@type": "DryCleaningOrLaundromat",
+          "@id": "https://loomshinedrycleaners.com/#store",
+          "name": "Loomshine Dry Cleaners & Garment Care Studio",
+          "image": "https://loomshinedrycleaners.com/logoloom.png",
+          "telephone": "+919205366606",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Shop No. 262, First Floor, Central Arcade Market, DLF Phase 2, MG Road",
+            "addressLocality": "Gurugram",
+            "addressRegion": "Haryana",
+            "postalCode": "122002",
+            "addressCountry": "IN"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "28.4815",
+            "longitude": "77.0863"
+          },
+          "openingHours": "Mo-Su 09:00-21:00",
+          "priceRange": "₹₹"
+        }
+      ]
+    };
+    scriptEl.textContent = JSON.stringify(mensPostSchema, null, 2);
+    return;
   }
 
   if (slug === 'pg-student-white-chaniya-choli-kanya-pujan-ready') {
@@ -554,7 +698,23 @@ export const injectBlogSchema = (slug = 'is-dry-clean-only-outfit-ruined-how-to-
 export const applyRouteSEO = (pageName, slug) => {
   if (pageName === 'blogDetail' || (slug && ROUTE_SEO_MAP[slug])) {
     const currentSlug = slug || 'dandiya-cyber-hub-saffron-silk-stain-fix';
-    const metaData = ROUTE_SEO_MAP[currentSlug] || ROUTE_SEO_MAP['is-dry-clean-only-outfit-ruined-how-to-save-it'];
+    let metaData = ROUTE_SEO_MAP[currentSlug];
+    
+    if (!metaData) {
+      const mdxPost = getMdxPostBySlug(currentSlug);
+      if (mdxPost) {
+        metaData = {
+          title: mdxPost.seoTitle || `${mdxPost.title} | Loomshine Gurugram`,
+          description: mdxPost.metaDescription,
+          keywords: mdxPost.keywords,
+          canonicalUrl: mdxPost.canonicalUrl,
+          ogImage: mdxPost.featuredImage
+        };
+      } else {
+        metaData = ROUTE_SEO_MAP['is-dry-clean-only-outfit-ruined-how-to-save-it'] || ROUTE_SEO_MAP.home;
+      }
+    }
+
     updatePageSEO({
       ...metaData,
       canonicalUrl: `https://loomshinedrycleaners.com/#/blog/${currentSlug}`
